@@ -5878,14 +5878,11 @@ function computeBoost(candidate: string, prefix: string): number {
 
 // --- History-based ranking ---
 const COMPLETION_STATS_MAX_ENTRIES = 512;
+const COMPLETION_STATS_STORAGE_KEY = "dbx-completion-stats";
 const completionStats = new Map<string, number>();
+let completionStatsLoaded = false;
 
-/** Record a user selection to boost future rankings. */
-export function recordCompletionSelection(label: string, type: string): void {
-  const key = `${type}:${label}`;
-  const count = completionStats.get(key) || 0;
-  completionStats.delete(key);
-  completionStats.set(key, count + 1);
+function evictOldestCompletionStats(): void {
   while (completionStats.size > COMPLETION_STATS_MAX_ENTRIES) {
     const oldest = completionStats.keys().next().value;
     if (oldest === undefined) break;
@@ -5893,7 +5890,54 @@ export function recordCompletionSelection(label: string, type: string): void {
   }
 }
 
+// Selection history survives restarts through localStorage — the same store
+// dialog sizes and other small UI state already use. Loading is lazy and
+// fail-soft: a missing, corrupt, or unavailable store just means an empty
+// history, never a broken completion popup. Entries are stored oldest-first
+// so the eviction order survives a reload.
+function loadCompletionStats(): void {
+  if (completionStatsLoaded) return;
+  completionStatsLoaded = true;
+  try {
+    if (typeof localStorage === "undefined") return;
+    const raw = localStorage.getItem(COMPLETION_STATS_STORAGE_KEY);
+    if (!raw) return;
+    const parsed: unknown = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return;
+    for (const entry of parsed) {
+      if (!Array.isArray(entry) || entry.length !== 2) continue;
+      const [key, count] = entry;
+      if (typeof key !== "string" || key === "" || typeof count !== "number" || !Number.isFinite(count) || count <= 0) continue;
+      completionStats.set(key, Math.floor(count));
+    }
+    evictOldestCompletionStats();
+  } catch {
+    completionStats.clear();
+  }
+}
+
+function saveCompletionStats(): void {
+  try {
+    if (typeof localStorage === "undefined") return;
+    localStorage.setItem(COMPLETION_STATS_STORAGE_KEY, JSON.stringify([...completionStats]));
+  } catch {
+    // Private mode, quota, or a read-only store: history just stays in memory.
+  }
+}
+
+/** Record a user selection to boost future rankings. */
+export function recordCompletionSelection(label: string, type: string): void {
+  loadCompletionStats();
+  const key = `${type}:${label}`;
+  const count = completionStats.get(key) || 0;
+  completionStats.delete(key);
+  completionStats.set(key, count + 1);
+  evictOldestCompletionStats();
+  saveCompletionStats();
+}
+
 function getHistoryCount(label: string, type: string): number {
+  loadCompletionStats();
   return completionStats.get(`${type}:${label}`) ?? 0;
 }
 
