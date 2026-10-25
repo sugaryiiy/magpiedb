@@ -57,11 +57,11 @@ func TestBuildUpdateInfo(t *testing.T) {
 		wantManual bool
 		wantLatest string
 	}{
-		{name: "newer preview with matching asset", current: "0.6.33", candidate: newerPreview, desktop: true, executable: exe, wantAvail: true, wantManual: false, wantLatest: "0.6.36-preview.20261024"},
+		{name: "newer preview with matching asset", current: "0.6.33", candidate: newerPreview, desktop: true, executable: exe, wantAvail: true, wantManual: false, wantLatest: "0.6.37-preview.20261025"},
 		{name: "same-version stable is not an update", current: "0.6.33", candidate: fixtureLatest(t), desktop: true, executable: exe, wantAvail: false, wantManual: false, wantLatest: "0.6.33"},
 		{name: "prerelease of the running version is not an update", current: "0.6.33", candidate: currentPreview, desktop: true, executable: exe, wantAvail: false, wantManual: false, wantLatest: "0.6.33-preview.20261022"},
 		{name: "missing platform asset downgrades to manual", current: "0.6.33", candidate: legacyOnly, desktop: true, executable: exe, wantAvail: true, wantManual: true, wantLatest: "0.6.34"},
-		{name: "web mode is always manual", current: "0.6.33", candidate: newerPreview, desktop: false, executable: exe, wantAvail: true, wantManual: true, wantLatest: "0.6.36-preview.20261024"},
+		{name: "web mode is always manual", current: "0.6.33", candidate: newerPreview, desktop: false, executable: exe, wantAvail: true, wantManual: true, wantLatest: "0.6.37-preview.20261025"},
 		{name: "no candidate", current: "0.6.33", candidate: nil, desktop: true, executable: exe, wantAvail: false, wantLatest: "0.6.33"},
 	}
 	for _, test := range tests {
@@ -145,7 +145,7 @@ func TestHandleUpdateCheckAgainstFixtureAPI(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if info["update_available"] != true || info["latest_version"] != "0.6.36-preview.20261024" {
+	if info["update_available"] != true || info["latest_version"] != "0.6.37-preview.20261025" {
 		t.Fatalf("preview check = %v", info)
 	}
 
@@ -167,7 +167,7 @@ func TestHandleUpdateCheckAgainstFixtureAPI(t *testing.T) {
 		t.Fatalf("changelog releases = %v", changelog["releases"])
 	}
 	first, ok := releases[0].(map[string]any)
-	if !ok || first["tag"] != "v0.6.36-preview.20261024" || first["date"] != "2026-10-24T03:00:00Z" {
+	if !ok || first["tag"] != "v0.6.37-preview.20261025" || first["date"] != "2026-10-25T03:00:00Z" {
 		t.Fatalf("first changelog release = %v", releases[0])
 	}
 }
