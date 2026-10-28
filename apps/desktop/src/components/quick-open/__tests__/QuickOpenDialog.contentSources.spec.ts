@@ -174,7 +174,7 @@ describe("QuickOpenDialog content sources", () => {
     expect(host.textContent).not.toContain("content_match");
     expect(snippet.textContent).toContain("DELETE FROM audit");
     expect(snippet.querySelector("[data-content-search-line]")?.textContent).toBe("5");
-    expect(snippet.querySelector(".bg-yellow-200")?.textContent).toBe("audit");
+    expect(snippet.querySelector(".bg-zinc-200")?.textContent).toBe("audit");
     snippet.closest<HTMLElement>("[data-selected]")!.click();
     expect(selected).toHaveBeenCalledWith(bodyHit);
   });

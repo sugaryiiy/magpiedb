@@ -32,6 +32,6 @@ describe("RedisQueryConsoleOutput", () => {
 
     expect([...host.querySelectorAll("div.flex.min-w-0")].map((node) => node.textContent?.trim())).toEqual(["redis>PING", "redis>LRANGE items 0 -1", "redis>NOPE"]);
     expect([...host.querySelectorAll("pre")].map((node) => node.textContent)).toEqual(["PONG", '1) "one"\n2) "two"', "(error) ERR unknown command"]);
-    expect(host.querySelectorAll("pre")[2]?.className).toContain("text-[#ff6b6b]");
+    expect(host.querySelectorAll("pre")[2]?.className).toContain("text-[#e5e5e5]");
   });
 });

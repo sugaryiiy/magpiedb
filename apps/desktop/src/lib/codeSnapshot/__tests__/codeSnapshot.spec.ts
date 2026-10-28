@@ -88,9 +88,9 @@ describe("renderCodeSnapshotHtml", () => {
     const html = await renderCodeSnapshotHtml({ code: "SELECT 1", lang: "sql", title: "Query example" }, { appearance: "dark" });
 
     expect(html).toContain('class="dbx-code-snapshot__bar"');
-    expect(html).toContain("#ff5f57");
-    expect(html).toContain("#febc2e");
-    expect(html).toContain("#28c840");
+    expect(html).toContain("#a3a3a3");
+    expect(html).toContain("#c2c2c2");
+    expect(html).toContain("#d4d4d4");
     expect(html).toContain("Query example");
   });
 
@@ -126,7 +126,7 @@ describe("renderCodeSnapshotHtml", () => {
     const html = await renderCodeSnapshotHtml({ code: "SELECT `id`, `title`\nFROM `tb_book`;", lang: "sql" }, { appearance: "light" });
 
     expect(html).toContain('data-sql-token="table"');
-    expect(html).toContain("color:#116329");
+    expect(html).toContain("color:#262626");
     // Only the table name is marked; the selected fields keep the identifier color.
     expect(html.match(/data-sql-token="table"/g)).toHaveLength(1);
     expect(html).toMatch(/data-sql-token="table"[^>]*>`?tb_book`</);
@@ -142,7 +142,7 @@ describe("renderCodeSnapshotHtml", () => {
     );
     const html = await renderCodeSnapshotHtml({ code: "SELECT *\nFROM users u, orders o\nJOIN items i ON i.order_id = u.id", lang: "sql" }, { appearance: "dark" });
 
-    expect(html).toContain("color:#7ee787");
+    expect(html).toContain("color:#d4d4d4");
     for (const table of ["users", "orders", "items"]) {
       expect(html).toMatch(new RegExp(`data-sql-token="table"[^>]*>${table}</span>`));
     }
@@ -181,10 +181,10 @@ describe("renderCodeSnapshotHtml", () => {
     const light = await renderCodeSnapshotHtml({ code: "SELECT 1", lang: "sql" }, { appearance: "light" });
 
     expect(dark).toContain("background:#0d1117");
-    expect(dark).toContain("--dbx-snapshot-line-number:#484f58");
+    expect(dark).toContain("--dbx-snapshot-line-number:#474747");
     expect(dark).toContain("color:#e1e4e8");
     expect(light).toContain("background:#ffffff");
-    expect(light).toContain("--dbx-snapshot-line-number:#d0d7de");
+    expect(light).toContain("--dbx-snapshot-line-number:#d4d4d4");
     expect(light).toContain("color:#24292f");
   });
 
