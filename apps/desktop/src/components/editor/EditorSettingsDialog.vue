@@ -338,14 +338,6 @@ function onThemePaletteOpenChange(open: boolean) {
   if (!open) clearThemePaletteOptionPreview();
 }
 
-function scheduleThemePalettePreview(value: AppThemePalette) {
-  themePaletteOptionPreview.schedule(value);
-}
-
-function previewThemePaletteOption(value: AppThemePalette) {
-  themePaletteOptionPreview.runNow(value);
-}
-
 function clearThemePaletteOptionPreview() {
   themePaletteOptionPreview.cancel();
   clearThemePalettePreview();
@@ -354,14 +346,6 @@ function clearThemePaletteOptionPreview() {
 function clearUiFontOptionPreview() {
   uiFontOptionPreview.cancel();
   clearUiFontFamilyPreview();
-}
-
-function previewLocaleOption(locale: Locale) {
-  localeOptionPreview.runNow(locale);
-}
-
-function scheduleLocaleOptionPreview(locale: Locale) {
-  localeOptionPreview.schedule(locale);
 }
 
 function restoreLocaleOptionPreview() {
@@ -6787,8 +6771,8 @@ onUnmounted(() => {
                         </span>
                       </SelectValue>
                     </SelectTrigger>
-                    <SelectContent class="w-[150px]" @pointerleave="restoreLocaleOptionPreview">
-                      <SelectItem v-for="locale in LOCALE_OPTIONS" :key="locale.value" :value="locale.value" @pointerenter="scheduleLocaleOptionPreview(locale.value)" @focus="previewLocaleOption(locale.value)">
+                    <SelectContent class="w-[150px]">
+                      <SelectItem v-for="locale in LOCALE_OPTIONS" :key="locale.value" :value="locale.value">
                         <div class="flex items-center gap-1">
                           <span class="inline-flex h-5 w-6 shrink-0 items-center justify-center text-sm font-medium leading-none">
                             {{ locale.flag }}
@@ -6820,8 +6804,8 @@ onUnmounted(() => {
                             </span>
                           </SelectValue>
                         </SelectTrigger>
-                        <SelectContent @pointerleave="clearThemePaletteOptionPreview">
-                          <SelectItem v-for="option in appThemePaletteOptions" :key="option.value" :value="option.value" @pointerenter="scheduleThemePalettePreview(option.value)" @focus="previewThemePaletteOption(option.value)">
+                        <SelectContent>
+                          <SelectItem v-for="option in appThemePaletteOptions" :key="option.value" :value="option.value">
                             <div class="flex items-center gap-2">
                               <span class="h-3 w-3 rounded-full border border-border shadow-xs" :style="{ background: option.previewColor }" />
                               {{ option.label }}
