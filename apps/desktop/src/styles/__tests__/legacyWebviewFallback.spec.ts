@@ -280,10 +280,12 @@ describe("legacy WebView CSS fallbacks", () => {
 
   it("keeps warning and destructive alpha utilities readable in legacy WebViews", () => {
     // The shortcut cross-scope conflict badge (border-warning/30 bg-warning/10
-    // text-warning) rendered as a solid amber pill with invisible text on
-    // macOS 12 WebKit; the destructive alert badges degrade the same way.
+    // text-warning) rendered as a solid pill with invisible text on macOS 12
+    // WebKit; the destructive alert badges degrade the same way. The warning
+    // step is gray since the blueprint restyle, so the pinned legacy token
+    // follows the gray ramp instead of the old amber value.
     expect(editorSettingsDialogSource).toContain("border-warning/30 bg-warning/10");
-    expect(globalsCss).toContain("--dbx-warning-rgb: 217, 119, 6;");
+    expect(globalsCss).toContain("--dbx-warning-rgb: 82, 82, 82;");
     expect(globalsCss).toContain("html.dbx-legacy-webview .bg-warning\\/10");
     expect(globalsCss).toContain("background-color: rgba(var(--dbx-warning-rgb), 0.1) !important;");
     expect(globalsCss).toContain("background-color: rgba(var(--dbx-warning-rgb), 0.05) !important;");
