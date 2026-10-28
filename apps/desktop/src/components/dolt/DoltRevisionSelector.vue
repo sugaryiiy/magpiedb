@@ -165,8 +165,8 @@ onUnmounted(() => document.removeEventListener("pointerdown", onDocumentPointerD
           @mousedown.prevent="selectOption(option)"
           @mouseenter="highlightedIndex = index"
         >
-          <GitBranch v-if="option.kind === 'branch'" class="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
-          <Tag v-else class="h-3.5 w-3.5 text-amber-600 dark:text-amber-400" />
+          <GitBranch v-if="option.kind === 'branch'" class="h-3.5 w-3.5 text-zinc-600 dark:text-zinc-400" />
+          <Tag v-else class="h-3.5 w-3.5 text-zinc-600 dark:text-zinc-400" />
           <span class="min-w-0 flex-1 truncate font-mono text-[11px]">{{ option.name }}</span>
           <Check v-if="option.name === modelValue" class="h-3.5 w-3.5 text-primary" />
         </button>

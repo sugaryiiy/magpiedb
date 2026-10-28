@@ -74,6 +74,6 @@ onBeforeUnmount(() => {
 <template>
   <span class="inline-flex shrink-0 items-center justify-center">
     <img v-if="objectUrl && !failed" :src="objectUrl" alt="" class="size-full object-contain" @error="showFallback" />
-    <PlugZap v-else aria-hidden="true" class="size-full text-violet-500" />
+    <PlugZap v-else aria-hidden="true" class="size-full text-zinc-500" />
   </span>
 </template>

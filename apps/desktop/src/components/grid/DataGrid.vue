@@ -7009,10 +7009,10 @@ function rowNumberStatusClass(item: RowItem): string {
     return "border-muted-foreground/20 bg-muted/20 font-semibold text-muted-foreground";
   }
   if (item.status === "new") {
-    return "border-emerald-500/40 bg-emerald-500/15 font-semibold text-emerald-700 dark:text-emerald-300";
+    return "border-zinc-500/40 bg-zinc-500/15 font-semibold text-zinc-700 dark:text-zinc-300";
   }
   if (item.status === "edited") {
-    return "border-amber-500/40 bg-amber-500/15 font-semibold text-amber-700 dark:text-amber-300";
+    return "border-zinc-500/40 bg-zinc-500/15 font-semibold text-zinc-700 dark:text-zinc-300";
   }
   if (item.status === "deleted") {
     return "border-destructive/40 bg-destructive/15 font-semibold text-destructive line-through";
@@ -7029,8 +7029,8 @@ function dataGridRowStyle(item: RowItem): CSSProperties {
   const activeRowBg = dataGridActiveRowBackground(dark);
   const rowBg = item.isDeleted
     ? dark
-      ? "rgb(55, 31, 32)"
-      : "rgb(255, 244, 244)"
+      ? "rgb(64, 64, 64)"
+      : "rgb(235, 235, 235)"
     : isRowActive(item.displayIndex)
       ? activeRowBg
       : item.isNew
@@ -7047,16 +7047,16 @@ function dataGridRowStyle(item: RowItem): CSSProperties {
   const rowNumberBg =
     item.status === "new"
       ? dark
-        ? "rgb(33, 45, 40)"
-        : "rgb(219, 244, 233)"
+        ? "rgb(51, 51, 55)"
+        : "rgb(243, 243, 243)"
       : item.status === "edited"
         ? dark
-          ? "rgb(48, 41, 28)"
-          : "rgb(253, 241, 219)"
+          ? "rgb(58, 58, 58)"
+          : "rgb(240, 240, 240)"
         : item.status === "deleted"
           ? dark
-            ? "rgb(55, 31, 32)"
-            : "rgb(255, 244, 244)"
+            ? "rgb(64, 64, 64)"
+            : "rgb(235, 235, 235)"
           : isRowActive(item.displayIndex) && !item.isDeleted
             ? activeRowBg
             : dark
@@ -7065,12 +7065,12 @@ function dataGridRowStyle(item: RowItem): CSSProperties {
   return {
     "--data-grid-cell-bg": rowBg,
     "--data-grid-row-number-bg": rowNumberBg,
-    "--data-grid-cell-selected-bg": dark ? "rgb(30, 64, 100)" : "rgb(179, 208, 254)",
-    "--data-grid-cell-selected-single-bg": dark ? "rgb(30, 64, 96)" : "rgb(191, 219, 254)",
-    "--data-grid-cell-selected-dirty-bg": dark ? "rgb(76, 66, 38)" : "rgb(235, 224, 184)",
-    "--data-grid-cell-selected-border": dark ? "rgb(96, 165, 250)" : "rgb(37, 99, 235)",
+    "--data-grid-cell-selected-bg": dark ? "rgb(82, 82, 82)" : "rgb(212, 212, 212)",
+    "--data-grid-cell-selected-single-bg": dark ? "rgb(74, 74, 74)" : "rgb(224, 224, 224)",
+    "--data-grid-cell-selected-dirty-bg": dark ? "rgb(100, 100, 100)" : "rgb(206, 206, 206)",
+    "--data-grid-cell-selected-border": dark ? "rgb(229, 229, 229)" : "rgb(23, 23, 23)",
     "--data-grid-row-number-active-bg": activeRowBg,
-    "--data-grid-row-number-selected-bg": dark ? "rgb(30, 64, 96)" : "rgb(191, 219, 254)",
+    "--data-grid-row-number-selected-bg": dark ? "rgb(74, 74, 74)" : "rgb(224, 224, 224)",
   } as CSSProperties;
 }
 
@@ -12867,7 +12867,7 @@ useUpdateBlocker(() => (hasPendingChanges.value || hasPendingDataEditorDraft.val
               </Tooltip>
               <Tooltip v-if="showKeylessEditWarning">
                 <TooltipTrigger as-child>
-                  <div class="flex h-5 items-center gap-1 rounded border border-amber-500/30 bg-amber-500/10 px-1.5 text-xs font-medium text-amber-700 dark:text-amber-300">
+                  <div class="flex h-5 items-center gap-1 rounded border border-zinc-500/30 bg-zinc-500/10 px-1.5 text-xs font-medium text-zinc-700 dark:text-zinc-300">
                     <KeyRound class="h-3 w-3" />
                     {{ t("grid.keylessEditWarning") }}
                   </div>
@@ -13052,7 +13052,7 @@ useUpdateBlocker(() => (hasPendingChanges.value || hasPendingDataEditorDraft.val
           @apply="applyStructuredSortRules"
         />
         <!-- Truncation warning banner -->
-        <div v-if="showTruncationWarning" class="shrink-0 px-3 py-1 bg-amber-500/10 border-b border-amber-500/20 text-xs text-amber-600 dark:text-amber-400 flex items-center gap-1.5">
+        <div v-if="showTruncationWarning" class="shrink-0 px-3 py-1 bg-zinc-500/10 border-b border-zinc-500/20 text-xs text-zinc-600 dark:text-zinc-400 flex items-center gap-1.5">
           <span>{{ t(truncationHintKey, { count: result.rows.length }) }}</span>
         </div>
         <!-- Content area: table + side/bottom detail panes -->
@@ -13190,8 +13190,8 @@ useUpdateBlocker(() => (hasPendingChanges.value || hasPendingDataEditorDraft.val
                           class="sticky left-0 z-10 flex shrink-0 flex-col items-start justify-center overflow-hidden border-r border-border bg-background px-3 py-0"
                           :class="{
                             'ring-2 ring-inset ring-primary': highlightedColumnIndex === item.columnIndex,
-                            'bg-yellow-200/60 dark:bg-yellow-500/20': transposeHeaderIsSearchMatch(item.columnIndex),
-                            'ring-2 ring-inset ring-yellow-500 bg-yellow-300/60 dark:bg-yellow-500/40': transposeHeaderIsCurrentMatch(item.columnIndex),
+                            'bg-zinc-200/60 dark:bg-zinc-500/20': transposeHeaderIsSearchMatch(item.columnIndex),
+                            'ring-2 ring-inset ring-zinc-500 bg-zinc-300/60 dark:bg-zinc-500/40': transposeHeaderIsCurrentMatch(item.columnIndex),
                           }"
                           :style="{ width: `${transposePinnedWidth}px` }"
                         >
@@ -13254,9 +13254,9 @@ useUpdateBlocker(() => (hasPendingChanges.value || hasPendingDataEditorDraft.val
                               !displayItems[cell.recordIndex]?.isDirtyCol[cell.valueIndex] &&
                               !transposeCellIsSelected(cell.recordIndex, cell.valueIndex),
                             'bg-primary/15': transposeRecordUsesActiveHighlight(cell.recordIndex) && !transposeRecordUsesSelectionVisual(cell.recordIndex) && !displayItems[cell.recordIndex]?.isDirtyCol[cell.valueIndex] && !transposeCellIsSelected(cell.recordIndex, cell.valueIndex),
-                            'bg-yellow-500/10 cell-dirty': displayItems[cell.recordIndex]?.isDirtyCol[cell.valueIndex],
-                            'bg-yellow-200/60 dark:bg-yellow-500/20': cellIsSearchMatch(cell.recordIndex, cell.valueIndex),
-                            'ring-2 ring-inset ring-yellow-500 bg-yellow-300/60 dark:bg-yellow-500/40': cellIsCurrentMatch(cell.recordIndex, cell.valueIndex),
+                            'bg-zinc-500/10 cell-dirty': displayItems[cell.recordIndex]?.isDirtyCol[cell.valueIndex],
+                            'bg-zinc-200/60 dark:bg-zinc-500/20': cellIsSearchMatch(cell.recordIndex, cell.valueIndex),
+                            'ring-2 ring-inset ring-zinc-500 bg-zinc-300/60 dark:bg-zinc-500/40': cellIsCurrentMatch(cell.recordIndex, cell.valueIndex),
                             'cursor-text': !isScrolling,
                             'hover:bg-gray-200 hover:text-foreground dark:hover:bg-gray-800':
                               !isScrolling && canEditCellItem(displayItems[cell.recordIndex], cell.valueIndex) && !transposeRecordUsesSelectionVisual(cell.recordIndex) && !transposeRecordUsesActiveHighlight(cell.recordIndex) && !transposeCellIsSelected(cell.recordIndex, cell.valueIndex),
@@ -14158,7 +14158,7 @@ useUpdateBlocker(() => (hasPendingChanges.value || hasPendingDataEditorDraft.val
                               'data-grid-cell--frozen': col.visibleColIdx < frozenColumnCount,
                               'data-grid-cell--frozen-separator': frozenColumnCount > 0 && col.visibleColIdx === frozenColumnCount - 1,
                               'text-right': columnAligns[col.visibleColIdx] === 'right',
-                              'bg-yellow-500/10 cell-dirty': item.isDirtyCol[col.actualColIdx],
+                              'bg-zinc-500/10 cell-dirty': item.isDirtyCol[col.actualColIdx],
                               'cell-selected': cellIsSelected(item.displayIndex, col.visibleColIdx) && !item.isDirtyCol[col.actualColIdx],
                               'cell-selected-dirty': cellIsSelected(item.displayIndex, col.visibleColIdx) && item.isDirtyCol[col.actualColIdx],
                               'cell-selected--single': !selectionUsesOuterFrame && selectionFrameKindForCell(item.displayIndex, col.visibleColIdx) === 'single' && cellIsSelected(item.displayIndex, col.visibleColIdx) && !item.isDirtyCol[col.actualColIdx],
@@ -14169,8 +14169,8 @@ useUpdateBlocker(() => (hasPendingChanges.value || hasPendingDataEditorDraft.val
                               'crosshair-column': !!crosshairTarget?.columnCrosshair && crosshairTarget.visibleColIdx === col.visibleColIdx && !item.isDeleted,
                               'cell-search-match': cellIsSearchMatch(item.displayIndex, col.actualColIdx),
                               'cell-current-search-match': cellIsCurrentMatch(item.displayIndex, col.actualColIdx),
-                              'bg-yellow-200/60 dark:bg-yellow-500/20': cellIsSearchMatch(item.displayIndex, col.actualColIdx),
-                              'ring-2 ring-inset ring-yellow-500 bg-yellow-300/60 dark:bg-yellow-500/40': cellIsCurrentMatch(item.displayIndex, col.actualColIdx),
+                              'bg-zinc-200/60 dark:bg-zinc-500/20': cellIsSearchMatch(item.displayIndex, col.actualColIdx),
+                              'ring-2 ring-inset ring-zinc-500 bg-zinc-300/60 dark:bg-zinc-500/40': cellIsCurrentMatch(item.displayIndex, col.actualColIdx),
                               'tabular-nums': typeof item.data[col.actualColIdx] === 'number',
                               'cursor-text': !isScrolling && !canEditCellItem(item, col.actualColIdx),
                               'cursor-text hover:bg-gray-200 hover:text-foreground dark:hover:bg-gray-800': !isScrolling && canEditCellItem(item, col.actualColIdx) && !(booleanCellsUseCheckbox && isBooleanGridCell(item, col.actualColIdx) && item.data[col.actualColIdx] !== null),
@@ -14675,7 +14675,7 @@ useUpdateBlocker(() => (hasPendingChanges.value || hasPendingDataEditorDraft.val
             {{ t("grid.calculateTotalRowsInline") }}
           </button>
         </span>
-        <span v-if="showTruncationWarning" class="shrink-0 text-amber-500 text-xs">(truncated)</span>
+        <span v-if="showTruncationWarning" class="shrink-0 text-zinc-500 text-xs">(truncated)</span>
         <span v-if="!hasData" class="shrink-0">{{ t("grid.rowsAffected", { count: result.affected_rows }) }}</span>
         <QueryTimingDetails v-if="isResultsContext" :result="result" :render-ms="resultViewUpdateMs" />
         <span v-else class="shrink-0">{{ formatQueryDuration(result.execution_time_ms) }}</span>
@@ -14820,7 +14820,7 @@ useUpdateBlocker(() => (hasPendingChanges.value || hasPendingDataEditorDraft.val
     <Dialog v-model:open="esDeepPageJumpConfirmOpen">
       <DialogContent class="sm:max-w-[480px]">
         <DialogHeader>
-          <DialogTitle class="flex items-center gap-2 text-amber-600 dark:text-amber-400">
+          <DialogTitle class="flex items-center gap-2 text-zinc-600 dark:text-zinc-400">
             <AlertTriangle class="h-5 w-5" />
             {{ t("grid.esDeepPageJumpConfirmTitle") }}
           </DialogTitle>
@@ -14843,7 +14843,7 @@ useUpdateBlocker(() => (hasPendingChanges.value || hasPendingDataEditorDraft.val
     <Dialog v-model:open="loadAllRowsConfirmOpen">
       <DialogContent class="sm:max-w-[480px]">
         <DialogHeader>
-          <DialogTitle class="flex items-center gap-2 text-amber-600 dark:text-amber-400">
+          <DialogTitle class="flex items-center gap-2 text-zinc-600 dark:text-zinc-400">
             <AlertTriangle class="h-5 w-5" />
             {{ t("grid.loadAllRowsConfirmTitle") }}
           </DialogTitle>
@@ -14967,25 +14967,25 @@ useUpdateBlocker(() => (hasPendingChanges.value || hasPendingDataEditorDraft.val
   --data-grid-background: var(--background-solid, var(--background));
   --data-grid-row-muted-bg: rgb(240, 240, 240);
   --data-grid-row-new-bg: rgb(243, 243, 243);
-  --data-grid-row-deleted-bg: rgb(255, 244, 244);
-  --data-grid-cell-active-bg: rgb(244, 248, 255);
-  --data-grid-cell-crosshair-row-bg: rgb(174, 195, 224);
-  --data-grid-cell-crosshair-col-bg: rgb(142, 170, 210);
-  --data-grid-cell-dirty-bg: rgb(255, 248, 230);
-  --data-grid-cell-selected-bg: rgb(179, 208, 254);
-  --data-grid-cell-selected-single-bg: rgb(191, 219, 254);
-  --data-grid-cell-selected-dirty-bg: rgb(235, 224, 184);
-  --data-grid-cell-selected-border: rgb(37, 99, 235);
+  --data-grid-row-deleted-bg: rgb(235, 235, 235);
+  --data-grid-cell-active-bg: rgb(245, 245, 245);
+  --data-grid-cell-crosshair-row-bg: rgb(204, 204, 204);
+  --data-grid-cell-crosshair-col-bg: rgb(178, 178, 178);
+  --data-grid-cell-dirty-bg: rgb(240, 240, 240);
+  --data-grid-cell-selected-bg: rgb(212, 212, 212);
+  --data-grid-cell-selected-single-bg: rgb(224, 224, 224);
+  --data-grid-cell-selected-dirty-bg: rgb(206, 206, 206);
+  --data-grid-cell-selected-border: rgb(23, 23, 23);
   --data-grid-cell-hover-bg: rgb(245, 245, 245);
-  --data-grid-cell-search-bg: rgb(253, 245, 184);
-  --data-grid-cell-current-search-bg: rgba(253, 224, 71, 0.52);
-  --data-grid-cell-current-search-border: rgba(234, 179, 8, 0.82);
+  --data-grid-cell-search-bg: rgb(229, 229, 229);
+  --data-grid-cell-current-search-bg: rgba(163, 163, 163, 0.55);
+  --data-grid-cell-current-search-border: rgba(23, 23, 23, 0.85);
   --data-grid-row-number-default-bg: rgb(255, 255, 255);
-  --data-grid-row-number-new-bg: rgb(219, 244, 233);
-  --data-grid-row-number-edited-bg: rgb(253, 241, 219);
-  --data-grid-row-number-deleted-bg: rgb(255, 244, 244);
-  --data-grid-row-number-active-bg: rgb(244, 248, 255);
-  --data-grid-row-number-selected-bg: rgb(191, 219, 254);
+  --data-grid-row-number-new-bg: rgb(243, 243, 243);
+  --data-grid-row-number-edited-bg: rgb(240, 240, 240);
+  --data-grid-row-number-deleted-bg: rgb(235, 235, 235);
+  --data-grid-row-number-active-bg: rgb(245, 245, 245);
+  --data-grid-row-number-selected-bg: rgb(224, 224, 224);
   --data-grid-scrollbar-thumb: color-mix(in oklch, var(--foreground) 30%, transparent);
   --data-grid-scrollbar-thumb-hover: color-mix(in oklch, var(--foreground) 48%, transparent);
   --data-grid-scrollbar-track: transparent;
@@ -14993,33 +14993,33 @@ useUpdateBlocker(() => (hasPendingChanges.value || hasPendingDataEditorDraft.val
 }
 
 [data-grid-root].data-grid--has-save-error {
-  --data-grid-cell-dirty-bg: rgb(250, 212, 216) !important;
-  --data-grid-cell-selected-dirty-bg: rgb(240, 192, 198) !important;
+  --data-grid-cell-dirty-bg: rgb(200, 200, 200) !important;
+  --data-grid-cell-selected-dirty-bg: rgb(188, 188, 188) !important;
 }
 
 [data-grid-root].data-grid--dark,
 :global(.dark) [data-grid-root] {
   --data-grid-row-muted-bg: rgb(40, 40, 43);
   --data-grid-row-new-bg: rgb(51, 51, 55);
-  --data-grid-row-deleted-bg: rgb(55, 31, 32);
-  --data-grid-cell-active-bg: rgb(25, 34, 46);
-  --data-grid-cell-crosshair-row-bg: rgb(75, 84, 98);
-  --data-grid-cell-crosshair-col-bg: rgb(98, 111, 130);
-  --data-grid-cell-dirty-bg: rgb(94, 75, 26);
-  --data-grid-cell-selected-bg: rgb(30, 64, 100);
-  --data-grid-cell-selected-single-bg: rgb(30, 64, 96);
-  --data-grid-cell-selected-dirty-bg: rgb(76, 66, 38);
-  --data-grid-cell-selected-border: rgb(96, 165, 250);
+  --data-grid-row-deleted-bg: rgb(64, 64, 64);
+  --data-grid-cell-active-bg: rgb(38, 38, 38);
+  --data-grid-cell-crosshair-row-bg: rgb(82, 82, 82);
+  --data-grid-cell-crosshair-col-bg: rgb(102, 102, 102);
+  --data-grid-cell-dirty-bg: rgb(64, 64, 64);
+  --data-grid-cell-selected-bg: rgb(82, 82, 82);
+  --data-grid-cell-selected-single-bg: rgb(74, 74, 74);
+  --data-grid-cell-selected-dirty-bg: rgb(100, 100, 100);
+  --data-grid-cell-selected-border: rgb(229, 229, 229);
   --data-grid-cell-hover-bg: rgb(46, 47, 51);
-  --data-grid-cell-search-bg: rgb(72, 57, 8);
-  --data-grid-cell-current-search-bg: rgb(116, 87, 0);
-  --data-grid-cell-current-search-border: rgb(239, 177, 0);
+  --data-grid-cell-search-bg: rgb(96, 96, 96);
+  --data-grid-cell-current-search-bg: rgb(115, 115, 115);
+  --data-grid-cell-current-search-border: rgb(229, 229, 229);
   --data-grid-row-number-default-bg: rgb(35, 37, 42);
-  --data-grid-row-number-new-bg: rgb(33, 45, 40);
-  --data-grid-row-number-edited-bg: rgb(48, 41, 28);
-  --data-grid-row-number-deleted-bg: rgb(55, 31, 32);
-  --data-grid-row-number-active-bg: rgb(25, 34, 46);
-  --data-grid-row-number-selected-bg: rgb(30, 64, 96);
+  --data-grid-row-number-new-bg: rgb(51, 51, 55);
+  --data-grid-row-number-edited-bg: rgb(58, 58, 58);
+  --data-grid-row-number-deleted-bg: rgb(64, 64, 64);
+  --data-grid-row-number-active-bg: rgb(38, 38, 38);
+  --data-grid-row-number-selected-bg: rgb(74, 74, 74);
   --data-grid-scrollbar-thumb: rgb(82, 82, 91);
   --data-grid-scrollbar-thumb-hover: rgb(113, 113, 122);
   --data-grid-scrollbar-track: rgb(24, 24, 27);
@@ -15028,8 +15028,8 @@ useUpdateBlocker(() => (hasPendingChanges.value || hasPendingDataEditorDraft.val
 
 [data-grid-root].data-grid--dark.data-grid--has-save-error,
 :global(.dark) [data-grid-root].data-grid--has-save-error {
-  --data-grid-cell-dirty-bg: rgb(94, 56, 57) !important;
-  --data-grid-cell-selected-dirty-bg: rgb(114, 66, 67) !important;
+  --data-grid-cell-dirty-bg: rgb(102, 102, 102) !important;
+  --data-grid-cell-selected-dirty-bg: rgb(115, 115, 115) !important;
 }
 
 @supports (background: color-mix(in oklab, white 50%, transparent)) {
@@ -15037,18 +15037,18 @@ useUpdateBlocker(() => (hasPendingChanges.value || hasPendingDataEditorDraft.val
     --data-grid-row-muted-bg: color-mix(in oklab, var(--muted) 99%, var(--foreground));
     --data-grid-row-new-bg: color-mix(in oklab, var(--primary) 5%, transparent);
     --data-grid-row-deleted-bg: color-mix(in oklab, var(--destructive) 5%, transparent);
-    --data-grid-cell-dirty-bg: color-mix(in oklab, rgb(240 177 0) 10%, transparent);
+    --data-grid-cell-dirty-bg: color-mix(in oklab, rgb(115 115 115) 10%, transparent);
     --data-grid-cell-crosshair-row-bg: color-mix(in srgb, var(--primary) 34%, var(--background));
     --data-grid-cell-crosshair-col-bg: color-mix(in srgb, var(--primary) 50%, var(--background));
-    --data-grid-cell-selected-bg: color-mix(in oklab, rgb(59 130 246) 28%, var(--background));
-    --data-grid-cell-selected-single-bg: color-mix(in oklab, rgb(59 130 246) 30%, var(--background));
-    --data-grid-cell-selected-dirty-bg: color-mix(in oklab, rgb(234 181 50) 30%, color-mix(in oklab, rgb(59 130 246) 18%, var(--background)));
-    --data-grid-cell-selected-border: color-mix(in oklab, rgb(37 99 235) 75%, transparent);
+    --data-grid-cell-selected-bg: color-mix(in oklab, rgb(115 115 115) 28%, var(--background));
+    --data-grid-cell-selected-single-bg: color-mix(in oklab, rgb(115 115 115) 30%, var(--background));
+    --data-grid-cell-selected-dirty-bg: color-mix(in oklab, rgb(115 115 115) 30%, color-mix(in oklab, rgb(115 115 115) 18%, var(--background)));
+    --data-grid-cell-selected-border: color-mix(in oklab, rgb(23 23 23) 75%, transparent);
     --data-grid-cell-hover-bg: color-mix(in oklab, var(--accent) 50%, transparent);
-    --data-grid-row-number-new-bg: color-mix(in oklab, rgb(16 185 129) 15%, var(--background));
-    --data-grid-row-number-edited-bg: color-mix(in oklab, rgb(245 158 11) 15%, var(--background));
+    --data-grid-row-number-new-bg: color-mix(in oklab, rgb(115 115 115) 12%, var(--background));
+    --data-grid-row-number-edited-bg: color-mix(in oklab, rgb(115 115 115) 18%, var(--background));
     --data-grid-row-number-deleted-bg: color-mix(in oklab, var(--destructive) 15%, var(--background));
-    --data-grid-row-number-selected-bg: color-mix(in oklab, rgb(59 130 246) 30%, var(--background));
+    --data-grid-row-number-selected-bg: color-mix(in oklab, rgb(115 115 115) 30%, var(--background));
   }
   [data-grid-root].data-grid--dark,
   :global(.dark) [data-grid-root] {
@@ -15056,13 +15056,13 @@ useUpdateBlocker(() => (hasPendingChanges.value || hasPendingDataEditorDraft.val
     --data-grid-cell-crosshair-col-bg: color-mix(in srgb, var(--primary) 50%, var(--background));
   }
   [data-grid-root].data-grid--has-save-error {
-    --data-grid-cell-dirty-bg: rgb(250, 212, 216) !important;
-    --data-grid-cell-selected-dirty-bg: rgb(240, 192, 198) !important;
+    --data-grid-cell-dirty-bg: rgb(200, 200, 200) !important;
+    --data-grid-cell-selected-dirty-bg: rgb(188, 188, 188) !important;
   }
   [data-grid-root].data-grid--dark.data-grid--has-save-error,
   :global(.dark) [data-grid-root].data-grid--has-save-error {
-    --data-grid-cell-dirty-bg: rgb(94, 56, 57) !important;
-    --data-grid-cell-selected-dirty-bg: rgb(114, 66, 67) !important;
+    --data-grid-cell-dirty-bg: rgb(102, 102, 102) !important;
+    --data-grid-cell-selected-dirty-bg: rgb(115, 115, 115) !important;
   }
 }
 
@@ -15096,11 +15096,11 @@ useUpdateBlocker(() => (hasPendingChanges.value || hasPendingDataEditorDraft.val
 }
 
 :global(.dark) [data-grid-root] {
-  --data-grid-cell-selected-bg: rgb(30, 64, 100);
-  --data-grid-cell-selected-single-bg: rgb(30, 64, 96);
-  --data-grid-cell-selected-dirty-bg: rgb(76, 66, 38);
-  --data-grid-cell-selected-border: rgb(96, 165, 250);
-  --data-grid-row-number-selected-bg: rgb(30, 64, 96);
+  --data-grid-cell-selected-bg: rgb(82, 82, 82);
+  --data-grid-cell-selected-single-bg: rgb(74, 74, 74);
+  --data-grid-cell-selected-dirty-bg: rgb(100, 100, 100);
+  --data-grid-cell-selected-border: rgb(229, 229, 229);
+  --data-grid-row-number-selected-bg: rgb(74, 74, 74);
 }
 
 [data-grid-root].data-grid--dark .data-grid-header-cell--selected,
@@ -15587,7 +15587,7 @@ useUpdateBlocker(() => (hasPendingChanges.value || hasPendingDataEditorDraft.val
   right: 0;
   border-style: solid;
   border-width: 0 5px 5px 0;
-  border-color: transparent #f59e0b transparent transparent;
+  border-color: transparent #525252 transparent transparent;
   pointer-events: none;
 }
 
@@ -15618,11 +15618,11 @@ useUpdateBlocker(() => (hasPendingChanges.value || hasPendingDataEditorDraft.val
   background-color: var(--data-grid-cell-selected-dirty-bg) !important;
 }
 
-.data-grid-row-number.bg-emerald-500\/15 {
+.data-grid-row-number.bg-zinc-500\/15 {
   background-color: var(--data-grid-row-number-new-bg);
 }
 
-.data-grid-row-number.bg-amber-500\/15 {
+.data-grid-row-number.bg-zinc-500\/15 {
   background-color: var(--data-grid-row-number-edited-bg);
 }
 

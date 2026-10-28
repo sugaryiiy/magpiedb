@@ -36,7 +36,11 @@ async function browse(field: (typeof fields.value)[number]) {
       {{ chinese ? "启用 TLS，并验证服务器身份" : "Enable TLS and verify server identity" }}
     </label>
     <p class="text-xs leading-5 text-muted-foreground">
-      {{ chinese ? "TLS 1.2 或更新版本，校验证书及数据库主机名。CA 路径留空使用系统信任库；填写后仅信任该 CA 文件。客户端证书与私钥为可选配对项。" : "TLS 1.2 or newer verifies the certificate and database hostname. An empty CA path uses system trust; a supplied CA file becomes the trust store. Client certificate and key are an optional pair." }}
+      {{
+        chinese
+          ? "TLS 1.2 或更新版本，校验证书及数据库主机名。CA 路径留空使用系统信任库；填写后仅信任该 CA 文件。客户端证书与私钥为可选配对项。"
+          : "TLS 1.2 or newer verifies the certificate and database hostname. An empty CA path uses system trust; a supplied CA file becomes the trust store. Client certificate and key are an optional pair."
+      }}
     </p>
     <label v-for="field in fields" :key="field.key" class="grid grid-cols-4 items-center gap-4 text-xs">
       <span>{{ field.label }}</span>
@@ -46,6 +50,6 @@ async function browse(field: (typeof fields.value)[number]) {
       </span>
     </label>
     <p v-if="!nativeFiles" class="text-xs text-muted-foreground">{{ chinese ? "路径指向运行 Go 服务的设备上的 PEM 文件。" : "Paths refer to PEM files on the device running the Go service." }}</p>
-    <p v-if="validation || error" role="alert" class="text-xs text-red-500">{{ validation || error }}</p>
+    <p v-if="validation || error" role="alert" class="text-xs text-zinc-500">{{ validation || error }}</p>
   </section>
 </template>

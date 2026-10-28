@@ -35,7 +35,7 @@ defineExpose({ show });
     <DialogContent class="sm:max-w-lg">
       <DialogHeader>
         <DialogTitle class="flex min-w-0 items-center gap-2 pr-8">
-          <Package class="h-4 w-4 shrink-0 text-violet-500" />
+          <Package class="h-4 w-4 shrink-0 text-zinc-500" />
           <span class="truncate">{{ t("extension.detailsTitle") }}</span>
         </DialogTitle>
       </DialogHeader>

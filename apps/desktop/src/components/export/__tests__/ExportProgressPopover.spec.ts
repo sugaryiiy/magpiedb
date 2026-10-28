@@ -381,14 +381,14 @@ describe("ExportProgressPopover task duration", () => {
     expect(useToast().message.value).toBe("Failure details copied");
     expect(copyButton?.title).toBe("Failure details copied");
     expect(copyButton?.getAttribute("aria-label")).toBe("Failure details copied");
-    expect(copyButton?.querySelector("svg")?.classList.contains("text-green-500")).toBe(true);
+    expect(copyButton?.querySelector("svg")?.classList.contains("text-zinc-500")).toBe(true);
 
     vi.advanceTimersByTime(2000);
     await nextTick();
 
     expect(copyButton?.title).toBe("Copy failure details");
     expect(copyButton?.getAttribute("aria-label")).toBe("Copy failure details");
-    expect(copyButton?.querySelector("svg")?.classList.contains("text-green-500")).toBe(false);
+    expect(copyButton?.querySelector("svg")?.classList.contains("text-zinc-500")).toBe(false);
   });
 
   it("moves copied feedback between same-named failures from different tasks", async () => {
@@ -501,7 +501,7 @@ describe("ExportProgressPopover task duration", () => {
       expect(copyToClipboard).toHaveBeenCalledWith("#7\nALTER TABLE users ADD missing_type\ntype missing_type does not exist");
       expect(copyButton?.title).toBe("Failure details copied");
       expect(copyButton?.getAttribute("aria-label")).toBe("Failure details copied");
-      expect(copyButton?.querySelector("svg")?.classList.contains("text-green-500")).toBe(true);
+      expect(copyButton?.querySelector("svg")?.classList.contains("text-zinc-500")).toBe(true);
     });
   });
 

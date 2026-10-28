@@ -44,7 +44,7 @@ export const useLayerStore = defineStore("diagram-layer", () => {
 
   function getLayerColor(tableName: string): string {
     const layer = getLayerByTable(tableName);
-    return layer?.color || "#9ca3af";
+    return layer?.color || "#a3a3a3";
   }
 
   function addLayer(name?: string, position?: { x: number; y: number }, size?: { width?: number; height?: number }): DiagramLayer {

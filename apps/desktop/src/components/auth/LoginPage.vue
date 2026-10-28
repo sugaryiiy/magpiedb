@@ -67,7 +67,7 @@ async function submit() {
 </script>
 
 <template>
-  <div class="flex items-center justify-center h-screen bg-gradient-to-br from-background via-background to-blue-950/20">
+  <div class="flex items-center justify-center h-screen bg-gradient-to-br from-background via-background to-zinc-950/20">
     <div class="w-[360px] space-y-8">
       <div class="flex flex-col items-center gap-4">
         <AppLogo class="w-20 h-20 rounded-2xl shadow-lg shadow-blue-500/20" />

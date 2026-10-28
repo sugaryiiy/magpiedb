@@ -425,8 +425,9 @@ describe("DataCompareDialog session restore", () => {
 
     const recompareButton = [...document.querySelectorAll<HTMLButtonElement>("button")].find((button) => button.textContent?.includes(i18n.global.t("dataCompare.recompare")));
     expect(recompareButton).toBeDefined();
-    expect([...document.querySelectorAll("div")].filter((element) => element.classList.contains("border-blue-500/35"))).toHaveLength(1);
-    expect([...document.querySelectorAll("div")].filter((element) => element.classList.contains("border-emerald-500/35"))).toHaveLength(1);
+    // Blueprint palette: source and target panels share the same gray frame;
+    // they are distinguished by their labels, not by hue.
+    expect([...document.querySelectorAll("div")].filter((element) => element.classList.contains("border-zinc-500/35"))).toHaveLength(2);
 
     recompareButton?.click();
     await flushAsyncSetup();

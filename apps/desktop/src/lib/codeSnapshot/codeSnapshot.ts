@@ -48,13 +48,13 @@ const SNAPSHOT_BAR_BACKGROUND: Record<AppThemeAppearance, string> = {
 };
 
 const SNAPSHOT_BAR_TEXT: Record<AppThemeAppearance, string> = {
-  light: "#57606a",
-  dark: "#8b949e",
+  light: "#525252",
+  dark: "#8a8a8a",
 };
 
 const SNAPSHOT_LINE_NUMBER: Record<AppThemeAppearance, string> = {
-  light: "#d0d7de",
-  dark: "#484f58",
+  light: "#d4d4d4",
+  dark: "#474747",
 };
 
 const SNAPSHOT_CODE_TEXT: Record<AppThemeAppearance, string> = {
@@ -63,13 +63,13 @@ const SNAPSHOT_CODE_TEXT: Record<AppThemeAppearance, string> = {
 };
 
 const SNAPSHOT_TABLE_NAME_COLOR: Record<AppThemeAppearance, string> = {
-  light: "#116329",
-  dark: "#7ee787",
+  light: "#262626",
+  dark: "#d4d4d4",
 };
 
 const SQL_SNAPSHOT_LANGS = new Set(["sql", "mysql", "postgresql", "postgres", "tsql", "clickhouse", "sqlite"]);
 
-const TRAFFIC_LIGHT_COLORS = ["#ff5f57", "#febc2e", "#28c840"] as const;
+const TRAFFIC_LIGHT_COLORS = ["#a3a3a3", "#c2c2c2", "#d4d4d4"] as const;
 const MAX_EXPORT_PIXEL_RATIO = 2;
 const MAX_EXPORT_CANVAS_EDGE = 16_384;
 const MAX_EXPORT_CANVAS_PIXELS = 64 * 1024 * 1024;
@@ -131,7 +131,7 @@ export const CODE_SNAPSHOT_CSS = `
   min-width: 2.2em;
   margin-right: 1.4em;
   text-align: right;
-  color: var(--dbx-snapshot-line-number, #8b949e);
+  color: var(--dbx-snapshot-line-number, #8a8a8a);
   font-variant-numeric: tabular-nums;
   user-select: none;
   -webkit-user-select: none;
@@ -148,7 +148,7 @@ export const CODE_SNAPSHOT_CSS = `
   min-width: 2.2em;
   margin-right: 1.4em;
   text-align: right;
-  color: var(--dbx-snapshot-line-number, #8b949e);
+  color: var(--dbx-snapshot-line-number, #8a8a8a);
   font-variant-numeric: tabular-nums;
   user-select: none;
   -webkit-user-select: none;

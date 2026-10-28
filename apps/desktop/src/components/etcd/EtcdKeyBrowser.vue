@@ -1211,8 +1211,8 @@ defineExpose({ focusSearch, refresh });
         <Badge variant="outline">命中 {{ searchMatched }} 个</Badge>
         <Badge v-if="searchResults.length" variant="outline">已选 {{ selectedSearchResults.length }} 个</Badge>
         <Badge v-if="searchRunning" variant="outline" class="gap-1.5"><Loader2 class="h-3 w-3 animate-spin" />扫描中</Badge>
-        <Badge v-else-if="searchCancelled && searchHasRun" variant="outline" class="border-amber-500/50 text-amber-700 dark:text-amber-300">已取消，结果可能不完整</Badge>
-        <Badge v-if="searchResultLimitReached" variant="outline" class="border-amber-500/50 text-amber-700 dark:text-amber-300">仅显示前 1,000 个结果</Badge>
+        <Badge v-else-if="searchCancelled && searchHasRun" variant="outline" class="border-zinc-500/50 text-zinc-700 dark:text-zinc-300">已取消，结果可能不完整</Badge>
+        <Badge v-if="searchResultLimitReached" variant="outline" class="border-zinc-500/50 text-zinc-700 dark:text-zinc-300">仅显示前 1,000 个结果</Badge>
         <div class="flex-1" />
         <Button v-if="searchResults.length" size="sm" variant="ghost" class="h-7 px-2" @click="toggleSearchSelection">{{ selectedSearchResults.length === searchResults.length ? "取消全选" : "全选结果" }}</Button>
         <Button v-if="searchHasRun || searchError" size="sm" variant="ghost" class="h-7 gap-1.5 px-2" :disabled="searchRunning" :title="t('etcd.clearSearchResults')" @click="clearSearchResults"><Eraser class="h-3.5 w-3.5" />{{ t("etcd.clearSearchResults") }}</Button>
@@ -1228,7 +1228,7 @@ defineExpose({ focusSearch, refresh });
         </DropdownMenu>
       </div>
       <div v-if="searchError" class="border-b border-destructive/30 bg-destructive/5 px-3 py-2 text-sm text-destructive">{{ searchError }}</div>
-      <div v-if="searchResultLimitReached" class="border-b border-amber-500/30 bg-amber-500/5 px-3 py-2 text-xs text-amber-700 dark:text-amber-300">结果过多，已保留前 1,000 项用于查看和导出。请使用 Prefix 缩小范围。</div>
+      <div v-if="searchResultLimitReached" class="border-b border-zinc-500/30 bg-zinc-500/5 px-3 py-2 text-xs text-zinc-700 dark:text-zinc-300">结果过多，已保留前 1,000 项用于查看和导出。请使用 Prefix 缩小范围。</div>
       <div class="min-h-0 flex-1 overflow-auto">
         <div v-if="searchResults.length" class="divide-y">
           <div v-for="result in searchResults" :key="result.id" class="flex min-w-0 gap-3 px-3 py-3 transition-colors hover:bg-accent/50">
@@ -1237,7 +1237,7 @@ defineExpose({ focusSearch, refresh });
               <div class="flex min-w-0 items-center gap-2">
                 <code class="min-w-0 flex-1 truncate text-sm font-medium text-primary"
                   ><template v-for="(segment, index) in searchSegments(result.displayKey)" :key="index"
-                    ><mark v-if="segment.matched && result.matchesKey" class="rounded-sm bg-amber-300/80 px-0.5 text-foreground dark:bg-amber-500/40">{{ segment.text }}</mark
+                    ><mark v-if="segment.matched && result.matchesKey" class="rounded-sm bg-zinc-300/80 px-0.5 text-foreground dark:bg-zinc-500/40">{{ segment.text }}</mark
                     ><span v-else>{{ segment.text }}</span></template
                   ></code
                 >
@@ -1248,7 +1248,7 @@ defineExpose({ focusSearch, refresh });
               </div>
               <pre
                 class="mt-1.5 max-h-14 overflow-hidden text-ellipsis whitespace-pre-wrap break-all font-mono text-xs text-muted-foreground"
-              ><template v-for="(segment, index) in searchSegments(searchValueDisplay(result.summary.value) || '(空值)')" :key="index"><mark v-if="segment.matched && result.matchesValue" class="rounded-sm bg-amber-300/80 px-0.5 text-foreground dark:bg-amber-500/40">{{ segment.text }}</mark><span v-else>{{ segment.text }}</span></template></pre>
+              ><template v-for="(segment, index) in searchSegments(searchValueDisplay(result.summary.value) || '(空值)')" :key="index"><mark v-if="segment.matched && result.matchesValue" class="rounded-sm bg-zinc-300/80 px-0.5 text-foreground dark:bg-zinc-500/40">{{ segment.text }}</mark><span v-else>{{ segment.text }}</span></template></pre>
               <span class="mt-1 block font-mono text-[11px] text-muted-foreground sm:hidden">rev {{ result.summary.modRevision || "-" }}</span>
             </button>
           </div>
@@ -1363,7 +1363,7 @@ defineExpose({ focusSearch, refresh });
           </div>
         </DialogHeader>
         <div v-if="transferError" class="border-b px-5 py-2 text-sm text-destructive">{{ transferError }}</div>
-        <div v-if="targetReadOnly" class="border-b bg-amber-500/10 px-5 py-2 text-xs text-amber-700 dark:text-amber-300">{{ t("connection.readOnly") }}: {{ t("etcd.targetReadOnly") }}</div>
+        <div v-if="targetReadOnly" class="border-b bg-zinc-500/10 px-5 py-2 text-xs text-zinc-700 dark:text-zinc-300">{{ t("connection.readOnly") }}: {{ t("etcd.targetReadOnly") }}</div>
         <div class="min-h-0 flex-1">
           <div v-if="transferLoading" class="flex h-full flex-col items-center justify-center gap-2 text-sm text-muted-foreground">
             <span class="flex items-center"><Loader2 class="mr-2 h-4 w-4 animate-spin" />{{ t("etcd.preparingPreview") }}</span
@@ -1373,8 +1373,8 @@ defineExpose({ focusSearch, refresh });
           <div v-else class="flex h-full min-h-0 flex-col">
             <div v-if="transferMode === 'sync'" class="flex shrink-0 flex-wrap items-center gap-2 border-b px-5 py-2.5 text-xs text-muted-foreground">
               <Badge variant="outline">共 {{ transferRows.length }} 项</Badge>
-              <Badge variant="outline" class="text-emerald-700 dark:text-emerald-300">新增 {{ transferCreateCount }}</Badge>
-              <Badge v-if="transferConflictCount" variant="outline" class="text-amber-700 dark:text-amber-300">冲突 {{ transferConflictCount }}</Badge>
+              <Badge variant="outline" class="text-zinc-700 dark:text-zinc-300">新增 {{ transferCreateCount }}</Badge>
+              <Badge v-if="transferConflictCount" variant="outline" class="text-zinc-700 dark:text-zinc-300">冲突 {{ transferConflictCount }}</Badge>
               <Badge v-if="transferUnchangedCount" variant="outline">无变化 {{ transferUnchangedCount }}</Badge>
               <Badge v-if="transferSkippedCount" variant="outline">跳过 {{ transferSkippedCount }}</Badge>
               <span v-if="transferHasBlockingConflicts" class="ml-auto text-destructive">当前策略要求解决冲突后才能执行</span>
@@ -1416,7 +1416,7 @@ defineExpose({ focusSearch, refresh });
                     <td class="px-3 py-2"><input v-model="row.selected" type="checkbox" class="h-4 w-4 accent-primary" :disabled="!isTransferRowSelectable(row)" /></td>
                     <td class="max-w-xl truncate px-3 py-2 font-mono text-xs">{{ row.displayKey }}</td>
                     <td class="px-3 py-2">
-                      <Badge :variant="transferOperationVariant(row)" :class="row.operation === 'update' && transferConflictPolicy !== 'OVERWRITE' ? 'border-amber-500/50 text-amber-700 dark:text-amber-300' : ''">{{ transferOperationLabel(row) }}</Badge>
+                      <Badge :variant="transferOperationVariant(row)" :class="row.operation === 'update' && transferConflictPolicy !== 'OVERWRITE' ? 'border-zinc-500/50 text-zinc-700 dark:text-zinc-300' : ''">{{ transferOperationLabel(row) }}</Badge>
                     </td>
                   </tr>
                 </tbody>

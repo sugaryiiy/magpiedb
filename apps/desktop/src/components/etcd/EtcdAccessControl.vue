@@ -509,7 +509,7 @@ onMounted(() => void loadDirectory());
       </div>
       <div class="hidden h-5 w-px bg-border sm:block" />
       <div class="flex items-center gap-1.5 text-xs text-muted-foreground">
-        <ShieldCheck class="h-3.5 w-3.5 text-sky-600" />
+        <ShieldCheck class="h-3.5 w-3.5 text-zinc-600" />
         <span class="font-medium text-foreground/75">{{ t("etcd.access.title") }}</span>
         <span>{{ t("etcd.access.description") }}</span>
       </div>

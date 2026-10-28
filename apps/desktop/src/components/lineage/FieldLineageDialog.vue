@@ -208,8 +208,8 @@ function confidenceVariant(confidence: FieldLineageItem["confidence"]) {
 }
 
 function confidenceTone(confidence: FieldLineageItem["confidence"]) {
-  if (confidence === "certain") return "text-emerald-600 bg-emerald-50 border-emerald-200";
-  if (confidence === "likely") return "text-blue-600 bg-blue-50 border-blue-200";
+  if (confidence === "certain") return "text-zinc-600 bg-zinc-50 border-zinc-200";
+  if (confidence === "likely") return "text-zinc-600 bg-zinc-50 border-zinc-200";
   return "text-zinc-600 bg-zinc-50 border-zinc-200";
 }
 
@@ -375,7 +375,7 @@ function openItemTarget(item: FieldLineageItem) {
                     <pre v-if="item.sqlSnippet" class="mt-2 max-h-20 overflow-auto rounded-md bg-muted/40 p-2 text-xs whitespace-pre-wrap" v-html="highlight(item.sqlSnippet)" />
                   </div>
                   <Button variant="ghost" size="sm" class="h-8 w-8 shrink-0 p-0" :title="t('lineage.copy')" @click="copyItem(item)">
-                    <Check v-if="copiedId === item.id" class="h-4 w-4 text-emerald-600" />
+                    <Check v-if="copiedId === item.id" class="h-4 w-4 text-zinc-600" />
                     <Copy v-else class="h-4 w-4" />
                   </Button>
                 </div>

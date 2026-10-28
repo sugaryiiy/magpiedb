@@ -324,9 +324,9 @@ const canStart = computed(() => {
 });
 
 const statusTone = computed(() => {
-  if (terminalStatus.value === "done") return "text-green-600";
+  if (terminalStatus.value === "done") return "text-zinc-600";
   if (terminalStatus.value === "error") return "text-destructive";
-  if (terminalStatus.value === "cancelled") return "text-yellow-600";
+  if (terminalStatus.value === "cancelled") return "text-zinc-600";
   if (running.value) return "text-primary";
   return "text-muted-foreground";
 });
@@ -1076,7 +1076,7 @@ watch(
                   <tr v-for="(item, index) in perFileResults" :key="index" class="border-t">
                     <td class="px-2.5 py-1.5 truncate" :title="item.fileName">{{ item.fileName }}</td>
                     <td class="px-2 py-1.5 text-right tabular-nums">{{ item.statementIndex }}</td>
-                    <td class="px-2 py-1.5 text-right tabular-nums text-green-600">{{ item.successCount }}</td>
+                    <td class="px-2 py-1.5 text-right tabular-nums text-zinc-600">{{ item.successCount }}</td>
                     <td class="px-2 py-1.5 text-right tabular-nums" :class="{ 'text-destructive': item.failureCount > 0 }">{{ item.failureCount }}</td>
                     <td class="px-2.5 py-1.5 text-right tabular-nums">{{ item.affectedRows.toLocaleString() }}</td>
                   </tr>
@@ -1085,7 +1085,7 @@ watch(
                   <tr>
                     <th scope="row" class="px-2.5 py-2 text-left">{{ t("sqlFile.totalFiles", { count: perFileResults.length }) }}</th>
                     <td class="px-2 py-2 text-right tabular-nums font-bold">{{ progress?.statementIndex ?? 0 }}</td>
-                    <td class="px-2 py-2 text-right tabular-nums font-bold text-green-600">{{ progress?.successCount ?? 0 }}</td>
+                    <td class="px-2 py-2 text-right tabular-nums font-bold text-zinc-600">{{ progress?.successCount ?? 0 }}</td>
                     <td class="px-2 py-2 text-right tabular-nums font-bold" :class="{ 'text-destructive': (progress?.failureCount ?? 0) > 0 }">{{ progress?.failureCount ?? 0 }}</td>
                     <td class="px-2.5 py-2 text-right tabular-nums font-bold">{{ (progress?.affectedRows ?? 0).toLocaleString() }}</td>
                   </tr>
@@ -1102,7 +1102,7 @@ watch(
               </div>
               <div class="border rounded-md px-2 py-1.5 min-w-0">
                 <div class="text-muted-foreground truncate">{{ t("sqlFile.succeeded") }}</div>
-                <div class="font-medium text-green-600 truncate tabular-nums">
+                <div class="font-medium text-zinc-600 truncate tabular-nums">
                   {{ progress?.successCount ?? 0 }}
                 </div>
               </div>

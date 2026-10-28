@@ -76,7 +76,7 @@ const status = computed(() => (state.value === "running" ? t("executionSummary.e
   color: var(--workbench-accent, var(--primary));
 }
 .result-dock-status[data-state="ready"] {
-  color: var(--workbench-success, #34834d);
+  color: var(--workbench-success, #262626);
 }
 .result-dock-status[data-state="error"] {
   color: var(--workbench-danger, var(--destructive));

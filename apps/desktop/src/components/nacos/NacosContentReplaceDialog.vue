@@ -385,16 +385,16 @@ function toggleItemSelection(item: NacosContentReplacePlanItem, event: Event) {
 
 function inlineRowClass(type: NacosInlineDiffRow["type"]) {
   return {
-    "bg-red-500/20 text-red-700 dark:text-red-50": type === "delete",
-    "bg-emerald-500/18 text-emerald-700 dark:text-emerald-50": type === "insert",
+    "bg-zinc-500/25 text-zinc-900 dark:text-zinc-100": type === "delete",
+    "bg-zinc-500/10 text-zinc-600 dark:text-zinc-300": type === "insert",
     "text-foreground": type === "equal",
   };
 }
 
 function inlineGutterClass(type: NacosInlineDiffRow["type"]) {
   return {
-    "text-red-600 dark:text-red-300": type === "delete",
-    "text-emerald-600 dark:text-emerald-300": type === "insert",
+    "text-zinc-800 dark:text-zinc-200": type === "delete",
+    "text-zinc-500 dark:text-zinc-400": type === "insert",
     "text-muted-foreground": type === "equal",
   };
 }
@@ -407,8 +407,8 @@ function inlinePrefix(type: NacosInlineDiffRow["type"]) {
 
 function inlineRowSegmentClass(type: NacosInlineDiffRow["type"], changed: boolean) {
   if (!changed) return "";
-  if (type === "delete") return "rounded-[2px] bg-red-500/80 px-px text-red-50";
-  if (type === "insert") return "rounded-[2px] bg-emerald-500/75 px-px text-emerald-50";
+  if (type === "delete") return "rounded-[2px] bg-zinc-500/80 px-px text-zinc-50";
+  if (type === "insert") return "rounded-[2px] bg-zinc-500/75 px-px text-zinc-50";
   return "";
 }
 </script>
@@ -456,7 +456,7 @@ function inlineRowSegmentClass(type: NacosInlineDiffRow["type"], changed: boolea
           <Button variant="ghost" size="sm" :disabled="busy" @click="selectedHistoryId = ''"><ArrowLeft class="h-4 w-4" />{{ t("nacos.replaceHistory.historyTab") }}</Button>
           <div class="break-all text-sm">{{ new Date(activeEntry!.createdAt).toLocaleString() }} · {{ t(`nacos.replaceHistory.state.${activeEntry!.state}`) }}</div>
           <div class="break-all font-mono text-sm">{{ plan?.search }} → {{ plan?.replacement }}</div>
-          <div v-if="activeEntry?.inFlight || activeEntry?.uncertainItems?.length" class="text-sm text-amber-700 dark:text-amber-300">{{ t("nacos.replaceHistory.interrupted") }}</div>
+          <div v-if="activeEntry?.inFlight || activeEntry?.uncertainItems?.length" class="text-sm text-zinc-700 dark:text-zinc-300">{{ t("nacos.replaceHistory.interrupted") }}</div>
         </div>
         <template v-if="tab === 'replace'">
           <div class="grid gap-3 md:grid-cols-2">
@@ -488,7 +488,7 @@ function inlineRowSegmentClass(type: NacosInlineDiffRow["type"], changed: boolea
             </label>
           </div>
 
-          <div v-if="scope === 'allNamespaces'" class="flex items-start gap-2 rounded-md border border-amber-500/40 bg-amber-500/10 px-3 py-2 text-xs text-amber-700 dark:text-amber-300">
+          <div v-if="scope === 'allNamespaces'" class="flex items-start gap-2 rounded-md border border-zinc-500/40 bg-zinc-500/10 px-3 py-2 text-xs text-zinc-700 dark:text-zinc-300">
             <AlertTriangle class="mt-0.5 h-4 w-4 shrink-0" />
             <span>{{ t("nacos.contentReplaceAllNamespacesWarning") }}</span>
           </div>
@@ -554,7 +554,7 @@ function inlineRowSegmentClass(type: NacosInlineDiffRow["type"], changed: boolea
           </div>
         </section>
 
-        <div v-if="report && (tab === 'replace' || selectedHistoryId)" class="flex items-start gap-2 rounded-md border border-emerald-500/40 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-700 dark:text-emerald-300">
+        <div v-if="report && (tab === 'replace' || selectedHistoryId)" class="flex items-start gap-2 rounded-md border border-zinc-500/40 bg-zinc-500/10 px-3 py-2 text-sm text-zinc-700 dark:text-zinc-300">
           <CheckCircle2 class="mt-0.5 h-4 w-4 shrink-0" />
           <span>{{ t("nacos.contentReplaceReport", { replaced: report.replaced, conflicts: report.conflicts, failed: report.failed }) }}</span>
         </div>

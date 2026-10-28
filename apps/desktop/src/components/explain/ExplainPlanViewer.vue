@@ -80,10 +80,10 @@ function tableCellText(value: unknown): string {
       <span v-if="plan || hasTableView" class="shrink-0 whitespace-nowrap text-muted-foreground">
         {{ plan?.databaseType.toUpperCase() || "MYSQL" }}<template v-if="plan"> · {{ t("explain.nodeCount", { count: nodeCount }) }}</template>
       </span>
-      <span v-if="plan?.databaseType === 'dameng' && isRawString && rawContent.includes('->')" class="shrink-0 whitespace-nowrap ml-1 inline-flex items-center gap-1 rounded bg-green-100 px-1.5 py-0.5 font-semibold text-green-700 dark:bg-green-900/30 dark:text-green-300" style="font-size: 10px"
+      <span v-if="plan?.databaseType === 'dameng' && isRawString && rawContent.includes('->')" class="shrink-0 whitespace-nowrap ml-1 inline-flex items-center gap-1 rounded bg-zinc-100 px-1.5 py-0.5 font-semibold text-zinc-700 dark:bg-zinc-900/30 dark:text-zinc-300" style="font-size: 10px"
         >A-TRACE</span
       >
-      <span v-if="measuredRowsLabel" class="shrink-0 whitespace-nowrap ml-1 inline-flex items-center gap-1 rounded bg-green-100 px-1.5 py-0.5 font-semibold text-green-700 dark:bg-green-900/30 dark:text-green-300" style="font-size: 10px">{{ measuredRowsLabel }}</span>
+      <span v-if="measuredRowsLabel" class="shrink-0 whitespace-nowrap ml-1 inline-flex items-center gap-1 rounded bg-zinc-100 px-1.5 py-0.5 font-semibold text-zinc-700 dark:bg-zinc-900/30 dark:text-zinc-300" style="font-size: 10px">{{ measuredRowsLabel }}</span>
       <span class="flex-1 min-w-2" />
       <div v-if="plan || hasTableView" class="shrink-0 inline-flex rounded-md border bg-muted/40 p-0.5">
         <Button v-if="plan" size="sm" :variant="activeView === 'canvas' ? 'secondary' : 'ghost'" class="h-6 px-2 text-xs gap-1" @click="activeView = 'canvas'">

@@ -374,7 +374,7 @@ function requestClose() {
             {{ selectedSource ? t("tableImport.changeFile") : t("tableImport.selectFile") }}
           </Button>
         </div>
-        <div v-if="effectivelyReadOnly" class="text-xs text-amber-600">{{ t("mongo.import.readonly") }}</div>
+        <div v-if="effectivelyReadOnly" class="text-xs text-zinc-600">{{ t("mongo.import.readonly") }}</div>
 
         <div v-if="wizardStep === 'source'" class="space-y-3">
           <div class="grid grid-cols-3 gap-3 rounded-md border p-3">
@@ -493,7 +493,7 @@ function requestClose() {
           <div>{{ t("mongo.import.rowsFailed") }}: {{ progress?.rowsFailed ?? 0 }}</div>
           <div>{{ t("mongo.import.batchesCommitted") }}: {{ progress?.batchesCommitted ?? 0 }}</div>
           <div v-if="errorMessage" class="rounded-md border border-destructive/30 bg-destructive/10 px-3 py-2 text-xs text-destructive">{{ errorMessage }}</div>
-          <div v-if="closeBlocked" class="flex items-center gap-2 text-amber-600">
+          <div v-if="closeBlocked" class="flex items-center gap-2 text-zinc-600">
             <AlertTriangle class="h-4 w-4" />
             {{ t("mongo.import.stillRunning") }}
           </div>

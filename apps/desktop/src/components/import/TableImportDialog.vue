@@ -1317,7 +1317,7 @@ watch(rawProgressPercent, (percent) => {
                   activateBatchTask(index);
                 "
               >
-                <CheckCircle2 v-if="task.status === 'done'" class="h-3.5 w-3.5 shrink-0 text-emerald-500" />
+                <CheckCircle2 v-if="task.status === 'done'" class="h-3.5 w-3.5 shrink-0 text-zinc-500" />
                 <Loader2 v-else-if="task.status === 'running'" class="h-3.5 w-3.5 shrink-0 animate-spin" />
                 <AlertTriangle v-else-if="task.status === 'error'" class="h-3.5 w-3.5 shrink-0 text-destructive" />
                 <FileSpreadsheet v-else-if="task.format === 'excel'" class="h-3.5 w-3.5 shrink-0" />
@@ -1684,7 +1684,7 @@ watch(rawProgressPercent, (percent) => {
           <div v-else-if="conflictPolicyError" class="rounded-md border border-destructive/30 bg-destructive/10 px-3 py-2 text-xs text-destructive">
             {{ conflictPolicyError }}
           </div>
-          <div v-else-if="requiredUnmappedColumns.length" class="flex items-start gap-2 rounded-md border border-amber-300 bg-amber-50 px-3 py-2 text-xs text-amber-800 dark:bg-amber-950/20 dark:text-amber-300">
+          <div v-else-if="requiredUnmappedColumns.length" class="flex items-start gap-2 rounded-md border border-zinc-300 bg-zinc-50 px-3 py-2 text-xs text-zinc-800 dark:bg-zinc-950/20 dark:text-zinc-300">
             <AlertTriangle class="mt-0.5 h-3.5 w-3.5 shrink-0" />
             <span>{{ t("tableImport.requiredUnmapped", { columns: requiredUnmappedColumns.join(", ") }) }}</span>
           </div>
@@ -1754,7 +1754,7 @@ watch(rawProgressPercent, (percent) => {
               </table>
             </div>
           </div>
-          <div v-if="importMode === 'truncate'" class="flex items-start gap-2 rounded-md border border-amber-300 bg-amber-50 px-3 py-2 text-xs text-amber-800 dark:bg-amber-950/20 dark:text-amber-300">
+          <div v-if="importMode === 'truncate'" class="flex items-start gap-2 rounded-md border border-zinc-300 bg-zinc-50 px-3 py-2 text-xs text-zinc-800 dark:bg-zinc-950/20 dark:text-zinc-300">
             <AlertTriangle class="mt-0.5 h-3.5 w-3.5 shrink-0" />
             <span>{{ t("tableImport.truncateWarning") }}</span>
           </div>
@@ -1764,7 +1764,7 @@ watch(rawProgressPercent, (percent) => {
           <div class="rounded-md border px-4 py-5">
             <div class="flex items-center gap-3">
               <Square v-if="cancelling || progress?.status === 'cancelled'" class="h-5 w-5 fill-current text-destructive" />
-              <CheckCircle2 v-else-if="progress?.status === 'done'" class="h-5 w-5 text-emerald-600" />
+              <CheckCircle2 v-else-if="progress?.status === 'done'" class="h-5 w-5 text-zinc-600" />
               <AlertTriangle v-else-if="progress?.status === 'error'" class="h-5 w-5 text-destructive" />
               <Loader2 v-else-if="running" class="h-5 w-5 animate-spin text-primary" />
               <FileUp v-else class="h-5 w-5 text-muted-foreground" />
@@ -1782,7 +1782,7 @@ watch(rawProgressPercent, (percent) => {
               <div class="h-full bg-primary transition-all" :style="{ width: `${progressPercent}%` }" />
             </div>
           </div>
-          <div v-if="running" class="flex items-start gap-2 rounded-md border border-amber-300 bg-amber-50 px-3 py-2 text-xs text-amber-800 dark:border-amber-800 dark:bg-amber-950/20 dark:text-amber-300">
+          <div v-if="running" class="flex items-start gap-2 rounded-md border border-zinc-300 bg-zinc-50 px-3 py-2 text-xs text-zinc-800 dark:border-zinc-800 dark:bg-zinc-950/20 dark:text-zinc-300">
             <AlertTriangle class="mt-0.5 h-3.5 w-3.5 shrink-0" />
             <span>{{ t("tableImport.backgroundWarning") }}</span>
           </div>
@@ -1856,7 +1856,7 @@ watch(rawProgressPercent, (percent) => {
   <Teleport to="body">
     <div v-if="minimized" class="fixed bottom-4 right-4 z-[100] flex max-w-[calc(100vw-2rem)] items-center gap-2 rounded-md border bg-popover px-3 py-2 text-popover-foreground shadow-lg" :title="running ? t('tableImport.backgroundWarning') : undefined">
       <Loader2 v-if="running" class="h-4 w-4 shrink-0 animate-spin text-primary" />
-      <CheckCircle2 v-else-if="progress?.status === 'done'" class="h-4 w-4 shrink-0 text-emerald-600" />
+      <CheckCircle2 v-else-if="progress?.status === 'done'" class="h-4 w-4 shrink-0 text-zinc-600" />
       <AlertTriangle v-else class="h-4 w-4 shrink-0 text-destructive" />
       <span class="min-w-0 truncate text-xs">{{ t(progressLabelKey) }} · {{ progressPercent }}%</span>
       <Button variant="ghost" size="icon-sm" :aria-label="t('tableImport.restoreImport')" :title="t('tableImport.restoreImport')" @click="restoreImport">

@@ -226,7 +226,7 @@ const customRepositories = computed(() => repositories.value.filter((repository)
 const showCustomRepositoryTrustSettings = computed(() => customRepositories.value.length > 0 || trustedKeys.value.length > 0);
 
 function marketplaceActionClass(listing: MarketplacePluginListing): string {
-  if (listing.status === "update") return "bg-blue-600/10 text-blue-700 hover:bg-blue-600/20 dark:bg-blue-400/10 dark:text-blue-400 dark:hover:bg-blue-400/20";
+  if (listing.status === "update") return "bg-zinc-600/10 text-zinc-700 hover:bg-zinc-600/20 dark:bg-zinc-400/10 dark:text-zinc-400 dark:hover:bg-zinc-400/20";
   if (listing.status === "install") return "bg-muted text-foreground hover:bg-accent";
   return "cursor-default bg-muted text-muted-foreground";
 }
@@ -1100,7 +1100,7 @@ onBeforeUnmount(() => {
         <TabsTrigger value="marketplace" class="gap-1.5 text-xs"><Store class="size-3.5" />{{ t("pluginPlatform.marketplace") }}</TabsTrigger>
         <TabsTrigger value="installed" class="gap-1.5 text-xs">
           <PackageCheck class="size-3.5" />{{ t("pluginPlatform.installed") }}
-          <span v-if="installedUpdateCount" class="inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-amber-500 px-1 text-[10px] font-semibold text-amber-950 dark:text-amber-950">{{ installedUpdateCount > 99 ? "99+" : installedUpdateCount }}</span>
+          <span v-if="installedUpdateCount" class="inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-zinc-500 px-1 text-[10px] font-semibold text-zinc-950 dark:text-zinc-950">{{ installedUpdateCount > 99 ? "99+" : installedUpdateCount }}</span>
         </TabsTrigger>
         <TabsTrigger value="settings" class="gap-1.5 text-xs"><Settings2 class="size-3.5" />{{ t("pluginPlatform.settings") }}</TabsTrigger>
       </TabsList>
@@ -1177,7 +1177,7 @@ onBeforeUnmount(() => {
             </div>
           </div>
 
-          <div v-for="result in catalogErrors" :key="result.repository.id" class="flex items-start gap-2 rounded-lg border border-amber-500/30 bg-amber-500/5 px-3 py-2 text-xs text-amber-800 dark:text-amber-200">
+          <div v-for="result in catalogErrors" :key="result.repository.id" class="flex items-start gap-2 rounded-lg border border-zinc-500/30 bg-zinc-500/5 px-3 py-2 text-xs text-zinc-800 dark:text-zinc-200">
             <CircleAlert class="mt-0.5 size-3.5 shrink-0" />
             <div>
               <span class="font-medium">{{ result.repository.name }}:</span> {{ result.error }}
@@ -1197,7 +1197,7 @@ onBeforeUnmount(() => {
                 <div class="min-w-0 flex-1">
                   <div class="truncate text-sm font-semibold" :title="listing.name">{{ listing.name }}</div>
                   <div class="mt-1 flex min-w-0 items-center gap-1 text-xs text-muted-foreground">
-                    <BadgeCheck v-if="listingRepositoryCanVerify(listing.repository)" class="size-3.5 shrink-0 text-emerald-600 dark:text-emerald-400" :title="t('pluginPlatform.verified')" :aria-label="t('pluginPlatform.verified')" />
+                    <BadgeCheck v-if="listingRepositoryCanVerify(listing.repository)" class="size-3.5 shrink-0 text-zinc-600 dark:text-zinc-400" :title="t('pluginPlatform.verified')" :aria-label="t('pluginPlatform.verified')" />
                     <span class="truncate">{{ listing.plugin.publisher }} · {{ listing.repository.name }}</span>
                   </div>
                 </div>
@@ -1312,7 +1312,7 @@ onBeforeUnmount(() => {
               <div class="min-w-0 flex-1">
                 <div class="flex min-w-0 items-center gap-1">
                   <span class="truncate text-sm font-semibold" :title="listing.name">{{ listing.name }}</span>
-                  <BadgeCheck v-if="listingRepositoryCanVerify(listing.repository)" class="size-3.5 shrink-0 text-emerald-600 dark:text-emerald-400" :title="t('pluginPlatform.verified')" :aria-label="t('pluginPlatform.verified')" />
+                  <BadgeCheck v-if="listingRepositoryCanVerify(listing.repository)" class="size-3.5 shrink-0 text-zinc-600 dark:text-zinc-400" :title="t('pluginPlatform.verified')" :aria-label="t('pluginPlatform.verified')" />
                 </div>
                 <div class="mt-1 flex min-w-0 flex-wrap items-center gap-x-1.5 gap-y-0.5 text-xs text-muted-foreground">
                   <span class="min-w-0 truncate">{{ listing.plugin.publisher }} · {{ listing.repository.name }}</span>
@@ -1396,18 +1396,18 @@ onBeforeUnmount(() => {
 
           <!-- Partial catalog failure (some enabled repositories errored): the check is incomplete,
                so it is surfaced on its own and must never degrade into "all up to date". -->
-          <div v-if="catalogPartialFailure" class="flex items-start gap-2 rounded-lg border border-amber-500/30 bg-amber-500/5 px-3 py-2 text-xs text-amber-800 dark:text-amber-200">
+          <div v-if="catalogPartialFailure" class="flex items-start gap-2 rounded-lg border border-zinc-500/30 bg-zinc-500/5 px-3 py-2 text-xs text-zinc-800 dark:text-zinc-200">
             <CircleAlert class="mt-0.5 size-3.5 shrink-0" />
             <div>{{ t("pluginPlatform.updateCheckPartialFailure") }}</div>
           </div>
-          <div v-for="result in catalogErrors" :key="`installed-${result.repository.id}`" class="flex items-start gap-2 rounded-lg border border-amber-500/30 bg-amber-500/5 px-3 py-2 text-xs text-amber-800 dark:text-amber-200">
+          <div v-for="result in catalogErrors" :key="`installed-${result.repository.id}`" class="flex items-start gap-2 rounded-lg border border-zinc-500/30 bg-zinc-500/5 px-3 py-2 text-xs text-zinc-800 dark:text-zinc-200">
             <CircleAlert class="mt-0.5 size-3.5 shrink-0" />
             <div>
               <span class="font-medium">{{ result.repository.name }}:</span> {{ result.error }}
             </div>
           </div>
           <!-- Honest update-check states: a failed or missing catalog must never read as "up to date". -->
-          <div v-if="marketplaceUnavailable" class="flex items-start gap-2 rounded-lg border border-amber-500/30 bg-amber-500/5 px-3 py-2 text-xs text-amber-800 dark:text-amber-200">
+          <div v-if="marketplaceUnavailable" class="flex items-start gap-2 rounded-lg border border-zinc-500/30 bg-zinc-500/5 px-3 py-2 text-xs text-zinc-800 dark:text-zinc-200">
             <CircleAlert class="mt-0.5 size-3.5 shrink-0" />
             <div class="min-w-0 flex-1">
               <span class="font-medium">{{ t("pluginPlatform.updateCheckUnavailable") }}</span> · {{ t("pluginPlatform.updateCheckUnavailableDescription") }}
@@ -1418,7 +1418,7 @@ onBeforeUnmount(() => {
             <CircleAlert class="mt-0.5 size-3.5 shrink-0" />
             <div>{{ t("pluginPlatform.noRepositoriesEnabled") }}</div>
           </div>
-          <div v-else-if="installedUpdateCount" class="flex flex-wrap items-center gap-3 rounded-lg border border-amber-500/30 bg-amber-500/10 px-4 py-2.5">
+          <div v-else-if="installedUpdateCount" class="flex flex-wrap items-center gap-3 rounded-lg border border-zinc-500/30 bg-zinc-500/10 px-4 py-2.5">
             <div class="min-w-0">
               <div class="text-sm font-semibold">{{ t("pluginPlatform.installedUpdatesAvailableTitle", { count: installedUpdateCount }) }}</div>
               <p class="text-xs text-muted-foreground">{{ t("pluginPlatform.installedUpdatesAvailableDescription") }}</p>
@@ -1432,7 +1432,7 @@ onBeforeUnmount(() => {
             </div>
           </div>
           <div v-else-if="catalogChecked && !catalogPartialFailure && installedPlugins.length" class="flex items-center gap-2 rounded-lg border px-3 py-2 text-xs text-muted-foreground">
-            <BadgeCheck class="size-3.5 text-emerald-600 dark:text-emerald-400" />
+            <BadgeCheck class="size-3.5 text-zinc-600 dark:text-zinc-400" />
             <div>{{ t("pluginPlatform.allPluginsUpToDate") }}</div>
           </div>
           <div v-else-if="marketplaceLoading && installedPlugins.length" class="flex items-center gap-2 rounded-lg border px-3 py-2 text-xs text-muted-foreground">
@@ -1463,7 +1463,7 @@ onBeforeUnmount(() => {
                       <Badge variant="outline" class="h-4 px-1.5 text-[10px]">v{{ definition.plugin.manifest.version || "-" }}</Badge>
                       <span
                         v-if="installedUpdateEntryFor(definition.plugin.manifest.id)"
-                        class="inline-flex h-4 items-center gap-0.5 rounded-full border border-amber-500/40 bg-amber-500/10 px-1.5 text-[10px] font-medium text-amber-700 dark:text-amber-300"
+                        class="inline-flex h-4 items-center gap-0.5 rounded-full border border-zinc-500/40 bg-zinc-500/10 px-1.5 text-[10px] font-medium text-zinc-700 dark:text-zinc-300"
                         :title="t('pluginPlatform.installedVersionUpdatable', { installed: definition.plugin.manifest.version || '0.0.0', latest: installedUpdateEntryFor(definition.plugin.manifest.id)?.listing.plugin.latestVersion })"
                       >
                         <ArrowUp class="size-2.5" />v{{ installedUpdateEntryFor(definition.plugin.manifest.id)?.listing.plugin.latestVersion }}
@@ -1621,7 +1621,7 @@ onBeforeUnmount(() => {
             </div>
             <div class="flex flex-wrap items-center gap-3">
               <Button variant="outline" size="sm" class="h-8 gap-1.5" :disabled="mutationRunning" @click="choosePluginPackage"><Loader2 v-if="installing" class="size-3.5 animate-spin" /><FileUp v-else class="size-3.5" />{{ t("pluginPlatform.installPackage") }}</Button>
-              <div class="flex items-center gap-1.5 text-[11px] text-muted-foreground"><ShieldCheck class="size-3.5 text-emerald-600 dark:text-emerald-400" />{{ t("pluginPlatform.signedPackagesVerifiedAutomatically") }}</div>
+              <div class="flex items-center gap-1.5 text-[11px] text-muted-foreground"><ShieldCheck class="size-3.5 text-zinc-600 dark:text-zinc-400" />{{ t("pluginPlatform.signedPackagesVerifiedAutomatically") }}</div>
               <div class="flex items-center gap-1.5 text-[11px] text-muted-foreground"><FileUp class="size-3.5" />{{ t("pluginPlatform.dropInstallHint") }}</div>
             </div>
             <div class="flex flex-wrap items-center gap-2">
@@ -1681,7 +1681,7 @@ onBeforeUnmount(() => {
               <ChevronRight class="mt-2 size-4 shrink-0 text-muted-foreground transition-transform group-open:rotate-90" />
             </summary>
             <div class="space-y-4 border-t p-4">
-              <div class="flex gap-2.5 rounded-lg border border-amber-500/30 bg-amber-500/5 p-3 text-amber-800 dark:text-amber-200">
+              <div class="flex gap-2.5 rounded-lg border border-zinc-500/30 bg-zinc-500/5 p-3 text-zinc-800 dark:text-zinc-200">
                 <CircleAlert class="mt-0.5 size-4 shrink-0" />
                 <div class="text-xs leading-5">{{ t("pluginPlatform.developerOptionsWarning") }}</div>
               </div>
@@ -1751,8 +1751,8 @@ onBeforeUnmount(() => {
               </div>
             </dl>
           </div>
-          <div class="rounded-lg border border-amber-500/40 p-3">
-            <div class="mb-2 text-[11px] font-semibold text-amber-700 dark:text-amber-300">{{ t("pluginPlatform.provenanceCandidate") }}</div>
+          <div class="rounded-lg border border-zinc-500/40 p-3">
+            <div class="mb-2 text-[11px] font-semibold text-zinc-700 dark:text-zinc-300">{{ t("pluginPlatform.provenanceCandidate") }}</div>
             <dl class="space-y-1">
               <div class="flex justify-between gap-2">
                 <dt class="shrink-0 text-muted-foreground">{{ t("pluginPlatform.provenanceRepository") }}</dt>

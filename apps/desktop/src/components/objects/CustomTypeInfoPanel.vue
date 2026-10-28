@@ -207,8 +207,8 @@ defineExpose({ selectTab });
 
         <!-- DDL -->
         <div v-else class="flex h-full flex-col">
-          <div v-if="details.ddl && !details.ddl.complete" class="border-b border-amber-500/30 bg-amber-500/10 px-3 py-1.5">
-            <div v-for="warning in details.ddl.warnings" :key="warning" class="text-[11px] text-amber-600 dark:text-amber-400">{{ warning }}</div>
+          <div v-if="details.ddl && !details.ddl.complete" class="border-b border-zinc-500/30 bg-zinc-500/10 px-3 py-1.5">
+            <div v-for="warning in details.ddl.warnings" :key="warning" class="text-[11px] text-zinc-600 dark:text-zinc-400">{{ warning }}</div>
           </div>
           <pre class="flex-1 overflow-auto whitespace-pre-wrap break-words p-3 font-mono text-[11px] leading-relaxed">{{ ddlText || t("customType.ddl.empty") }}</pre>
         </div>

@@ -94,14 +94,14 @@ async function saveSafeHtml() {
         :aria-label="copied ? t('ai.copied') : t('ai.htmlCopySource')"
         @click="copySource"
       >
-        <Check v-if="copied" class="h-3.5 w-3.5 text-green-500" />
+        <Check v-if="copied" class="h-3.5 w-3.5 text-zinc-500" />
         <Copy v-else class="h-3.5 w-3.5" />
       </button>
       <button type="button" class="rounded p-1 text-zinc-500 hover:bg-zinc-200 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:hover:text-zinc-100" :title="t('ai.htmlSaveSafe')" :aria-label="t('ai.htmlSaveSafe')" @click="saveSafeHtml">
         <Download class="h-3.5 w-3.5" />
       </button>
     </div>
-    <div v-if="showCopyConfirm" class="flex items-start gap-2 border-b border-amber-300 bg-amber-50 px-3 py-2 text-xs text-amber-900 dark:border-amber-500/40 dark:bg-amber-500/10 dark:text-amber-200" role="alertdialog" :aria-label="t('ai.htmlCopySource')">
+    <div v-if="showCopyConfirm" class="flex items-start gap-2 border-b border-zinc-300 bg-zinc-50 px-3 py-2 text-xs text-zinc-900 dark:border-zinc-500/40 dark:bg-zinc-500/10 dark:text-zinc-200" role="alertdialog" :aria-label="t('ai.htmlCopySource')">
       <AlertTriangle class="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" />
       <div class="min-w-0 flex-1">
         <p class="leading-snug">{{ t("ai.htmlCopyRiskBody") }}</p>
@@ -111,8 +111,8 @@ async function saveSafeHtml() {
             <span>{{ t("ai.htmlCopyRiskRemember") }}</span>
           </label>
           <span class="flex-1" />
-          <button type="button" class="rounded border border-amber-400 px-2 py-0.5 hover:bg-amber-100 dark:border-amber-500/50 dark:hover:bg-amber-500/20" @click="cancelCopy">{{ t("common.cancel") }}</button>
-          <button type="button" class="rounded bg-amber-600 px-2 py-0.5 font-medium text-white hover:bg-amber-700" @click="confirmCopy">{{ t("ai.htmlCopyRiskAccept") }}</button>
+          <button type="button" class="rounded border border-zinc-400 px-2 py-0.5 hover:bg-zinc-100 dark:border-zinc-500/50 dark:hover:bg-zinc-500/20" @click="cancelCopy">{{ t("common.cancel") }}</button>
+          <button type="button" class="rounded bg-zinc-600 px-2 py-0.5 font-medium text-white hover:bg-zinc-700" @click="confirmCopy">{{ t("ai.htmlCopyRiskAccept") }}</button>
         </div>
       </div>
     </div>

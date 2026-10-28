@@ -263,7 +263,7 @@ export function renderGeometryOnCanvas(canvas: HTMLCanvasElement, geometry: Pars
   const midY = (minY + maxY) / 2;
   const mapX = (x: number) => (x - midX) * scale + W / 2;
   const mapY = (y: number) => -(y - midY) * scale + H / 2;
-  ctx.strokeStyle = "#3b82f6";
+  ctx.strokeStyle = "#525252";
   ctx.fillStyle = "rgba(59, 130, 246, 0.15)";
   ctx.lineWidth = 1.5;
   ctx.lineJoin = "round";

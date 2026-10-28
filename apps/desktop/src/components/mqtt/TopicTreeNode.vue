@@ -54,7 +54,7 @@ function toggle() {
 
       <template v-if="savedConfig">
         <span class="shrink-0 rounded border px-1 py-0.5 text-[10px] text-muted-foreground">QoS {{ savedConfig.qos === "atmostonce" ? 0 : savedConfig.qos === "atleastonce" ? 1 : 2 }}</span>
-        <span v-if="savedConfig.noLocal" class="shrink-0 rounded border border-blue-400/40 px-1 py-0.5 text-[10px] text-blue-600 dark:text-blue-400" :title="t('connection.mqttNoLocalMqtt5Only')">NL</span>
+        <span v-if="savedConfig.noLocal" class="shrink-0 rounded border border-zinc-400/40 px-1 py-0.5 text-[10px] text-zinc-600 dark:text-zinc-400" :title="t('connection.mqttNoLocalMqtt5Only')">NL</span>
         <span class="hidden shrink-0 text-[10px] text-muted-foreground sm:inline">{{ active ? t("connection.mqttSubscriptionStatusActive") : savedConfig.enabled ? t("connection.mqttSubscriptionStatusPending") : t("connection.mqttSubscriptionStatusDisabled") }}</span>
         <button
           type="button"
@@ -62,7 +62,7 @@ function toggle() {
           :title="active ? t('connection.mqttSubscriptionDisable') : t('connection.mqttSubscriptionEnable')"
           @click.stop="emit('toggleEnabled', savedConfig)"
         >
-          <Power class="h-3.5 w-3.5" :class="active ? 'text-emerald-600 dark:text-emerald-400' : ''" />
+          <Power class="h-3.5 w-3.5" :class="active ? 'text-zinc-600 dark:text-zinc-400' : ''" />
         </button>
         <button type="button" class="flex h-6 w-6 shrink-0 items-center justify-center rounded text-muted-foreground hover:bg-muted hover:text-foreground" :title="t('connection.mqttSubscriptionEdit')" @click.stop="emit('edit', savedConfig)">
           <Pencil class="h-3.5 w-3.5" />

@@ -90,35 +90,35 @@ function sumSeries(a: number[], b: number[]): number[] {
 }
 
 const sessionsSeries = computed(() => [
-  { name: t("serverDashboard.total"), data: samples.value.slice(1).map((s) => statusNumber(s.status, "connections")), color: "#3b82f6" },
-  { name: t("serverDashboard.active"), data: samples.value.slice(1).map((s) => statusNumber(s.status, "active_connections")), color: "#a3e635" },
-  { name: t("serverDashboard.idle"), data: samples.value.slice(1).map((s) => statusNumber(s.status, "idle_connections")), color: "#ef4444" },
+  { name: t("serverDashboard.total"), data: samples.value.slice(1).map((s) => statusNumber(s.status, "connections")), color: "#262626" },
+  { name: t("serverDashboard.active"), data: samples.value.slice(1).map((s) => statusNumber(s.status, "active_connections")), color: "#b0b0b0" },
+  { name: t("serverDashboard.idle"), data: samples.value.slice(1).map((s) => statusNumber(s.status, "idle_connections")), color: "#111111" },
 ]);
 
 const transactionsSeries = computed(() => {
   const commit = rateSeries("xact_commit");
   const rollback = rateSeries("xact_rollback");
   return [
-    { name: t("serverDashboard.total"), data: sumSeries(commit, rollback), color: "#3b82f6" },
-    { name: t("serverDashboard.commit"), data: commit, color: "#a3e635" },
-    { name: t("serverDashboard.rollback"), data: rollback, color: "#ef4444" },
+    { name: t("serverDashboard.total"), data: sumSeries(commit, rollback), color: "#262626" },
+    { name: t("serverDashboard.commit"), data: commit, color: "#b0b0b0" },
+    { name: t("serverDashboard.rollback"), data: rollback, color: "#111111" },
   ];
 });
 
 const tuplesInSeries = computed(() => [
-  { name: "INSERT", data: rateSeries("tup_inserted"), color: "#3b82f6" },
-  { name: "UPDATE", data: rateSeries("tup_updated"), color: "#a3e635" },
-  { name: "DELETE", data: rateSeries("tup_deleted"), color: "#ef4444" },
+  { name: "INSERT", data: rateSeries("tup_inserted"), color: "#262626" },
+  { name: "UPDATE", data: rateSeries("tup_updated"), color: "#b0b0b0" },
+  { name: "DELETE", data: rateSeries("tup_deleted"), color: "#111111" },
 ]);
 
 const tuplesOutSeries = computed(() => [
-  { name: t("serverDashboard.fetched"), data: rateSeries("tup_fetched"), color: "#3b82f6" },
-  { name: t("serverDashboard.returned"), data: rateSeries("tup_returned"), color: "#a3e635" },
+  { name: t("serverDashboard.fetched"), data: rateSeries("tup_fetched"), color: "#262626" },
+  { name: t("serverDashboard.returned"), data: rateSeries("tup_returned"), color: "#b0b0b0" },
 ]);
 
 const blockIoSeries = computed(() => [
-  { name: t("serverDashboard.read"), data: rateSeries("blks_read"), color: "#3b82f6" },
-  { name: t("serverDashboard.hits"), data: rateSeries("blks_hit"), color: "#a3e635" },
+  { name: t("serverDashboard.read"), data: rateSeries("blks_read"), color: "#262626" },
+  { name: t("serverDashboard.hits"), data: rateSeries("blks_hit"), color: "#b0b0b0" },
 ]);
 
 function formatClock(at: number): string {

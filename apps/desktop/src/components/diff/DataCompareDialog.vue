@@ -718,8 +718,8 @@ function resultStatusLabel(status: DataCompareTableStatus): string {
 }
 
 function resultStatusClass(status: DataCompareTableStatus): string {
-  if (status === "different") return "bg-amber-500/15 text-amber-700";
-  if (status === "same") return "bg-emerald-500/15 text-emerald-700";
+  if (status === "different") return "bg-zinc-500/15 text-zinc-700";
+  if (status === "same") return "bg-zinc-500/15 text-zinc-700";
   return "bg-destructive/15 text-destructive";
 }
 
@@ -1226,9 +1226,9 @@ onBeforeUnmount(() => {
       <div class="flex-1 min-h-0 min-w-0 overflow-auto">
         <fieldset :disabled="executionLocked" class="space-y-4 py-2">
           <div class="grid grid-cols-[1fr_auto_1fr] gap-4 items-start">
-            <div class="space-y-2 rounded-lg border border-blue-500/35 bg-blue-500/5 p-3">
-              <div class="flex items-center gap-2 text-sm font-medium text-blue-600 dark:text-blue-400">
-                <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-blue-500/15 text-[11px] font-semibold">S</span>
+            <div class="space-y-2 rounded-lg border border-zinc-500/35 bg-zinc-500/5 p-3">
+              <div class="flex items-center gap-2 text-sm font-medium text-zinc-600 dark:text-zinc-400">
+                <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-zinc-500/15 text-[11px] font-semibold">S</span>
                 {{ t("diff.source") }}
               </div>
               <ConnectionTreeSelect
@@ -1282,9 +1282,9 @@ onBeforeUnmount(() => {
               </Button>
             </div>
 
-            <div class="space-y-2 rounded-lg border border-emerald-500/35 bg-emerald-500/5 p-3">
-              <div class="flex items-center gap-2 text-sm font-medium text-emerald-600 dark:text-emerald-400">
-                <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/15 text-[11px] font-semibold">T</span>
+            <div class="space-y-2 rounded-lg border border-zinc-500/35 bg-zinc-500/5 p-3">
+              <div class="flex items-center gap-2 text-sm font-medium text-zinc-600 dark:text-zinc-400">
+                <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-zinc-500/15 text-[11px] font-semibold">T</span>
                 {{ t("diff.target") }}
               </div>
               <ConnectionTreeSelect
@@ -1431,7 +1431,7 @@ onBeforeUnmount(() => {
               <div class="text-xs text-muted-foreground">{{ selectedSummary }}</div>
             </div>
 
-            <div v-if="truncatedResults.length" class="rounded-lg border border-amber-500/40 bg-amber-500/10 p-3 text-xs text-amber-700 space-y-1 dark:text-amber-400">
+            <div v-if="truncatedResults.length" class="rounded-lg border border-zinc-500/40 bg-zinc-500/10 p-3 text-xs text-zinc-700 space-y-1 dark:text-zinc-400">
               <div class="text-sm font-medium">{{ t("dataCompare.truncatedTitle") }}</div>
               <div>{{ t("dataCompare.truncatedHint") }}</div>
               <ul class="list-disc space-y-0.5 pl-4">
@@ -1522,7 +1522,7 @@ onBeforeUnmount(() => {
                               })
                             }}
                           </div>
-                          <div v-if="item.sourceTruncated || item.targetTruncated" class="mt-1 text-amber-700 dark:text-amber-400">
+                          <div v-if="item.sourceTruncated || item.targetTruncated" class="mt-1 text-zinc-700 dark:text-zinc-400">
                             {{ t("dataCompare.truncatedBadge", { budget: item.rowBudget }) }}
                           </div>
                           <div class="mt-1">

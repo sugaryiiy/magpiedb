@@ -176,7 +176,7 @@ watch(
                 variant="ghost"
                 size="icon"
                 class="h-6 w-6"
-                :class="wordWrapEnabled ? 'bg-sky-500/10 text-sky-700 hover:bg-sky-500/20 hover:text-sky-800 dark:text-sky-300 dark:hover:text-sky-200' : 'text-muted-foreground/70 hover:bg-muted hover:text-muted-foreground'"
+                :class="wordWrapEnabled ? 'bg-zinc-500/10 text-zinc-700 hover:bg-zinc-500/20 hover:text-zinc-800 dark:text-zinc-300 dark:hover:text-zinc-200' : 'text-muted-foreground/70 hover:bg-muted hover:text-muted-foreground'"
                 :title="t('settings.wordWrap')"
                 :aria-label="t('settings.wordWrap')"
                 :aria-pressed="wordWrapEnabled"

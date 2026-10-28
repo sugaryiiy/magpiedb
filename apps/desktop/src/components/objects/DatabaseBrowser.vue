@@ -454,7 +454,7 @@ defineExpose({ focusSearch, refresh });
                   :class="{ 'flex items-center gap-2 text-[13px] font-medium text-foreground': key === 'name', 'tabular-nums': key === 'sizeBytes' || key === 'createdAt' || key === 'updatedAt' }"
                   :title="displayValue(row, key)"
                 >
-                  <Database v-if="key === 'name'" class="h-3.5 w-3.5 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                  <Database v-if="key === 'name'" class="h-3.5 w-3.5 shrink-0 text-zinc-600 dark:text-zinc-400" />
                   {{ displayValue(row, key) || "-" }}
                 </div>
               </div>
@@ -473,7 +473,7 @@ defineExpose({ focusSearch, refresh });
         >
           <CustomContextMenu :items="() => databaseContextMenuItems(row)" v-slot="{ onContextMenu }">
             <div class="contents" @contextmenu="onContextMenu">
-              <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-emerald-500/10 shadow-sm"><Database class="h-6 w-6 text-emerald-600 dark:text-emerald-400" /></div>
+              <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-zinc-500/10 shadow-sm"><Database class="h-6 w-6 text-zinc-600 dark:text-zinc-400" /></div>
               <span class="w-full truncate text-sm font-medium text-foreground" :title="row.name">{{ row.name }}</span>
               <div class="flex min-h-[15px] items-center gap-1 text-[10px] leading-[15px] text-muted-foreground">
                 <span v-if="row.sizeBytes != null">{{ formatObjectBrowserBytes(row.sizeBytes) }}</span

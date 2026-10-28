@@ -526,45 +526,47 @@ export const IDE_EDITOR_THEMES = {
   },
 } satisfies Record<string, IdeEditorThemeColors>;
 
-// The app's neutral palettes use restrained identifiers with distinct SQL
-// syntax colors. Explicit IDE/editor presets keep their original palettes.
+// The app's neutral palettes use the blueprint language: SQL syntax is
+// distinguished by gray step and weight, not hue. Keywords stay bold ink,
+// strings/numbers/comments step down the gray ramp. Explicit IDE/editor
+// presets keep their original palettes.
 export const DEFAULT_APP_EDITOR_THEMES = {
   light: {
     ...IDE_EDITOR_THEMES.jetbrainsLight,
-    foreground: "#252b37",
-    keyword: "#4c4bb6",
-    string: "#26733f",
-    number: "#a34e14",
-    comment: "#687383",
-    type: "#4c4bb6",
-    variable: "#252b37",
-    function: "#176d94",
-    builtin: "#176d94",
-    operator: "#252b37",
-    punctuation: "#252b37",
-    property: "#252b37",
-    table: "#252b37",
-    className: "#252b37",
+    foreground: "#1a1a1a",
+    keyword: "#111111",
+    string: "#404040",
+    number: "#595959",
+    comment: "#737373",
+    type: "#262626",
+    variable: "#1a1a1a",
+    function: "#333333",
+    builtin: "#333333",
+    operator: "#1a1a1a",
+    punctuation: "#1a1a1a",
+    property: "#1a1a1a",
+    table: "#1a1a1a",
+    className: "#1a1a1a",
     keywordBold: true,
     stringBold: false,
     numberBold: false,
   },
   dark: {
     ...IDE_EDITOR_THEMES.jetbrainsDark,
-    foreground: "#d0d3dc",
-    keyword: "#b6a3f5",
-    string: "#8bbb83",
-    number: "#e6ab75",
-    comment: "#8c929d",
-    type: "#b6a3f5",
-    variable: "#d0d3dc",
-    function: "#79b8ed",
-    builtin: "#79b8ed",
-    operator: "#d0d3dc",
-    punctuation: "#d0d3dc",
-    property: "#d0d3dc",
-    table: "#d0d3dc",
-    className: "#d0d3dc",
+    foreground: "#d4d4d4",
+    keyword: "#fafafa",
+    string: "#c2c2c2",
+    number: "#a3a3a3",
+    comment: "#8a8a8a",
+    type: "#e5e5e5",
+    variable: "#d4d4d4",
+    function: "#cccccc",
+    builtin: "#cccccc",
+    operator: "#d4d4d4",
+    punctuation: "#d4d4d4",
+    property: "#d4d4d4",
+    table: "#d4d4d4",
+    className: "#d4d4d4",
     keywordBold: true,
   },
 } satisfies Record<AppThemeAppearance, IdeEditorThemeColors>;
@@ -770,7 +772,8 @@ export function editorThemeAppearanceFor(appAppearance: AppThemeAppearance, appP
  * editor background instead of using app-level warning/destructive tokens.
  */
 export function editorDiagnosticColors(appearance: AppThemeAppearance): { error: string; warning: string } {
-  return appearance === "dark" ? { error: "#f87171", warning: "#fbbf24" } : { error: "#dc2626", warning: "#b45309" };
+  // Blueprint: error is the darkest/lightest step, warning one step softer.
+  return appearance === "dark" ? { error: "#ffffff", warning: "#a3a3a3" } : { error: "#000000", warning: "#525252" };
 }
 
 /** Load a CodeMirror theme extension by theme name. */
@@ -1122,33 +1125,33 @@ export function buildSqlCompletionThemeRules(): CodeMirrorStyleSpec {
       ...lucideCompletionIconMask(TABLE_ICON),
     },
     ".cm-completionIcon-column": {
-      color: colorMixValue("var(--blue-500, #3b82f6)", "color-mix(in oklch, var(--blue-500, #3b82f6) 92%, var(--popover-foreground))"),
+      color: colorMixValue("var(--blue-500, #525252)", "color-mix(in oklch, var(--blue-500, #525252) 92%, var(--popover-foreground))"),
       ...lucideCompletionIconMask(COLUMNS_ICON),
     },
     ".cm-completionIcon-keyword": {
-      color: colorMixValue("var(--orange-500, #f97316)", "color-mix(in oklch, var(--orange-500, #f97316) 92%, var(--popover-foreground))"),
+      color: colorMixValue("var(--orange-500, #737373)", "color-mix(in oklch, var(--orange-500, #737373) 92%, var(--popover-foreground))"),
       ...lucideCompletionIconMask(KEYWORD_ICON),
     },
     ".cm-completionIcon-snippet": {
-      color: colorMixValue("var(--violet-500, #8b5cf6)", "color-mix(in oklch, var(--violet-500, #8b5cf6) 92%, var(--popover-foreground))"),
+      color: colorMixValue("var(--violet-500, #8a8a8a)", "color-mix(in oklch, var(--violet-500, #8a8a8a) 92%, var(--popover-foreground))"),
       ...lucideCompletionIconMask(SNIPPET_ICON),
     },
     ".cm-completionIcon-function": {
-      color: colorMixValue("var(--emerald-500, #10b981)", "color-mix(in oklch, var(--emerald-500, #10b981) 92%, var(--popover-foreground))"),
+      color: colorMixValue("var(--emerald-500, #404040)", "color-mix(in oklch, var(--emerald-500, #404040) 92%, var(--popover-foreground))"),
       ...lucideCompletionIconMask(FUNCTION_ICON),
     },
     ".cm-completionIcon-namespace": {
-      color: colorMixValue("var(--sky-500, #0ea5e9)", "color-mix(in oklch, var(--sky-500, #0ea5e9) 92%, var(--popover-foreground))"),
+      color: colorMixValue("var(--sky-500, #666666)", "color-mix(in oklch, var(--sky-500, #666666) 92%, var(--popover-foreground))"),
       ...lucideCompletionIconMask(DATABASE_LINK_ICON),
     },
     ".cm-completionIcon-schema": {
-      color: colorMixValue("var(--amber-500, #f59e0b)", "color-mix(in oklch, var(--amber-500, #f59e0b) 92%, var(--popover-foreground))"),
+      color: colorMixValue("var(--amber-500, #a3a3a3)", "color-mix(in oklch, var(--amber-500, #a3a3a3) 92%, var(--popover-foreground))"),
       ...lucideCompletionIconMask(SCHEMA_ICON),
     },
     // Reuse the table glyph for aliases instead of CodeMirror's default text
     // icon, which is rendered as a solid black square in some themes.
     ".cm-completionIcon-text": {
-      color: colorMixValue("var(--violet-500, #8b5cf6)", "color-mix(in oklch, var(--violet-500, #8b5cf6) 92%, var(--popover-foreground))"),
+      color: colorMixValue("var(--violet-500, #8a8a8a)", "color-mix(in oklch, var(--violet-500, #8a8a8a) 92%, var(--popover-foreground))"),
       ...lucideCompletionIconMask(TABLE_ICON),
     },
     ".cm-completionLabel": {

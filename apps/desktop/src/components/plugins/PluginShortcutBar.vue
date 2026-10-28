@@ -138,7 +138,7 @@ function activateSettings() {
             >
               <PluginIcon :plugin-id="entry.pluginId" :icon="entry.icon" :class="sidebarList ? 'size-3.5' : 'size-4'" class="shrink-0 [&_svg]:text-current [&_img]:pointer-events-none" />
               <span v-if="sidebarList" data-shortcut-label class="min-w-0 flex-1 truncate">{{ entry.label }}</span>
-              <span v-if="isActive(entry)" data-shortcut-active-indicator :class="sidebarList ? 'size-1.5 shrink-0 rounded-full bg-green-500' : 'absolute left-0 h-3 w-0.5 rounded-full bg-primary'" aria-hidden="true" />
+              <span v-if="isActive(entry)" data-shortcut-active-indicator :class="sidebarList ? 'size-1.5 shrink-0 rounded-full bg-zinc-500' : 'absolute left-0 h-3 w-0.5 rounded-full bg-primary'" aria-hidden="true" />
             </Button>
           </span>
         </LightTooltip>

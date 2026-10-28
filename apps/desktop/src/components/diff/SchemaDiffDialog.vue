@@ -1383,8 +1383,8 @@ const targetConnectionInfo = computed(() => {
               <div v-if="showNoDifferences" class="mx-3 mt-2 shrink-0 rounded-md border border-dashed bg-muted/20 px-3 py-2 text-center text-xs text-muted-foreground">
                 {{ t("diff.noDifferences") }}
               </div>
-              <div v-if="renameCandidates.length > 0" class="shrink-0 overflow-hidden border-b bg-amber-50 dark:bg-amber-950/20">
-                <button class="flex w-full items-center gap-2 px-3 py-1.5 text-left text-xs font-medium transition-colors hover:bg-amber-100/50 dark:hover:bg-amber-900/30" @click="showRenamePanel = !showRenamePanel">
+              <div v-if="renameCandidates.length > 0" class="shrink-0 overflow-hidden border-b bg-zinc-50 dark:bg-zinc-950/20">
+                <button class="flex w-full items-center gap-2 px-3 py-1.5 text-left text-xs font-medium transition-colors hover:bg-zinc-100/50 dark:hover:bg-zinc-900/30" @click="showRenamePanel = !showRenamePanel">
                   <ChevronDown v-if="showRenamePanel" class="h-3 w-3" />
                   <ChevronRight v-else class="h-3 w-3" />
                   {{ t("diff.renameCandidates") }}
@@ -1401,13 +1401,13 @@ const targetConnectionInfo = computed(() => {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr v-for="(rc, i) in renameCandidates" :key="i" class="border-b border-amber-200/50 dark:border-amber-800/30">
+                      <tr v-for="(rc, i) in renameCandidates" :key="i" class="border-b border-zinc-200/50 dark:border-zinc-800/30">
                         <td class="py-1 pr-4 font-mono">{{ rc.sourceName }}</td>
                         <td class="py-1 pr-4 font-mono">{{ rc.targetName }}</td>
                         <td class="py-1 pr-4">
                           <span
                             class="rounded px-1.5 py-0.5 text-[10px] font-medium"
-                            :class="rc.score >= 0.8 ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300' : rc.score >= 0.5 ? 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300' : 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300'"
+                            :class="rc.score >= 0.8 ? 'bg-zinc-100 text-zinc-700 dark:bg-zinc-900/30 dark:text-zinc-300' : rc.score >= 0.5 ? 'bg-zinc-100 text-zinc-700 dark:bg-zinc-900/30 dark:text-zinc-300' : 'bg-zinc-100 text-zinc-700 dark:bg-zinc-900/30 dark:text-zinc-300'"
                             >{{ (rc.score * 100).toFixed(0) }}%</span
                           >
                         </td>
@@ -1571,12 +1571,12 @@ const targetConnectionInfo = computed(() => {
             </div>
 
             <div class="flex gap-4 text-sm">
-              <span class="text-green-600">{{ t("diff.create") }}: {{ deployStats.create }}</span>
-              <span class="text-blue-600">{{ t("diff.modify") }}: {{ deployStats.modify }}</span>
-              <span class="text-red-600">{{ t("diff.delete") }}: {{ deployStats.delete }}</span>
+              <span class="text-zinc-600">{{ t("diff.create") }}: {{ deployStats.create }}</span>
+              <span class="text-zinc-600">{{ t("diff.modify") }}: {{ deployStats.modify }}</span>
+              <span class="text-zinc-600">{{ t("diff.delete") }}: {{ deployStats.delete }}</span>
             </div>
 
-            <div v-if="destructiveStatements.length > 0" class="rounded border border-red-300 bg-red-50 p-3 text-xs text-red-800 dark:border-red-800 dark:bg-red-950/30 dark:text-red-200">
+            <div v-if="destructiveStatements.length > 0" class="rounded border border-zinc-300 bg-zinc-50 p-3 text-xs text-zinc-800 dark:border-zinc-800 dark:bg-zinc-950/30 dark:text-zinc-200">
               <div class="font-semibold">{{ t("diff.destructiveSqlDetected", { count: destructiveStatements.length }) }}</div>
               <ul class="mt-2 max-h-32 space-y-1 overflow-auto font-mono">
                 <li v-for="(item, index) in destructiveStatements" :key="`${item.objectType}-${index}`" class="truncate" :title="item.statement">{{ item.action.toUpperCase() }} {{ item.objectType }}: {{ item.statement }}</li>
@@ -1598,7 +1598,7 @@ const targetConnectionInfo = computed(() => {
       <Dialog v-model:open="showResultDialog">
         <DialogContent class="sm:max-w-[480px]">
           <DialogHeader>
-            <DialogTitle class="flex items-center gap-2" :class="deployResult?.success ? 'text-green-500' : 'text-destructive'">
+            <DialogTitle class="flex items-center gap-2" :class="deployResult?.success ? 'text-zinc-500' : 'text-destructive'">
               <AlertTriangle v-if="!deployResult?.success" class="h-5 w-5" />
               <CircleCheck v-else class="h-5 w-5" />
               <template v-if="deployResult?.status === 'mixed'">{{ t("diff.deployMixedTitle") }}</template>
@@ -1610,7 +1610,7 @@ const targetConnectionInfo = computed(() => {
           <div class="py-2">
             <div v-if="deployResult?.status === 'mixed'" class="space-y-2">
               <p class="text-sm text-destructive-foreground">{{ deployResult.message }}</p>
-              <div class="bg-yellow-50 border border-yellow-300 p-3 rounded text-xs text-yellow-800">
+              <div class="bg-zinc-50 border border-zinc-300 p-3 rounded text-xs text-zinc-800">
                 {{ t("diff.deployMixedWarning") }}
               </div>
             </div>

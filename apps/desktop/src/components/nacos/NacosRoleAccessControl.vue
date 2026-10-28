@@ -626,7 +626,7 @@ defineExpose({ refresh: () => loadSnapshot() });
         </template>
         <template v-else>
           <button v-for="role in pagedRoles" :key="role.role" class="mb-0.5 flex min-h-11 w-full items-center gap-2 rounded px-2 py-1.5 text-left text-sm hover:bg-accent" :class="selectedRoleName === role.role ? 'bg-accent text-accent-foreground' : ''" @click="selectedRoleName = role.role">
-            <ShieldCheck class="h-4 w-4 shrink-0" :class="role.complete ? 'text-emerald-600' : 'text-amber-600'" />
+            <ShieldCheck class="h-4 w-4 shrink-0" :class="role.complete ? 'text-zinc-600' : 'text-zinc-600'" />
             <span class="min-w-0 flex-1">
               <span class="block truncate font-medium">{{ role.role }}</span>
               <span class="block text-[11px] text-muted-foreground">{{ t("nacos.accessRoleCounts", { members: role.memberCount, permissions: role.permissionCount }) }}</span>
@@ -735,7 +735,7 @@ defineExpose({ refresh: () => loadSnapshot() });
             <div class="flex items-center gap-2">
               <h2 class="truncate text-base font-semibold">{{ selectedRole.role }}</h2>
               <Badge v-if="selectedRole.administrator" variant="secondary">{{ t("nacos.accessGlobalAdministrator") }}</Badge
-              ><Badge v-else-if="!selectedRole.complete" variant="outline" class="border-amber-400 text-amber-700">{{ t("nacos.accessNeedsRepair") }}</Badge>
+              ><Badge v-else-if="!selectedRole.complete" variant="outline" class="border-zinc-400 text-zinc-700">{{ t("nacos.accessNeedsRepair") }}</Badge>
             </div>
             <p class="text-xs text-muted-foreground">{{ t("nacos.accessRoleSubtitle", { members: selectedRole.memberCount }) }}</p>
           </div>
@@ -745,14 +745,14 @@ defineExpose({ refresh: () => loadSnapshot() });
           >
         </header>
         <div class="mx-auto max-w-5xl px-5 py-5">
-          <div v-if="!selectedRole.complete" class="mb-5 flex items-start gap-2 rounded border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-900 dark:bg-amber-950/20 dark:text-amber-200"><AlertTriangle class="mt-0.5 h-4 w-4 shrink-0" />{{ t("nacos.accessIncompleteRoleHint") }}</div>
+          <div v-if="!selectedRole.complete" class="mb-5 flex items-start gap-2 rounded border border-zinc-300 bg-zinc-50 px-3 py-2 text-sm text-zinc-900 dark:bg-zinc-950/20 dark:text-zinc-200"><AlertTriangle class="mt-0.5 h-4 w-4 shrink-0" />{{ t("nacos.accessIncompleteRoleHint") }}</div>
           <section class="mb-7">
             <div class="mb-3">
               <h3 class="text-sm font-semibold">{{ t("nacos.accessPermissionScope") }}</h3>
               <p class="mt-0.5 text-xs text-muted-foreground">{{ t("nacos.accessPermissionScopeHint") }}</p>
             </div>
             <div v-if="selectedRole.administrator" class="flex items-center gap-3 border-y py-4">
-              <LockKeyhole class="h-5 w-5 text-amber-600" />
+              <LockKeyhole class="h-5 w-5 text-zinc-600" />
               <div>
                 <div class="text-sm font-medium">{{ t("nacos.accessAllResources") }}</div>
                 <div class="text-xs text-muted-foreground">{{ t("nacos.accessAdminBypassHint") }}</div>
@@ -862,7 +862,7 @@ defineExpose({ refresh: () => loadSnapshot() });
               :disabled="userDialog === 'roles' && (selectedUser?.roles.includes(role.role) ?? false) ? !canRemoveRole : !canAssignRole"
               @change="userForm.roles = toggle(userForm.roles, role.role, ($event.target as HTMLInputElement).checked)"
             /><Shield class="h-3.5 w-3.5 text-muted-foreground" /><span class="min-w-0 flex-1 truncate">{{ role.role }}</span
-            ><span v-if="!role.complete" class="text-xs text-amber-600">{{ t("nacos.accessNeedsRepair") }}</span></label
+            ><span v-if="!role.complete" class="text-xs text-zinc-600">{{ t("nacos.accessNeedsRepair") }}</span></label
           >
           <div v-if="!assignableRoles.length" class="p-3 text-center text-xs text-muted-foreground">{{ t("nacos.accessNoAssignableRoles") }}</div>
         </div>
@@ -925,7 +925,7 @@ defineExpose({ refresh: () => loadSnapshot() });
               <Input v-model="user.username" :placeholder="t('nacos.username')" /><Input v-model="user.password" type="password" :placeholder="t('nacos.password')" /><Button size="sm" variant="ghost" class="h-9 w-8 p-0" @click="roleForm.newUsers.splice(index, 1)"><X class="h-4 w-4" /></Button>
             </div>
           </section>
-          <section v-if="selectedRole?.administrator && roleDialog === 'edit'" class="rounded border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900 dark:bg-amber-950/20 dark:text-amber-200">
+          <section v-if="selectedRole?.administrator && roleDialog === 'edit'" class="rounded border border-zinc-300 bg-zinc-50 p-3 text-sm text-zinc-900 dark:bg-zinc-950/20 dark:text-zinc-200">
             <div class="flex gap-2"><LockKeyhole class="mt-0.5 h-4 w-4 shrink-0" />{{ t("nacos.accessAdminPermissionImmutable") }}</div>
           </section>
           <section v-else>
@@ -1027,7 +1027,7 @@ defineExpose({ refresh: () => loadSnapshot() });
       >
       <div class="max-h-80 divide-y overflow-auto rounded border">
         <div v-for="step in operation?.steps" :key="step.id" class="flex items-start gap-3 px-3 py-2.5">
-          <Check v-if="step.status === 'succeeded' || step.status === 'compensated'" class="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" /><CircleAlert v-else-if="step.status === 'failed'" class="mt-0.5 h-4 w-4 shrink-0 text-destructive" /><Loader2
+          <Check v-if="step.status === 'succeeded' || step.status === 'compensated'" class="mt-0.5 h-4 w-4 shrink-0 text-zinc-600" /><CircleAlert v-else-if="step.status === 'failed'" class="mt-0.5 h-4 w-4 shrink-0 text-destructive" /><Loader2
             v-else-if="step.status === 'running'"
             class="mt-0.5 h-4 w-4 shrink-0 animate-spin"
           />

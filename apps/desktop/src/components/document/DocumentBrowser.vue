@@ -2774,7 +2774,7 @@ defineExpose({ focusSearch });
         <span v-if="dynamodbSelectedKey" class="max-w-64 truncate font-mono text-[11px] text-muted-foreground" :title="t('dynamodb.keySummary', { partitionKey: dynamodbSelectedKey.partitionKey.name, sortKey: dynamodbSelectedKey.sortKey?.name || t('dynamodb.none') })">
           PK: {{ dynamodbSelectedKey.partitionKey.name }}<template v-if="dynamodbSelectedKey.sortKey"> · SK: {{ dynamodbSelectedKey.sortKey.name }}</template>
         </span>
-        <Badge v-if="dynamodbPartialProjectionReadOnly" variant="outline" class="h-5 rounded border-amber-500/50 px-1.5 text-[10px] text-amber-600 dark:text-amber-400" :title="documentStoreEditDisabledReason">
+        <Badge v-if="dynamodbPartialProjectionReadOnly" variant="outline" class="h-5 rounded border-zinc-500/50 px-1.5 text-[10px] text-zinc-600 dark:text-zinc-400" :title="documentStoreEditDisabledReason">
           {{ dynamodbSelectedIndex?.projectionType }}
         </Badge>
       </div>
@@ -3226,7 +3226,7 @@ defineExpose({ focusSearch });
                 </div>
               </PopoverContent>
             </Popover>
-            <span class="text-blue-600 dark:text-blue-400 text-xs font-medium select-none shrink-0">{{ documentStoreLabels.filterInputLabel }}</span>
+            <span class="text-zinc-600 dark:text-zinc-400 text-xs font-medium select-none shrink-0">{{ documentStoreLabels.filterInputLabel }}</span>
             <textarea
               ref="filterInputRef"
               v-model="filterInput"
@@ -3280,7 +3280,7 @@ defineExpose({ focusSearch });
             <span class="h-5 w-px bg-border group-hover:bg-primary/60" />
           </button>
           <div class="flex flex-1 items-center gap-1 px-2 py-0.5 min-w-0">
-            <span class="text-orange-600 dark:text-orange-400 text-xs font-medium select-none shrink-0">{{ documentStoreLabels.sortInputLabel }}</span>
+            <span class="text-zinc-600 dark:text-zinc-400 text-xs font-medium select-none shrink-0">{{ documentStoreLabels.sortInputLabel }}</span>
             <textarea
               ref="sortInputRef"
               v-model="sortInput"
@@ -3459,67 +3459,67 @@ defineExpose({ focusSearch });
 }
 
 :deep(.json-key) {
-  color: #7c3aed;
+  color: #171717;
   font-weight: 600;
 }
 
 :deep(.json-string) {
-  color: #15803d;
+  color: #404040;
 }
 
 :deep(.json-number) {
-  color: #b45309;
+  color: #525252;
 }
 
 :deep(.json-boolean) {
-  color: #2563eb;
+  color: #737373;
   font-weight: 600;
 }
 
 :deep(.json-null) {
-  color: #64748b;
+  color: #8a8a8a;
   font-style: italic;
 }
 
 :global(.dark) :deep(.json-key) {
-  color: #c4b5fd;
+  color: #e5e5e5;
 }
 
 :global(.dark) :deep(.json-string) {
-  color: #86efac;
+  color: #d4d4d4;
 }
 
 :global(.dark) :deep(.json-number) {
-  color: #fbbf24;
+  color: #c2c2c2;
 }
 
 :global(.dark) :deep(.json-boolean) {
-  color: #93c5fd;
+  color: #b0b0b0;
 }
 
 :global(.dark) :deep(.json-null) {
-  color: #94a3b8;
+  color: #a3a3a3;
 }
 
 :deep(.document-search-match) {
   border-radius: 2px;
-  background: #fde68a;
+  background: #e5e5e5;
   color: inherit;
   padding: 0;
 }
 
 :deep(.document-search-match-active) {
-  background: #f59e0b;
-  color: #111827;
-  outline: 1px solid #d97706;
+  background: #a3a3a3;
+  color: #171717;
+  outline: 1px solid #737373;
 }
 
 :global(.dark) :deep(.document-search-match) {
-  background: #854d0e;
+  background: #525252;
 }
 
 :global(.dark) :deep(.document-search-match-active) {
-  background: #fbbf24;
-  color: #111827;
+  background: #c2c2c2;
+  color: #171717;
 }
 </style>

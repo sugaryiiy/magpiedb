@@ -621,7 +621,7 @@ function taskRowClass(taskId: string) {
                 <div v-if="showDropBefore(row.folder.id)" class="absolute left-2 right-2 top-0 border-t-2 border-primary" />
                 <div v-if="showDropAfter(row.folder.id)" class="absolute left-2 right-2 bottom-0 border-b-2 border-primary" />
                 <ChevronRight class="h-3 w-3 text-muted-foreground/80 transition-transform duration-200 shrink-0" :class="{ 'rotate-90': isFolderExpanded(row.folder.id) }" />
-                <component :is="isFolderExpanded(row.folder.id) ? FolderOpen : FolderClosed" class="h-4 w-4 text-amber-500 shrink-0" />
+                <component :is="isFolderExpanded(row.folder.id) ? FolderOpen : FolderClosed" class="h-4 w-4 text-zinc-500 shrink-0" />
                 <template v-if="isRenamingFolder(row.folder.id)">
                   <input
                     :ref="setRenameInputRef"
@@ -658,7 +658,7 @@ function taskRowClass(taskId: string) {
               >
                 <div v-if="showDropBefore(row.task.id)" class="absolute left-2 right-2 top-0 border-t-2 border-primary" />
                 <div v-if="showDropAfter(row.task.id)" class="absolute left-2 right-2 bottom-0 border-b-2 border-primary" />
-                <ArrowRightLeft class="h-3.5 w-3.5 text-blue-400 shrink-0" />
+                <ArrowRightLeft class="h-3.5 w-3.5 text-zinc-400 shrink-0" />
                 <template v-if="isRenamingTask(row.task.id)">
                   <input
                     :ref="setRenameInputRef"
@@ -703,7 +703,7 @@ function taskRowClass(taskId: string) {
               >
                 <div v-if="showDropBefore(task.id)" class="absolute left-2 right-2 top-0 border-t-2 border-primary" />
                 <div v-if="showDropAfter(task.id)" class="absolute left-2 right-2 bottom-0 border-b-2 border-primary" />
-                <ArrowRightLeft class="h-3.5 w-3.5 text-blue-400 shrink-0" />
+                <ArrowRightLeft class="h-3.5 w-3.5 text-zinc-400 shrink-0" />
                 <template v-if="isRenamingTask(task.id)">
                   <input
                     :ref="setRenameInputRef"

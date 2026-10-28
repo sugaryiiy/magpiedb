@@ -355,10 +355,10 @@ defineExpose({ expandAll, collapseAll, resetExpansion, refresh });
 }
 
 .dark .json-tree {
-  --json-tree-key: #93c5fd;
-  --json-tree-string: #86efac;
-  --json-tree-number: #fbbf24;
-  --json-tree-boolean: #c4b5fd;
-  --json-tree-null: #94a3b8;
+  --json-tree-key: #b0b0b0;
+  --json-tree-string: #d4d4d4;
+  --json-tree-number: #c2c2c2;
+  --json-tree-boolean: #e5e5e5;
+  --json-tree-null: #a3a3a3;
 }
 </style>

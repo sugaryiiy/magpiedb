@@ -641,8 +641,8 @@ function redisTtlBadgeText(ttl: number, displayTtl: number): string | null {
 }
 // 列表行的 TTL 徽标配色：永不过期用琥珀色，已过期或 1 小时内即将过期用红色警示，其余用中性色
 function redisTtlBadgeClass(ttl: number, displayTtl: number): string {
-  if (ttl === -1) return "border-amber-300 bg-amber-50 text-amber-700 dark:border-amber-500/40 dark:bg-amber-500/10 dark:text-amber-300";
-  if (displayTtl <= 3600) return "border-red-300 bg-red-50 text-red-600 dark:border-red-500/40 dark:bg-red-500/10 dark:text-red-300";
+  if (ttl === -1) return "border-zinc-300 bg-zinc-50 text-zinc-700 dark:border-zinc-500/40 dark:bg-zinc-500/10 dark:text-zinc-300";
+  if (displayTtl <= 3600) return "border-zinc-300 bg-zinc-50 text-zinc-600 dark:border-zinc-500/40 dark:bg-zinc-500/10 dark:text-zinc-300";
   return "border-border bg-muted/60 text-muted-foreground";
 }
 // 记录每个 key 的 TTL 被观测到的时刻（毫秒）；本地倒计时 = 观测时的 TTL - 已流逝时间，
@@ -2469,17 +2469,17 @@ async function applyDangerAction() {
 function typeColor(type: string): string {
   switch (type) {
     case "string":
-      return "text-green-500";
+      return "text-zinc-500";
     case "list":
-      return "text-blue-500";
+      return "text-zinc-500";
     case "set":
-      return "text-purple-500";
+      return "text-zinc-500";
     case "zset":
-      return "text-amber-500";
+      return "text-zinc-500";
     case "hash":
-      return "text-orange-500";
+      return "text-zinc-500";
     case "stream":
-      return "text-teal-500";
+      return "text-zinc-500";
     default:
       return "text-muted-foreground";
   }
@@ -3486,7 +3486,7 @@ defineExpose({ focusSearch, insertCommand, executeCommand: executeAiCommand });
                         @click="toggleNodeCheck(row.node, $event)"
                       />
                       <component :is="expandedGroupIds.has(row.node.id) ? ChevronDown : ChevronRight" class="w-3 h-3 shrink-0 text-muted-foreground" />
-                      <component :is="expandedGroupIds.has(row.node.id) ? FolderOpen : FolderClosed" class="h-3.5 w-3.5 shrink-0 text-amber-500" />
+                      <component :is="expandedGroupIds.has(row.node.id) ? FolderOpen : FolderClosed" class="h-3.5 w-3.5 shrink-0 text-zinc-500" />
                       <span class="dbx-editor-font-family truncate">{{ row.node.label }}</span>
                       <span class="text-muted-foreground ml-1" :title="isFuzzyHierarchyView ? t('redis.loadedMatchingKeys', { count: row.node.loadedLeafCount }) : hasMore ? t('redis.loadedGroupKeysPartial', { count: row.node.loadedLeafCount }) : undefined"
                         >({{ row.node.loadedLeafCount }}{{ !isFuzzyHierarchyView && hasMore ? "+" : "" }})</span
@@ -3598,7 +3598,7 @@ defineExpose({ focusSearch, insertCommand, executeCommand: executeAiCommand });
                   variant="ghost"
                   size="icon"
                   class="h-6 w-6"
-                  :class="props.blockDangerousRedisCommands ? 'text-orange-600 bg-orange-100 dark:text-orange-300 dark:bg-orange-900/30' : 'text-muted-foreground/50'"
+                  :class="props.blockDangerousRedisCommands ? 'text-zinc-600 bg-zinc-100 dark:text-zinc-300 dark:bg-zinc-900/30' : 'text-muted-foreground/50'"
                   :aria-label="t('toolbar.blockDangerousRedisCommands')"
                   :aria-pressed="props.blockDangerousRedisCommands"
                   :title="t('toolbar.blockDangerousRedisCommands')"
@@ -3640,17 +3640,17 @@ defineExpose({ focusSearch, insertCommand, executeCommand: executeAiCommand });
 
                   <div v-for="entry in commandHistory" :key="entry.id" class="mb-2">
                     <div class="flex min-w-0 items-start gap-2 whitespace-pre-wrap break-words">
-                      <span class="shrink-0 text-[#d7ba7d]">{{ entry.prompt }}</span>
+                      <span class="shrink-0 text-[#d4d4d4]">{{ entry.prompt }}</span>
                       <span class="min-w-0 text-slate-200">{{ entry.command }}</span>
                     </div>
-                    <pre v-if="entry.output" class="ml-0 whitespace-pre-wrap break-words pl-0" :class="entry.error ? 'text-[#ff6b6b]' : 'text-slate-300'">{{ entry.error ? translateBackendError(t, entry.output) : entry.output }}</pre>
+                    <pre v-if="entry.output" class="ml-0 whitespace-pre-wrap break-words pl-0" :class="entry.error ? 'text-[#e5e5e5]' : 'text-slate-300'">{{ entry.error ? translateBackendError(t, entry.output) : entry.output }}</pre>
                   </div>
                 </div>
 
                 <form class="flex shrink-0 items-center gap-2 border-t border-white/10 bg-[#171b21] px-4 py-2" @submit.prevent="executeCommand">
-                  <span class="shrink-0 text-[#d7ba7d]">{{ commandPrompt }}</span>
+                  <span class="shrink-0 text-[#d4d4d4]">{{ commandPrompt }}</span>
                   <div class="relative min-w-0 flex-1">
-                    <div v-if="commandCompletionOpen" class="absolute bottom-[calc(100%+0.5rem)] left-0 z-20 w-full overflow-hidden rounded-md border border-white/15 bg-[#20262f] py-1 shadow-xl">
+                    <div v-if="commandCompletionOpen" class="absolute bottom-[calc(100%+0.5rem)] left-0 z-20 w-full overflow-hidden rounded-md border border-white/15 bg-[#1f1f1f] py-1 shadow-xl">
                       <div v-if="commandDocumentationLoading || commandCompletionLoading" class="flex items-center justify-center px-3 py-2 text-slate-400">
                         <Loader2 class="h-3.5 w-3.5 animate-spin" />
                       </div>
@@ -3662,7 +3662,7 @@ defineExpose({ focusSearch, insertCommand, executeCommand: executeAiCommand });
                           type="button"
                           role="option"
                           class="flex w-full items-center gap-3 px-3 py-1.5 text-left text-xs transition-colors"
-                          :class="commandCompletionSelectedIndex === index ? 'bg-[#2b3440] text-white' : 'text-slate-200 hover:text-white'"
+                          :class="commandCompletionSelectedIndex === index ? 'bg-[#262626] text-white' : 'text-slate-200 hover:text-white'"
                           :aria-selected="commandCompletionSelectedIndex === index"
                           :aria-description="item.info"
                           @pointerenter="selectCommandCompletion(index)"
@@ -3681,7 +3681,7 @@ defineExpose({ focusSearch, insertCommand, executeCommand: executeAiCommand });
                     <input
                       v-model="commandText"
                       data-redis-command-input
-                      class="dbx-editor-font-family min-w-0 w-full border-0 bg-transparent p-0 text-[13px] text-slate-200 caret-[#d7ba7d] outline-none placeholder:text-slate-500"
+                      class="dbx-editor-font-family min-w-0 w-full border-0 bg-transparent p-0 text-[13px] text-slate-200 caret-[#d4d4d4] outline-none placeholder:text-slate-500"
                       :class="{ 'opacity-50': commandRunning }"
                       :readonly="commandRunning"
                       autocomplete="off"

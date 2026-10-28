@@ -459,11 +459,11 @@ const dataTypeOptionsForColumn = computed(() => {
           <div class="space-y-2">
             <div v-for="(col, index) in selectedTable.columns" :key="`field-${index}`" class="rounded border p-2 space-y-1.5" :class="isDroppedColumn(selectedTable, col.name) ? 'border-destructive/50 bg-destructive/5 opacity-70' : 'border-border/80'">
               <div class="flex items-center gap-1">
-                <KeyRound v-if="col.is_primary_key" class="h-3 w-3 shrink-0 text-amber-500" />
+                <KeyRound v-if="col.is_primary_key" class="h-3 w-3 shrink-0 text-zinc-500" />
                 <Input class="h-7 flex-1 font-mono text-[11px]" :class="isDroppedColumn(selectedTable, col.name) ? 'line-through' : ''" :model-value="col.name" :disabled="!isColumnEditable(col.name)" @update:model-value="(v: string | number) => updateColumn(index, { name: String(v) })" />
                 <Badge v-if="isDroppedColumn(selectedTable, col.name)" variant="outline" class="h-5 shrink-0 text-[10px] text-destructive">{{ t("diagram.pendingDropColumnBadge") }}</Badge>
                 <button v-if="canRemoveColumn(col.name)" type="button" class="rounded p-1 hover:bg-muted" :title="isDroppedColumn(selectedTable, col.name) ? t('diagram.undoDropField') : t('diagram.deleteField')" @click="removeColumn(index)">
-                  <Trash2 class="h-3 w-3 text-red-500" />
+                  <Trash2 class="h-3 w-3 text-zinc-500" />
                 </button>
               </div>
               <div class="flex flex-wrap items-center gap-2">
@@ -533,7 +533,7 @@ const dataTypeOptionsForColumn = computed(() => {
                 <div class="flex items-center gap-1">
                   <Input class="h-7 flex-1 font-mono text-[11px]" :model-value="index.name" :placeholder="t('diagram.indexName')" @update:model-value="(v: string | number) => updateIndex(index.id, { name: String(v) })" />
                   <button type="button" class="rounded p-1 hover:bg-muted" :title="t('diagram.deleteField')" @click="removeIndex(index.id)">
-                    <Trash2 class="h-3 w-3 text-red-500" />
+                    <Trash2 class="h-3 w-3 text-zinc-500" />
                   </button>
                 </div>
                 <label class="flex items-center gap-1.5 text-[10px] text-muted-foreground">

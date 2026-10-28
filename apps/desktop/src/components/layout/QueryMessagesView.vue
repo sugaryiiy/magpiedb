@@ -18,7 +18,7 @@ function severityTone(severity: string): SeverityTone {
 
 const severityBadgeClasses: Record<SeverityTone, string> = {
   muted: "border-border bg-muted/40 text-muted-foreground",
-  warning: "border-amber-500/35 bg-amber-500/10 text-amber-700 dark:text-amber-300",
+  warning: "border-zinc-500/35 bg-zinc-500/10 text-zinc-700 dark:text-zinc-300",
   error: "border-destructive/40 bg-destructive/10 text-destructive",
 };
 </script>

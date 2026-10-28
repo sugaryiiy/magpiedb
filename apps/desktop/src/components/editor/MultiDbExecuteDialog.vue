@@ -849,10 +849,10 @@ function resetSelection(): void {
 }
 
 function statusClass(status: MultiDbExecutionItemStatus): string {
-  if (status === "success") return "text-emerald-600 dark:text-emerald-300";
+  if (status === "success") return "text-zinc-600 dark:text-zinc-300";
   if (status === "failed") return "text-destructive";
   if (status === "running") return "text-primary";
-  if (status === "skipped" || status === "cancelled") return "text-amber-600 dark:text-amber-300";
+  if (status === "skipped" || status === "cancelled") return "text-zinc-600 dark:text-zinc-300";
   return "text-muted-foreground";
 }
 
@@ -931,9 +931,9 @@ watch(
           <div class="space-y-2">
             <div v-for="item in batch.items" :key="item.id" class="flex min-w-0 items-start gap-3 rounded-md border px-3 py-2">
               <Loader2 v-if="item.status === 'running'" class="mt-0.5 h-4 w-4 shrink-0 animate-spin text-primary" />
-              <Check v-else-if="item.status === 'success'" class="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
+              <Check v-else-if="item.status === 'success'" class="mt-0.5 h-4 w-4 shrink-0 text-zinc-600" />
               <AlertTriangle v-else-if="item.status === 'failed'" class="mt-0.5 h-4 w-4 shrink-0 text-destructive" />
-              <X v-else-if="item.status === 'skipped' || item.status === 'cancelled'" class="mt-0.5 h-4 w-4 shrink-0 text-amber-600" />
+              <X v-else-if="item.status === 'skipped' || item.status === 'cancelled'" class="mt-0.5 h-4 w-4 shrink-0 text-zinc-600" />
               <div v-else class="mt-0.5 h-4 w-4 shrink-0 rounded-full border border-muted-foreground/40" />
               <div class="min-w-0 flex-1">
                 <div class="truncate text-sm" :class="statusClass(item.status)">{{ targetLabel(item.target) }}</div>
@@ -1191,7 +1191,7 @@ watch(
                         <AlertTriangle class="mt-0.5 h-3 w-3 shrink-0" /><span>{{ validationReasonLabel(validationFor(target)?.reason) }}</span>
                       </div>
                       <div v-else-if="validationFor(target)?.state === 'needsRecheck'" class="mt-0.5 text-[11px] text-muted-foreground">{{ t("multiDbExecute.needsRecheck") }}</div>
-                      <div v-else class="mt-0.5 text-[11px] text-emerald-600 dark:text-emerald-300">{{ t("multiDbExecute.validTarget") }}</div>
+                      <div v-else class="mt-0.5 text-[11px] text-zinc-600 dark:text-zinc-300">{{ t("multiDbExecute.validTarget") }}</div>
                     </div>
                     <Button variant="ghost" size="icon-sm" :disabled="isExecuting" :title="t('multiDbExecute.removeTarget')" @click="removeSelected(target)"><X class="h-3.5 w-3.5" /></Button>
                   </div>
@@ -1210,8 +1210,8 @@ watch(
           <span>{{ executionMode === "serial" ? t("multiDbExecute.serialContinueOnError") : t("multiDbExecute.parallelContinueOnError") }}</span>
           <span v-if="validating" class="inline-flex items-center gap-1"><Loader2 class="h-3 w-3 animate-spin" />{{ t("common.loading") }}</span>
           <span v-else-if="invalidTargetCount" class="text-destructive">{{ t("multiDbExecute.invalidTargetCount", { count: invalidTargetCount }) }}</span>
-          <span v-else-if="needsRecheckCount" class="text-amber-600 dark:text-amber-300">{{ t("multiDbExecute.needsRecheckCount", { count: needsRecheckCount }) }}</span>
-          <span v-if="hasUnsavedChanges" class="text-amber-600 dark:text-amber-300">{{ t("multiDbExecute.groupModified") }}</span>
+          <span v-else-if="needsRecheckCount" class="text-zinc-600 dark:text-zinc-300">{{ t("multiDbExecute.needsRecheckCount", { count: needsRecheckCount }) }}</span>
+          <span v-if="hasUnsavedChanges" class="text-zinc-600 dark:text-zinc-300">{{ t("multiDbExecute.groupModified") }}</span>
         </div>
 
         <DialogFooter class="mx-0 mb-0 shrink-0 flex-wrap border-t px-5 py-3">

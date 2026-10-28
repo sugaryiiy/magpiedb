@@ -342,7 +342,7 @@ onMounted(() => {
             <div class="flex items-center gap-2">
               <span class="min-w-0 flex-1 truncate font-medium">{{ role.role }}</span>
               <Badge v-if="role.passwordRequired === 'YES'" variant="outline" class="h-5 px-1.5 text-[10px]">PWD</Badge>
-              <Badge v-if="isDamengPredefinedRole(role.role)" variant="outline" class="h-5 border-amber-500/50 px-1.5 text-[10px] text-amber-700 dark:text-amber-300">{{ t("damengRoleAdmin.builtinRole") }}</Badge>
+              <Badge v-if="isDamengPredefinedRole(role.role)" variant="outline" class="h-5 border-zinc-500/50 px-1.5 text-[10px] text-zinc-700 dark:text-zinc-300">{{ t("damengRoleAdmin.builtinRole") }}</Badge>
             </div>
           </button>
           <div v-if="!loadingRoles && filteredRoles.length === 0" class="p-6 text-center text-xs text-muted-foreground">
@@ -392,8 +392,8 @@ onMounted(() => {
               <div v-for="member in members" :key="member.grantee" class="flex items-center gap-2 rounded border bg-muted/20 px-3 py-2">
                 <UsersRound class="h-3.5 w-3.5 shrink-0 text-primary" />
                 <span class="min-w-0 flex-1 truncate font-mono text-xs">{{ member.grantee }}</span>
-                <Badge v-if="isSystemMember(member.grantee)" variant="outline" class="h-5 border-amber-500/50 px-1.5 text-[10px] text-amber-700 dark:text-amber-300">{{ t("damengRoleAdmin.systemUser") }}</Badge>
-                <Badge v-if="isDamengPredefinedRole(member.grantee)" variant="outline" class="h-5 border-amber-500/50 px-1.5 text-[10px] text-amber-700 dark:text-amber-300">{{ t("damengRoleAdmin.builtinRole") }}</Badge>
+                <Badge v-if="isSystemMember(member.grantee)" variant="outline" class="h-5 border-zinc-500/50 px-1.5 text-[10px] text-zinc-700 dark:text-zinc-300">{{ t("damengRoleAdmin.systemUser") }}</Badge>
+                <Badge v-if="isDamengPredefinedRole(member.grantee)" variant="outline" class="h-5 border-zinc-500/50 px-1.5 text-[10px] text-zinc-700 dark:text-zinc-300">{{ t("damengRoleAdmin.builtinRole") }}</Badge>
                 <Badge v-if="member.adminOption" variant="outline" class="h-5 px-1.5 text-[10px]">ADMIN OPTION</Badge>
                 <Button
                   size="sm"
@@ -511,7 +511,7 @@ onMounted(() => {
               </SelectContent>
             </Select>
           </label>
-          <p v-if="!enableDdlAnyPriv" class="text-[11px] text-amber-600 dark:text-amber-400">{{ t("damengRoleAdmin.anyPrivilegeDisabled") }}</p>
+          <p v-if="!enableDdlAnyPriv" class="text-[11px] text-zinc-600 dark:text-zinc-400">{{ t("damengRoleAdmin.anyPrivilegeDisabled") }}</p>
           <p class="text-[11px] text-muted-foreground">{{ t("damengRoleAdmin.grantPrivilegeHint", { role: selectedRole?.role ?? "" }) }}</p>
         </div>
         <DialogFooter>

@@ -137,9 +137,9 @@ const operationIcons: Record<DiffOperationType, any> = {
 };
 
 const operationColors: Record<DiffOperationType, string> = {
-  modify: "text-blue-500",
-  create: "text-green-500",
-  delete: "text-red-500",
+  modify: "text-zinc-500",
+  create: "text-zinc-500",
+  delete: "text-zinc-500",
   none: "text-muted-foreground",
 };
 
@@ -276,25 +276,25 @@ function getObjectIcon(kind: DiffObjectKind) {
 function getObjectIconColor(kind: DiffObjectKind): string {
   switch (kind) {
     case "table":
-      return "text-amber-500";
+      return "text-zinc-500";
     case "view":
-      return "text-cyan-500";
+      return "text-zinc-500";
     case "function":
-      return "text-purple-500";
+      return "text-zinc-500";
     case "sequence":
-      return "text-orange-500";
+      return "text-zinc-500";
     case "rule":
-      return "text-pink-500";
+      return "text-zinc-500";
     case "owner":
-      return "text-indigo-500";
+      return "text-zinc-500";
     case "column":
-      return "text-sky-500";
+      return "text-zinc-500";
     case "index":
-      return "text-teal-500";
+      return "text-zinc-500";
     case "foreignKey":
-      return "text-lime-500";
+      return "text-zinc-500";
     case "trigger":
-      return "text-rose-500";
+      return "text-zinc-500";
     default:
       return "text-muted-foreground";
   }
@@ -312,23 +312,23 @@ function getObjectIconColor(kind: DiffObjectKind): string {
         </Button>
         <span class="text-sm font-medium">{{ t("diff.deployReview") }}</span>
         <span class="text-xs text-muted-foreground"> ({{ t("diff.selectedCount", { selected: selectedObjectCount, total: selectedObjectCount }) }}) </span>
-        <span v-if="reviewAlert" class="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-medium" :class="reviewAlert === 'destructive' ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300' : 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300'">
+        <span v-if="reviewAlert" class="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-medium" :class="reviewAlert === 'destructive' ? 'bg-zinc-100 text-zinc-700 dark:bg-zinc-900/30 dark:text-zinc-300' : 'bg-zinc-100 text-zinc-700 dark:bg-zinc-900/30 dark:text-zinc-300'">
           <AlertTriangle class="w-3 h-3" />
           {{ reviewAlert === "destructive" ? t("diff.destructiveSqlDetected", { count: destructiveStatementCount }) : t("diff.compatibilityWarningsDetected", { count: compatibilityWarningCount }) }}
         </span>
       </div>
       <div class="flex items-center gap-3 text-xs">
-        <span class="text-green-500">{{ t("diff.create") }}: {{ operationCounts.create }}</span>
-        <span class="text-blue-500">{{ t("diff.modify") }}: {{ operationCounts.modify }}</span>
-        <span class="text-red-500">{{ t("diff.delete") }}: {{ operationCounts.delete }}</span>
-        <span v-if="renameCount > 0" class="text-purple-500">{{ t("diff.renameCount", { count: renameCount }) }}</span>
+        <span class="text-zinc-500">{{ t("diff.create") }}: {{ operationCounts.create }}</span>
+        <span class="text-zinc-500">{{ t("diff.modify") }}: {{ operationCounts.modify }}</span>
+        <span class="text-zinc-500">{{ t("diff.delete") }}: {{ operationCounts.delete }}</span>
+        <span v-if="renameCount > 0" class="text-zinc-500">{{ t("diff.renameCount", { count: renameCount }) }}</span>
       </div>
     </div>
 
     <!-- Impact Report toggle -->
     <div v-if="impactReport" class="border-b shrink-0">
       <button class="flex items-center gap-2 w-full px-3 py-1.5 text-xs hover:bg-accent/50 transition-colors" @click="showImpactReport = !showImpactReport">
-        <ShieldCheck class="w-3.5 h-3.5" :class="impactReport.overallRisk === 'safe' ? 'text-green-500' : impactReport.overallRisk === 'caution' ? 'text-yellow-500' : impactReport.overallRisk === 'dangerous' ? 'text-orange-500' : 'text-red-500'" />
+        <ShieldCheck class="w-3.5 h-3.5" :class="impactReport.overallRisk === 'safe' ? 'text-zinc-500' : impactReport.overallRisk === 'caution' ? 'text-zinc-500' : impactReport.overallRisk === 'dangerous' ? 'text-zinc-500' : 'text-zinc-500'" />
         <span class="font-medium">{{ t("impact.title") }}</span>
         <span class="ml-auto text-muted-foreground">{{ showImpactReport ? "▲" : "▼" }}</span>
       </button>
@@ -337,7 +337,7 @@ function getObjectIconColor(kind: DiffObjectKind): string {
       </div>
     </div>
 
-    <div v-if="rollbackCompleteness === 'incomplete' && deploySqlMode === 'rollback'" class="px-3 py-1.5 border-b bg-amber-50 dark:bg-amber-950/30 text-xs text-amber-800 dark:text-amber-200 shrink-0">
+    <div v-if="rollbackCompleteness === 'incomplete' && deploySqlMode === 'rollback'" class="px-3 py-1.5 border-b bg-zinc-50 dark:bg-zinc-950/30 text-xs text-zinc-800 dark:text-zinc-200 shrink-0">
       {{ t("diff.rollbackIncompleteBanner") }}
       <ul v-if="missingRollbackObjects?.length" class="mt-1 list-disc pl-4">
         <li v-for="(m, i) in missingRollbackObjects" :key="i">{{ m.kind }} {{ m.name }}{{ m.table ? ` @ ${m.table}` : "" }} — {{ m.reason }}</li>

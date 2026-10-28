@@ -127,7 +127,7 @@ describe("data grid paint theme", () => {
     expect(theme.typeForegrounds.unknown).toBe(theme.foreground);
   });
 
-  it("keeps the classic blue selection palette instead of theme accent/ring mixing", () => {
+  it("keeps the blueprint gray selection palette instead of theme accent/ring mixing", () => {
     const vars: Record<string, string> = {
       "--background": "rgb(255, 255, 255)",
       "--foreground": "rgb(10, 10, 10)",
@@ -151,20 +151,20 @@ describe("data grid paint theme", () => {
       isDark: true,
     });
 
-    expect(light.cellSelected).toBe("rgb(179, 208, 254)");
-    expect(light.cellSelectedBorder).toBe("rgb(37, 99, 235)");
-    expect(light.cellSelectedSingle).toBe("rgb(191, 219, 254)");
-    expect(light.cellSelectedDirty).toBe("rgb(235, 224, 184)");
-    expect(light.cellDirty).toBe("rgb(255, 248, 230)");
-    expect(light.rowNumberTextNew).toBe("rgb(0, 122, 85)");
-    expect(light.rowNumberTextEdited).toBe("rgb(187, 77, 0)");
+    expect(light.cellSelected).toBe("rgb(212, 212, 212)");
+    expect(light.cellSelectedBorder).toBe("rgb(23, 23, 23)");
+    expect(light.cellSelectedSingle).toBe("rgb(224, 224, 224)");
+    expect(light.cellSelectedDirty).toBe("rgb(206, 206, 206)");
+    expect(light.cellDirty).toBe("rgb(240, 240, 240)");
+    expect(light.rowNumberTextNew).toBe("rgb(115, 115, 115)");
+    expect(light.rowNumberTextEdited).toBe("rgb(38, 38, 38)");
     expect(contrastRatio(light.cellSelectedBorder, light.cellSelected)).toBeGreaterThanOrEqual(3);
 
-    expect(dark.cellSelected).toBe("rgb(30, 64, 100)");
-    expect(dark.cellSelectedBorder).toBe("rgb(96, 165, 250)");
-    expect(dark.cellSelectedSingle).toBe("rgb(30, 64, 96)");
-    expect(dark.cellSelectedDirty).toBe("rgb(76, 66, 38)");
-    expect(dark.cellDirty).toBe("rgb(94, 75, 26)");
+    expect(dark.cellSelected).toBe("rgb(82, 82, 82)");
+    expect(dark.cellSelectedBorder).toBe("rgb(229, 229, 229)");
+    expect(dark.cellSelectedSingle).toBe("rgb(74, 74, 74)");
+    expect(dark.cellSelectedDirty).toBe("rgb(100, 100, 100)");
+    expect(dark.cellDirty).toBe("rgb(64, 64, 64)");
   });
 
   it("honors an explicit --data-grid-cell-selected-border token when provided in light mode", () => {
@@ -206,10 +206,10 @@ describe("data grid paint theme", () => {
     const light = resolveDataGridPaintTheme({ getVar: emptyCssVariable, isDark: false });
     const dark = resolveDataGridPaintTheme({ getVar: emptyCssVariable, isDark: true });
 
-    expect(light.typeForegrounds.integer).toBe("#1d4ed8");
-    expect(light.typeForegrounds.boolean).toBe("#c2410c");
-    expect(dark.typeForegrounds.integer).toBe("#93c5fd");
-    expect(dark.typeForegrounds.boolean).toBe("#fdba74");
+    expect(light.typeForegrounds.integer).toBe("#0a0a0a");
+    expect(light.typeForegrounds.boolean).toBe("#2f2f2f");
+    expect(dark.typeForegrounds.integer).toBe("#fafafa");
+    expect(dark.typeForegrounds.boolean).toBe("#cccccc");
     expect(light.typeForegrounds.unknown).toBe(light.foreground);
     expect(dark.typeForegrounds.unknown).toBe(dark.foreground);
 

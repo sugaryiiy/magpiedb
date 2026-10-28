@@ -229,7 +229,7 @@ function handleCancelClose() {
     <DialogContent class="min-w-0 sm:max-w-md">
       <DialogHeader>
         <DialogTitle class="flex items-center gap-2">
-          <AlertTriangle class="h-5 w-5 text-amber-500" />
+          <AlertTriangle class="h-5 w-5 text-zinc-500" />
           {{ t("editor.unsavedChangesTitle") }}
         </DialogTitle>
       </DialogHeader>

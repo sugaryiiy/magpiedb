@@ -172,7 +172,7 @@ describe("plugin shortcut bar", () => {
     expect(buttons[0].getAttribute("aria-pressed")).toBe("false");
     expect(buttons[1].getAttribute("aria-pressed")).toBe("true");
     expect(buttons[0].querySelector("[data-shortcut-active-indicator]")).toBeNull();
-    expect(buttons[1].querySelector("[data-shortcut-active-indicator]")?.classList.contains("bg-green-500")).toBe(true);
+    expect(buttons[1].querySelector("[data-shortcut-active-indicator]")?.classList.contains("bg-zinc-500")).toBe(true);
     expect(container.querySelector('[role="separator"]')).not.toBeNull();
     mocks.state.editorSettings.pluginShortcuts.enabled = false;
     await nextTick();

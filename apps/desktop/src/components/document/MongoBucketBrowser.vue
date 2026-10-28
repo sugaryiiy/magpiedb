@@ -617,7 +617,7 @@ watch(
                 </div>
               </PopoverContent>
             </Popover>
-            <span class="shrink-0 text-xs font-medium text-blue-600 dark:text-blue-400">{{ mongoProvider.filterInputLabel }}</span>
+            <span class="shrink-0 text-xs font-medium text-zinc-600 dark:text-zinc-400">{{ mongoProvider.filterInputLabel }}</span>
             <input v-model="filterInput" autocapitalize="off" autocorrect="off" spellcheck="false" class="h-7 min-w-0 flex-1 bg-transparent font-mono text-xs outline-none placeholder:text-muted-foreground/60" placeholder="{}" @keydown.enter="applyQuery" />
             <button
               v-if="filterInput.trim()"
@@ -632,7 +632,7 @@ watch(
           </div>
           <div class="h-px bg-border/70 md:h-auto md:w-px" />
           <div class="flex min-w-0 flex-1 items-center gap-1 px-2 py-1.5">
-            <span class="shrink-0 text-xs font-medium text-orange-600 dark:text-orange-400">{{ mongoProvider.sortInputLabel }}</span>
+            <span class="shrink-0 text-xs font-medium text-zinc-600 dark:text-zinc-400">{{ mongoProvider.sortInputLabel }}</span>
             <input v-model="sortInput" autocapitalize="off" autocorrect="off" spellcheck="false" class="h-7 min-w-0 flex-1 bg-transparent font-mono text-xs outline-none placeholder:text-muted-foreground/60" placeholder='{"uploadDate":-1}' @keydown.enter="applyQuery" />
             <button
               v-if="sortInput.trim()"

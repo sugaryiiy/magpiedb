@@ -415,7 +415,7 @@ async function changeCatalog(selectedCatalog: string) {
   color: var(--workbench-accent, var(--primary));
 }
 .query-context-warning {
-  color: var(--workbench-warning, #a15c10);
+  color: var(--workbench-warning, #525252);
 }
 .database-required-prompt {
   color: var(--workbench-danger, var(--destructive));

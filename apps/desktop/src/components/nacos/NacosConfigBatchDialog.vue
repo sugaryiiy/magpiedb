@@ -84,7 +84,7 @@ const reportProcessed = computed(() => reportWritten.value + (props.report?.skip
 const reportNeedsAttention = computed(() => !!props.report && (props.report.aborted || props.report.partial || props.report.cancelled || props.report.failed > 0));
 const reportSummaryClass = computed(() => {
   if (props.report?.failed) return "text-destructive";
-  return reportNeedsAttention.value ? "text-amber-600" : "text-emerald-600";
+  return reportNeedsAttention.value ? "text-zinc-600" : "text-zinc-600";
 });
 const reportSummary = computed(() => {
   const report = props.report;
@@ -114,8 +114,8 @@ function batchStatusLabel(status: string) {
 }
 
 function batchStatusClass(status: string) {
-  if (["create", "created", "overwritten", "exported"].includes(status)) return "border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300";
-  if (["conflict", "skipped", "aborted"].includes(status)) return "border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-300";
+  if (["create", "created", "overwritten", "exported"].includes(status)) return "border-zinc-500/30 bg-zinc-500/10 text-zinc-700 dark:text-zinc-300";
+  if (["conflict", "skipped", "aborted"].includes(status)) return "border-zinc-500/30 bg-zinc-500/10 text-zinc-700 dark:text-zinc-300";
   if (["invalid", "failed"].includes(status)) return "border-destructive/30 bg-destructive/10 text-destructive";
   return "text-muted-foreground";
 }
@@ -225,7 +225,7 @@ watch(
               {{ t("nacos.chooseZip") }}
             </Button>
           </div>
-          <div class="mt-3 flex items-start gap-2 rounded-md bg-amber-500/10 p-2 text-xs text-amber-700 dark:text-amber-300">
+          <div class="mt-3 flex items-start gap-2 rounded-md bg-zinc-500/10 p-2 text-xs text-zinc-700 dark:text-zinc-300">
             <AlertTriangle class="mt-0.5 h-4 w-4 shrink-0" />
             <span>{{ t("nacos.importSensitiveWarning") }}</span>
           </div>
@@ -307,8 +307,8 @@ watch(
         <div v-if="preview" class="space-y-2">
           <div class="flex flex-wrap items-center gap-2">
             <Badge variant="outline">{{ t("nacos.previewTotal", { count: preview.total }) }}</Badge>
-            <Badge variant="outline" class="text-emerald-600">{{ t("nacos.previewCreated", { count: preview.created }) }}</Badge>
-            <Badge variant="outline" class="text-amber-600">{{ t("nacos.previewConflicts", { count: preview.conflicts }) }}</Badge>
+            <Badge variant="outline" class="text-zinc-600">{{ t("nacos.previewCreated", { count: preview.created }) }}</Badge>
+            <Badge variant="outline" class="text-zinc-600">{{ t("nacos.previewConflicts", { count: preview.conflicts }) }}</Badge>
             <Badge v-if="preview.invalid" variant="outline" class="text-destructive">{{ t("nacos.previewInvalid", { count: preview.invalid }) }}</Badge>
           </div>
           <div class="max-h-52 overflow-auto rounded-md border text-xs">
@@ -335,11 +335,11 @@ watch(
           </div>
           <div class="flex flex-wrap gap-2">
             <Badge variant="outline">{{ t("nacos.reportWritten", { count: reportWritten }) }}</Badge>
-            <Badge v-if="report.created" variant="outline" class="text-emerald-600">{{ t("nacos.reportCreated", { count: report.created }) }}</Badge>
-            <Badge v-if="report.overwritten" variant="outline" class="text-emerald-600">{{ t("nacos.reportOverwritten", { count: report.overwritten }) }}</Badge>
-            <Badge v-if="report.skipped" variant="outline" class="text-amber-600">{{ t("nacos.reportSkipped", { count: report.skipped }) }}</Badge>
+            <Badge v-if="report.created" variant="outline" class="text-zinc-600">{{ t("nacos.reportCreated", { count: report.created }) }}</Badge>
+            <Badge v-if="report.overwritten" variant="outline" class="text-zinc-600">{{ t("nacos.reportOverwritten", { count: report.overwritten }) }}</Badge>
+            <Badge v-if="report.skipped" variant="outline" class="text-zinc-600">{{ t("nacos.reportSkipped", { count: report.skipped }) }}</Badge>
             <Badge v-if="report.failed" variant="outline" class="text-destructive">{{ t("nacos.reportFailed", { count: report.failed }) }}</Badge>
-            <Badge v-if="report.cancelled" variant="outline" class="text-amber-600">{{ t("nacos.batchCancelled") }}</Badge>
+            <Badge v-if="report.cancelled" variant="outline" class="text-zinc-600">{{ t("nacos.batchCancelled") }}</Badge>
           </div>
           <div v-if="report.items.length" class="max-h-52 overflow-auto rounded-md border text-xs">
             <div class="border-b bg-muted/30 px-3 py-2 font-medium text-foreground">{{ t("nacos.reportItems", { count: report.items.length }) }}</div>

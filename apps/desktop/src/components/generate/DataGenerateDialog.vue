@@ -938,7 +938,7 @@ async function onFileSelected(event: Event) {
                         <ChevronRight v-else class="h-3.5 w-3.5 transition-transform" :class="{ 'rotate-90': expandedTables[tableKey(sc, tbl.name)] }" />
                       </button>
                       <input type="checkbox" class="h-3.5 w-3.5 accent-primary shrink-0" :checked="!!checkedTables[tableKey(sc, tbl.name)]" :ref="(el) => setTableRef(el, tableKey(sc, tbl.name))" @click.stop @change="updateTableSelection(sc, tbl.name, ($event.target as HTMLInputElement).checked)" />
-                      <Table class="h-3.5 w-3.5 shrink-0 text-green-500" />
+                      <Table class="h-3.5 w-3.5 shrink-0 text-zinc-500" />
                       <span class="text-sm truncate" :class="{ 'text-foreground font-medium': panelTableKey === tableKey(sc, tbl.name), 'text-muted-foreground': panelTableKey !== tableKey(sc, tbl.name) }">
                         {{ tbl.name }}
                       </span>
@@ -983,7 +983,7 @@ async function onFileSelected(event: Event) {
                     <span class="text-xs text-muted-foreground font-mono">{{ activeCol.dataType }}</span>
                   </div>
                   <GeneratorParamsPanel :config="activeCol" :connection-id="props.prefillConnectionId" :database="props.prefillDatabase" />
-                  <div class="rounded border border-dashed border-amber-300 bg-amber-50 dark:bg-amber-950/20 px-2 py-1 text-[10px] font-mono text-amber-700 dark:text-amber-400 leading-relaxed break-all">
+                  <div class="rounded border border-dashed border-zinc-300 bg-zinc-50 dark:bg-zinc-950/20 px-2 py-1 text-[10px] font-mono text-zinc-700 dark:text-zinc-400 leading-relaxed break-all">
                     <div>generatorKey: {{ activeCol.generatorKey ?? "(none)" }}</div>
                     <div>generatorParams: {{ JSON.stringify(activeCol.generatorParams) }}</div>
                   </div>
@@ -992,7 +992,7 @@ async function onFileSelected(event: Event) {
               <template v-else-if="activeCfg">
                 <div class="p-3 space-y-3">
                   <div class="flex items-center gap-2 text-sm font-medium">
-                    <Table class="h-4 w-4 text-green-500" />
+                    <Table class="h-4 w-4 text-zinc-500" />
                     <span>{{ activeCfg.tableName }}</span>
                   </div>
                   <div class="flex items-center gap-3 rounded-md bg-muted/20 px-3 py-2">
@@ -1095,7 +1095,7 @@ async function onFileSelected(event: Event) {
               <div class="flex items-center justify-between">
                 <span class="font-medium truncate">{{ r.table }}</span>
                 <span class="flex items-center gap-3 shrink-0">
-                  <span class="text-green-600 dark:text-green-400">{{ t("dataGenerate.successLabel", { count: r.ok }) }}</span>
+                  <span class="text-zinc-600 dark:text-zinc-400">{{ t("dataGenerate.successLabel", { count: r.ok }) }}</span>
                   <span v-if="r.err > 0" class="text-destructive">{{ t("dataGenerate.failLabel", { count: r.err }) }}</span>
                   <span class="text-muted-foreground">{{ t("dataGenerate.totalLabel", { count: r.total }) }}</span>
                 </span>

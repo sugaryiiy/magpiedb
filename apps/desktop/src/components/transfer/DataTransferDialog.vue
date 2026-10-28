@@ -1187,7 +1187,7 @@ async function saveConfigTask() {
             <div class="grid grid-cols-[1fr_auto_1fr] gap-4 items-start">
               <!-- Source Section -->
               <div class="space-y-3">
-                <div class="text-sm font-medium text-blue-500">
+                <div class="text-sm font-medium text-zinc-500">
                   {{ t("transfer.source") }}
                 </div>
 
@@ -1260,7 +1260,7 @@ async function saveConfigTask() {
 
               <!-- Target Section -->
               <div class="space-y-3">
-                <div class="text-sm font-medium text-green-500">
+                <div class="text-sm font-medium text-zinc-500">
                   {{ t("transfer.target") }}
                 </div>
 
@@ -1338,7 +1338,7 @@ async function saveConfigTask() {
                 {{ t("transfer.selectSourceFirst") }}
               </div>
               <ObjectSelectionTree v-model="treeSelection" :groups="treeGroups" :disabled-groups="treeDisabledGroups" :disabled-hints="treeDisabledHints" :qualifiers="objectQualifiers" v-model:search="objectSearch" :loading="loadingObjects" class="min-h-0 flex-1" />
-              <div v-if="showCrossFamilyViewHint" class="mt-1.5 rounded-md border border-amber-300/40 bg-amber-50 px-2 py-1.5 text-xs text-amber-700">
+              <div v-if="showCrossFamilyViewHint" class="mt-1.5 rounded-md border border-zinc-300/40 bg-zinc-50 px-2 py-1.5 text-xs text-zinc-700">
                 {{ t("transfer.crossFamilyViewHint") }}
               </div>
             </div>

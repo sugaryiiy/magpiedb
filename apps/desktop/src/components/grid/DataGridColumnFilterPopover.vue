@@ -82,7 +82,7 @@ const { t } = useI18n();
         <button
           type="button"
           class="flex h-4 w-4 items-center justify-center rounded border"
-          :class="props.options.length > 0 && props.draftValues && props.options.every((option) => props.draftValues?.has(option.key)) ? 'border-blue-600 bg-blue-600 text-white' : 'border-border bg-background text-foreground/70'"
+          :class="props.options.length > 0 && props.draftValues && props.options.every((option) => props.draftValues?.has(option.key)) ? 'border-zinc-600 bg-zinc-600 text-white' : 'border-border bg-background text-foreground/70'"
           @click="emit('toggleAll')"
         >
           <Check v-if="props.options.length > 0 && props.draftValues && props.options.every((option) => props.draftValues?.has(option.key))" class="h-3 w-3 stroke-[3]" />
@@ -117,7 +117,7 @@ const { t } = useI18n();
       <div class="max-h-72 overflow-auto py-0.5">
         <LightTooltip v-for="option in props.options" :key="option.key" :text="option.label" side="left" content-class="w-max max-w-[min(32rem,calc(100vw-2rem))]">
           <button type="button" class="grid w-full grid-cols-[1.75rem_minmax(0,1fr)_3.5rem] items-center px-2 py-1 text-left text-xs hover:bg-accent" @click="emit('toggleValue', option.key)">
-            <span class="flex h-4 w-4 items-center justify-center rounded border" :class="props.draftValues?.has(option.key) ? 'border-blue-600 bg-blue-600 text-white' : 'border-border bg-background text-foreground/70'">
+            <span class="flex h-4 w-4 items-center justify-center rounded border" :class="props.draftValues?.has(option.key) ? 'border-zinc-600 bg-zinc-600 text-white' : 'border-border bg-background text-foreground/70'">
               <Check v-if="props.draftValues?.has(option.key)" class="h-3 w-3 stroke-[3]" />
             </span>
             <span class="truncate font-mono" :class="{ 'italic text-muted-foreground': option.value === null }">

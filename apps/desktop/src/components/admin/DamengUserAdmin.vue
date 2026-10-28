@@ -520,7 +520,7 @@ onMounted(() => {
                 >
                   <div class="flex items-center gap-2">
                     <span class="min-w-0 flex-1 truncate font-medium">{{ user.username }}</span>
-                    <Badge v-if="userCategoryLabel(user.username)" variant="outline" class="h-5 border-amber-500/50 px-1.5 text-[10px] text-amber-700 dark:text-amber-300">{{ userCategoryLabel(user.username) }}</Badge>
+                    <Badge v-if="userCategoryLabel(user.username)" variant="outline" class="h-5 border-zinc-500/50 px-1.5 text-[10px] text-zinc-700 dark:text-zinc-300">{{ userCategoryLabel(user.username) }}</Badge>
                     <Badge v-if="user.locked" :variant="accountStatusBadgeVariant(user)" class="h-5 px-1.5 text-[10px]">{{ user.accountStatus }}</Badge>
                   </div>
                   <div class="mt-1 truncate text-[11px] text-muted-foreground">{{ user.defaultTablespace || "-" }}</div>
@@ -542,7 +542,7 @@ onMounted(() => {
               <span class="truncate text-sm font-semibold">{{ selectedUser.username }}</span>
               <Badge v-if="selectedUser.locked" :variant="accountStatusBadgeVariant(selectedUser)" class="h-5 px-1.5 text-[10px]">{{ selectedUser.accountStatus }}</Badge>
               <Badge v-else variant="outline" class="h-5 px-1.5 text-[10px]">{{ t("damengUserAdmin.open") }}</Badge>
-              <Badge v-if="selectedUserCategoryLabel" variant="outline" class="h-5 border-amber-500/50 px-1.5 text-[10px] text-amber-700 dark:text-amber-300">{{ selectedUserCategoryLabel }}</Badge>
+              <Badge v-if="selectedUserCategoryLabel" variant="outline" class="h-5 border-zinc-500/50 px-1.5 text-[10px] text-zinc-700 dark:text-zinc-300">{{ selectedUserCategoryLabel }}</Badge>
             </div>
             <div class="truncate text-xs text-muted-foreground">{{ t("damengUserAdmin.defaultTablespace") }}: {{ selectedUser.defaultTablespace || "-" }} · {{ t("damengUserAdmin.created") }}: {{ selectedUser.created || "-" }}</div>
           </div>
@@ -596,7 +596,7 @@ onMounted(() => {
                 <ShieldCheck class="h-3.5 w-3.5 shrink-0 text-primary" />
                 <span class="min-w-0 flex-1 truncate font-mono text-xs">{{ grant.grantedRole }}</span>
                 <Badge v-if="grant.adminOption" variant="outline" class="h-5 px-1.5 text-[10px]">ADMIN OPTION</Badge>
-                <Badge v-if="isDamengPredefinedRole(grant.grantedRole)" variant="outline" class="h-5 border-amber-500/50 px-1.5 text-[10px] text-amber-700 dark:text-amber-300">{{ t("damengUserAdmin.builtinRole") }}</Badge>
+                <Badge v-if="isDamengPredefinedRole(grant.grantedRole)" variant="outline" class="h-5 border-zinc-500/50 px-1.5 text-[10px] text-zinc-700 dark:text-zinc-300">{{ t("damengUserAdmin.builtinRole") }}</Badge>
                 <Badge v-if="grant.inherited" variant="secondary" class="h-5 px-1.5 text-[10px]" :title="grant.via">{{ t("damengUserAdmin.inheritedFrom", { via: grant.via ?? "" }) }}</Badge>
                 <Button
                   v-if="!grant.inherited"
@@ -681,7 +681,7 @@ onMounted(() => {
           <label class="grid gap-1">
             <span>{{ t("damengUserAdmin.password") }}</span>
             <PasswordInput v-model="createPassword" class="h-8 text-xs" />
-            <span :class="createPassword.length > 0 && createPassword.length < 9 ? 'text-[10px] text-amber-600 dark:text-amber-400' : 'text-[10px] text-muted-foreground'">{{ t("damengUserAdmin.passwordPolicyHint") }}</span>
+            <span :class="createPassword.length > 0 && createPassword.length < 9 ? 'text-[10px] text-zinc-600 dark:text-zinc-400' : 'text-[10px] text-muted-foreground'">{{ t("damengUserAdmin.passwordPolicyHint") }}</span>
           </label>
           <label class="grid gap-1">
             <span>{{ t("damengUserAdmin.tablespace") }}</span>
@@ -714,7 +714,7 @@ onMounted(() => {
           <label class="grid gap-1">
             <span>{{ t("damengUserAdmin.newPassword") }}</span>
             <PasswordInput v-model="passwordValue" class="h-8 text-xs" />
-            <span :class="passwordValue.length > 0 && passwordValue.length < 9 ? 'text-[10px] text-amber-600 dark:text-amber-400' : 'text-[10px] text-muted-foreground'">{{ t("damengUserAdmin.passwordPolicyHint") }}</span>
+            <span :class="passwordValue.length > 0 && passwordValue.length < 9 ? 'text-[10px] text-zinc-600 dark:text-zinc-400' : 'text-[10px] text-muted-foreground'">{{ t("damengUserAdmin.passwordPolicyHint") }}</span>
           </label>
           <label class="grid gap-1">
             <span>{{ t("damengUserAdmin.confirmPassword") }}</span>
@@ -767,7 +767,7 @@ onMounted(() => {
               </SelectContent>
             </Select>
           </label>
-          <p v-if="!enableDdlAnyPriv" class="text-[11px] text-amber-600 dark:text-amber-400">{{ t("damengUserAdmin.anyPrivilegeDisabled") }}</p>
+          <p v-if="!enableDdlAnyPriv" class="text-[11px] text-zinc-600 dark:text-zinc-400">{{ t("damengUserAdmin.anyPrivilegeDisabled") }}</p>
           <p class="text-[11px] text-muted-foreground">{{ t("damengUserAdmin.grantPrivilegeHint", { user: selectedUser?.username ?? "" }) }}</p>
         </div>
         <DialogFooter>

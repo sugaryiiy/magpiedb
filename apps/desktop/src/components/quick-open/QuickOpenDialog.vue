@@ -412,7 +412,7 @@ watch(selectedIndex, async () => {
                     <FileText class="h-4 w-4 shrink-0 text-muted-foreground" />
                     <span class="font-mono text-xs truncate">
                       <template v-for="(part, i) in getHighlightedLineParts(row.item!)" :key="i">
-                        <span v-if="part.highlight" class="bg-yellow-200 dark:bg-yellow-800 text-foreground rounded-[0.1875rem] px-0.5 font-semibold">{{ part.text }}</span>
+                        <span v-if="part.highlight" class="bg-zinc-200 dark:bg-zinc-800 text-foreground rounded-[0.1875rem] px-0.5 font-semibold">{{ part.text }}</span>
                         <span v-else>{{ part.text }}</span>
                       </template>
                     </span>
@@ -422,7 +422,7 @@ watch(selectedIndex, async () => {
                     <span class="shrink-0 font-mono text-xs text-muted-foreground">{{ row.item!.line }}</span>
                     <span class="font-mono text-xs truncate">
                       <template v-for="(part, i) in getHighlightedLineParts(row.item!)" :key="i">
-                        <span v-if="part.highlight" class="bg-yellow-200 dark:bg-yellow-800 text-foreground rounded-[0.1875rem] px-0.5 font-semibold">{{ part.text }}</span>
+                        <span v-if="part.highlight" class="bg-zinc-200 dark:bg-zinc-800 text-foreground rounded-[0.1875rem] px-0.5 font-semibold">{{ part.text }}</span>
                         <span v-else>{{ part.text }}</span>
                       </template>
                     </span>
@@ -447,7 +447,7 @@ watch(selectedIndex, async () => {
                   <div class="flex-1 min-w-0">
                     <div class="text-sm font-medium truncate">
                       <template v-for="(part, i) in getHighlightedLabel(item)" :key="i">
-                        <span v-if="typeof part === 'object'" :class="{ 'bg-yellow-200 dark:bg-yellow-800 font-semibold': part.highlight }">
+                        <span v-if="typeof part === 'object'" :class="{ 'bg-zinc-200 dark:bg-zinc-800 font-semibold': part.highlight }">
                           {{ part.text }}
                         </span>
                         <span v-else>{{ part }}</span>
@@ -460,7 +460,7 @@ watch(selectedIndex, async () => {
                       <span v-if="item.line && item.line > 0" class="shrink-0 text-muted-foreground" data-content-search-line>{{ item.line }}</span>
                       <span class="truncate">
                         <template v-for="(part, i) in getHighlightedLineParts(item)" :key="i">
-                          <span v-if="part.highlight" class="bg-yellow-200 dark:bg-yellow-800 text-foreground rounded-[0.1875rem] px-0.5 font-semibold">{{ part.text }}</span>
+                          <span v-if="part.highlight" class="bg-zinc-200 dark:bg-zinc-800 text-foreground rounded-[0.1875rem] px-0.5 font-semibold">{{ part.text }}</span>
                           <span v-else>{{ part.text }}</span>
                         </template>
                       </span>
@@ -503,8 +503,8 @@ watch(selectedIndex, async () => {
   box-shadow: inset 3px 0 0 var(--info) !important;
 }
 
-:deep(.bg-yellow-200),
-:deep(.dark .bg-yellow-800) {
+:deep(.bg-zinc-200),
+:deep(.dark .bg-zinc-800) {
   background-color: var(--warning-bg) !important;
   border-radius: 0.1875rem;
   padding: 0 0.0625rem;

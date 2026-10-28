@@ -907,7 +907,7 @@ onBeforeUnmount(() => {
 .subscription-type-filters-label {
   font-size: 12px;
   font-weight: 600;
-  color: var(--color-text-secondary, #6b7280);
+  color: var(--color-text-secondary, #737373);
   margin-right: 4px;
 }
 
@@ -1176,10 +1176,10 @@ button:disabled {
 .form-warning {
   margin-top: 12px;
   padding: 8px 12px;
-  border: 1px solid var(--color-warning-border, #d99a22);
+  border: 1px solid var(--color-warning-border, #525252);
   border-radius: var(--dbx-radius-fixed-4);
-  background: var(--color-warning-background, #fff6df);
-  color: var(--color-warning-text, #7a4a00);
+  background: var(--color-warning-background, #f5f5f5);
+  color: var(--color-warning-text, #262626);
   font-size: 13px;
 }
 

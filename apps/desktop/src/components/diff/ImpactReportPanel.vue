@@ -21,10 +21,10 @@ const props = defineProps<{
 }>();
 
 const riskColors: Record<string, string> = {
-  safe: "#22c55e",
-  caution: "#eab308",
-  dangerous: "#f97316",
-  blocked: "#ef4444",
+  safe: "#a3a3a3",
+  caution: "#737373",
+  dangerous: "#404040",
+  blocked: "#111111",
 };
 
 const riskLabels: Record<string, string> = {
@@ -99,19 +99,19 @@ const strategyLabel = computed(() => (props.report ? strategyLabels[props.report
           </div>
         </div>
         <div class="flex items-center gap-2 p-2 rounded border bg-muted/20">
-          <component :is="report.requiresMaintenanceWindow ? AlertTriangle : CheckCircle2" class="w-4 h-4 shrink-0" :class="report.requiresMaintenanceWindow ? 'text-amber-500' : 'text-green-500'" />
+          <component :is="report.requiresMaintenanceWindow ? AlertTriangle : CheckCircle2" class="w-4 h-4 shrink-0" :class="report.requiresMaintenanceWindow ? 'text-zinc-500' : 'text-zinc-500'" />
           <div class="min-w-0">
             <div class="text-[10px] text-muted-foreground">{{ t("impact.maintenanceWindow") }}</div>
-            <span class="inline-block px-1.5 py-0.5 rounded text-[10px] font-medium" :class="report.requiresMaintenanceWindow ? 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300' : 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300'">
+            <span class="inline-block px-1.5 py-0.5 rounded text-[10px] font-medium" :class="report.requiresMaintenanceWindow ? 'bg-zinc-100 text-zinc-700 dark:bg-zinc-900/30 dark:text-zinc-300' : 'bg-zinc-100 text-zinc-700 dark:bg-zinc-900/30 dark:text-zinc-300'">
               {{ report.requiresMaintenanceWindow ? t("impact.yes") : t("impact.no") }}
             </span>
           </div>
         </div>
         <div class="flex items-center gap-2 p-2 rounded border bg-muted/20">
-          <component :is="report.isReversible ? CheckCircle2 : XCircle" class="w-4 h-4 shrink-0" :class="report.isReversible ? 'text-green-500' : 'text-red-500'" />
+          <component :is="report.isReversible ? CheckCircle2 : XCircle" class="w-4 h-4 shrink-0" :class="report.isReversible ? 'text-zinc-500' : 'text-zinc-500'" />
           <div class="min-w-0">
             <div class="text-[10px] text-muted-foreground">{{ t("impact.reversible") }}</div>
-            <span class="inline-block px-1.5 py-0.5 rounded text-[10px] font-medium" :class="report.isReversible ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300' : 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300'">
+            <span class="inline-block px-1.5 py-0.5 rounded text-[10px] font-medium" :class="report.isReversible ? 'bg-zinc-100 text-zinc-700 dark:bg-zinc-900/30 dark:text-zinc-300' : 'bg-zinc-100 text-zinc-700 dark:bg-zinc-900/30 dark:text-zinc-300'">
               {{ report.isReversible ? t("impact.yes") : t("impact.no") }}
             </span>
           </div>
@@ -149,8 +149,8 @@ const strategyLabel = computed(() => (props.report ? strategyLabels[props.report
       <div v-if="report.warnings.length > 0">
         <h4 class="text-xs font-medium mb-2">{{ t("impact.warnings") }}</h4>
         <div class="space-y-1">
-          <div v-for="(warning, i) in report.warnings" :key="i" class="flex items-start gap-2 px-2 py-1.5 rounded text-xs bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900/30">
-            <AlertTriangle class="w-3.5 h-3.5 text-amber-500 shrink-0 mt-0.5" />
+          <div v-for="(warning, i) in report.warnings" :key="i" class="flex items-start gap-2 px-2 py-1.5 rounded text-xs bg-zinc-50 dark:bg-zinc-950/20 border border-zinc-200 dark:border-zinc-900/30">
+            <AlertTriangle class="w-3.5 h-3.5 text-zinc-500 shrink-0 mt-0.5" />
             <span>{{ warning }}</span>
           </div>
         </div>

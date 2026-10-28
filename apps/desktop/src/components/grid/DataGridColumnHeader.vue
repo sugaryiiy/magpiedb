@@ -63,7 +63,7 @@ const emit = defineEmits<{
 <template>
   <div
     class="data-grid-header-cell shrink-0 px-2 py-1.5 border-r border-border whitespace-nowrap hover:bg-gray-200 dark:hover:bg-gray-800 select-none relative overflow-hidden"
-    :class="[dark && 'data-grid-header-cell--dark', selected && 'data-grid-header-cell--selected', searchMatch && 'bg-amber-500/20 ring-1 ring-inset ring-amber-500/40', frozen && 'data-grid-header-cell--frozen', frozenSeparator && 'data-grid-header-cell--frozen-separator', dragClass]"
+    :class="[dark && 'data-grid-header-cell--dark', selected && 'data-grid-header-cell--selected', searchMatch && 'bg-zinc-500/20 ring-1 ring-inset ring-zinc-500/40', frozen && 'data-grid-header-cell--frozen', frozenSeparator && 'data-grid-header-cell--frozen-separator', dragClass]"
     :style="columnStyle"
     :data-grid-column-index="actualColumnIndex"
     :data-visible-col-index="visibleColumnIndex"
@@ -118,7 +118,7 @@ const emit = defineEmits<{
           </div>
         </template>
       </LightTooltip>
-      <span v-if="formatterActive" data-column-formatter-indicator class="inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-sm bg-violet-600 text-[10px] font-bold leading-none text-white shadow-sm dark:bg-violet-500" :title="formatterLabel" :aria-label="formatterLabel">F</span>
+      <span v-if="formatterActive" data-column-formatter-indicator class="inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-sm bg-zinc-600 text-[10px] font-bold leading-none text-white shadow-sm dark:bg-zinc-500" :title="formatterLabel" :aria-label="formatterLabel">F</span>
       <span data-column-header-actions class="contents"><slot name="actions" /></span>
     </span>
     <div data-column-resize-handle class="absolute right-0 top-0 bottom-0 w-1.5 cursor-col-resize hover:bg-primary/30" @mousedown.stop="emit('resizeStart', $event)" @click.stop.prevent @dblclick.stop="emit('autoFit')" />

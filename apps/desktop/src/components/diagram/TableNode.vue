@@ -88,7 +88,7 @@ const handleOffsetStyle = computed(() =>
             {{ truncateLabel(data.table.name, TABLE_NAME_MAX_CHARS) }}
           </span>
         </div>
-        <Badge v-if="isDraft" variant="outline" class="h-5 shrink-0 px-1.5 text-[10px] border-amber-500/50 text-amber-700 dark:text-amber-400">Draft</Badge>
+        <Badge v-if="isDraft" variant="outline" class="h-5 shrink-0 px-1.5 text-[10px] border-zinc-500/50 text-zinc-700 dark:text-zinc-400">Draft</Badge>
         <Badge variant="outline" class="h-5 px-1.5 text-[10px]">{{ visibleColumns(data.table).length }}</Badge>
       </div>
       <div v-if="commentText(data.table.comment)" class="flex h-4 items-center gap-1.5 border-b border-border/40 bg-muted/20 px-3">
@@ -97,7 +97,7 @@ const handleOffsetStyle = computed(() =>
       <div>
         <div v-for="column in visibleColumns(data.table)" :key="column.name" class="border-b border-border/40 last:border-b-0">
           <div class="flex h-6 min-w-0 items-center gap-1.5 px-3 text-xs">
-            <KeyRound v-if="column.is_primary_key" class="h-3 w-3 shrink-0 text-amber-500" />
+            <KeyRound v-if="column.is_primary_key" class="h-3 w-3 shrink-0 text-zinc-500" />
             <Link2 v-else-if="isForeignKeyColumn(data.table, column.name)" class="h-3 w-3 shrink-0 text-primary" />
             <Link2 v-else-if="isRelationshipColumn(data.table, column.name)" class="h-3 w-3 shrink-0 text-muted-foreground" />
             <span v-else class="h-3 w-3 shrink-0" />

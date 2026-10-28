@@ -158,9 +158,9 @@ function lockModeCount(lockMode: string): number | null {
 
 function nodeStateClass(node: XuguClusterNode): string {
   const state = xuguClusterNodeStateLabel(node.state);
-  if (state === "running") return "border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300";
+  if (state === "running") return "border-zinc-500/30 bg-zinc-500/10 text-zinc-700 dark:text-zinc-300";
   if (state === "error" || state === "offline") return "border-destructive/30 bg-destructive/10 text-destructive";
-  return "border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-300";
+  return "border-zinc-500/30 bg-zinc-500/10 text-zinc-700 dark:text-zinc-300";
 }
 
 function nodeStateText(node: XuguClusterNode): string {
@@ -316,7 +316,7 @@ onUnmounted(stopAutoRefresh);
       {{ error }}
     </div>
     <div v-else class="min-h-0 flex-1 overflow-auto p-4">
-      <div v-if="partialErrors.length > 0" class="mb-3 flex items-start gap-2 rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-xs text-amber-700 dark:text-amber-300">
+      <div v-if="partialErrors.length > 0" class="mb-3 flex items-start gap-2 rounded-lg border border-zinc-500/30 bg-zinc-500/10 px-3 py-2 text-xs text-zinc-700 dark:text-zinc-300">
         <AlertTriangle class="mt-0.5 h-3.5 w-3.5 shrink-0" />
         <span>{{ t("xuguServerDashboard.partialData") }}</span>
       </div>
@@ -371,7 +371,7 @@ onUnmounted(stopAutoRefresh);
                 <span>{{ t("xuguServerDashboard.sga") }}</span
                 ><span class="text-muted-foreground">{{ sgaTotalBytes === null || sgaFreeBytes === null ? "—" : `${formatBytes(sgaTotalBytes - sgaFreeBytes)} / ${formatBytes(sgaTotalBytes)}` }}</span>
               </div>
-              <div class="h-2 overflow-hidden rounded-full bg-muted"><div class="h-full rounded-full bg-sky-500" :style="{ width: `${percentage(sgaTotalBytes, sgaFreeBytes)}%` }" /></div>
+              <div class="h-2 overflow-hidden rounded-full bg-muted"><div class="h-full rounded-full bg-zinc-500" :style="{ width: `${percentage(sgaTotalBytes, sgaFreeBytes)}%` }" /></div>
               <div class="mt-1.5 text-[11px] text-muted-foreground">{{ sgaTotalBytes === null || sgaFreeBytes === null ? "—" : t("xuguServerDashboard.usedPercent", { percent: percentage(sgaTotalBytes, sgaFreeBytes).toFixed(1) }) }}</div>
             </div>
             <div>
@@ -379,7 +379,7 @@ onUnmounted(stopAutoRefresh);
                 <span>{{ t("xuguServerDashboard.swap") }}</span
                 ><span class="text-muted-foreground">{{ swapTotalBytes === null || swapFreeBytes === null ? "—" : `${formatBytes(swapTotalBytes - swapFreeBytes)} / ${formatBytes(swapTotalBytes)}` }}</span>
               </div>
-              <div class="h-2 overflow-hidden rounded-full bg-muted"><div class="h-full rounded-full bg-amber-500" :style="{ width: `${percentage(swapTotalBytes, swapFreeBytes)}%` }" /></div>
+              <div class="h-2 overflow-hidden rounded-full bg-muted"><div class="h-full rounded-full bg-zinc-500" :style="{ width: `${percentage(swapTotalBytes, swapFreeBytes)}%` }" /></div>
               <div class="mt-1.5 text-[11px] text-muted-foreground">{{ swapTotalBytes === null || swapFreeBytes === null ? "—" : t("xuguServerDashboard.usedPercent", { percent: percentage(swapTotalBytes, swapFreeBytes).toFixed(1) }) }}</div>
             </div>
           </div>

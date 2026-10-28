@@ -56,7 +56,7 @@ function handleSnippetClick(match: SavedSqlLineMatch) {
       <span class="shrink-0 text-[10px] text-muted-foreground/70 select-none"> L{{ match.lineNumber }} </span>
       <span class="min-w-0 flex-1 truncate">
         <template v-for="(seg, idx) in match.segments" :key="idx">
-          <mark v-if="seg.matched" class="rounded-[2px] bg-amber-300/80 px-0.5 text-foreground dark:bg-amber-500/40">{{ seg.text }}</mark>
+          <mark v-if="seg.matched" class="rounded-[2px] bg-zinc-300/80 px-0.5 text-foreground dark:bg-zinc-500/40">{{ seg.text }}</mark>
           <span v-else>{{ seg.text }}</span>
         </template>
       </span>

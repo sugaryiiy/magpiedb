@@ -30,28 +30,29 @@ export function cloneDataGridTypeColorSchemes(schemes: readonly DataGridTypeColo
 
 // Keep these in sync with the :root / :root.dark blocks in styles/globals.css.
 // dataGridTypeColorScheme.spec.ts asserts the two stay identical.
+/** Blueprint ramp: types differ by gray step, darkest first (light) / lightest first (dark). */
 export const DEFAULT_DATA_GRID_TYPE_COLORS_LIGHT: DataGridTypeColors = {
-  integer: "#1d4ed8",
-  numeric: "#0e7490",
-  string: "#166534",
-  boolean: "#c2410c",
-  temporal: "#7e22ce",
-  structured: "#be185d",
-  identifier: "#92400e",
-  binary: "#b91c1c",
-  spatial: "#047857",
+  integer: "#0a0a0a",
+  numeric: "#161616",
+  string: "#232323",
+  boolean: "#2f2f2f",
+  temporal: "#3b3b3b",
+  structured: "#484848",
+  identifier: "#545454",
+  binary: "#606060",
+  spatial: "#6d6d6d",
 };
 
 export const DEFAULT_DATA_GRID_TYPE_COLORS_DARK: DataGridTypeColors = {
-  integer: "#93c5fd",
-  numeric: "#67e8f9",
-  string: "#86efac",
-  boolean: "#fdba74",
-  temporal: "#d8b4fe",
-  structured: "#f9a8d4",
-  identifier: "#fcd34d",
-  binary: "#fca5a5",
-  spatial: "#6ee7b7",
+  integer: "#fafafa",
+  numeric: "#ededed",
+  string: "#dcdcdc",
+  boolean: "#cccccc",
+  temporal: "#bbbbbb",
+  structured: "#ababab",
+  identifier: "#9c9c9c",
+  binary: "#969696",
+  spatial: "#909090",
 };
 
 const HEX_COLOR_RE = /^#[0-9a-fA-F]{6}$/;

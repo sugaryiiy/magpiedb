@@ -142,7 +142,7 @@ onMounted(load);
       <p class="text-xs text-muted-foreground">
         {{ tr("与喜鹊共用连接和权限，无需安装 npm 包。默认关闭；启用后客户端仍须提供 Bearer Token。", "Uses MagpieDB connections and permissions with no npm installation. Disabled by default; clients require a bearer token when enabled.") }}
       </p>
-      <div v-if="!policyConfigured" class="rounded border border-amber-500/30 p-3 text-xs space-y-2">
+      <div v-if="!policyConfigured" class="rounded border border-zinc-500/30 p-3 text-xs space-y-2">
         <p>{{ tr("先配置并应用访问权限，再开启服务。", "Configure and apply access permissions before enabling the service.") }}</p>
         <Button size="sm" variant="outline" @click="emit('openPermissions')">{{ tr("权限授权", "Permissions") }}</Button>
       </div>
@@ -177,7 +177,7 @@ onMounted(load);
         </div>
         <p v-if="managed" class="text-xs text-muted-foreground">{{ tr("此部署不允许在页面修改 MCP 设置。", "This deployment does not allow MCP settings to be changed here.") }}</p>
       </template>
-      <p v-if="validation" class="text-xs text-amber-700 dark:text-amber-300">{{ validation }}</p>
+      <p v-if="validation" class="text-xs text-zinc-700 dark:text-zinc-300">{{ validation }}</p>
       <p v-if="error || status?.lastError" role="alert" class="text-xs text-destructive">{{ error || status?.lastError }}</p>
       <div class="flex items-center gap-2">
         <Button variant="outline" size="sm" :disabled="busy" data-testid="mcp-reload" @click="load">{{ tr("刷新状态", "Refresh") }}</Button>
@@ -202,7 +202,7 @@ onMounted(load);
           ><Button variant="outline" size="sm" :disabled="busy || managed" data-testid="mcp-rotate" @click="rotate">{{ tr("轮换 Token", "Rotate token") }}</Button>
         </div>
       </div>
-      <p v-if="unsaved" class="text-xs text-amber-700 dark:text-amber-300">{{ tr("以下配置使用当前已生效的地址；上方更改尚未应用。", "The configuration below uses the active endpoint. The changes above have not been applied.") }}</p>
+      <p v-if="unsaved" class="text-xs text-zinc-700 dark:text-zinc-300">{{ tr("以下配置使用当前已生效的地址；上方更改尚未应用。", "The configuration below uses the active endpoint. The changes above have not been applied.") }}</p>
       <div class="flex flex-wrap items-center gap-2" role="group" :aria-label="tr('客户端配置格式', 'Client configuration format')">
         <Button v-for="choice in ['http', 'vscode', 'codex', 'stdio'] as const" :key="choice" size="sm" :variant="format === choice ? 'default' : 'outline'" @click="format = choice">{{ { http: "HTTP JSON", vscode: "VS Code", codex: "Codex", stdio: "Go stdio" }[choice] }}</Button>
       </div>

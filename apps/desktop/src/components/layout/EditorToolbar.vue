@@ -317,7 +317,7 @@ const transactionTooltip = computed(() => {
 });
 const executeButtonClass = computed(() => {
   if (props.activeTab.isExecuting) return "";
-  return activeProductionContext.value.active ? "bg-red-700 text-white hover:bg-red-800 hover:text-white" : "bg-emerald-700 text-white hover:bg-emerald-800 hover:text-white";
+  return activeProductionContext.value.active ? "bg-zinc-700 text-white hover:bg-zinc-800 hover:text-white" : "bg-zinc-700 text-white hover:bg-zinc-800 hover:text-white";
 });
 
 const canMultiExecute = computed(() => {
@@ -720,21 +720,21 @@ function onExecuteInNewResultTabClick(event: MouseEvent) {
       </div>
     </div>
   </div>
-  <div v-if="autoCommitTxnRolledBack" data-auto-commit-txn-rolled-back class="workbench-transaction-notice flex items-center gap-2 px-3 py-1 text-xs bg-amber-500/10 text-amber-700 dark:text-amber-300 border-b border-amber-500/20">
+  <div v-if="autoCommitTxnRolledBack" data-auto-commit-txn-rolled-back class="workbench-transaction-notice flex items-center gap-2 px-3 py-1 text-xs bg-zinc-500/10 text-zinc-700 dark:text-zinc-300 border-b border-zinc-500/20">
     <AlertTriangle class="h-3.5 w-3.5 shrink-0" />
     <span>{{ t("toolbar.autoCommitTxnRolledBack") }}</span>
     <Button variant="ghost" size="icon" class="h-5 w-5 ml-auto" @click="emit('dismissAutoCommitTxnRolledBack')">
       <X class="h-3 w-3" />
     </Button>
   </div>
-  <div v-else-if="autoCommitSessionTxnRolledBack" data-auto-commit-session-txn-rolled-back class="workbench-transaction-notice flex items-center gap-2 px-3 py-1 text-xs bg-amber-500/10 text-amber-700 dark:text-amber-300 border-b border-amber-500/20">
+  <div v-else-if="autoCommitSessionTxnRolledBack" data-auto-commit-session-txn-rolled-back class="workbench-transaction-notice flex items-center gap-2 px-3 py-1 text-xs bg-zinc-500/10 text-zinc-700 dark:text-zinc-300 border-b border-zinc-500/20">
     <AlertTriangle class="h-3.5 w-3.5 shrink-0" />
     <span>{{ t("toolbar.autoCommitSessionTxnRolledBack") }}</span>
     <Button variant="ghost" size="icon" class="h-5 w-5 ml-auto" @click="emit('dismissAutoCommitSessionTxnRolledBack')">
       <X class="h-3 w-3" />
     </Button>
   </div>
-  <div v-if="txnAutoRolledBack" class="workbench-transaction-notice flex items-center gap-2 px-3 py-1 text-xs bg-amber-500/10 text-amber-700 dark:text-amber-300 border-b border-amber-500/20">
+  <div v-if="txnAutoRolledBack" class="workbench-transaction-notice flex items-center gap-2 px-3 py-1 text-xs bg-zinc-500/10 text-zinc-700 dark:text-zinc-300 border-b border-zinc-500/20">
     <AlertTriangle class="h-3.5 w-3.5 shrink-0" />
     <span>{{ t("toolbar.txnAutoRolledBack") }}</span>
     <Button variant="ghost" size="icon" class="h-5 w-5 ml-auto" @click="emit('dismissTxnRolledBack')">
@@ -808,13 +808,13 @@ function onExecuteInNewResultTabClick(event: MouseEvent) {
   background: var(--workbench-accent-soft, var(--accent));
 }
 .workbench-editor-actions :deep(button[data-tone="success"]) {
-  --action-tone: var(--workbench-success, #34834d);
+  --action-tone: var(--workbench-success, #262626);
 }
 .workbench-editor-actions :deep(button[data-tone="danger"]) {
   --action-tone: var(--workbench-danger, var(--destructive));
 }
 .workbench-editor-actions :deep(button[data-tone="warning"]) {
-  --action-tone: var(--workbench-warning, #a15c10);
+  --action-tone: var(--workbench-warning, #525252);
 }
 .workbench-editor-actions :deep(button[data-tone]) {
   color: var(--action-tone);
@@ -837,9 +837,9 @@ function onExecuteInNewResultTabClick(event: MouseEvent) {
   font-family: var(--workbench-font-mono, monospace);
 }
 .workbench-transaction-notice {
-  color: var(--workbench-warning, #a15c10);
-  background: color-mix(in oklch, var(--workbench-warning, #a15c10) 10%, transparent);
-  border-color: color-mix(in oklch, var(--workbench-warning, #a15c10) 22%, transparent);
+  color: var(--workbench-warning, #525252);
+  background: color-mix(in oklch, var(--workbench-warning, #525252) 10%, transparent);
+  border-color: color-mix(in oklch, var(--workbench-warning, #525252) 22%, transparent);
   font-family: var(--workbench-font-ui, inherit);
   font-size: var(--workbench-font-size-ui, 12px);
 }

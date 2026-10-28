@@ -790,8 +790,8 @@ defineExpose({ focusSearch, refresh });
           <Button variant="ghost" size="sm" class="h-7 gap-1.5" @click="cancelSearch"><X class="h-3.5 w-3.5" />{{ t("common.cancel") }}</Button>
         </div>
         <div v-if="searchError" class="border border-destructive/30 bg-destructive/5 px-3 py-2 text-sm text-destructive">{{ searchError }}</div>
-        <div v-if="searchFiltered" class="border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-xs text-amber-700 dark:text-amber-300">{{ t("consul.aclFiltered") }}</div>
-        <div v-if="searchLimited" class="text-xs text-amber-700 dark:text-amber-300">{{ t("consul.tools.searchLimited") }}</div>
+        <div v-if="searchFiltered" class="border border-zinc-500/30 bg-zinc-500/10 px-3 py-2 text-xs text-zinc-700 dark:text-zinc-300">{{ t("consul.aclFiltered") }}</div>
+        <div v-if="searchLimited" class="text-xs text-zinc-700 dark:text-zinc-300">{{ t("consul.tools.searchLimited") }}</div>
         <div class="min-h-0 flex-1 overflow-auto border">
           <button v-for="result in searchResults" :key="`${result.key}:${result.modifyIndex}`" class="flex w-full items-center gap-3 border-b px-3 py-2 text-left hover:bg-muted/50" @click="openSearchResult(result)">
             <span class="min-w-0 flex-1 truncate font-mono text-xs">{{ result.key }}</span>
@@ -916,8 +916,8 @@ defineExpose({ focusSearch, refresh });
         <div v-if="transferBundle" class="text-xs text-muted-foreground">
           {{ t("consul.tools.bundleSummary", { count: transferBundle.entries.length, dc: transferBundle.source.datacenter || "-", ns: transferBundle.source.namespace || "-", partition: transferBundle.source.partition || "-" }) }}
         </div>
-        <div v-if="transferMode === 'migration'" class="border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-xs text-amber-700 dark:text-amber-300">{{ t("consul.ui.clientSideMigration") }}</div>
-        <div v-if="transferTargetReadOnly" class="border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-xs text-amber-700 dark:text-amber-300">{{ t("consul.tools.targetReadOnly") }}</div>
+        <div v-if="transferMode === 'migration'" class="border border-zinc-500/30 bg-zinc-500/10 px-3 py-2 text-xs text-zinc-700 dark:text-zinc-300">{{ t("consul.ui.clientSideMigration") }}</div>
+        <div v-if="transferTargetReadOnly" class="border border-zinc-500/30 bg-zinc-500/10 px-3 py-2 text-xs text-zinc-700 dark:text-zinc-300">{{ t("consul.tools.targetReadOnly") }}</div>
         <div v-if="transferError" class="border border-destructive/30 bg-destructive/5 px-3 py-2 text-sm text-destructive">{{ transferError }}</div>
         <div v-if="transferPreview" class="flex flex-wrap gap-2 text-xs">
           <Badge variant="secondary">{{ t("consul.tools.creates", { count: transferPreview.creates }) }}</Badge>
@@ -989,7 +989,7 @@ defineExpose({ focusSearch, refresh });
           </div>
           <Button variant="outline" :disabled="deleteLoading || !deletePrefix.trim() || Boolean(deletePreview)" @click="previewDeletePrefix"><Loader2 v-if="deleteLoading" class="mr-2 h-4 w-4 animate-spin" />{{ t("consul.tools.preview") }}</Button>
         </div>
-        <div class="border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-xs text-amber-700 dark:text-amber-300">{{ t("consul.tools.deletePrefixWarning") }}</div>
+        <div class="border border-zinc-500/30 bg-zinc-500/10 px-3 py-2 text-xs text-zinc-700 dark:text-zinc-300">{{ t("consul.tools.deletePrefixWarning") }}</div>
         <div v-if="deleteError" class="border border-destructive/30 bg-destructive/5 px-3 py-2 text-sm text-destructive">{{ deleteError }}</div>
         <div v-if="deletePreview" class="flex flex-wrap gap-2 text-xs">
           <Badge variant="secondary">{{ t("consul.tools.candidates", { count: deletePreview.candidates.length }) }}</Badge>

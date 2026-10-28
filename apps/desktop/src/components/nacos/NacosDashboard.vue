@@ -65,14 +65,14 @@ const countSeries = computed(() => {
     {
       name: t("nacos.dashboardServices"),
       data: samples.value.map((sample) => sample.snapshot.serviceCount ?? dashboardMetric(sample, "serviceCount")),
-      color: "#3b82f6",
+      color: "#262626",
     },
   ];
   if (samples.value.some((sample) => typeof sample.snapshot.metrics?.instanceCount === "number")) {
-    series.push({ name: t("nacos.dashboardInstances"), data: dashboardSeries(samples.value, "instanceCount"), color: "#22c55e" });
+    series.push({ name: t("nacos.dashboardInstances"), data: dashboardSeries(samples.value, "instanceCount"), color: "#404040" });
   }
   if (samples.value.some((sample) => typeof sample.snapshot.metrics?.clientCount === "number")) {
-    series.push({ name: t("nacos.dashboardClients"), data: dashboardSeries(samples.value, "clientCount"), color: "#8b5cf6" });
+    series.push({ name: t("nacos.dashboardClients"), data: dashboardSeries(samples.value, "clientCount"), color: "#737373" });
   }
   return series;
 });
@@ -81,12 +81,12 @@ const resourceSeries = computed(() => [
   {
     name: t("nacos.dashboardCpu"),
     data: samples.value.map((sample) => ratioPercent(sample.snapshot.prometheus?.resource.cpuRatio ?? sample.snapshot.metrics?.cpu)),
-    color: "#f59e0b",
+    color: "#a3a3a3",
   },
   {
     name: t("nacos.dashboardMemory"),
     data: samples.value.map((sample) => ratioPercent(sample.snapshot.prometheus?.resource.memoryRatio ?? sample.snapshot.metrics?.mem)),
-    color: "#ef4444",
+    color: "#111111",
   },
 ]);
 const hasResourceMetrics = computed(() => hasSeries(resourceSeries.value));
@@ -95,12 +95,12 @@ const trafficSeries = computed<ChartSeries[]>(() => [
   {
     name: t("nacos.dashboardHttpQps"),
     data: counterRateSeries(samples.value, (sample) => sample.snapshot.prometheus?.traffic.httpRequestsTotal),
-    color: "#3b82f6",
+    color: "#262626",
   },
   {
     name: t("nacos.dashboardGrpcQps"),
     data: counterRateSeries(samples.value, (sample) => sample.snapshot.prometheus?.traffic.grpcRequestsTotal),
-    color: "#8b5cf6",
+    color: "#737373",
   },
 ]);
 const latencySeries = computed<ChartSeries[]>(() => [
@@ -111,22 +111,22 @@ const latencySeries = computed<ChartSeries[]>(() => [
       (sample) => sample.snapshot.prometheus?.traffic.httpDurationSecondsTotal,
       (sample) => sample.snapshot.prometheus?.traffic.httpDurationCount,
     ),
-    color: "#3b82f6",
+    color: "#262626",
   },
   {
     name: t("nacos.dashboardHttpP50"),
     data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.traffic.httpP50Ms),
-    color: "#0ea5e9",
+    color: "#666666",
   },
   {
     name: t("nacos.dashboardHttpP95"),
     data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.traffic.httpP95Ms),
-    color: "#06b6d4",
+    color: "#666666",
   },
   {
     name: t("nacos.dashboardHttpP99"),
     data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.traffic.httpP99Ms),
-    color: "#14b8a6",
+    color: "#525252",
   },
   {
     name: t("nacos.dashboardGrpcAverage"),
@@ -135,22 +135,22 @@ const latencySeries = computed<ChartSeries[]>(() => [
       (sample) => sample.snapshot.prometheus?.traffic.grpcDurationSecondsTotal,
       (sample) => sample.snapshot.prometheus?.traffic.grpcDurationCount,
     ),
-    color: "#8b5cf6",
+    color: "#737373",
   },
   {
     name: t("nacos.dashboardGrpcP50"),
     data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.traffic.grpcP50Ms),
-    color: "#a855f7",
+    color: "#7a7a7a",
   },
   {
     name: t("nacos.dashboardGrpcP95"),
     data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.traffic.grpcP95Ms),
-    color: "#d946ef",
+    color: "#8a8a8a",
   },
   {
     name: t("nacos.dashboardGrpcP99"),
     data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.traffic.grpcP99Ms),
-    color: "#ec4899",
+    color: "#999999",
   },
 ]);
 const errorRateChartSeries = computed<ChartSeries[]>(() => [
@@ -161,7 +161,7 @@ const errorRateChartSeries = computed<ChartSeries[]>(() => [
       (sample) => sample.snapshot.prometheus?.traffic.httpErrorsTotal,
       (sample) => sample.snapshot.prometheus?.traffic.httpRequestsTotal,
     ),
-    color: "#ef4444",
+    color: "#111111",
   },
   {
     name: t("nacos.dashboardGrpcErrors"),
@@ -170,61 +170,61 @@ const errorRateChartSeries = computed<ChartSeries[]>(() => [
       (sample) => sample.snapshot.prometheus?.traffic.grpcErrorsTotal,
       (sample) => sample.snapshot.prometheus?.traffic.grpcRequestsTotal,
     ),
-    color: "#f97316",
+    color: "#a3a3a3",
   },
 ]);
 const executorSeries = computed<ChartSeries[]>(() => [
   {
     name: t("nacos.dashboardExecutorPool"),
     data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.traffic.executorPoolSize),
-    color: "#3b82f6",
+    color: "#262626",
   },
   {
     name: t("nacos.dashboardExecutorActive"),
     data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.traffic.executorActiveCount),
-    color: "#22c55e",
+    color: "#404040",
   },
   {
     name: t("nacos.dashboardExecutorQueue"),
     data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.traffic.executorQueuedTasks),
-    color: "#ef4444",
+    color: "#111111",
   },
 ]);
 const configRateSeries = computed<ChartSeries[]>(() => [
   {
     name: t("nacos.dashboardConfigGets"),
     data: counterRateSeries(samples.value, (sample) => sample.snapshot.prometheus?.config.getConfigTotal),
-    color: "#3b82f6",
+    color: "#262626",
   },
   {
     name: t("nacos.dashboardConfigPublishes"),
     data: counterRateSeries(samples.value, (sample) => sample.snapshot.prometheus?.config.publishTotal),
-    color: "#22c55e",
+    color: "#404040",
   },
 ]);
 const configStateSeries = computed<ChartSeries[]>(() => [
-  { name: t("nacos.dashboardLongPolling"), data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.config.longPolling), color: "#8b5cf6" },
-  { name: t("nacos.dashboardListenerClients"), data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.config.listenerClients), color: "#06b6d4" },
-  { name: t("nacos.dashboardListenerKeys"), data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.config.listenerKeys), color: "#3b82f6" },
-  { name: t("nacos.dashboardNotifyTasks"), data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.config.notifyTasks), color: "#f59e0b" },
-  { name: t("nacos.dashboardNotifyClientTasks"), data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.config.notifyClientTasks), color: "#ef4444" },
-  { name: t("nacos.dashboardDumpTasks"), data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.config.dumpTasks), color: "#64748b" },
+  { name: t("nacos.dashboardLongPolling"), data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.config.longPolling), color: "#737373" },
+  { name: t("nacos.dashboardListenerClients"), data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.config.listenerClients), color: "#666666" },
+  { name: t("nacos.dashboardListenerKeys"), data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.config.listenerKeys), color: "#262626" },
+  { name: t("nacos.dashboardNotifyTasks"), data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.config.notifyTasks), color: "#a3a3a3" },
+  { name: t("nacos.dashboardNotifyClientTasks"), data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.config.notifyClientTasks), color: "#111111" },
+  { name: t("nacos.dashboardDumpTasks"), data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.config.dumpTasks), color: "#737373" },
 ]);
 const namingStateSeries = computed<ChartSeries[]>(() => [
-  { name: t("nacos.dashboardServices"), data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.naming.serviceCount), color: "#3b82f6" },
-  { name: t("nacos.dashboardInstances"), data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.naming.instanceCount), color: "#22c55e" },
-  { name: t("nacos.dashboardSubscribers"), data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.naming.subscriberCount), color: "#8b5cf6" },
-  { name: t("nacos.dashboardClients"), data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.naming.connectionCount), color: "#06b6d4" },
+  { name: t("nacos.dashboardServices"), data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.naming.serviceCount), color: "#262626" },
+  { name: t("nacos.dashboardInstances"), data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.naming.instanceCount), color: "#404040" },
+  { name: t("nacos.dashboardSubscribers"), data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.naming.subscriberCount), color: "#737373" },
+  { name: t("nacos.dashboardClients"), data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.naming.connectionCount), color: "#666666" },
 ]);
 const pushRateSeries = computed<ChartSeries[]>(() => [
-  { name: t("nacos.dashboardPushes"), data: counterRateSeries(samples.value, (sample) => sample.snapshot.prometheus?.naming.totalPush), color: "#3b82f6" },
-  { name: t("nacos.dashboardFailedPushes"), data: counterRateSeries(samples.value, (sample) => sample.snapshot.prometheus?.naming.failedPush), color: "#ef4444" },
-  { name: t("nacos.dashboardEmptyPushes"), data: counterRateSeries(samples.value, (sample) => sample.snapshot.prometheus?.naming.emptyPush), color: "#f59e0b" },
+  { name: t("nacos.dashboardPushes"), data: counterRateSeries(samples.value, (sample) => sample.snapshot.prometheus?.naming.totalPush), color: "#262626" },
+  { name: t("nacos.dashboardFailedPushes"), data: counterRateSeries(samples.value, (sample) => sample.snapshot.prometheus?.naming.failedPush), color: "#111111" },
+  { name: t("nacos.dashboardEmptyPushes"), data: counterRateSeries(samples.value, (sample) => sample.snapshot.prometheus?.naming.emptyPush), color: "#a3a3a3" },
 ]);
 const pushDetailSeries = computed<ChartSeries[]>(() => [
-  { name: t("nacos.dashboardPushAverage"), data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.naming.avgPushCostMs), color: "#3b82f6" },
-  { name: t("nacos.dashboardPushMaximum"), data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.naming.maxPushCostMs), color: "#8b5cf6" },
-  { name: t("nacos.dashboardPushPending"), data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.naming.pushPendingTasks), color: "#ef4444" },
+  { name: t("nacos.dashboardPushAverage"), data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.naming.avgPushCostMs), color: "#262626" },
+  { name: t("nacos.dashboardPushMaximum"), data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.naming.maxPushCostMs), color: "#737373" },
+  { name: t("nacos.dashboardPushPending"), data: gaugeSeries(samples.value, (sample) => sample.snapshot.prometheus?.naming.pushPendingTasks), color: "#111111" },
 ]);
 
 const hasTraffic = computed(() => hasSeries(trafficSeries.value));
@@ -459,8 +459,8 @@ onUnmounted(() => {
           </div>
         </div>
 
-        <details v-if="snapshot?.warnings.length" class="shrink-0 rounded-lg border border-amber-500/30 bg-amber-500/5 px-3 py-2 text-xs">
-          <summary class="cursor-pointer font-medium text-amber-700 dark:text-amber-300">{{ t("nacos.dashboardPartial", { count: snapshot.warnings.length }) }}</summary>
+        <details v-if="snapshot?.warnings.length" class="shrink-0 rounded-lg border border-zinc-500/30 bg-zinc-500/5 px-3 py-2 text-xs">
+          <summary class="cursor-pointer font-medium text-zinc-700 dark:text-zinc-300">{{ t("nacos.dashboardPartial", { count: snapshot.warnings.length }) }}</summary>
           <ul class="mt-2 list-disc space-y-1 pl-5 text-muted-foreground">
             <li v-for="warning in snapshot.warnings" :key="warning">{{ warning }}</li>
           </ul>

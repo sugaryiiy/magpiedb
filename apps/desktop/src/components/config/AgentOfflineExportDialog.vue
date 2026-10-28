@@ -169,8 +169,8 @@ function unavailableReason(reason: AgentOfflineExportUnavailableReason | null) {
             {{ t("driverStore.offlineExportJreSummary", { count: selectedJres.size }) }}
           </div>
 
-          <div class="flex items-start gap-2 rounded-md border border-green-500/20 bg-green-500/5 px-3 py-2 text-xs text-muted-foreground">
-            <ShieldCheck class="mt-0.5 h-4 w-4 shrink-0 text-green-600" />
+          <div class="flex items-start gap-2 rounded-md border border-zinc-500/20 bg-zinc-500/5 px-3 py-2 text-xs text-muted-foreground">
+            <ShieldCheck class="mt-0.5 h-4 w-4 shrink-0 text-zinc-600" />
             <span>{{ t("driverStore.offlineExportSecurityHint") }}</span>
           </div>
         </template>

@@ -116,7 +116,7 @@ watch(pluginId, () => void load(), { immediate: true });
         </Button>
         <span class="text-[11px] text-muted-foreground">{{ t("pluginPlatform.aiTools.previewHint") }}</span>
       </div>
-      <div v-if="previewError" class="flex items-start gap-2 rounded-md border border-amber-500/30 bg-amber-500/5 px-3 py-2 text-xs text-amber-800 dark:text-amber-200">
+      <div v-if="previewError" class="flex items-start gap-2 rounded-md border border-zinc-500/30 bg-zinc-500/5 px-3 py-2 text-xs text-zinc-800 dark:text-zinc-200">
         <TriangleAlert class="mt-0.5 size-3.5 shrink-0" />
         <span class="min-w-0 break-words">{{ t("pluginPlatform.aiTools.previewFailed", { message: previewError }) }}</span>
       </div>
@@ -132,7 +132,7 @@ watch(pluginId, () => void load(), { immediate: true });
               <div v-if="tool.description" class="mt-0.5 text-[11px] leading-4 text-muted-foreground">{{ tool.description }}</div>
             </div>
             <Badge v-if="tool.readOnly" variant="secondary" class="h-5 shrink-0 gap-1 px-1.5 text-[10px]"><ShieldCheck class="size-3" />{{ t("pluginPlatform.aiTools.readOnly") }}</Badge>
-            <Badge v-else variant="outline" class="h-5 shrink-0 border-amber-500/40 px-1.5 text-[10px] text-amber-700 dark:text-amber-300">{{ t("pluginPlatform.aiTools.needsApproval") }}</Badge>
+            <Badge v-else variant="outline" class="h-5 shrink-0 border-zinc-500/40 px-1.5 text-[10px] text-zinc-700 dark:text-zinc-300">{{ t("pluginPlatform.aiTools.needsApproval") }}</Badge>
           </li>
         </ul>
       </div>

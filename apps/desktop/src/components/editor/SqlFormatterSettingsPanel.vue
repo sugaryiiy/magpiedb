@@ -733,7 +733,7 @@ onBeforeUnmount(() => {
           @input="onJsonDraftTextareaInput"
         />
 
-        <p v-if="jsonEditorLoadError" class="rounded-md border border-amber-300/60 bg-amber-50 px-3 py-2 text-xs text-amber-800 dark:border-amber-400/40 dark:bg-amber-950/30 dark:text-amber-200">
+        <p v-if="jsonEditorLoadError" class="rounded-md border border-zinc-300/60 bg-zinc-50 px-3 py-2 text-xs text-zinc-800 dark:border-zinc-400/40 dark:bg-zinc-950/30 dark:text-zinc-200">
           {{ t("settings.sqlFormatterJsonEditorLoadFailed", { message: jsonEditorLoadError }) }}
         </p>
 

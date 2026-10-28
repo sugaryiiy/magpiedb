@@ -307,8 +307,8 @@ defineExpose({ refresh: () => load(currentUri.value) });
           <template #default="{ item: entry }">
             <button type="button" class="plugin-file-row grid h-[46px] w-full min-w-0 items-center gap-3 border-b px-3 text-left hover:bg-muted/50" :class="selected?.uri === entry.uri ? 'bg-muted' : ''" :data-file-entry-uri="entry.uri" @click="selected = entry" @dblclick="activateEntry(entry)">
               <span class="flex min-w-0 items-center gap-2">
-                <Folder v-if="entry.kind === 'directory'" class="size-4 shrink-0 text-amber-500" />
-                <FileCode2 v-else-if="entry.contentType?.startsWith('text/')" class="size-4 shrink-0 text-sky-500" />
+                <Folder v-if="entry.kind === 'directory'" class="size-4 shrink-0 text-zinc-500" />
+                <FileCode2 v-else-if="entry.contentType?.startsWith('text/')" class="size-4 shrink-0 text-zinc-500" />
                 <File v-else class="size-4 shrink-0 text-muted-foreground" />
                 <span class="truncate" :title="entry.name">{{ entry.name }}</span>
               </span>

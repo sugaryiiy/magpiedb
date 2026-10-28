@@ -808,14 +808,14 @@ describe("statement execution markers", () => {
 
 describe("shared tab presentation helpers", () => {
   it("classifies tab icon colors without MQ special-casing", () => {
-    expect(tabIconClass(queryTab({ mode: "data" }))).toContain("text-green-500");
+    expect(tabIconClass(queryTab({ mode: "data" }))).toContain("text-zinc-500");
     const connectionStore = useConnectionStore();
     connectionStore.connections = [{ id: "dynamodb-1", name: "DynamoDB", db_type: "dynamodb", driver_profile: "dynamodb", color: "" } as ConnectionConfig];
-    expect(tabIconClass(queryTab({ connectionId: "dynamodb-1", mode: "data" }))).toContain("text-amber-500");
+    expect(tabIconClass(queryTab({ connectionId: "dynamodb-1", mode: "data" }))).toContain("text-zinc-500");
     expect(tabIconClass(queryTab({ mode: "mq" }))).toBe("");
-    expect(tabIconClass(queryTab({ externalSqlFileMissing: true }))).toContain("text-amber-600");
+    expect(tabIconClass(queryTab({ externalSqlFileMissing: true }))).toContain("text-zinc-600");
     expect(tabIconClass(queryTab({ mode: "users" }))).toBe("text-primary");
-    expect(tabIconClass(queryTab({ mode: "objects", objectBrowser: { objectType: "tables", initialObjectFilter: "events", eventName: "cleanup_sessions" } }))).toBe("text-orange-400");
+    expect(tabIconClass(queryTab({ mode: "objects", objectBrowser: { objectType: "tables", initialObjectFilter: "events", eventName: "cleanup_sessions" } }))).toBe("text-zinc-400");
   });
 
   it("uses logical Redis database labels instead of the connection title", () => {
@@ -827,14 +827,14 @@ describe("shared tab presentation helpers", () => {
 
   it("keeps source tab colors aligned with the sidebar object palette", () => {
     const colors = [
-      ["PROCEDURE", "text-blue-500"],
-      ["FUNCTION", "text-amber-500"],
-      ["SEQUENCE", "text-emerald-500"],
-      ["SYNONYM", "text-sky-500"],
-      ["PACKAGE", "text-cyan-500"],
-      ["PACKAGE_BODY", "text-cyan-400"],
-      ["TYPE", "text-violet-500"],
-      ["TYPE_BODY", "text-violet-400"],
+      ["PROCEDURE", "text-zinc-500"],
+      ["FUNCTION", "text-zinc-500"],
+      ["SEQUENCE", "text-zinc-500"],
+      ["SYNONYM", "text-zinc-500"],
+      ["PACKAGE", "text-zinc-500"],
+      ["PACKAGE_BODY", "text-zinc-400"],
+      ["TYPE", "text-zinc-500"],
+      ["TYPE_BODY", "text-zinc-400"],
     ] as const;
     for (const [objectType, color] of colors) {
       expect(tabIconClass(queryTab({ objectSource: { name: "object", objectType } }))).toContain(color);

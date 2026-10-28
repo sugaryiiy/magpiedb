@@ -122,8 +122,10 @@
   --muted-foreground: rgb(115 115 115);
   --accent: rgb(245 245 245);
   --accent-foreground: rgb(23 23 23);
-  --destructive: rgb(231 0 11);
-  --destructive-rgb: 231, 0, 11;
+  /* Blueprint palette: severities are gray steps, not hues — darkest is
+   * most severe, and icons/weight (not color) carry the meaning. */
+  --destructive: rgb(0 0 0);
+  --destructive-rgb: 0, 0, 0;
   --border: rgb(229 229 229);
   --input: rgb(229 229 229);
   --ring: rgb(161 161 161);
@@ -149,15 +151,15 @@
   --sidebar-accent-foreground: rgb(23 23 23);
   --sidebar-border: rgb(229 229 229);
   --sidebar-ring: rgb(161 161 161);
-  --success: rgb(22 163 74);
-  --success-foreground: rgb(240 253 244);
+  --success: rgb(38 38 38);
+  --success-foreground: rgb(250 250 250);
   --success-bg: color-mix(in srgb, var(--success) 12%, transparent);
-  --warning: rgb(217 119 6);
-  --dbx-warning-rgb: 217, 119, 6;
-  --warning-foreground: rgb(255 251 235);
+  --warning: rgb(82 82 82);
+  --dbx-warning-rgb: 82, 82, 82;
+  --warning-foreground: rgb(250 250 250);
   --warning-bg: color-mix(in srgb, var(--warning) 14%, transparent);
-  --info: rgb(37 99 235);
-  --info-foreground: rgb(239 246 255);
+  --info: rgb(115 115 115);
+  --info-foreground: rgb(250 250 250);
   --info-bg: color-mix(in srgb, var(--info) 12%, transparent);
   --dbx-chrome: rgb(245 245 245);
   --dbx-chrome-muted: rgb(240 240 240);
@@ -187,8 +189,9 @@
   --muted-foreground: rgb(151 152 157);
   --accent: rgb(46 47 51);
   --accent-foreground: rgb(221 221 226);
-  --destructive: rgb(243 98 95);
-  --destructive-rgb: 243, 98, 95;
+  /* Ink variant: the same severity order, inverted — lightest is most severe. */
+  --destructive: rgb(255 255 255);
+  --destructive-rgb: 255, 255, 255;
   --border: rgb(110 110 114 / 0.28);
   --input: rgb(110 110 114 / 0.34);
   --ring: rgb(133 134 139);
@@ -205,15 +208,15 @@
   --sidebar-accent-foreground: rgb(221 221 226);
   --sidebar-border: rgb(110 110 114 / 0.28);
   --sidebar-ring: rgb(133 134 139);
-  --success: rgb(74 222 128);
-  --success-foreground: rgb(20 30 24);
+  --success: rgb(229 229 229);
+  --success-foreground: rgb(19 20 22);
   --success-bg: color-mix(in srgb, var(--success) 16%, transparent);
-  --warning: rgb(251 191 36);
-  --dbx-warning-rgb: 251, 191, 36;
-  --warning-foreground: rgb(40 32 12);
+  --warning: rgb(163 163 163);
+  --dbx-warning-rgb: 163, 163, 163;
+  --warning-foreground: rgb(19 20 22);
   --warning-bg: color-mix(in srgb, var(--warning) 16%, transparent);
-  --info: rgb(96 165 250);
-  --info-foreground: rgb(18 28 46);
+  --info: rgb(115 115 115);
+  --info-foreground: rgb(250 250 250);
   --info-bg: color-mix(in srgb, var(--info) 16%, transparent);
   --dbx-chrome: rgb(27 27 30);
   --dbx-chrome-muted: rgb(32 32 36);

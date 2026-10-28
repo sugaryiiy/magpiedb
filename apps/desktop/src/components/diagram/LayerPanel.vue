@@ -342,10 +342,10 @@ function getLayerColor(layerId: string): string {
           <template v-if="editingLayerId === layer.id">
             <input ref="renameInputRef" v-model="editingName" class="flex-1 min-w-0 text-xs bg-background border border-border rounded px-1.5 py-0.5 outline-none focus:border-primary" @mousedown.stop @click.stop @keydown.enter="handleRenameLayer(layer.id)" @keydown.escape="cancelRename" />
             <button type="button" class="p-0.5 rounded hover:bg-muted transition-colors" @click.stop="handleRenameLayer(layer.id)">
-              <Check class="h-3 w-3 text-green-500" />
+              <Check class="h-3 w-3 text-zinc-500" />
             </button>
             <button type="button" class="p-0.5 rounded hover:bg-muted transition-colors" @click.stop="cancelRename">
-              <X class="h-3 w-3 text-red-500" />
+              <X class="h-3 w-3 text-zinc-500" />
             </button>
           </template>
 
@@ -363,7 +363,7 @@ function getLayerColor(layerId: string): string {
               <EyeOff v-else class="h-3 w-3 text-muted-foreground/50" />
             </button>
             <button type="button" class="p-0.5 rounded hover:bg-muted transition-colors" @click.stop="handleRemoveLayer(layer.id)" :title="t('diagram.deleteLayer')">
-              <Trash2 class="h-3 w-3 text-red-500" />
+              <Trash2 class="h-3 w-3 text-zinc-500" />
             </button>
           </template>
         </div>
@@ -376,7 +376,7 @@ function getLayerColor(layerId: string): string {
                 <X class="h-3 w-3 text-muted-foreground" />
               </button>
               <button type="button" class="p-0.5 rounded hover:bg-background transition-colors" @click.stop="handleDeleteTable(tableKey(table))" :title="t('diagram.deleteLiveTable')">
-                <Trash2 class="h-3 w-3 text-red-500" />
+                <Trash2 class="h-3 w-3 text-zinc-500" />
               </button>
             </div>
           </div>

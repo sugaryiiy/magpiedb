@@ -85,24 +85,24 @@ function rateSeries(key: string): number[] {
 const qpsSeries = computed(() => {
   const out: number[] = [];
   for (let i = 1; i < samples.value.length; i++) out.push(computeQps(samples.value[i - 1], samples.value[i]));
-  return [{ name: "QPS", data: out, color: "#3b82f6" }];
+  return [{ name: "QPS", data: out, color: "#262626" }];
 });
 
 const trafficSeries = computed(() => [
-  { name: t("serverDashboard.in"), data: rateSeries("Bytes_received"), color: "#3b82f6" },
-  { name: t("serverDashboard.out"), data: rateSeries("Bytes_sent"), color: "#8b5cf6" },
+  { name: t("serverDashboard.in"), data: rateSeries("Bytes_received"), color: "#262626" },
+  { name: t("serverDashboard.out"), data: rateSeries("Bytes_sent"), color: "#737373" },
 ]);
 
 const commandSeries = computed(() => [
-  { name: "SELECT", data: rateSeries("Com_select"), color: "#3b82f6" },
-  { name: "INSERT", data: rateSeries("Com_insert"), color: "#22c55e" },
-  { name: "UPDATE", data: rateSeries("Com_update"), color: "#f59e0b" },
-  { name: "DELETE", data: rateSeries("Com_delete"), color: "#ef4444" },
+  { name: "SELECT", data: rateSeries("Com_select"), color: "#262626" },
+  { name: "INSERT", data: rateSeries("Com_insert"), color: "#404040" },
+  { name: "UPDATE", data: rateSeries("Com_update"), color: "#a3a3a3" },
+  { name: "DELETE", data: rateSeries("Com_delete"), color: "#111111" },
 ]);
 
 // New sessions per second — the `Connections` status var is the cumulative count
 // of connection attempts, so its rate is the sessions-established-per-second.
-const sessionsSeries = computed(() => [{ name: t("serverDashboard.sessions"), data: rateSeries("Connections"), color: "#14b8a6" }]);
+const sessionsSeries = computed(() => [{ name: t("serverDashboard.sessions"), data: rateSeries("Connections"), color: "#525252" }]);
 
 const statusRows = computed(() => {
   if (!latest.value) return [];

@@ -61,25 +61,25 @@ const uninstallBusy = computed(() => props.installing || props.preparingUpgradeA
     <span class="relative flex h-8 w-8 items-center justify-center rounded-md bg-muted/60 shrink-0">
       <DatabaseIcon :db-type="driver.db_type" class="h-4 w-4" />
       <span v-if="driver.installed" class="absolute -bottom-0.5 -right-0.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-background ring-1 ring-background" aria-hidden="true">
-        <Check class="h-2.5 w-2.5 text-green-600" />
+        <Check class="h-2.5 w-2.5 text-zinc-600" />
       </span>
     </span>
     <div class="driver-store-agent-name min-w-0 flex-1">
       <div class="flex min-w-0 items-center gap-1.5">
         <div class="truncate text-sm font-medium">{{ driver.label }}</div>
-        <span v-if="driver.installed" class="driver-store-installed-badge shrink-0 rounded-full bg-green-500/15 px-2 py-0.5 text-[11px] font-medium text-green-700 dark:text-green-400">{{ t("driverStore.installedBadge") }}</span>
+        <span v-if="driver.installed" class="driver-store-installed-badge shrink-0 rounded-full bg-zinc-500/15 px-2 py-0.5 text-[11px] font-medium text-zinc-700 dark:text-zinc-400">{{ t("driverStore.installedBadge") }}</span>
       </div>
     </div>
     <span v-if="showCategoryBadge && categoryLabel" class="rounded-full bg-muted px-2 py-0.5 text-[11px] text-muted-foreground">{{ categoryLabel }}</span>
     <div class="driver-store-agent-meta flex shrink-0 items-center gap-1.5">
-      <span v-if="requiresJavaRuntime && driver.jre" class="rounded-full px-2 py-0.5 text-[11px]" :class="driver.jre !== '21' ? 'bg-blue-500/10 text-blue-600' : 'bg-muted text-muted-foreground'">JRE {{ driver.jre }}</span>
+      <span v-if="requiresJavaRuntime && driver.jre" class="rounded-full px-2 py-0.5 text-[11px]" :class="driver.jre !== '21' ? 'bg-zinc-500/10 text-zinc-600' : 'bg-muted text-muted-foreground'">JRE {{ driver.jre }}</span>
       <span v-if="driver.installed" class="rounded-full bg-muted px-2 py-0.5 text-[11px] text-muted-foreground">v{{ driver.installed_version }}</span>
-      <span v-if="driver.installed && driver.update_available" class="rounded-full bg-amber-500/15 px-2 py-0.5 text-[11px] text-amber-600">→ v{{ driver.version }}</span>
+      <span v-if="driver.installed && driver.update_available" class="rounded-full bg-zinc-500/15 px-2 py-0.5 text-[11px] text-zinc-600">→ v{{ driver.version }}</span>
       <span v-if="!driver.installed && driver.version" class="rounded-full bg-muted px-2 py-0.5 text-[11px] text-muted-foreground">v{{ driver.version }}</span>
       <span v-if="sizeLabel" class="rounded-full bg-muted px-2 py-0.5 text-[11px] text-muted-foreground">{{ sizeLabel }}</span>
     </div>
     <div class="driver-store-agent-actions flex shrink-0 items-center gap-2">
-      <Button v-if="!driver.installed && queued" size="sm" variant="outline" class="h-7 rounded-md border-green-500/30 bg-green-500/10 text-xs text-green-700 hover:bg-green-500/15" :disabled="queueOrUpgradeBusy" @click="emit('removeQueue')">
+      <Button v-if="!driver.installed && queued" size="sm" variant="outline" class="h-7 rounded-md border-zinc-500/30 bg-zinc-500/10 text-xs text-zinc-700 hover:bg-zinc-500/15" :disabled="queueOrUpgradeBusy" @click="emit('removeQueue')">
         <Clock3 class="h-3 w-3 mr-1" />
         {{ t("driverStore.queued") }}
       </Button>
@@ -112,7 +112,7 @@ const uninstallBusy = computed(() => props.installing || props.preparingUpgradeA
         <Loader2 v-if="importing" class="h-3.5 w-3.5 animate-spin" />
         <FileUp v-else class="h-3.5 w-3.5" />
       </Button>
-      <Button v-if="driver.installed && driver.update_available && queued" size="sm" variant="outline" class="h-7 rounded-md border-green-500/30 bg-green-500/10 text-xs text-green-700 hover:bg-green-500/15" :disabled="queueOrUpgradeBusy" @click="emit('removeQueue')">
+      <Button v-if="driver.installed && driver.update_available && queued" size="sm" variant="outline" class="h-7 rounded-md border-zinc-500/30 bg-zinc-500/10 text-xs text-zinc-700 hover:bg-zinc-500/15" :disabled="queueOrUpgradeBusy" @click="emit('removeQueue')">
         <Clock3 class="h-3 w-3 mr-1" />
         {{ t("driverStore.queued") }}
       </Button>

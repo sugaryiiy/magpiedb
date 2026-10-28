@@ -81,20 +81,20 @@ function onRowActivate(object: SchemaDiffObject) {
       >
         <input v-if="showSelection" type="checkbox" class="accent-primary justify-self-center" :checked="row.selection.checked" :indeterminate="row.selection.indeterminate" @click.stop @change="onCheckboxChange(row.object, $event)" />
         <div class="min-w-0 truncate font-mono" :title="row.sourceLabel || undefined">
-          <span v-if="row.sourceLabel" :class="row.object.operationType === 'create' ? 'text-green-600 dark:text-green-400' : ''">{{ row.sourceLabel }}</span>
+          <span v-if="row.sourceLabel" :class="row.object.operationType === 'create' ? 'text-zinc-600 dark:text-zinc-400' : ''">{{ row.sourceLabel }}</span>
           <span v-else class="text-muted-foreground">—</span>
         </div>
         <div class="min-w-0 truncate font-mono" :title="row.targetLabel || undefined">
-          <span v-if="row.targetLabel" :class="row.object.operationType === 'delete' ? 'text-red-500 line-through' : ''">{{ row.targetLabel }}</span>
+          <span v-if="row.targetLabel" :class="row.object.operationType === 'delete' ? 'text-zinc-500 line-through' : ''">{{ row.targetLabel }}</span>
           <span v-else class="text-muted-foreground">—</span>
         </div>
         <div class="min-w-0 truncate tabular-nums" :title="hasStats(row.stats) ? t('diff.routineDiffStats', { added: row.stats.added, removed: row.stats.removed, modified: row.stats.modified }) : undefined">
           <template v-if="hasStats(row.stats)">
-            <span class="text-green-600 dark:text-green-400">+{{ row.stats.added }}</span>
+            <span class="text-zinc-600 dark:text-zinc-400">+{{ row.stats.added }}</span>
             <span class="text-muted-foreground"> </span>
-            <span class="text-red-500 dark:text-red-400">−{{ row.stats.removed }}</span>
+            <span class="text-zinc-500 dark:text-zinc-400">−{{ row.stats.removed }}</span>
             <span class="text-muted-foreground"> </span>
-            <span class="text-amber-600 dark:text-amber-400">~{{ row.stats.modified }}</span>
+            <span class="text-zinc-600 dark:text-zinc-400">~{{ row.stats.modified }}</span>
           </template>
           <span v-else class="text-muted-foreground">—</span>
         </div>

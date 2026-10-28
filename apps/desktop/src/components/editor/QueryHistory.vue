@@ -815,7 +815,7 @@ onBeforeUnmount(() => {
                       {{ entry.connection_name || entry.target || t("history.scope.unknownConnection") }}<template v-if="entry.database"> / {{ entry.database }}</template>
                     </span>
                   </span>
-                  <span class="ml-auto shrink-0" :class="entry.success ? 'text-green-500' : 'text-red-500'">
+                  <span class="ml-auto shrink-0" :class="entry.success ? 'text-zinc-500' : 'text-zinc-500'">
                     {{ entry.success ? formatQueryDuration(entry.execution_time_ms) : t("history.failed") }}
                   </span>
                 </div>

@@ -243,7 +243,7 @@ export function useQueryEditorPointer(options: QueryEditorPointerOptions) {
       cursor.style.zIndex = "2147483647";
       cursor.style.width = "2px";
       cursor.style.pointerEvents = "none";
-      cursor.style.backgroundImage = "repeating-linear-gradient(to bottom, #e879f9 0 4px, transparent 4px 7px)";
+      cursor.style.backgroundImage = "repeating-linear-gradient(to bottom, var(--foreground) 0 4px, transparent 4px 7px)";
       cursor.style.filter = "drop-shadow(0 0 1px rgba(0, 0, 0, 0.7))";
       ownerDocument.body.appendChild(cursor);
       editorSelectionDropCursorEl = cursor;

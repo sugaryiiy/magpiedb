@@ -313,7 +313,7 @@ watch(
               <td class="w-8 px-3 py-2 text-muted-foreground">{{ index + 1 }}</td>
               <td class="cursor-pointer px-3 py-2 font-medium" :title="t('editor.structurePeek.doubleClickInsert')" @dblclick.stop="onCellDblClick(column.name, 'identifier')">
                 <span class="inline-flex items-center gap-1.5">
-                  <KeyRound v-if="column.is_primary_key" class="h-3 w-3 text-amber-500" />
+                  <KeyRound v-if="column.is_primary_key" class="h-3 w-3 text-zinc-500" />
                   {{ column.name }}
                 </span>
               </td>

@@ -640,7 +640,7 @@ onMounted(async () => {
                       </tr>
                     </tbody>
                   </table>
-                  <div v-if="solrReleaseOld" class="flex items-center gap-2 border-t px-3 py-2 text-xs text-amber-600">
+                  <div v-if="solrReleaseOld" class="flex items-center gap-2 border-t px-3 py-2 text-xs text-zinc-600">
                     <AlertTriangle class="h-3.5 w-3.5 shrink-0" />
                     {{ t("solrAdmin.dashboard.outdatedWarning") }}
                   </div>

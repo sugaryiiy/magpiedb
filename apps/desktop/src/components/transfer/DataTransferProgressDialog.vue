@@ -56,15 +56,15 @@ onBeforeUnmount(() => {
       <div class="space-y-4 py-3">
         <div class="flex items-center gap-2 text-sm">
           <Loader2 v-if="isActive" class="h-4 w-4 animate-spin text-primary" />
-          <CheckCircle2 v-else-if="task.status === 'Done'" class="h-4 w-4 text-green-500" />
+          <CheckCircle2 v-else-if="task.status === 'Done'" class="h-4 w-4 text-zinc-500" />
           <XCircle v-else-if="task.status === 'Error'" class="h-4 w-4 text-destructive" />
-          <AlertCircle v-else class="h-4 w-4 text-yellow-500" />
+          <AlertCircle v-else class="h-4 w-4 text-zinc-500" />
           <span>{{ statusText }}</span>
         </div>
 
         <div class="space-y-1.5">
           <div class="h-2 w-full overflow-hidden rounded-full bg-muted">
-            <div v-if="task.totalTables" class="h-full rounded-full transition-[width] duration-300" :class="task.status === 'Done' ? 'bg-green-500' : 'bg-primary'" :style="{ width: `${progressPercent}%` }" />
+            <div v-if="task.totalTables" class="h-full rounded-full transition-[width] duration-300" :class="task.status === 'Done' ? 'bg-zinc-500' : 'bg-primary'" :style="{ width: `${progressPercent}%` }" />
             <div v-else-if="isActive" class="export-progress-indeterminate h-full rounded-full bg-primary" />
           </div>
           <div class="flex items-center justify-between gap-3 text-xs text-muted-foreground">

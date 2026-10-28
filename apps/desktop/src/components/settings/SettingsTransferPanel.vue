@@ -309,7 +309,7 @@ function confirmImport() {
           <span class="min-w-0 text-right">{{ pendingImportCategoryLabels }}</span>
         </div>
       </div>
-      <p v-if="pendingImportConflicts.length" class="rounded-md bg-amber-500/10 px-3 py-2 text-xs text-amber-600 dark:text-amber-400">
+      <p v-if="pendingImportConflicts.length" class="rounded-md bg-zinc-500/10 px-3 py-2 text-xs text-zinc-600 dark:text-zinc-400">
         {{ t("settings.settingsTransferImportConfirmDraftWarning", { categories: pendingImportConflictLabels }) }}
       </p>
       <DialogFooter class="gap-2">

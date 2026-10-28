@@ -29,6 +29,6 @@ describe("Xugu public synonym actions", () => {
 
   it("uses a distinct link icon for the database-global synonym scope", () => {
     expect(treeItemSource).toContain("isXuguPublicSynonymTreeNode(databaseType, node.type, node.schema)");
-    expect(treeItemSource).toContain('return { icon: Link2, colorClass: "text-sky-500" }');
+    expect(treeItemSource).toContain('return { icon: Link2, colorClass: "text-zinc-500" }');
   });
 });

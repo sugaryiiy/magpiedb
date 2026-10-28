@@ -40,12 +40,12 @@ function onEncodingChange(event: Event) {
 </script>
 
 <template>
-  <div class="group flex h-12 min-w-0 max-w-full items-center gap-2 rounded-md border bg-muted/45 p-1.5 text-left shadow-sm" :class="status === 'unsupported' || status === 'unavailable' ? 'border-amber-500/45 bg-amber-500/5' : 'border-border/80'">
+  <div class="group flex h-12 min-w-0 max-w-full items-center gap-2 rounded-md border bg-muted/45 p-1.5 text-left shadow-sm" :class="status === 'unsupported' || status === 'unavailable' ? 'border-zinc-500/45 bg-zinc-500/5' : 'border-border/80'">
     <button v-if="kind === 'image' && previewUrl" type="button" class="relative h-9 w-9 shrink-0 overflow-hidden rounded border border-border/70 bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" :aria-label="`${previewLabel}: ${name}`" @click="emit('preview')">
       <img :src="previewUrl" :alt="name" class="h-full w-full object-cover" />
     </button>
     <div v-else class="flex h-9 w-9 shrink-0 items-center justify-center rounded border border-border/70 bg-background text-muted-foreground">
-      <AlertTriangle v-if="status === 'unsupported' || status === 'unavailable'" class="h-4 w-4 text-amber-600 dark:text-amber-400" />
+      <AlertTriangle v-if="status === 'unsupported' || status === 'unavailable'" class="h-4 w-4 text-zinc-600 dark:text-zinc-400" />
       <Image v-else-if="kind === 'image'" class="h-4 w-4" />
       <FileText v-else class="h-4 w-4" />
     </div>

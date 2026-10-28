@@ -245,7 +245,7 @@ defineExpose({ refresh });
     <div class="min-h-0 flex-1 overflow-auto p-4">
       <div v-if="unsupported" class="mx-auto mt-[12vh] max-w-2xl rounded-xl border bg-muted/20 p-6 shadow-sm">
         <div class="flex items-start gap-4">
-          <div class="rounded-full bg-amber-500/10 p-2.5 text-amber-600 dark:text-amber-400">
+          <div class="rounded-full bg-zinc-500/10 p-2.5 text-zinc-600 dark:text-zinc-400">
             <AlertTriangle class="h-5 w-5" />
           </div>
           <div class="min-w-0 flex-1">
@@ -276,8 +276,8 @@ defineExpose({ refresh });
           <div class="rounded-lg border p-4">
             <div class="flex items-center gap-2 text-xs text-muted-foreground"><Gauge class="h-4 w-4" /> {{ t("etcd.dashboard.observedHealth") }}</div>
             <div class="mt-3 flex items-center gap-2 text-xl font-semibold">
-              <CheckCircle2 v-if="health === 'healthy'" class="h-5 w-5 text-emerald-500" />
-              <AlertTriangle v-else class="h-5 w-5 text-amber-500" />
+              <CheckCircle2 v-if="health === 'healthy'" class="h-5 w-5 text-zinc-500" />
+              <AlertTriangle v-else class="h-5 w-5 text-zinc-500" />
               {{ t(`etcd.dashboard.health.${health}`) }}
             </div>
           </div>
@@ -311,7 +311,7 @@ defineExpose({ refresh });
           <div class="flex flex-wrap items-start justify-between gap-3 border-b px-4 py-3">
             <div>
               <div class="flex items-center gap-2 text-sm font-medium">
-                <Activity class="h-4 w-4 text-emerald-500" />
+                <Activity class="h-4 w-4 text-zinc-500" />
                 {{ t("etcd.dashboard.prometheusMetrics") }}
               </div>
               <p class="mt-1 text-xs text-muted-foreground">{{ t("etcd.dashboard.prometheusDescription") }}</p>
@@ -346,7 +346,7 @@ defineExpose({ refresh });
           </div>
 
           <div class="border-t px-4 py-3">
-            <div class="flex items-center gap-2 text-sm font-medium"><Gauge class="h-4 w-4 text-sky-500" /> {{ t("etcd.dashboard.consensusReliability") }}</div>
+            <div class="flex items-center gap-2 text-sm font-medium"><Gauge class="h-4 w-4 text-zinc-500" /> {{ t("etcd.dashboard.consensusReliability") }}</div>
             <div class="mt-3 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
               <div class="rounded-md border bg-muted/10 p-3">
                 <div class="text-xs text-muted-foreground">{{ t("etcd.dashboard.leadership") }}</div>
@@ -372,7 +372,7 @@ defineExpose({ refresh });
           </div>
 
           <div class="border-t px-4 py-3">
-            <div class="flex items-center gap-2 text-sm font-medium"><Activity class="h-4 w-4 text-violet-500" /> {{ t("etcd.dashboard.requestLoad") }}</div>
+            <div class="flex items-center gap-2 text-sm font-medium"><Activity class="h-4 w-4 text-zinc-500" /> {{ t("etcd.dashboard.requestLoad") }}</div>
             <div class="mt-3 grid gap-3 xl:grid-cols-[minmax(0,2fr)_minmax(300px,1fr)]">
               <div class="overflow-auto rounded-md border">
                 <table class="w-full min-w-[620px] text-left text-xs">
@@ -424,7 +424,7 @@ defineExpose({ refresh });
           </div>
 
           <div class="border-t px-4 py-3">
-            <div class="flex items-center gap-2 text-sm font-medium"><HardDrive class="h-4 w-4 text-amber-500" /> {{ t("etcd.dashboard.storageDisk") }}</div>
+            <div class="flex items-center gap-2 text-sm font-medium"><HardDrive class="h-4 w-4 text-zinc-500" /> {{ t("etcd.dashboard.storageDisk") }}</div>
             <div class="mt-3 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
               <div class="rounded-md border p-3">
                 <div class="text-xs text-muted-foreground">{{ t("etcd.dashboard.diskLatency") }}</div>
@@ -451,7 +451,7 @@ defineExpose({ refresh });
 
           <div class="grid border-t xl:grid-cols-2 xl:divide-x">
             <div class="px-4 py-3">
-              <div class="flex items-center gap-2 text-sm font-medium"><Eye class="h-4 w-4 text-cyan-500" /> {{ t("etcd.dashboard.watchState") }}</div>
+              <div class="flex items-center gap-2 text-sm font-medium"><Eye class="h-4 w-4 text-zinc-500" /> {{ t("etcd.dashboard.watchState") }}</div>
               <div class="mt-3 grid grid-cols-2 gap-2 text-xs sm:grid-cols-4">
                 <div>
                   <div class="text-muted-foreground">{{ t("etcd.dashboard.watchers") }}</div>
@@ -472,7 +472,7 @@ defineExpose({ refresh });
               </div>
             </div>
             <div class="border-t px-4 py-3 xl:border-t-0">
-              <div class="flex items-center gap-2 text-sm font-medium"><Radio class="h-4 w-4 text-emerald-500" /> {{ t("etcd.dashboard.leaseState") }}</div>
+              <div class="flex items-center gap-2 text-sm font-medium"><Radio class="h-4 w-4 text-zinc-500" /> {{ t("etcd.dashboard.leaseState") }}</div>
               <div class="mt-3 grid grid-cols-2 gap-2 text-xs sm:grid-cols-4">
                 <div>
                   <div class="text-muted-foreground">{{ t("etcd.dashboard.granted") }}</div>
@@ -495,7 +495,7 @@ defineExpose({ refresh });
           </div>
 
           <div class="border-t px-4 py-3">
-            <div class="flex items-center gap-2 text-sm font-medium"><Cpu class="h-4 w-4 text-rose-500" /> {{ t("etcd.dashboard.runtimeResources") }}</div>
+            <div class="flex items-center gap-2 text-sm font-medium"><Cpu class="h-4 w-4 text-zinc-500" /> {{ t("etcd.dashboard.runtimeResources") }}</div>
             <div class="mt-3 grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
               <div class="rounded-md border p-3">
                 <div class="text-xs text-muted-foreground">{{ t("etcd.dashboard.memory") }}</div>
@@ -534,9 +534,9 @@ defineExpose({ refresh });
             <span v-if="requestRate == null" class="text-muted-foreground">{{ t("etcd.dashboard.rateNeedsRefresh") }}</span>
           </div>
         </section>
-        <section v-else-if="metrics && !metrics.available" class="rounded-lg border border-amber-500/30 bg-amber-500/5 p-4">
+        <section v-else-if="metrics && !metrics.available" class="rounded-lg border border-zinc-500/30 bg-zinc-500/5 p-4">
           <div class="flex items-start gap-3">
-            <AlertTriangle class="mt-0.5 h-4 w-4 shrink-0 text-amber-600 dark:text-amber-400" />
+            <AlertTriangle class="mt-0.5 h-4 w-4 shrink-0 text-zinc-600 dark:text-zinc-400" />
             <div class="min-w-0">
               <div class="text-sm font-medium">{{ t("etcd.dashboard.metricsUnavailable") }}</div>
               <p class="mt-1 text-xs leading-5 text-muted-foreground">{{ t("etcd.dashboard.metricsUnavailableHint") }}</p>

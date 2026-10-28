@@ -251,7 +251,7 @@ defineExpose({
         </div>
       </TabsContent>
     </Tabs>
-    <div v-if="secretOnce" class="m-3 flex items-center gap-2 border border-amber-300 bg-amber-50 p-3 text-sm dark:bg-amber-950/30">
+    <div v-if="secretOnce" class="m-3 flex items-center gap-2 border border-zinc-300 bg-zinc-50 p-3 text-sm dark:bg-zinc-950/30">
       <span class="min-w-0 flex-1 truncate font-mono">{{ secretRevealed ? secretOnce : "****************" }}</span
       ><Button variant="ghost" size="icon" class="h-7 w-7" :title="secretRevealed ? t('consul.ui.hide') : t('consul.ui.reveal')" @click="secretRevealed = !secretRevealed"><EyeOff v-if="secretRevealed" class="h-3.5 w-3.5" /><Eye v-else class="h-3.5 w-3.5" /></Button
       ><Button size="sm" class="h-7 gap-1" :disabled="operationBusy" @click="copySecret"><Clipboard class="h-3.5 w-3.5" />{{ t("consul.ui.copyOnce") }}</Button

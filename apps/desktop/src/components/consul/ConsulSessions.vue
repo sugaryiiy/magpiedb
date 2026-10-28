@@ -508,7 +508,7 @@ defineExpose({ refresh: () => (void load(), true) });
         <div v-if="lockInspection.inspected" class="md:col-span-2 flex flex-wrap items-center gap-2 rounded-md border bg-muted/20 px-3 py-2 text-xs">
           <Badge variant="secondary">{{ lockInspection.found ? t("consul.ui.keyExists") : t("consul.ui.keyNotFound") }}</Badge>
           <span>{{ t("consul.ui.modifyIndexValue", { index: lockInspection.modifyIndex }) }}</span>
-          <span v-if="lockInspection.owner" class="text-amber-700 dark:text-amber-300">{{ t("consul.ui.keyHeldBy", { session: lockInspection.owner }) }}</span>
+          <span v-if="lockInspection.owner" class="text-zinc-700 dark:text-zinc-300">{{ t("consul.ui.keyHeldBy", { session: lockInspection.owner }) }}</span>
           <span v-else-if="lockInspection.found" class="text-muted-foreground">{{ t("consul.ui.keyUnlocked") }}</span>
         </div>
       </div>
@@ -536,7 +536,7 @@ defineExpose({ refresh: () => (void load(), true) });
       </div>
       <div class="mt-2 flex flex-wrap items-center justify-between gap-2 text-xs text-muted-foreground">
         <span>{{ t("consul.ui.sessionResultCount", { filtered: filteredSessions.length, total: sessions.length }) }}</span>
-        <span v-if="responseMetadata?.filteredByAcls" class="inline-flex items-center gap-1 text-amber-700 dark:text-amber-300"><AlertTriangle class="h-3.5 w-3.5" />{{ t("consul.ui.aclFilteredSessions") }}</span>
+        <span v-if="responseMetadata?.filteredByAcls" class="inline-flex items-center gap-1 text-zinc-700 dark:text-zinc-300"><AlertTriangle class="h-3.5 w-3.5" />{{ t("consul.ui.aclFilteredSessions") }}</span>
       </div>
     </section>
 
@@ -627,8 +627,8 @@ defineExpose({ refresh: () => (void load(), true) });
               <div class="flex items-center gap-2 text-xs font-medium">
                 <KeyRound class="h-3.5 w-3.5" />{{ t("consul.ui.heldKeys") }}<Badge v-if="heldKeys[session.ID]" variant="secondary">{{ heldKeys[session.ID].items.length }}</Badge>
               </div>
-              <span v-if="heldKeys[session.ID] && !heldKeys[session.ID].complete" class="inline-flex items-center gap-1 text-[11px] text-amber-700 dark:text-amber-300"><AlertTriangle class="h-3.5 w-3.5" />{{ t("consul.ui.heldKeysIncomplete") }}</span
-              ><span v-else-if="heldKeys[session.ID]?.complete" class="inline-flex items-center gap-1 text-[11px] text-emerald-700 dark:text-emerald-300"><ShieldCheck class="h-3.5 w-3.5" />{{ t("consul.ui.complete") }}</span>
+              <span v-if="heldKeys[session.ID] && !heldKeys[session.ID].complete" class="inline-flex items-center gap-1 text-[11px] text-zinc-700 dark:text-zinc-300"><AlertTriangle class="h-3.5 w-3.5" />{{ t("consul.ui.heldKeysIncomplete") }}</span
+              ><span v-else-if="heldKeys[session.ID]?.complete" class="inline-flex items-center gap-1 text-[11px] text-zinc-700 dark:text-zinc-300"><ShieldCheck class="h-3.5 w-3.5" />{{ t("consul.ui.complete") }}</span>
             </div>
             <div v-if="heldKeysLoading === session.ID" class="flex items-center justify-center gap-2 p-4 text-xs text-muted-foreground"><Loader2 class="h-4 w-4 animate-spin" />{{ t("consul.ui.loading") }}</div>
             <template v-else

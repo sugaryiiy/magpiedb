@@ -2254,7 +2254,7 @@ onUnmounted(() => {
                 <div
                   v-for="attribute in engineeringRenderSlice.attributes"
                   :key="attribute.id"
-                  class="absolute flex items-center justify-center rounded-full border border-green-600/55 bg-green-100/80 px-3 text-center text-xs text-green-950 shadow-sm dark:bg-green-950/35 dark:text-green-100"
+                  class="absolute flex items-center justify-center rounded-full border border-zinc-600/55 bg-zinc-100/80 px-3 text-center text-xs text-zinc-950 shadow-sm dark:bg-zinc-950/35 dark:text-zinc-100"
                   :class="attribute.primaryKey ? 'font-semibold underline underline-offset-2' : ''"
                   :title="`${attribute.tableName}.${attribute.columnName}: ${attribute.dataType}`"
                   :style="{ width: `${attribute.width}px`, height: `${attribute.height}px`, transform: `translate(${attribute.x}px, ${attribute.y}px)` }"
@@ -2264,17 +2264,17 @@ onUnmounted(() => {
                 <div
                   v-for="relationship in engineeringRenderSlice.relationships"
                   :key="relationship.id"
-                  class="absolute flex items-center justify-center text-center text-xs font-medium text-red-950 dark:text-red-100"
+                  class="absolute flex items-center justify-center text-center text-xs font-medium text-zinc-950 dark:text-zinc-100"
                   :style="{ width: `${relationship.width}px`, height: `${relationship.height}px`, transform: `translate(${relationship.x}px, ${relationship.y}px)` }"
                   :title="`${relationship.sourceTable} -> ${relationship.targetTable}`"
                 >
-                  <div class="absolute inset-0 border border-red-500/70 bg-red-100/80 dark:bg-red-950/35" style="clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%)" />
+                  <div class="absolute inset-0 border border-zinc-500/70 bg-zinc-100/80 dark:bg-zinc-950/35" style="clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%)" />
                   <span class="relative max-w-[70px] truncate">{{ relationship.label }}</span>
                 </div>
                 <div
                   v-for="entity in engineeringRenderSlice.entities"
                   :key="entity.id"
-                  class="absolute flex cursor-pointer items-center justify-center border border-blue-500/70 bg-blue-100/80 px-3 text-center text-sm font-semibold text-blue-950 shadow-sm dark:bg-blue-950/35 dark:text-blue-100"
+                  class="absolute flex cursor-pointer items-center justify-center border border-zinc-500/70 bg-zinc-100/80 px-3 text-center text-sm font-semibold text-zinc-950 shadow-sm dark:bg-zinc-950/35 dark:text-zinc-100"
                   :class="entity.name === focusTableName ? 'ring-2 ring-primary/40' : ''"
                   :style="{ width: `${entity.width}px`, height: `${entity.height}px`, transform: `translate(${entity.x}px, ${entity.y}px)` }"
                   @dblclick.stop="openTableData(entity.name)"

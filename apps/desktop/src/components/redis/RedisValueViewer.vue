@@ -3238,7 +3238,7 @@ useUpdateBlocker(() => (hasUnsavedRedisDraft.value || editingTtl.value || saving
               :class="{ 'bg-accent/60': isSelectedMember(formatValue(row.value.field), row.value.value) }"
               @click="viewMember(formatValue(row.value.field), row.value.value, { kind: 'hash', field: redisBlobText(row.value.field), canEdit: redisBlobText(row.value.field) != null && canEditRedisMemberDetail('hash', row.value.value) })"
             >
-              <div class="px-3 py-1.5 text-blue-500 truncate border-r">{{ formatValue(row.value.field) }}</div>
+              <div class="px-3 py-1.5 text-zinc-500 truncate border-r">{{ formatValue(row.value.field) }}</div>
               <div class="px-3 py-1.5 truncate text-muted-foreground">{{ formatValue(row.value.value) }}</div>
               <div v-if="hashFieldTtlSupported" class="px-2 py-1 flex items-center min-w-0">
                 <Button
@@ -3415,7 +3415,7 @@ useUpdateBlocker(() => (hasUnsavedRedisDraft.value || editingTtl.value || saving
                       :class="{ 'bg-accent/60': isSelectedMember(field.field, field.value, streamFieldSelectionIdentity(row.entry.id, fieldIndex)) }"
                       @click="viewMember(field.field, field.value, { kind: 'stream', field: field.field, canEdit: false }, streamFieldSelectionIdentity(row.entry.id, fieldIndex))"
                     >
-                      <span class="truncate text-blue-500">{{ field.field }}</span>
+                      <span class="truncate text-zinc-500">{{ field.field }}</span>
                       <span class="truncate text-muted-foreground">{{ field.value }}</span>
                       <span class="flex justify-end gap-1">
                         <Button
@@ -3876,26 +3876,26 @@ useUpdateBlocker(() => (hasUnsavedRedisDraft.value || editingTtl.value || saving
 :deep(.document-search-match),
 :deep(.redis-value-search-match) {
   border-radius: 2px;
-  background: #fde68a;
+  background: #e5e5e5;
   color: inherit;
   padding: 0;
 }
 
 :deep(.document-search-match-active),
 :deep(.redis-value-search-match-active) {
-  background: #f59e0b;
-  color: #111827;
-  outline: 1px solid #d97706;
+  background: #a3a3a3;
+  color: #171717;
+  outline: 1px solid #737373;
 }
 
 :global(.dark) :deep(.document-search-match),
 :global(.dark) :deep(.redis-value-search-match) {
-  background: #854d0e;
+  background: #525252;
 }
 
 :global(.dark) :deep(.document-search-match-active),
 :global(.dark) :deep(.redis-value-search-match-active) {
-  background: #fbbf24;
-  color: #111827;
+  background: #d4d4d4;
+  color: #171717;
 }
 </style>

@@ -2136,9 +2136,9 @@ function serviceInstanceHealthLabel(service: NacosServiceInfo) {
 function serviceInstanceHealthClass(service: NacosServiceInfo) {
   switch (nacosServiceInstanceHealthSummary(service)?.status) {
     case "allHealthy":
-      return "border-emerald-500/50 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300";
+      return "border-zinc-500/50 bg-zinc-500/10 text-zinc-700 dark:text-zinc-300";
     case "partiallyHealthy":
-      return "border-amber-500/50 bg-amber-500/10 text-amber-700 dark:text-amber-300";
+      return "border-zinc-500/50 bg-zinc-500/10 text-zinc-700 dark:text-zinc-300";
     case "noHealthyInstances":
       return "border-destructive/50 bg-destructive/10 text-destructive";
     default:
@@ -2814,7 +2814,7 @@ useUpdateBlocker(() =>
   <div class="flex h-full min-h-0 flex-col bg-background">
     <div class="flex shrink-0 flex-wrap items-center justify-between gap-3 border-b px-3 py-2">
       <div class="flex min-w-0 items-center gap-2 text-sm">
-        <Network class="h-4 w-4 text-sky-600" />
+        <Network class="h-4 w-4 text-zinc-600" />
         <span class="truncate font-medium">{{ connectionInfo?.displayServerAddr || connectionInfo?.serverAddr || "Nacos" }}</span>
         <Badge v-if="connectionInfo?.serverVersion" variant="secondary">{{ connectionInfo.serverVersion }}</Badge>
         <Badge variant="outline">{{ namespaceLabel }}</Badge>
@@ -3046,11 +3046,11 @@ useUpdateBlocker(() =>
                   <Loader2 class="h-3.5 w-3.5 animate-spin" />
                   {{ t("nacos.saving") }}
                 </span>
-                <span v-else-if="isConfigDirty" class="flex items-center gap-1.5 text-xs font-medium text-amber-600 dark:text-amber-400">
+                <span v-else-if="isConfigDirty" class="flex items-center gap-1.5 text-xs font-medium text-zinc-600 dark:text-zinc-400">
                   <span class="h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />
                   {{ t("nacos.unsaved") }}
                 </span>
-                <span v-else-if="configSaveNotice" class="flex max-w-64 items-center gap-1.5 text-xs font-medium text-emerald-600 dark:text-emerald-400">
+                <span v-else-if="configSaveNotice" class="flex max-w-64 items-center gap-1.5 text-xs font-medium text-zinc-600 dark:text-zinc-400">
                   <CheckCircle2 class="h-3.5 w-3.5 shrink-0" />
                   <span class="truncate" :title="configSaveNotice">{{ configSaveNotice }}</span>
                 </span>
@@ -3236,7 +3236,7 @@ useUpdateBlocker(() =>
                   <span v-if="service.healthyInstanceCount != null">· {{ t("nacos.healthy") }} {{ service.healthyInstanceCount }}</span>
                 </template>
                 <span v-if="service.clusterCount != null">· {{ t("nacos.cluster") }} {{ service.clusterCount }}</span>
-                <Badge v-if="service.triggerFlag === 'true'" variant="outline" class="h-5 border-amber-500 text-amber-700">{{ t("nacos.protectionTriggered") }}</Badge>
+                <Badge v-if="service.triggerFlag === 'true'" variant="outline" class="h-5 border-zinc-500 text-zinc-700">{{ t("nacos.protectionTriggered") }}</Badge>
               </span>
             </button>
             <div v-if="!servicesLoading && services.length === 0" class="flex h-full items-center justify-center text-sm text-muted-foreground">{{ t("nacos.noServices") }}</div>
@@ -3261,7 +3261,7 @@ useUpdateBlocker(() =>
                 <div v-if="selectedService" class="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted-foreground">
                   <span>{{ selectedService.groupName || "DEFAULT_GROUP" }}</span>
                   <span>· {{ t("nacos.loadedInstances", { count: instances.length }) }}</span>
-                  <Badge v-if="selectedServiceProtectionTriggered" variant="outline" class="h-5 border-amber-500 text-amber-700">{{ t("nacos.protectionTriggered") }}</Badge>
+                  <Badge v-if="selectedServiceProtectionTriggered" variant="outline" class="h-5 border-zinc-500 text-zinc-700">{{ t("nacos.protectionTriggered") }}</Badge>
                 </div>
               </div>
               <Button size="sm" variant="outline" class="h-8 shrink-0 gap-1.5" :disabled="!selectedService || instancesLoading || serviceDetailLoading" @click="refreshSelectedService">
@@ -3319,7 +3319,7 @@ useUpdateBlocker(() =>
           <div v-if="serviceWriteNotice" class="shrink-0 border-b bg-muted/40 px-3 py-2 text-xs text-muted-foreground">
             {{ serviceWriteNotice }}
           </div>
-          <div v-if="selectedServiceProtectionTriggered" class="shrink-0 border-b border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/30 dark:text-amber-200">
+          <div v-if="selectedServiceProtectionTriggered" class="shrink-0 border-b border-zinc-200 bg-zinc-50 px-3 py-2 text-xs text-zinc-900 dark:border-zinc-900/60 dark:bg-zinc-950/30 dark:text-zinc-200">
             {{ t("nacos.protectionTriggeredDescription") }}
           </div>
           <section v-if="selectedService" class="shrink-0 border-b bg-background px-3 py-2">
@@ -3376,7 +3376,7 @@ useUpdateBlocker(() =>
                     <div class="flex flex-wrap items-center gap-2">
                       <span class="nacos-instance-address max-w-full font-mono text-sm font-medium">{{ instance.ip }}:{{ instance.port }}</span>
                       <Badge variant="outline">{{ instance.clusterName || "DEFAULT" }}</Badge>
-                      <Badge variant="outline" :class="instance.healthy === false ? 'border-destructive/50 text-destructive' : 'border-emerald-500/50 text-emerald-700 dark:text-emerald-300'">{{ instance.healthy === false ? t("nacos.unhealthy") : t("nacos.healthy") }}</Badge>
+                      <Badge variant="outline" :class="instance.healthy === false ? 'border-destructive/50 text-destructive' : 'border-zinc-500/50 text-zinc-700 dark:text-zinc-300'">{{ instance.healthy === false ? t("nacos.unhealthy") : t("nacos.healthy") }}</Badge>
                       <Badge data-testid="nacos-instance-availability-status" :variant="instance.enabled === false ? 'outline' : 'secondary'" :class="instance.enabled === false ? 'border-muted-foreground/50 text-muted-foreground' : ''">{{
                         instance.enabled === false ? t("nacos.offline") : t("nacos.online")
                       }}</Badge>
@@ -3423,7 +3423,7 @@ useUpdateBlocker(() =>
                       variant="outline"
                       class="h-7 gap-1"
                       data-testid="nacos-instance-availability-action"
-                      :class="instance.enabled === false ? 'border-emerald-500/50 text-emerald-700 hover:bg-emerald-500/10 hover:text-emerald-800 dark:text-emerald-300 dark:hover:text-emerald-200' : 'border-destructive/50 text-destructive hover:bg-destructive/10'"
+                      :class="instance.enabled === false ? 'border-zinc-500/50 text-zinc-700 hover:bg-zinc-500/10 hover:text-zinc-800 dark:text-zinc-300 dark:hover:text-zinc-200' : 'border-destructive/50 text-destructive hover:bg-destructive/10'"
                       :disabled="readOnly || !supportsInstanceUpdate || isInstanceUpdating(instance)"
                       @click="requestUpdateInstance(instance, { enabled: !instance.enabled })"
                     >

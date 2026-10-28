@@ -78,7 +78,7 @@ watch(
       </div>
       <div class="hidden h-5 w-px bg-border sm:block" />
       <div class="flex min-w-0 items-center gap-1.5 text-xs text-muted-foreground">
-        <ShieldCheck class="h-3.5 w-3.5 shrink-0 text-sky-600" />
+        <ShieldCheck class="h-3.5 w-3.5 shrink-0 text-zinc-600" />
         <span class="font-medium text-foreground/75">{{ t("nacos.accessControlTitle") }}</span>
         <span class="hidden truncate lg:inline">{{ t("nacos.accessControlDescription") }}</span>
       </div>
@@ -91,7 +91,7 @@ watch(
       </Button>
     </header>
 
-    <div v-if="permissionWorkspaceUnavailable" class="border-b border-amber-300 bg-amber-50 px-4 py-2 text-xs text-amber-900 dark:bg-amber-950/20 dark:text-amber-200">{{ t("nacos.accessPermissionEndpointUnavailable") }}</div>
+    <div v-if="permissionWorkspaceUnavailable" class="border-b border-zinc-300 bg-zinc-50 px-4 py-2 text-xs text-zinc-900 dark:bg-zinc-950/20 dark:text-zinc-200">{{ t("nacos.accessPermissionEndpointUnavailable") }}</div>
     <div v-if="connectionError" class="mx-4 mt-3 rounded border border-destructive/30 bg-destructive/5 px-3 py-2 text-sm text-destructive">{{ connectionError }}</div>
     <div v-else-if="loading && !connectionInfo" class="flex min-h-0 flex-1 items-center justify-center text-sm text-muted-foreground">
       <Loader2 class="mr-2 h-4 w-4 animate-spin" />

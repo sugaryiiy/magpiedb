@@ -196,8 +196,8 @@ onBeforeUnmount(() => {
     <div class="flex items-center gap-2 px-3 py-1.5 border-b bg-muted/30 min-h-0 shrink-0">
       <span class="text-xs font-medium whitespace-nowrap">{{ t("redis.pubsub") }}</span>
       <span class="flex-1"></span>
-      <span class="inline-flex items-center gap-1 text-xs whitespace-nowrap" :class="connected ? 'text-green-600' : 'text-muted-foreground'">
-        <span class="inline-block w-2 h-2 rounded-full" :class="connected ? 'bg-green-500' : 'bg-gray-400'"></span>
+      <span class="inline-flex items-center gap-1 text-xs whitespace-nowrap" :class="connected ? 'text-zinc-600' : 'text-muted-foreground'">
+        <span class="inline-block w-2 h-2 rounded-full" :class="connected ? 'bg-zinc-500' : 'bg-gray-400'"></span>
         {{ connected ? t("redis.pubsubConnected") : connecting ? t("redis.pubsubConnecting") : t("redis.pubsubDisconnected") }}
       </span>
       <button v-if="!connected" class="text-xs px-2 py-0.5 rounded border border-transparent bg-primary text-primary-foreground hover:bg-primary/90" :disabled="connecting" @click="connect">
@@ -220,9 +220,9 @@ onBeforeUnmount(() => {
           </button>
         </div>
         <div v-if="channels.length > 0" class="flex flex-wrap gap-1">
-          <span v-for="ch in channels" :key="ch" class="inline-flex items-center gap-1 text-xs px-1.5 py-0.5 rounded bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+          <span v-for="ch in channels" :key="ch" class="inline-flex items-center gap-1 text-xs px-1.5 py-0.5 rounded bg-zinc-100 text-zinc-800 dark:bg-zinc-900 dark:text-zinc-200">
             {{ ch }}
-            <button class="hover:text-red-500" @click="unsubscribe(ch)">×</button>
+            <button class="hover:text-zinc-500" @click="unsubscribe(ch)">×</button>
           </span>
         </div>
       </div>
@@ -237,9 +237,9 @@ onBeforeUnmount(() => {
           </button>
         </div>
         <div v-if="patterns.length > 0" class="flex flex-wrap gap-1">
-          <span v-for="pat in patterns" :key="pat" class="inline-flex items-center gap-1 text-xs px-1.5 py-0.5 rounded bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">
+          <span v-for="pat in patterns" :key="pat" class="inline-flex items-center gap-1 text-xs px-1.5 py-0.5 rounded bg-zinc-100 text-zinc-800 dark:bg-zinc-900 dark:text-zinc-200">
             {{ pat }}
-            <button class="hover:text-red-500" @click="punsubscribe(pat)">×</button>
+            <button class="hover:text-zinc-500" @click="punsubscribe(pat)">×</button>
           </span>
         </div>
       </div>
@@ -261,8 +261,8 @@ onBeforeUnmount(() => {
         </div>
         <div v-for="msg in messages" :key="msg.id" class="py-0.5 border-b border-dashed border-border/50">
           <span class="text-muted-foreground">{{ msg.timestamp.toLocaleTimeString() }}</span>
-          <span class="ml-2 font-semibold text-blue-600 dark:text-blue-400">{{ msg.channel }}</span>
-          <span v-if="msg.pattern" class="ml-1 text-purple-500">({{ msg.pattern }})</span>
+          <span class="ml-2 font-semibold text-zinc-600 dark:text-zinc-400">{{ msg.channel }}</span>
+          <span v-if="msg.pattern" class="ml-1 text-zinc-500">({{ msg.pattern }})</span>
           <span class="ml-2">{{ msg.payload }}</span>
         </div>
       </div>

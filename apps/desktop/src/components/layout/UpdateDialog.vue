@@ -385,7 +385,7 @@ watch(
               <p v-if="isDesktop && updateInfo?.update_available && updateInfo.manual_update_only" class="text-xs text-muted-foreground">
                 {{ t("updates.windows7ManualUpdate") }}
               </p>
-              <div v-if="canDownloadAndInstallUpdate(updateInfo, isDesktop) && activeTaskCount > 0" role="alert" class="flex items-start gap-2 rounded-md border border-amber-500/40 bg-amber-500/10 px-3 py-2 text-xs text-amber-700 dark:text-amber-300">
+              <div v-if="canDownloadAndInstallUpdate(updateInfo, isDesktop) && activeTaskCount > 0" role="alert" class="flex items-start gap-2 rounded-md border border-zinc-500/40 bg-zinc-500/10 px-3 py-2 text-xs text-zinc-700 dark:text-zinc-300">
                 <AlertTriangle class="mt-0.5 h-4 w-4 shrink-0" />
                 <span>{{ t("updates.activeTasksBlockUpdate", { count: activeTaskCount }) }}</span>
               </div>
@@ -485,13 +485,13 @@ watch(
                     </div>
                     <!-- "Update all" deliberately skips a changed source: the user has to confirm it in
                          the Plugin Center, so say so instead of leaving an item that never updates. -->
-                    <div v-if="pluginSourceChange(plugin)" class="mt-1 text-xs text-amber-600 dark:text-amber-400">{{ t("pluginPlatform.updateSourceChangeRequired") }}</div>
+                    <div v-if="pluginSourceChange(plugin)" class="mt-1 text-xs text-zinc-600 dark:text-zinc-400">{{ t("pluginPlatform.updateSourceChangeRequired") }}</div>
                   </div>
                 </div>
               </template>
 
               <div v-if="!selectedCategoryHasUpdate" class="flex flex-col items-center justify-center gap-2 py-12 text-muted-foreground">
-                <CheckCircle2 class="h-6 w-6 text-emerald-500" />
+                <CheckCircle2 class="h-6 w-6 text-zinc-500" />
                 {{ t("settings.upToDate") }}
               </div>
             </div>

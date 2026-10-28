@@ -246,64 +246,64 @@ function getIconInfo(node: TreeNode): { icon: any; colorClass: string } | null {
     case "connection":
       return null;
     case "connection-group":
-      return { icon: node.isExpanded ? FolderOpen : FolderClosed, colorClass: "text-amber-500" };
+      return { icon: node.isExpanded ? FolderOpen : FolderClosed, colorClass: "text-zinc-500" };
     case "table-vgroup":
-      return { icon: node.isExpanded ? FolderOpen : FolderClosed, colorClass: "text-emerald-500" };
+      return { icon: node.isExpanded ? FolderOpen : FolderClosed, colorClass: "text-zinc-500" };
     case "database":
-      return { icon: Database, colorClass: "text-yellow-500" };
+      return { icon: Database, colorClass: "text-zinc-500" };
     case "tablespace":
-      return { icon: Database, colorClass: "text-orange-500" };
+      return { icon: Database, colorClass: "text-zinc-500" };
     case "datafile":
       return { icon: FileCode, colorClass: "text-slate-500" };
     case "linked-server-root":
-      return { icon: Network, colorClass: "text-blue-500" };
+      return { icon: Network, colorClass: "text-zinc-500" };
     case "linked-server":
-      return { icon: Server, colorClass: "text-blue-400" };
+      return { icon: Server, colorClass: "text-zinc-400" };
     case "linked-server-catalog":
-      return { icon: Database, colorClass: "text-yellow-500" };
+      return { icon: Database, colorClass: "text-zinc-500" };
     case "linked-server-schema":
-      return { icon: FolderOpen, colorClass: "text-sky-400" };
+      return { icon: FolderOpen, colorClass: "text-zinc-400" };
     case "schema": {
       const databaseType = node.connectionId ? effectiveDatabaseTypeForConnection(connectionStore.getConfig(node.connectionId)) : undefined;
-      if (isXuguPublicSynonymTreeNode(databaseType, node.type, node.schema)) return { icon: Link2, colorClass: "text-sky-500" };
+      if (isXuguPublicSynonymTreeNode(databaseType, node.type, node.schema)) return { icon: Link2, colorClass: "text-zinc-500" };
       if (isXuguSchedulerJobTreeNode(databaseType, node.type, node.schema)) return { icon: CalendarClock, colorClass: "text-primary" };
-      return { icon: FolderOpen, colorClass: "text-amber-500" };
+      return { icon: FolderOpen, colorClass: "text-zinc-500" };
     }
     case "table":
-      return { icon: Table, colorClass: "text-green-500" };
+      return { icon: Table, colorClass: "text-zinc-500" };
     case "view":
-      return { icon: Eye, colorClass: "text-purple-500" };
+      return { icon: Eye, colorClass: "text-zinc-500" };
     case "materialized_view":
-      return { icon: Eye, colorClass: "text-indigo-500" };
+      return { icon: Eye, colorClass: "text-zinc-500" };
     case "column":
       if ((node.meta as ColumnInfo).is_primary_key) {
-        return { icon: Columns3, colorClass: "text-orange-400" };
+        return { icon: Columns3, colorClass: "text-zinc-400" };
       } else {
         return { icon: Columns3, colorClass: "text-muted-foreground" };
       }
     case "type-attribute":
       return { icon: Columns3, colorClass: "text-muted-foreground" };
     case "type-method":
-      return { icon: Braces, colorClass: "text-amber-500" };
+      return { icon: Braces, colorClass: "text-zinc-500" };
     case "type-attributes":
-      return { icon: ListTree, colorClass: "text-green-400" };
+      return { icon: ListTree, colorClass: "text-zinc-400" };
     case "type-methods":
-      return { icon: Braces, colorClass: "text-amber-500" };
+      return { icon: Braces, colorClass: "text-zinc-500" };
     case "group-columns":
-      return { icon: ListTree, colorClass: "text-green-400" };
+      return { icon: ListTree, colorClass: "text-zinc-400" };
     case "group-indexes":
-      return { icon: Key, colorClass: "text-amber-500" };
+      return { icon: Key, colorClass: "text-zinc-500" };
     case "group-fkeys":
-      return { icon: Link, colorClass: "text-blue-400" };
+      return { icon: Link, colorClass: "text-zinc-400" };
     case "group-triggers":
-      return { icon: Zap, colorClass: "text-orange-400" };
+      return { icon: Zap, colorClass: "text-zinc-400" };
     case "group-events":
-      return { icon: Clock, colorClass: "text-orange-400" };
+      return { icon: Clock, colorClass: "text-zinc-400" };
     case "group-constraints":
-      return { icon: Key, colorClass: "text-amber-500" };
+      return { icon: Key, colorClass: "text-zinc-500" };
     case "group-table-partitions":
     case "group-table-subpartitions":
-      return { icon: node.isExpanded ? FolderOpen : FolderClosed, colorClass: "text-green-400" };
+      return { icon: node.isExpanded ? FolderOpen : FolderClosed, colorClass: "text-zinc-400" };
     case "object-browser":
       return { icon: TableProperties, colorClass: "text-primary" };
     case "user-admin":
@@ -317,113 +317,113 @@ function getIconInfo(node: TreeNode): { icon: any; colorClass: string } | null {
     case "dameng-job-admin":
       return { icon: CalendarClock, colorClass: "text-primary" };
     case "saved-sql-root":
-      return { icon: node.isExpanded ? FolderOpen : FolderClosed, colorClass: "text-blue-500" };
+      return { icon: node.isExpanded ? FolderOpen : FolderClosed, colorClass: "text-zinc-500" };
     case "saved-sql-folder":
-      return { icon: node.isExpanded ? FolderOpen : FolderClosed, colorClass: "text-blue-400" };
+      return { icon: node.isExpanded ? FolderOpen : FolderClosed, colorClass: "text-zinc-400" };
     case "saved-sql-file":
-      return { icon: FileCode, colorClass: "text-blue-400" };
+      return { icon: FileCode, colorClass: "text-zinc-400" };
     case "index":
-      return { icon: Key, colorClass: "text-amber-400" };
+      return { icon: Key, colorClass: "text-zinc-400" };
     case "fkey":
-      return { icon: Link, colorClass: "text-blue-300" };
+      return { icon: Link, colorClass: "text-zinc-300" };
     case "trigger":
-      return { icon: Zap, colorClass: "text-orange-300" };
+      return { icon: Zap, colorClass: "text-zinc-300" };
     case "event":
-      return { icon: Clock, colorClass: "text-orange-400" };
+      return { icon: Clock, colorClass: "text-zinc-400" };
     case "redis-db":
-      return { icon: Database, colorClass: "text-red-400" };
+      return { icon: Database, colorClass: "text-zinc-400" };
     case "mq-tenant":
-      return { icon: FolderOpen, colorClass: "text-sky-400" };
+      return { icon: FolderOpen, colorClass: "text-zinc-400" };
     case "nacos-namespace":
-      return { icon: FolderOpen, colorClass: "text-sky-500" };
+      return { icon: FolderOpen, colorClass: "text-zinc-500" };
     case "nacos-access-control":
-      return { icon: ShieldCheck, colorClass: "text-sky-500" };
+      return { icon: ShieldCheck, colorClass: "text-zinc-500" };
     case "etcd-root":
-      return { icon: Database, colorClass: "text-sky-500" };
+      return { icon: Database, colorClass: "text-zinc-500" };
     case "etcd-dashboard":
-      return { icon: Gauge, colorClass: "text-sky-500" };
+      return { icon: Gauge, colorClass: "text-zinc-500" };
     case "etcd-access-control":
-      return { icon: ShieldCheck, colorClass: "text-sky-500" };
+      return { icon: ShieldCheck, colorClass: "text-zinc-500" };
     case "zookeeper-root":
     case "consul-root":
-      return { icon: Database, colorClass: "text-blue-500" };
+      return { icon: Database, colorClass: "text-zinc-500" };
     case "consul-overview":
-      return { icon: Gauge, colorClass: "text-blue-500" };
+      return { icon: Gauge, colorClass: "text-zinc-500" };
     case "mongo-db":
-      return { icon: Database, colorClass: "text-yellow-500" };
+      return { icon: Database, colorClass: "text-zinc-500" };
     case "mongo-gridfs":
     case "mongo-buckets":
-      return { icon: Archive, colorClass: "text-cyan-500" };
+      return { icon: Archive, colorClass: "text-zinc-500" };
     case "mongo-bucket":
-      return { icon: Archive, colorClass: "text-cyan-400" };
+      return { icon: Archive, colorClass: "text-zinc-400" };
     case "mongo-collection":
-      return { icon: Table, colorClass: "text-green-400" };
+      return { icon: Table, colorClass: "text-zinc-400" };
     case "dynamodb-table":
-      return { icon: Table, colorClass: "text-amber-500" };
+      return { icon: Table, colorClass: "text-zinc-500" };
     case "vector-collection":
-      return { icon: TableProperties, colorClass: "text-cyan-400" };
+      return { icon: TableProperties, colorClass: "text-zinc-400" };
     case "elasticsearch-index":
-      return { icon: Table, colorClass: "text-emerald-400" };
+      return { icon: Table, colorClass: "text-zinc-400" };
     case "meilisearch-system":
-      return { icon: Gauge, colorClass: "text-emerald-500" };
+      return { icon: Gauge, colorClass: "text-zinc-500" };
     case "procedure":
-      return { icon: ScrollText, colorClass: "text-blue-500" };
+      return { icon: ScrollText, colorClass: "text-zinc-500" };
     case "function":
-      return { icon: Braces, colorClass: "text-amber-500" };
+      return { icon: Braces, colorClass: "text-zinc-500" };
     case "sequence":
-      return { icon: ListTree, colorClass: "text-emerald-500" };
+      return { icon: ListTree, colorClass: "text-zinc-500" };
     case "oracle-db-links":
     case "oracle-db-link":
     case "synonym":
-      return { icon: Link2, colorClass: "text-sky-500" };
+      return { icon: Link2, colorClass: "text-zinc-500" };
     case "job":
-      return { icon: Clock, colorClass: "text-orange-400" };
+      return { icon: Clock, colorClass: "text-zinc-400" };
     case "package":
-      return { icon: Package, colorClass: "text-cyan-500" };
+      return { icon: Package, colorClass: "text-zinc-500" };
     case "package-body":
-      return { icon: FileCode, colorClass: "text-cyan-400" };
+      return { icon: FileCode, colorClass: "text-zinc-400" };
     case "type":
-      return { icon: Braces, colorClass: "text-violet-500" };
+      return { icon: Braces, colorClass: "text-zinc-500" };
     case "type-body":
-      return { icon: FileCode, colorClass: "text-violet-400" };
+      return { icon: FileCode, colorClass: "text-zinc-400" };
     case "type-member":
       return { icon: Columns3, colorClass: "text-muted-foreground" };
     case "group-tables":
-      return { icon: Table, colorClass: "text-green-500" };
+      return { icon: Table, colorClass: "text-zinc-500" };
     case "group-dolt-system-tables":
       return { icon: Table, colorClass: "text-slate-500" };
     case "group-views":
-      return { icon: Eye, colorClass: "text-purple-500" };
+      return { icon: Eye, colorClass: "text-zinc-500" };
     case "group-materialized-views":
-      return { icon: Eye, colorClass: "text-indigo-500" };
+      return { icon: Eye, colorClass: "text-zinc-500" };
     case "group-procedures":
-      return { icon: ScrollText, colorClass: "text-blue-500" };
+      return { icon: ScrollText, colorClass: "text-zinc-500" };
     case "group-functions":
-      return { icon: Braces, colorClass: "text-amber-500" };
+      return { icon: Braces, colorClass: "text-zinc-500" };
     case "group-sequences":
-      return { icon: ListTree, colorClass: "text-emerald-500" };
+      return { icon: ListTree, colorClass: "text-zinc-500" };
     case "group-synonyms":
-      return { icon: Link2, colorClass: "text-sky-500" };
+      return { icon: Link2, colorClass: "text-zinc-500" };
     case "group-jobs":
-      return { icon: Clock, colorClass: "text-orange-400" };
+      return { icon: Clock, colorClass: "text-zinc-400" };
     case "group-packages":
-      return { icon: Package, colorClass: "text-cyan-500" };
+      return { icon: Package, colorClass: "text-zinc-500" };
     case "group-types":
-      return { icon: Braces, colorClass: "text-violet-500" };
+      return { icon: Braces, colorClass: "text-zinc-500" };
     case "group-partitions":
-      return { icon: node.isExpanded ? FolderOpen : FolderClosed, colorClass: "text-green-400" };
+      return { icon: node.isExpanded ? FolderOpen : FolderClosed, colorClass: "text-zinc-400" };
     case "group-extensions":
-      return { icon: Package, colorClass: "text-violet-500" };
+      return { icon: Package, colorClass: "text-zinc-500" };
     case "group-event-triggers":
-      return { icon: Package, colorClass: "text-violet-500" };
+      return { icon: Package, colorClass: "text-zinc-500" };
     case "group-tablespaces":
-      return { icon: Database, colorClass: "text-orange-500" };
+      return { icon: Database, colorClass: "text-zinc-500" };
     case "group-datafiles":
       return { icon: node.isExpanded ? FolderOpen : FolderClosed, colorClass: "text-slate-500" };
     case "extension":
-      return { icon: Package, colorClass: "text-violet-400" };
+      return { icon: Package, colorClass: "text-zinc-400" };
     case "event-trigger":
-      return { icon: Package, colorClass: "text-violet-400" };
+      return { icon: Package, colorClass: "text-zinc-400" };
     case "load-more":
       return { icon: Plus, colorClass: "text-primary" };
     default:
@@ -1685,7 +1685,7 @@ function onKeydown(event: KeyboardEvent) {
             <span
               v-if="node.type === 'column' && node.meta"
               class="shrink-0 rounded px-1 text-[10px] leading-4"
-              :class="(node.meta as ColumnInfo).is_nullable ? 'text-muted-foreground bg-muted/50' : 'text-amber-700 bg-amber-500/10 dark:text-amber-300'"
+              :class="(node.meta as ColumnInfo).is_nullable ? 'text-muted-foreground bg-muted/50' : 'text-zinc-700 bg-zinc-500/10 dark:text-zinc-300'"
               :title="t((node.meta as ColumnInfo).is_nullable ? 'structureEditor.nullable' : 'structureEditor.notNull')"
             >
               {{ t((node.meta as ColumnInfo).is_nullable ? "structureEditor.nullable" : "structureEditor.notNull") }}
@@ -1694,7 +1694,7 @@ function onKeydown(event: KeyboardEvent) {
               <TableProperties class="h-3.5 w-3.5" />
             </button>
             <span v-if="treeNodeSecondaryValue(node)" class="tree-secondary-value flex min-w-0 max-w-[55%] shrink items-center gap-1" :title="node.type === 'elasticsearch-index' ? undefined : treeNodeSecondaryValue(node)">
-              <Link2 v-if="node.type === 'elasticsearch-index'" class="h-3 w-3 shrink-0 text-sky-400" />
+              <Link2 v-if="node.type === 'elasticsearch-index'" class="h-3 w-3 shrink-0 text-zinc-400" />
               <span class="min-w-0 truncate">{{ treeNodeSecondaryValue(node) }}</span>
             </span>
             <button

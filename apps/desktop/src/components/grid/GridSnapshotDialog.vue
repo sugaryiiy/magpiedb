@@ -222,7 +222,7 @@ async function exportSnapshot(kind: "clipboard" | "file") {
         <Button variant="outline" :disabled="exporting" @click="resetSnapshotOptions"><RotateCcw class="mr-1.5 h-4 w-4" />{{ t("gridSnapshot.reset") }}</Button>
         <div class="flex flex-col-reverse gap-2 sm:flex-row">
           <Button variant="outline" @click="open = false">{{ t("codeSnapshot.close") }}</Button>
-          <Button variant="outline" :disabled="exporting" @click="exportSnapshot('clipboard')"><Check v-if="copied" class="mr-1.5 h-4 w-4 text-green-500" /><ClipboardCopy v-else class="mr-1.5 h-4 w-4" />{{ copied ? t("gridSnapshot.copied") : t("codeSnapshot.copy") }}</Button>
+          <Button variant="outline" :disabled="exporting" @click="exportSnapshot('clipboard')"><Check v-if="copied" class="mr-1.5 h-4 w-4 text-zinc-500" /><ClipboardCopy v-else class="mr-1.5 h-4 w-4" />{{ copied ? t("gridSnapshot.copied") : t("codeSnapshot.copy") }}</Button>
           <Button :disabled="exporting" @click="exportSnapshot('file')"><Download class="mr-1.5 h-4 w-4" />{{ t("codeSnapshot.save") }}</Button>
         </div>
       </DialogFooter>

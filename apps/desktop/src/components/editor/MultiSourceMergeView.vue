@@ -104,11 +104,11 @@ function statusLabel(status: (typeof props.items)[number]["status"]): string {
 }
 
 function statusClass(status: (typeof props.items)[number]["status"]): string {
-  if (status === "success") return "text-emerald-600 dark:text-emerald-300";
-  if (status === "pending_commit") return "text-amber-600 dark:text-amber-300";
+  if (status === "success") return "text-zinc-600 dark:text-zinc-300";
+  if (status === "pending_commit") return "text-zinc-600 dark:text-zinc-300";
   if (status === "failed") return "text-destructive";
   if (status === "running") return "text-primary";
-  if (status === "skipped" || status === "cancelled" || status === "not_executed" || status === "rolled_back") return "text-amber-600 dark:text-amber-300";
+  if (status === "skipped" || status === "cancelled" || status === "not_executed" || status === "rolled_back") return "text-zinc-600 dark:text-zinc-300";
   return "text-muted-foreground";
 }
 
@@ -268,17 +268,17 @@ defineExpose({ exportMergedRows });
       <span v-if="hasTabularResults">{{ t("multiDbExecute.mergedSources", { count: merged.sources.length, rows: merged.rowCount }) }}</span>
       <span v-if="hasTabularResults">{{ t("multiDbExecute.mergedSourceRowCap", { count: perSourceCap }) }}</span>
       <span v-else data-merge-write-summary>{{ t("multiDbExecute.mergedWriteSummary", { targets: items.length, rows: totalAffectedRows }) }}</span>
-      <span v-if="hasTabularResults && cappedSourceCount > 0" class="font-medium text-amber-600 dark:text-amber-300" data-merge-source-cap-reached>
+      <span v-if="hasTabularResults && cappedSourceCount > 0" class="font-medium text-zinc-600 dark:text-zinc-300" data-merge-source-cap-reached>
         {{ t("multiDbExecute.mergedSourceCapReached", { count: cappedSourceCount, limit: perSourceCap }) }}
       </span>
-      <span v-if="hasTabularResults && merged.truncated" class="font-medium text-amber-600 dark:text-amber-300" data-merge-truncated>
+      <span v-if="hasTabularResults && merged.truncated" class="font-medium text-zinc-600 dark:text-zinc-300" data-merge-truncated>
         {{ t("multiDbExecute.mergedTruncated", { count: mergeCap }) }}
       </span>
       <span v-if="hasTabularResults && hiddenRowCount > 0">{{ t("multiDbExecute.mergedRowLimit", { count: renderedRows.length, rows: merged.rowCount }) }}</span>
       <span v-if="executedAt !== undefined" class="tabular-nums" data-merge-executed-at>{{ t("multiDbExecute.executedAtChip", { time: timestampText(executedAt) }) }}</span>
       <span v-if="durationMs !== undefined" class="tabular-nums" data-merge-duration>{{ t("multiDbExecute.elapsedColumn", { duration: durationText(durationMs) }) }}</span>
       <span v-if="sql" class="min-w-0 max-w-[420px] truncate font-mono" :title="sql" data-merge-sql>{{ sql }}</span>
-      <span v-if="transactional && openTransactionCount > 0" class="font-medium text-amber-600 dark:text-amber-300" data-merge-txn-open>
+      <span v-if="transactional && openTransactionCount > 0" class="font-medium text-zinc-600 dark:text-zinc-300" data-merge-txn-open>
         {{ t("multiDbExecute.txnOpenHint", { count: openTransactionCount }) }}
       </span>
       <span v-if="showExportActions || transactional" class="ml-auto flex shrink-0 items-center gap-1">
@@ -324,7 +324,7 @@ defineExpose({ exportMergedRows });
           <tr v-for="item in items" :key="item.key" class="border-b align-top hover:bg-muted/40">
             <td class="max-w-[280px] truncate border-r px-2 py-1 whitespace-nowrap" :title="item.label">{{ item.label }}</td>
             <td class="border-r px-2 py-1 whitespace-nowrap" :class="statusClass(item.status)">{{ statusLabel(item.status) }}</td>
-            <td v-if="transactional" class="border-r px-2 py-1 whitespace-nowrap" :class="{ 'text-amber-600 dark:text-amber-300': item.transaction !== undefined }" data-merge-txn-state>
+            <td v-if="transactional" class="border-r px-2 py-1 whitespace-nowrap" :class="{ 'text-zinc-600 dark:text-zinc-300': item.transaction !== undefined }" data-merge-txn-state>
               {{ txnStateLabel(item) }}
             </td>
             <td class="border-r px-2 py-1 text-right tabular-nums whitespace-nowrap">{{ affectedRowsText(item) }}</td>

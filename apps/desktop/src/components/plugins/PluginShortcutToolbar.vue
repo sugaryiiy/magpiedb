@@ -185,7 +185,7 @@ onScopeDispose(() => {
           >
             <PluginIcon :plugin-id="entry.pluginId" :icon="entry.icon" class="size-4 shrink-0 [&_svg]:text-current [&_img]:pointer-events-none" />
             <span class="min-w-0 flex-1 truncate" :title="entry.label">{{ entry.label }}</span>
-            <span v-if="isActive(entry)" class="size-1.5 shrink-0 rounded-full bg-green-500" aria-hidden="true" />
+            <span v-if="isActive(entry)" class="size-1.5 shrink-0 rounded-full bg-zinc-500" aria-hidden="true" />
           </DropdownMenuItem>
           <DropdownMenuItem v-if="showSettingsEntry" data-plugin-shortcut-settings :text-value="t('pluginPlatform.shortcutsSettings')" class="relative min-h-8 gap-2 rounded-sm text-xs" @select="activateSettings">
             <span v-if="overflowEntries.length" class="pointer-events-none absolute inset-x-2 top-0 h-px bg-border/60" aria-hidden="true" />

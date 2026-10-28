@@ -379,7 +379,7 @@ async function testSelected() {
       <p v-if="isDirty" class="text-xs text-muted-foreground">{{ t("settings.tunnelsUnsavedHint") }}</p>
     </div>
 
-    <p v-if="testResult" class="text-xs" :class="testResult.ok ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-500'">
+    <p v-if="testResult" class="text-xs" :class="testResult.ok ? 'text-zinc-600 dark:text-zinc-400' : 'text-zinc-500'">
       {{ testResult.message }}
     </p>
   </div>

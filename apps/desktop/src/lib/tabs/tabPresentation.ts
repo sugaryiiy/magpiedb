@@ -714,35 +714,35 @@ export function tabDatabaseIconType(tab: QueryTab): string {
 
 export function tabIconClass(tab: QueryTab): string {
   const connection = useConnectionStore().getConfig(tab.connectionId);
-  if (tab.externalSqlFileMissing) return "text-amber-600 dark:text-amber-400";
+  if (tab.externalSqlFileMissing) return "text-zinc-600 dark:text-zinc-400";
   if (tab.mode === "mq") return "";
-  if (tab.objectSource?.objectType === "VIEW") return "text-purple-500";
-  if (tab.objectSource?.objectType === "MATERIALIZED_VIEW") return "text-indigo-500";
-  if (tab.objectSource?.objectType === "PROCEDURE") return "text-blue-500";
-  if (tab.objectSource?.objectType === "FUNCTION") return "text-amber-500";
-  if (tab.objectSource?.objectType === "TRIGGER") return "text-orange-300";
-  if (tab.objectSource?.objectType === "EVENT" || tab.objectSource?.objectType === "JOB") return "text-orange-400";
-  if (tab.objectSource?.objectType === "SEQUENCE") return "text-emerald-500";
-  if (tab.objectSource?.objectType === "SYNONYM") return "text-sky-500";
-  if (tab.objectSource?.objectType === "PACKAGE") return "text-cyan-500";
-  if (tab.objectSource?.objectType === "PACKAGE_BODY") return "text-cyan-400";
-  if (tab.objectSource?.objectType === "TYPE") return "text-violet-500";
-  if (tab.objectSource?.objectType === "TYPE_BODY") return "text-violet-400";
-  if (isEventObjectBrowserTab(tab)) return "text-orange-400";
+  if (tab.objectSource?.objectType === "VIEW") return "text-zinc-500";
+  if (tab.objectSource?.objectType === "MATERIALIZED_VIEW") return "text-zinc-500";
+  if (tab.objectSource?.objectType === "PROCEDURE") return "text-zinc-500";
+  if (tab.objectSource?.objectType === "FUNCTION") return "text-zinc-500";
+  if (tab.objectSource?.objectType === "TRIGGER") return "text-zinc-300";
+  if (tab.objectSource?.objectType === "EVENT" || tab.objectSource?.objectType === "JOB") return "text-zinc-400";
+  if (tab.objectSource?.objectType === "SEQUENCE") return "text-zinc-500";
+  if (tab.objectSource?.objectType === "SYNONYM") return "text-zinc-500";
+  if (tab.objectSource?.objectType === "PACKAGE") return "text-zinc-500";
+  if (tab.objectSource?.objectType === "PACKAGE_BODY") return "text-zinc-400";
+  if (tab.objectSource?.objectType === "TYPE") return "text-zinc-500";
+  if (tab.objectSource?.objectType === "TYPE_BODY") return "text-zinc-400";
+  if (isEventObjectBrowserTab(tab)) return "text-zinc-400";
   if (tab.mode === "users") return "text-primary";
-  if (tab.mode === "redis") return "text-red-400";
-  if (tab.mode === "data" && tab.tableMeta?.tableType?.toUpperCase() === "VIEW") return "text-purple-500";
-  if (tab.mode === "data" && tab.tableMeta?.tableType?.toUpperCase() === "MATERIALIZED_VIEW") return "text-indigo-500";
-  if (tab.mode === "databases" || tab.mode === "objects") return "text-amber-500 dark:text-amber-400";
-  if (tab.mode === "data" && connection?.db_type === "dynamodb") return "text-amber-500";
-  if (tab.mode === "data" || tab.mode === "hbase") return "text-green-500";
-  if (tab.mode === "mongo") return "text-green-400";
-  if (tab.mode === "vector") return "text-cyan-400";
-  if (tab.mode === "structure") return "text-blue-500";
+  if (tab.mode === "redis") return "text-zinc-400";
+  if (tab.mode === "data" && tab.tableMeta?.tableType?.toUpperCase() === "VIEW") return "text-zinc-500";
+  if (tab.mode === "data" && tab.tableMeta?.tableType?.toUpperCase() === "MATERIALIZED_VIEW") return "text-zinc-500";
+  if (tab.mode === "databases" || tab.mode === "objects") return "text-zinc-500 dark:text-zinc-400";
+  if (tab.mode === "data" && connection?.db_type === "dynamodb") return "text-zinc-500";
+  if (tab.mode === "data" || tab.mode === "hbase") return "text-zinc-500";
+  if (tab.mode === "mongo") return "text-zinc-400";
+  if (tab.mode === "vector") return "text-zinc-400";
+  if (tab.mode === "structure") return "text-zinc-500";
   // query 的图标是数据库品牌 logo（TabModeIcon），不吃文字颜色；回退的
-  // Database 图标自带 text-blue-400，与 mq 模式同样返回空串。
+  // Database 图标自带 text-zinc-400，与 mq 模式同样返回空串。
   if (tab.mode === "query") return "";
-  return "text-blue-600 dark:text-blue-400";
+  return "text-zinc-600 dark:text-zinc-400";
 }
 
 // WebKit without color-mix() (macOS 12 Safari < 16.2) invalidates these inline

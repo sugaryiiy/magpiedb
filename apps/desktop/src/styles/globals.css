@@ -79,27 +79,28 @@
 :root {
   --dbx-dialog-top-z-index: 50;
   --dbx-floating-layer-z-index: 51;
-  --data-grid-type-integer-fg: #1d4ed8;
-  --data-grid-type-numeric-fg: #0e7490;
-  --data-grid-type-string-fg: #166534;
-  --data-grid-type-boolean-fg: #c2410c;
-  --data-grid-type-temporal-fg: #7e22ce;
-  --data-grid-type-structured-fg: #be185d;
-  --data-grid-type-identifier-fg: #92400e;
-  --data-grid-type-binary-fg: #b91c1c;
-  --data-grid-type-spatial-fg: #047857;
+  /* Blueprint ramp: types differ by gray step, darkest first. */
+  --data-grid-type-integer-fg: #0a0a0a;
+  --data-grid-type-numeric-fg: #161616;
+  --data-grid-type-string-fg: #232323;
+  --data-grid-type-boolean-fg: #2f2f2f;
+  --data-grid-type-temporal-fg: #3b3b3b;
+  --data-grid-type-structured-fg: #484848;
+  --data-grid-type-identifier-fg: #545454;
+  --data-grid-type-binary-fg: #606060;
+  --data-grid-type-spatial-fg: #6d6d6d;
 }
 
 :root.dark {
-  --data-grid-type-integer-fg: #93c5fd;
-  --data-grid-type-numeric-fg: #67e8f9;
-  --data-grid-type-string-fg: #86efac;
-  --data-grid-type-boolean-fg: #fdba74;
-  --data-grid-type-temporal-fg: #d8b4fe;
-  --data-grid-type-structured-fg: #f9a8d4;
-  --data-grid-type-identifier-fg: #fcd34d;
-  --data-grid-type-binary-fg: #fca5a5;
-  --data-grid-type-spatial-fg: #6ee7b7;
+  --data-grid-type-integer-fg: #fafafa;
+  --data-grid-type-numeric-fg: #ededed;
+  --data-grid-type-string-fg: #dcdcdc;
+  --data-grid-type-boolean-fg: #cccccc;
+  --data-grid-type-temporal-fg: #bbbbbb;
+  --data-grid-type-structured-fg: #ababab;
+  --data-grid-type-identifier-fg: #9c9c9c;
+  --data-grid-type-binary-fg: #969696;
+  --data-grid-type-spatial-fg: #909090;
 }
 
 /* Reka caches the content's computed z-index on its positioning wrapper.
@@ -112,16 +113,22 @@
  * values: the 300-level grid-cell palette above is tuned for the data surface
  * and glares on the dark popover. Light mode keeps the 700-level base. */
 .dark .dbx-column-info-tooltip {
-  --data-grid-type-integer-fg: #60a5fa;
-  --data-grid-type-numeric-fg: #22d3ee;
-  --data-grid-type-string-fg: #4ade80;
-  --data-grid-type-boolean-fg: #fb923c;
-  --data-grid-type-temporal-fg: #c084fc;
-  --data-grid-type-structured-fg: #f472b6;
-  --data-grid-type-identifier-fg: #fbbf24;
-  --data-grid-type-binary-fg: #f87171;
-  --data-grid-type-spatial-fg: #34d399;
+  --data-grid-type-integer-fg: #fafafa;
+  --data-grid-type-numeric-fg: #ededed;
+  --data-grid-type-string-fg: #dcdcdc;
+  --data-grid-type-boolean-fg: #cccccc;
+  --data-grid-type-temporal-fg: #bbbbbb;
+  --data-grid-type-structured-fg: #ababab;
+  --data-grid-type-identifier-fg: #9c9c9c;
+  --data-grid-type-binary-fg: #969696;
+  --data-grid-type-spatial-fg: #909090;
 }
+/* Blueprint numerals: tabular figures keep data columns aligned. */
+table,
+.dbx-tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
 @layer components {
   .data-grid-type-integer {
     color: var(--data-grid-type-integer-fg);

@@ -312,7 +312,7 @@ function close() {
       >
       <div class="min-h-0 flex-1 space-y-4 overflow-y-auto py-3 text-sm">
         <div class="border-b pb-2 font-medium break-all">{{ connection?.name }} / {{ props.database }}</div>
-        <div v-if="readonly" class="text-xs text-amber-600">{{ t("mongoDump.readonly") }}</div>
+        <div v-if="readonly" class="text-xs text-zinc-600">{{ t("mongoDump.readonly") }}</div>
         <template v-if="step === 'configure'">
           <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <div class="space-y-1">

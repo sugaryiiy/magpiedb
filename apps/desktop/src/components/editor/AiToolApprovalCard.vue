@@ -36,7 +36,7 @@ const expiresAt = computed(() => new Date(props.approval.expiresAtMs).toLocaleTi
 <template>
   <div class="space-y-1.5 border-t border-current/10 px-2 pb-2 pt-1.5 text-[10px]" data-ai-tool-approval>
     <div class="flex items-start gap-1.5 text-foreground">
-      <ShieldAlert class="mt-px h-3 w-3 shrink-0 text-amber-600 dark:text-amber-400" />
+      <ShieldAlert class="mt-px h-3 w-3 shrink-0 text-zinc-600 dark:text-zinc-400" />
       <span class="min-w-0 wrap-anywhere">{{ t("ai.toolApproval.prompt", { plugin: approval.pluginName, tool: approval.pluginTool, connection: approval.connectionName }) }}</span>
     </div>
     <pre class="max-h-40 overflow-auto rounded bg-background/60 px-2 py-1 font-mono text-[10px] text-foreground/80 whitespace-pre-wrap wrap-anywhere">{{ argumentsText }}</pre>

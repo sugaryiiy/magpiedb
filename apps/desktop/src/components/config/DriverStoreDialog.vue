@@ -1525,11 +1525,11 @@ watch(driverStoreTab, (tab) => {
             <TabsList class="driver-store-tabs grid w-full max-w-[380px] grid-cols-3">
               <TabsTrigger value="agent" class="gap-1.5 relative">
                 {{ t("driverStore.agentDrivers") }}
-                <span v-if="agentTabUpdateCount > 0" class="inline-block h-2 w-2 rounded-full bg-red-500" />
+                <span v-if="agentTabUpdateCount > 0" class="inline-block h-2 w-2 rounded-full bg-zinc-500" />
               </TabsTrigger>
               <TabsTrigger value="jdbc" class="gap-1.5 relative">
                 {{ t("driverStore.jdbcDrivers") }}
-                <span v-if="jdbcTabUpdateCount > 0" class="inline-block h-2 w-2 rounded-full bg-red-500" />
+                <span v-if="jdbcTabUpdateCount > 0" class="inline-block h-2 w-2 rounded-full bg-zinc-500" />
               </TabsTrigger>
               <TabsTrigger value="storage" class="gap-1.5">
                 {{ t("driverStore.storageTab") }}
@@ -1603,7 +1603,7 @@ watch(driverStoreTab, (tab) => {
                     <span v-if="jreUsageLabel(jre.key)" class="rounded-full bg-muted px-2 py-0.5 text-[11px] text-muted-foreground">
                       {{ jreUsageLabel(jre.key) }}
                     </span>
-                    <Check v-if="jre.installed" class="h-4 w-4 text-green-600" />
+                    <Check v-if="jre.installed" class="h-4 w-4 text-zinc-600" />
                     <span v-else class="text-xs text-muted-foreground">{{ t("driverStore.notInstalled") }}</span>
                     <DriverInstallProgressCircle v-if="reinstallingJre === jre.key" :percent="getJreReinstallPercent()" :title="getJreReinstallTitle(jre.installed ? t('driverStore.reinstalling') : t('driverStore.installing'))" />
                     <Button v-else-if="!jre.installed" type="button" variant="default" size="sm" class="h-8 rounded-md text-xs" :disabled="reinstallingJre !== null || installing !== null || agentPackageBusy" @click="reinstallJre(jre.key)">
@@ -1645,7 +1645,7 @@ watch(driverStoreTab, (tab) => {
             </div>
             <!-- Global update section — always above category navigation -->
             <div v-if="globalUpdatableDrivers.length > 0" class="driver-store-global-updates rounded-lg border divide-y">
-              <div class="flex items-center justify-between bg-amber-500/10 px-4 py-2.5">
+              <div class="flex items-center justify-between bg-zinc-500/10 px-4 py-2.5">
                 <div class="min-w-0">
                   <div class="text-sm font-semibold">{{ t("driverStore.updatesAvailableTitle") }} ({{ globalUpdatableDrivers.length }})</div>
                   <p class="text-xs text-muted-foreground">{{ t("driverStore.updatesAvailableDescription") }}</p>
@@ -1777,7 +1777,7 @@ watch(driverStoreTab, (tab) => {
                 </div>
                 <div class="flex shrink-0 items-center gap-3">
                   <DriverInstallProgressCircle v-if="isInstallingJdbcPlugin" :percent="jdbcPluginProgressNumber" :title="getJdbcPluginProgressTitle(t('driverStore.progressDownloadJdbcPlugin'))" />
-                  <span v-if="jdbcPluginStatus?.installed" class="text-xs" :class="jdbcPluginStatus.compatible ? 'text-green-600' : 'text-destructive'">
+                  <span v-if="jdbcPluginStatus?.installed" class="text-xs" :class="jdbcPluginStatus.compatible ? 'text-zinc-600' : 'text-destructive'">
                     {{
                       jdbcPluginStatus.compatible
                         ? t("settings.jdbcPluginInstalled", {
@@ -1786,7 +1786,7 @@ watch(driverStoreTab, (tab) => {
                         : t("settings.jdbcPluginIncompatible")
                     }}
                   </span>
-                  <span v-if="jdbcPluginStatus?.installed && jdbcPluginStatus.update_available" class="rounded-full bg-amber-500/15 px-2 py-0.5 text-[11px] text-amber-600">→ v{{ jdbcPluginStatus.latest_version }}</span>
+                  <span v-if="jdbcPluginStatus?.installed && jdbcPluginStatus.update_available" class="rounded-full bg-zinc-500/15 px-2 py-0.5 text-[11px] text-zinc-600">→ v{{ jdbcPluginStatus.latest_version }}</span>
                   <Button v-if="jdbcPluginStatus?.installed && jdbcPluginStatus.update_available" type="button" variant="outline" class="rounded-md" :disabled="isInstallingJdbcPlugin" @click="installJdbcPlugin">
                     {{ isInstallingJdbcPlugin ? t("common.loading") : t("settings.jdbcPluginUpdate") }}
                   </Button>
@@ -1968,8 +1968,8 @@ watch(driverStoreTab, (tab) => {
                 </Button>
               </div>
 
-              <div v-if="runtimeSummary?.last_error" class="border-b border-amber-500/20 bg-amber-500/10 px-4 py-2.5">
-                <div class="text-xs font-medium text-amber-700 dark:text-amber-300">
+              <div v-if="runtimeSummary?.last_error" class="border-b border-zinc-500/20 bg-zinc-500/10 px-4 py-2.5">
+                <div class="text-xs font-medium text-zinc-700 dark:text-zinc-300">
                   {{ t("driverStore.runtimeLastError") }}
                 </div>
                 <pre class="mt-1 max-h-20 overflow-auto whitespace-pre-wrap text-[11px] text-muted-foreground">{{ runtimeSummary.last_error }}</pre>

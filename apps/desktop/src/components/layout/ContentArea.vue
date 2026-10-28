@@ -1816,10 +1816,10 @@ defineExpose({
 
 <template>
   <div class="production-session-shell flex flex-col min-h-0" :class="[resultOnly ? 'h-full' : 'flex-1', { 'production-session-shell--active': activeProductionContext.active }]">
-    <div v-if="activeProductionContext.active" class="production-session-strip flex h-7 shrink-0 items-center gap-2 border-b border-red-500/35 bg-red-500/10 px-3 text-xs font-semibold text-red-800 shadow-[inset_0_1px_0_rgb(239_68_68_/_0.28)] dark:text-red-200">
+    <div v-if="activeProductionContext.active" class="production-session-strip flex h-7 shrink-0 items-center gap-2 border-b border-zinc-500/35 bg-zinc-500/10 px-3 text-xs font-semibold text-zinc-800 shadow-[inset_0_1px_0_rgb(239_68_68_/_0.28)] dark:text-zinc-200">
       <ShieldAlert class="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
       <span class="font-mono uppercase tracking-normal">{{ t("production.title") }}</span>
-      <span v-if="productionSessionDetail" class="min-w-0 truncate rounded-md border border-red-500/25 bg-background/65 px-1.5 py-0.5 font-medium text-red-700 dark:text-red-200">{{ productionSessionDetail }}</span>
+      <span v-if="productionSessionDetail" class="min-w-0 truncate rounded-md border border-zinc-500/25 bg-background/65 px-1.5 py-0.5 font-medium text-zinc-700 dark:text-zinc-200">{{ productionSessionDetail }}</span>
     </div>
     <!-- Query mode: editor + results -->
     <template v-if="activeTab.mode === 'query'">
@@ -2457,10 +2457,10 @@ defineExpose({
                           class="inline-flex h-5 items-center gap-1 rounded-full border px-2 text-[10px]"
                           :class="{
                             'border-primary/35 bg-primary/10 text-primary': item.status === 'running',
-                            'border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300': item.status === 'success',
+                            'border-zinc-500/30 bg-zinc-500/10 text-zinc-700 dark:text-zinc-300': item.status === 'success',
                             'border-destructive/40 bg-destructive/10 text-destructive': item.status === 'error',
                             'border-border bg-muted/40 text-muted-foreground': item.status === 'pending' || item.status === 'skipped',
-                            'border-amber-500/35 bg-amber-500/10 text-amber-700 dark:text-amber-300': item.status === 'cancelled',
+                            'border-zinc-500/35 bg-zinc-500/10 text-zinc-700 dark:text-zinc-300': item.status === 'cancelled',
                           }"
                         >
                           <Loader2 v-if="item.status === 'running'" class="h-3 w-3 animate-spin" />

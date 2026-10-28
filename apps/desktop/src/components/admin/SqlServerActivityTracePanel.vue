@@ -280,7 +280,7 @@ onBeforeUnmount(() => {
         <Switch v-model="includeStatements" :disabled="traceActive || busy" />
         <span class="whitespace-nowrap">{{ t("sqlServerTrace.statements") }}</span>
       </label>
-      <span class="pb-1 text-[11px] text-amber-700 dark:text-amber-300">{{ includeStatements ? t("sqlServerTrace.highCost") : "" }}</span>
+      <span class="pb-1 text-[11px] text-zinc-700 dark:text-zinc-300">{{ includeStatements ? t("sqlServerTrace.highCost") : "" }}</span>
     </div>
 
     <div class="grid shrink-0 grid-cols-[minmax(180px,2fr)_minmax(110px,0.8fr)_minmax(140px,1fr)_minmax(120px,0.75fr)] gap-2 overflow-x-auto border-b bg-muted/10 px-3 py-2">

@@ -134,10 +134,10 @@ export function createSqlUnknownObjectHighlights(options: SqlUnknownObjectHighli
       // colour is an `!important` rule at the same specificity, so the class is
       // repeated to win the cascade regardless of style-module injection order.
       ".cm-sql-unknown-object.cm-sql-unknown-object.cm-sql-unknown-object": {
-        color: "var(--dbx-sql-unknown-object-color, #e5484d) !important",
+        color: "var(--dbx-sql-unknown-object-color, #737373) !important",
       },
       ".cm-sql-unknown-object.cm-sql-unknown-object.cm-sql-unknown-object *": {
-        color: "var(--dbx-sql-unknown-object-color, #e5484d) !important",
+        color: "var(--dbx-sql-unknown-object-color, #737373) !important",
       },
     }),
   ];

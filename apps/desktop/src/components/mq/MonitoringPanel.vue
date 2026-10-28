@@ -871,7 +871,7 @@ onUnmounted(() => {
   --monitor-border: color-mix(in srgb, var(--color-border, #e5e7eb) 76%, transparent);
   --monitor-border-strong: color-mix(in srgb, var(--color-border, #d4d4d8) 88%, var(--monitor-accent) 12%);
   --monitor-text: var(--color-text, var(--color-foreground, #18181b));
-  --monitor-muted: var(--color-text-secondary, var(--color-muted-foreground, #64748b));
+  --monitor-muted: var(--color-text-secondary, var(--color-muted-foreground, #737373));
   --monitor-faint: var(--color-text-tertiary, color-mix(in srgb, var(--monitor-muted) 72%, transparent));
   --monitor-hover: color-mix(in srgb, var(--color-hover, var(--color-muted, #f4f4f5)) 72%, var(--monitor-accent) 7%);
   --monitor-accent: var(--info);

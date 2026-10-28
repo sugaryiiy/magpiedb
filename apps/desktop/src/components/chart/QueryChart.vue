@@ -79,6 +79,7 @@ const chartOption = computed(() => {
     const yIdx = yColumnIndexes.value[0];
     if (yIdx < 0) return null;
     return {
+      color: isDark.value ? ["#fafafa", "#d4d4d4", "#c2c2c2", "#b0b0b0", "#a3a3a3", "#8a8a8a", "#737373", "#666666"] : ["#171717", "#404040", "#525252", "#737373", "#8a8a8a", "#a3a3a3", "#b0b0b0", "#c2c2c2"],
       tooltip: { trigger: "item" },
       legend: { bottom: 0, textStyle: { color: isDark.value ? "#ccc" : "#333" } },
       series: [
@@ -97,6 +98,7 @@ const chartOption = computed(() => {
   const yIndices = yColumnIndexes.value.filter((index) => index >= 0 && index < props.result.columns.length);
 
   return {
+    color: isDark.value ? ["#fafafa", "#d4d4d4", "#c2c2c2", "#b0b0b0", "#a3a3a3", "#8a8a8a", "#737373", "#666666"] : ["#171717", "#404040", "#525252", "#737373", "#8a8a8a", "#a3a3a3", "#b0b0b0", "#c2c2c2"],
     tooltip: { trigger: "axis" },
     legend: {
       bottom: 0,

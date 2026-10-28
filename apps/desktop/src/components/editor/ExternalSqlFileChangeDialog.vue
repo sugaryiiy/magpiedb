@@ -24,7 +24,7 @@ const isOpen = computed(() => props.prompt !== null);
       <template v-if="prompt">
         <DialogHeader>
           <div class="flex items-start gap-3 pr-2">
-            <div class="mt-0.5 rounded-md bg-amber-500/12 p-2 text-amber-600 dark:text-amber-400">
+            <div class="mt-0.5 rounded-md bg-zinc-500/12 p-2 text-zinc-600 dark:text-zinc-400">
               <FileWarning v-if="prompt.kind === 'deleted'" class="h-5 w-5" />
               <AlertTriangle v-else class="h-5 w-5" />
             </div>
@@ -37,7 +37,7 @@ const isOpen = computed(() => props.prompt !== null);
           </div>
         </DialogHeader>
 
-        <p v-if="prompt.dirty" class="rounded-md border border-amber-500/30 bg-amber-500/8 px-3 py-2 text-xs text-amber-800 dark:text-amber-200">
+        <p v-if="prompt.dirty" class="rounded-md border border-zinc-500/30 bg-zinc-500/8 px-3 py-2 text-xs text-zinc-800 dark:text-zinc-200">
           {{ t(prompt.kind === "deleted" ? "externalSqlFile.deletedUnsavedWarning" : "externalSqlFile.unsavedWarning") }}
         </p>
 

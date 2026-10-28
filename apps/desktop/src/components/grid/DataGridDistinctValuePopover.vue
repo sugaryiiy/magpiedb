@@ -60,7 +60,7 @@ const allOptionsSelected = computed(() => props.options.length > 0 && props.opti
           data-distinct-value-select-all
           role="checkbox"
           class="flex h-4 w-4 items-center justify-center rounded border"
-          :class="allOptionsSelected ? 'border-blue-600 bg-blue-600 text-white' : 'border-border bg-background text-foreground/70'"
+          :class="allOptionsSelected ? 'border-zinc-600 bg-zinc-600 text-white' : 'border-border bg-background text-foreground/70'"
           :disabled="!props.options.length"
           :aria-checked="allOptionsSelected"
           @click="emit('toggleAll')"
@@ -87,7 +87,7 @@ const allOptionsSelected = computed(() => props.options.length > 0 && props.opti
           :class="props.multiple ? 'grid-cols-[1.75rem_minmax(0,1fr)_3.5rem]' : 'grid-cols-[minmax(0,1fr)_3.5rem]'"
           @click="props.multiple ? emit('toggle', option) : emit('select', option)"
         >
-          <span v-if="props.multiple" class="flex h-4 w-4 items-center justify-center rounded border" :class="props.selectedKeys?.has(option.key) ? 'border-blue-600 bg-blue-600 text-white' : 'border-border bg-background text-foreground/70'">
+          <span v-if="props.multiple" class="flex h-4 w-4 items-center justify-center rounded border" :class="props.selectedKeys?.has(option.key) ? 'border-zinc-600 bg-zinc-600 text-white' : 'border-border bg-background text-foreground/70'">
             <Check v-if="props.selectedKeys?.has(option.key)" class="h-3 w-3 stroke-[3]" />
           </span>
           <span class="truncate font-mono">{{ option.label }}</span>

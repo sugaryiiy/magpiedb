@@ -174,8 +174,8 @@ const { t } = useI18n();
 .panel-success {
   padding: 10px 12px;
   border-radius: var(--dbx-radius-fixed-6);
-  background: color-mix(in srgb, var(--color-success, #22c55e) 12%, transparent);
-  color: var(--color-success, #16a34a);
+  background: color-mix(in srgb, var(--color-success, #404040) 12%, transparent);
+  color: var(--color-success, #404040);
   font-size: 13px;
 }
 

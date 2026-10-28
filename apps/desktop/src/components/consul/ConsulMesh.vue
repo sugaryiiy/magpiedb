@@ -325,7 +325,7 @@ defineExpose({
         <Button variant="outline" size="sm" @click="checkIntention">{{ t("consul.ui.check") }}</Button>
         <Button variant="ghost" size="sm" @click="matchIntentions('source')">{{ t("consul.ui.matchSource") }}</Button>
         <Button variant="ghost" size="sm" @click="matchIntentions('destination')">{{ t("consul.ui.matchDestination") }}</Button>
-        <span v-if="intentionCheckResult !== null" class="text-xs font-medium" :class="intentionCheckResult ? 'text-emerald-600' : 'text-destructive'">{{ intentionCheckResult ? t("consul.ui.allowed") : t("consul.ui.denied") }}</span>
+        <span v-if="intentionCheckResult !== null" class="text-xs font-medium" :class="intentionCheckResult ? 'text-zinc-600' : 'text-destructive'">{{ intentionCheckResult ? t("consul.ui.allowed") : t("consul.ui.denied") }}</span>
       </div>
       <div v-if="intentionMatches.length" class="mb-3 border bg-muted/20 p-2 text-xs">{{ t("consul.ui.matchedIntentions", { count: intentionMatches.length }) }}</div>
       <div class="divide-y border">
@@ -352,7 +352,7 @@ defineExpose({
         <div class="divide-y border">
           <div v-for="row in chainRows" :key="row.id" class="grid min-h-12 grid-cols-[minmax(0,1fr)_8rem_minmax(0,1fr)] items-center gap-3 px-3 py-2 text-xs" :style="{ paddingLeft: `${12 + row.depth * 20}px` }">
             <div class="min-w-0 truncate font-mono">
-              <span v-if="row.id === chain.StartNode" class="mr-1 text-emerald-600">{{ t("consul.ui.start") }}</span
+              <span v-if="row.id === chain.StartNode" class="mr-1 text-zinc-600">{{ t("consul.ui.start") }}</span
               >{{ row.id }}
             </div>
             <Badge variant="outline" class="w-fit">{{ row.type }}</Badge>
@@ -370,7 +370,7 @@ defineExpose({
         <Input v-model="peeringName" :placeholder="t('consul.ui.peerName')" /><PasswordInput v-model="peeringToken" :placeholder="t('consul.ui.peeringToken')" /><Button :disabled="!peeringName" variant="outline" @click="generateToken">{{ t("consul.ui.generateToken") }}</Button
         ><Button :disabled="!peeringName || !peeringToken" @click="establishPeering">{{ t("consul.ui.establish") }}</Button>
       </div>
-      <div v-if="tokenOnce" class="mb-3 flex items-center gap-2 border border-amber-300 bg-amber-50 p-3 text-sm dark:bg-amber-950/30">
+      <div v-if="tokenOnce" class="mb-3 flex items-center gap-2 border border-zinc-300 bg-zinc-50 p-3 text-sm dark:bg-zinc-950/30">
         <span class="min-w-0 flex-1 truncate font-mono">{{ tokenRevealed ? tokenOnce : "****************" }}</span
         ><Button variant="ghost" size="icon" class="h-7 w-7" :title="tokenRevealed ? t('consul.ui.hide') : t('consul.ui.reveal')" @click="tokenRevealed = !tokenRevealed"><EyeOff v-if="tokenRevealed" class="h-3.5 w-3.5" /><Eye v-else class="h-3.5 w-3.5" /></Button
         ><Button size="sm" class="gap-1" @click="copyToken"><Clipboard class="h-3.5 w-3.5" />{{ t("consul.ui.copyOnce") }}</Button

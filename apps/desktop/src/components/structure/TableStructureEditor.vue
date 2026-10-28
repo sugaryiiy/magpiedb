@@ -1579,11 +1579,11 @@ const indexKindOrder: StructureIndexKind[] = ["primary", "unique", "index", "ful
 
 function indexIconClass(kind: StructureIndexKind): string {
   return {
-    primary: "text-amber-600 dark:text-amber-400",
-    unique: "text-red-600 dark:text-red-400",
-    index: "text-green-700 dark:text-green-300",
-    fulltext: "text-purple-600 dark:text-purple-300",
-    spatial: "text-cyan-700 dark:text-cyan-300",
+    primary: "text-zinc-600 dark:text-zinc-400",
+    unique: "text-zinc-600 dark:text-zinc-400",
+    index: "text-zinc-700 dark:text-zinc-300",
+    fulltext: "text-zinc-600 dark:text-zinc-300",
+    spatial: "text-zinc-700 dark:text-zinc-300",
   }[kind];
 }
 
@@ -4287,7 +4287,7 @@ function columnIndexContextMenuItems(targets: EditableStructureColumn[]): Contex
     {
       label: t("structureEditor.createPrimaryIndex"),
       icon: KeyRound,
-      iconClass: "text-amber-600 dark:text-amber-400",
+      iconClass: "text-zinc-600 dark:text-zinc-400",
       disabled: () => disabled() || primaryColumns.length > 0 || targets.some(isPrimaryKeyDisabled),
       action: () => setColumnsPrimaryKey(targets),
     },
@@ -4337,7 +4337,7 @@ function columnIndexContextMenuItems(targets: EditableStructureColumn[]): Contex
     addItems.unshift({
       label: `PRIMARY (${primaryColumns.map((column) => column.name).join(", ")})`,
       icon: KeyRound,
-      iconClass: "text-amber-600 dark:text-amber-400",
+      iconClass: "text-zinc-600 dark:text-zinc-400",
       disabled: () => disabled() || targets.every((column) => column.isPrimaryKey) || targets.some(isPrimaryKeyDisabled),
       action: () => setColumnsPrimaryKey(targets),
     });
@@ -5481,7 +5481,7 @@ watch(
       </Tooltip>
       <Tooltip v-else-if="tableOwnerRolesLoadError">
         <TooltipTrigger as-child>
-          <AlertTriangle :class="[structureIconClass, 'shrink-0 text-amber-500']" />
+          <AlertTriangle :class="[structureIconClass, 'shrink-0 text-zinc-500']" />
         </TooltipTrigger>
         <TooltipContent>{{ t("structureEditor.ownerRolesLoadFailed", { message: tableOwnerRolesLoadError }) }}</TooltipContent>
       </Tooltip>
@@ -6688,7 +6688,7 @@ watch(
             <span>{{ t("structureEditor.sqliteRebuildNotice") }}</span>
           </div>
           <div v-if="warnings.length" class="mb-2 space-y-1">
-            <div v-for="warning in warnings" :key="warning" class="flex gap-1.5 rounded-md border border-yellow-300/40 bg-yellow-500/10 px-[var(--structure-cell-px)] py-[var(--structure-cell-py)] text-[length:var(--structure-font-size)] text-yellow-700 dark:text-yellow-300">
+            <div v-for="warning in warnings" :key="warning" class="flex gap-1.5 rounded-md border border-zinc-300/40 bg-zinc-500/10 px-[var(--structure-cell-px)] py-[var(--structure-cell-py)] text-[length:var(--structure-font-size)] text-zinc-700 dark:text-zinc-300">
               <AlertTriangle :class="[structureIconClass, 'mt-0.5 shrink-0']" />
               <span>{{ warning }}</span>
             </div>
@@ -7149,27 +7149,27 @@ watch(
 
 .structure-column-primary-key,
 .structure-index-primary-key {
-  --structure-key-color: #d97706;
+  --structure-key-color: #111111;
 }
 
 .structure-column-unique-key,
 .structure-index-unique-key {
-  --structure-key-color: #dc2626;
+  --structure-key-color: #404040;
 }
 
 .structure-column-index-key,
 .structure-index-normal-key {
-  --structure-key-color: #15803d;
+  --structure-key-color: #525252;
 }
 
 .structure-column-fulltext-key,
 .structure-index-fulltext-key {
-  --structure-key-color: #9333ea;
+  --structure-key-color: #737373;
 }
 
 .structure-column-spatial-key,
 .structure-index-spatial-key {
-  --structure-key-color: #0e7490;
+  --structure-key-color: #8a8a8a;
 }
 
 .structure-column-key-icon {
@@ -7207,33 +7207,33 @@ watch(
 
 .structure-data-type-numeric,
 .structure-data-type-boolean {
-  --structure-type-color: #2563eb;
+  --structure-type-color: #262626;
 }
 
 .structure-data-type-real {
-  --structure-type-color: #6366d1;
+  --structure-type-color: #404040;
 }
 
 .structure-data-type-text,
 .structure-data-type-json {
-  --structure-type-color: #15803d;
+  --structure-type-color: #525252;
 }
 
 .structure-data-type-temporal {
-  --structure-type-color: #b45309;
+  --structure-type-color: #737373;
 }
 
 .structure-data-type-binary {
-  --structure-type-color: #9333b8;
+  --structure-type-color: #8a8a8a;
 }
 
 .structure-data-type-enum,
 .structure-data-type-other {
-  --structure-type-color: #737323;
+  --structure-type-color: #999999;
 }
 
 .structure-data-type-spatial {
-  --structure-type-color: #0e7490;
+  --structure-type-color: #666666;
 }
 
 .structure-data-type-null {
@@ -7242,58 +7242,58 @@ watch(
 
 .dark .structure-column-primary-key,
 .dark .structure-index-primary-key {
-  --structure-key-color: #fbbf24;
+  --structure-key-color: #fafafa;
 }
 
 .dark .structure-column-unique-key,
 .dark .structure-index-unique-key {
-  --structure-key-color: #f87171;
+  --structure-key-color: #e5e5e5;
 }
 
 .dark .structure-column-index-key,
 .dark .structure-index-normal-key {
-  --structure-key-color: #86efac;
+  --structure-key-color: #d4d4d4;
 }
 
 .dark .structure-column-fulltext-key,
 .dark .structure-index-fulltext-key {
-  --structure-key-color: #d8b4fe;
+  --structure-key-color: #c2c2c2;
 }
 
 .dark .structure-column-spatial-key,
 .dark .structure-index-spatial-key {
-  --structure-key-color: #67e8f9;
+  --structure-key-color: #b0b0b0;
 }
 
 .dark .structure-data-type-numeric,
 .dark .structure-data-type-boolean {
-  --structure-type-color: #93c5fd;
+  --structure-type-color: #e5e5e5;
 }
 
 .dark .structure-data-type-real {
-  --structure-type-color: #a5b4fc;
+  --structure-type-color: #d4d4d4;
 }
 
 .dark .structure-data-type-text,
 .dark .structure-data-type-json {
-  --structure-type-color: #86efac;
+  --structure-type-color: #c2c2c2;
 }
 
 .dark .structure-data-type-temporal {
-  --structure-type-color: #fcd34d;
+  --structure-type-color: #b0b0b0;
 }
 
 .dark .structure-data-type-binary {
-  --structure-type-color: #d8b4fe;
+  --structure-type-color: #a3a3a3;
 }
 
 .dark .structure-data-type-enum,
 .dark .structure-data-type-other {
-  --structure-type-color: #d4d486;
+  --structure-type-color: #999999;
 }
 
 .dark .structure-data-type-spatial {
-  --structure-type-color: #67e8f9;
+  --structure-type-color: #8a8a8a;
 }
 
 .structure-column-data-type :deep(.structure-grid-control),

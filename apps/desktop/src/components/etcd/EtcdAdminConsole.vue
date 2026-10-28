@@ -650,13 +650,13 @@ onBeforeUnmount(() => {
         <div class="grid divide-y lg:grid-cols-2 lg:divide-x lg:divide-y-0">
           <section class="space-y-4 px-5 py-5">
             <div class="flex items-start gap-3">
-              <History class="mt-0.5 h-5 w-5 shrink-0 text-sky-600" />
+              <History class="mt-0.5 h-5 w-5 shrink-0 text-zinc-600" />
               <div>
                 <h3 class="font-medium">{{ t("etcd.admin.compactTitle") }}</h3>
                 <p class="mt-1 text-xs leading-5 text-muted-foreground">{{ t("etcd.admin.compactDescription") }}</p>
               </div>
             </div>
-            <div class="border-l-2 border-amber-500/70 pl-3 text-xs leading-5 text-muted-foreground">{{ t("etcd.admin.compactDiskHint") }}</div>
+            <div class="border-l-2 border-zinc-500/70 pl-3 text-xs leading-5 text-muted-foreground">{{ t("etcd.admin.compactDiskHint") }}</div>
             <label class="block space-y-1.5">
               <span class="text-xs font-medium">{{ t("etcd.admin.compactRevision") }}</span>
               <Input v-model="revision" inputmode="numeric" :placeholder="t('etcd.admin.compactPlaceholder', { revision: currentRevision ?? '' })" />
@@ -666,13 +666,13 @@ onBeforeUnmount(() => {
           </section>
           <section class="space-y-4 px-5 py-5">
             <div class="flex items-start gap-3">
-              <HardDrive class="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
+              <HardDrive class="mt-0.5 h-5 w-5 shrink-0 text-zinc-600" />
               <div>
                 <h3 class="font-medium">{{ t("etcd.admin.defragTitle") }}</h3>
                 <p class="mt-1 text-xs leading-5 text-muted-foreground">{{ t("etcd.admin.defragDescription") }}</p>
               </div>
             </div>
-            <div class="border-l-2 border-amber-500/70 pl-3 text-xs leading-5 text-muted-foreground">{{ t("etcd.admin.defragWarning") }}</div>
+            <div class="border-l-2 border-zinc-500/70 pl-3 text-xs leading-5 text-muted-foreground">{{ t("etcd.admin.defragWarning") }}</div>
             <div class="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
               <span class="inline-flex items-center gap-1.5 rounded-md border bg-muted/30 px-2.5 py-1.5"><Server class="h-3.5 w-3.5" />{{ t("etcd.admin.defragReachableMembers", { count: endpoints.length }) }}</span>
               <span v-if="leaderEndpoint" class="max-w-full truncate rounded-md border bg-muted/30 px-2.5 py-1.5" :title="leaderEndpoint">{{ t("etcd.admin.leaderLast", { endpoint: leaderEndpoint }) }}</span>
@@ -687,7 +687,7 @@ onBeforeUnmount(() => {
             <div class="flex items-center gap-2">
               <h2 class="text-base font-semibold">{{ t("etcd.admin.watch") }}</h2>
               <span class="text-xs text-muted-foreground">{{ t("etcd.admin.watchCount", { count: watchMonitors.length }) }}</span
-              ><span v-if="runningWatchCount" class="rounded-full border border-emerald-500/50 px-2 py-0.5 text-xs text-emerald-700 dark:text-emerald-300">{{ t("etcd.admin.runningWatchCount", { count: runningWatchCount }) }}</span>
+              ><span v-if="runningWatchCount" class="rounded-full border border-zinc-500/50 px-2 py-0.5 text-xs text-zinc-700 dark:text-zinc-300">{{ t("etcd.admin.runningWatchCount", { count: runningWatchCount }) }}</span>
             </div>
             <p class="mt-1 text-xs text-muted-foreground">{{ t("etcd.admin.watchSessionHint") }}</p>
           </div>
@@ -714,13 +714,13 @@ onBeforeUnmount(() => {
                   ><span v-if="monitor.error" class="mt-1 block truncate text-xs text-destructive" :title="monitor.error">{{ monitor.error }}</span>
                 </button>
                 <span class="text-xs text-muted-foreground">{{ monitor.scope === "key" ? t("etcd.admin.exact") : t("etcd.admin.prefix") }}</span>
-                <span :class="monitor.status === 'running' ? 'border-emerald-500/50 text-emerald-700 dark:text-emerald-300' : monitor.status === 'error' ? 'border-destructive/50 text-destructive' : 'text-muted-foreground'" class="inline-flex w-fit rounded-full border px-2 py-0.5 text-xs">{{
+                <span :class="monitor.status === 'running' ? 'border-zinc-500/50 text-zinc-700 dark:text-zinc-300' : monitor.status === 'error' ? 'border-destructive/50 text-destructive' : 'text-muted-foreground'" class="inline-flex w-fit rounded-full border px-2 py-0.5 text-xs">{{
                   monitor.status === "running" ? t("etcd.admin.running") : monitor.status === "error" ? t("etcd.admin.error") : t("etcd.admin.stopped")
                 }}</span>
                 <div class="flex justify-end gap-0.5">
                   <Button size="sm" variant="ghost" class="h-7 w-7 p-0" :title="t('etcd.admin.editWatchTitle')" @click="editWatchMonitor(monitor)"><Pencil class="h-3.5 w-3.5" /></Button
-                  ><Button v-if="monitor.status === 'running'" size="sm" variant="ghost" class="h-7 w-7 p-0 text-amber-700 hover:text-amber-700 dark:text-amber-300" :title="t('etcd.admin.stopWatch')" @click="requestStopWatchMonitor(monitor)"><Square class="h-3.5 w-3.5" /></Button
-                  ><Button v-else size="sm" variant="ghost" class="h-7 w-7 p-0 text-emerald-700 hover:text-emerald-700 dark:text-emerald-300" :title="t('etcd.admin.startWatch')" @click="void resumeWatchMonitor(monitor)"><Play class="h-3.5 w-3.5" /></Button
+                  ><Button v-if="monitor.status === 'running'" size="sm" variant="ghost" class="h-7 w-7 p-0 text-zinc-700 hover:text-zinc-700 dark:text-zinc-300" :title="t('etcd.admin.stopWatch')" @click="requestStopWatchMonitor(monitor)"><Square class="h-3.5 w-3.5" /></Button
+                  ><Button v-else size="sm" variant="ghost" class="h-7 w-7 p-0 text-zinc-700 hover:text-zinc-700 dark:text-zinc-300" :title="t('etcd.admin.startWatch')" @click="void resumeWatchMonitor(monitor)"><Play class="h-3.5 w-3.5" /></Button
                   ><Button size="sm" variant="ghost" class="h-7 w-7 p-0 text-destructive hover:text-destructive" :title="t('etcd.admin.deleteWatch')" @click="void deleteWatchMonitor(monitor)"><Trash2 class="h-3.5 w-3.5" /></Button>
                 </div>
               </div>
@@ -747,7 +747,7 @@ onBeforeUnmount(() => {
               <div class="max-h-72 overflow-auto">
                 <div v-for="event in visibleWatchEvents" :key="`${event.revision}:${event.key}:${event.eventType}`" class="grid grid-cols-[7rem_5.5rem_minmax(0,1fr)] gap-3 border-b px-3 py-2 text-xs last:border-b-0">
                   <span class="font-mono text-muted-foreground">{{ event.revision }}</span
-                  ><span :class="event.category === 'delete' ? 'text-destructive' : event.category === 'update' ? 'text-amber-700 dark:text-amber-300' : 'text-emerald-700 dark:text-emerald-300'">{{ watchEventCategoryLabel(event.category) }}</span
+                  ><span :class="event.category === 'delete' ? 'text-destructive' : event.category === 'update' ? 'text-zinc-700 dark:text-zinc-300' : 'text-zinc-700 dark:text-zinc-300'">{{ watchEventCategoryLabel(event.category) }}</span
                   ><code class="truncate" :title="event.key">{{ event.key }}</code>
                 </div>
                 <div v-if="!visibleWatchEvents.length" class="p-8 text-center text-xs text-muted-foreground">

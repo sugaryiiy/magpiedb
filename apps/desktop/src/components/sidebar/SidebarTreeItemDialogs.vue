@@ -642,7 +642,7 @@ watch(
         <pre class="min-h-0 min-w-0 overflow-auto overscroll-contain whitespace-pre-wrap rounded-md border bg-muted/30 p-3 font-mono text-xs leading-5" v-html="highlight(createDatabasePreviewSql)" />
         <div v-if="createDatabaseAuthorizationResults.length > 0" class="grid min-h-0 min-w-0 content-start gap-2 overflow-y-auto overscroll-contain rounded-md border p-3">
           <div v-for="result in createDatabaseAuthorizationResults" :key="result.step.id" class="flex items-start gap-2 text-xs">
-            <Check v-if="result.status === 'success'" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-green-600" />
+            <Check v-if="result.status === 'success'" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-zinc-600" />
             <AlertTriangle v-else-if="result.status === 'failed'" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-destructive" />
             <span v-else class="mt-1 h-2 w-2 shrink-0 rounded-full bg-muted-foreground" />
             <span class="min-w-0">

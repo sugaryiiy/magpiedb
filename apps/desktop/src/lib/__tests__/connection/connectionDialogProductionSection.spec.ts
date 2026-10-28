@@ -5,7 +5,7 @@ const dialogSource = readFileSync(new URL("../../../components/connection/Connec
 
 describe("ConnectionDialog production protection section", () => {
   it("hides the production protection section for plugin connections", () => {
-    expect(dialogSource).toContain('<div v-if="!isPluginConnection" class="grid grid-cols-4 items-start gap-4 rounded-[6px] border border-red-500/25 bg-red-500/[0.035] px-3 py-2.5">');
+    expect(dialogSource).toContain('<div v-if="!isPluginConnection" class="grid grid-cols-4 items-start gap-4 rounded-[6px] border border-zinc-500/25 bg-zinc-500/[0.035] px-3 py-2.5">');
   });
 
   it("clears stale production flags when submitting plugin connections", () => {

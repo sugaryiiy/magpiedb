@@ -65,7 +65,7 @@ watch(
     <DialogContent v-if="target" class="flex h-[min(82vh,760px)] min-w-0 max-w-[min(1180px,calc(100vw-32px))] flex-col gap-0 overflow-hidden p-0 sm:max-w-[min(1180px,calc(100vw-32px))]">
       <DialogHeader class="shrink-0 border-b px-4 py-3 pr-11">
         <DialogTitle class="flex min-w-0 items-center gap-2 text-sm">
-          <FileDiff class="h-4 w-4 shrink-0 text-blue-600 dark:text-blue-400" />
+          <FileDiff class="h-4 w-4 shrink-0 text-zinc-600 dark:text-zinc-400" />
           <span class="min-w-0 truncate">{{ t("doltVersionControl.cellDiffTitle", { table: tableName, column: target.columnName }) }}</span>
         </DialogTitle>
       </DialogHeader>
@@ -79,7 +79,7 @@ watch(
         <span v-if="formatMode === 'auto'" class="truncate text-[11px] text-muted-foreground">{{ t("doltVersionControl.cellDiffDetectedFormat", { format: effectiveFormat.toUpperCase() }) }}</span>
       </div>
 
-      <div v-if="beforeFormatted.error || afterFormatted.error" class="grid shrink-0 grid-cols-2 border-b bg-amber-500/10 text-[11px] text-amber-700 dark:text-amber-300">
+      <div v-if="beforeFormatted.error || afterFormatted.error" class="grid shrink-0 grid-cols-2 border-b bg-zinc-500/10 text-[11px] text-zinc-700 dark:text-zinc-300">
         <div class="flex min-w-0 items-start gap-1.5 border-r px-2 py-1">
           <template v-if="beforeFormatted.error"
             ><AlertCircle class="mt-0.5 h-3 w-3 shrink-0" /><span class="min-w-0 break-words">{{ t("doltVersionControl.cellDiffFormatFailed", { message: beforeFormatted.error }) }}</span></template

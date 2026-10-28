@@ -15,16 +15,16 @@ const props = defineProps<{
 const { t } = useI18n();
 
 const CATEGORY_COLORS: Record<PlanCanvasCategory, string> = {
-  result: "#a78bfa",
-  sort: "#38bdf8",
-  join: "#f472b6",
-  tscan: "#fb923c",
-  iscan: "#34d399",
-  lookup: "#2dd4bf",
-  mat: "#94a3b8",
-  agg: "#c084fc",
-  xchg: "#facc15",
-  mod: "#f87171",
+  result: "#262626",
+  sort: "#404040",
+  join: "#525252",
+  tscan: "#666666",
+  iscan: "#737373",
+  lookup: "#7a7a7a",
+  mat: "#8a8a8a",
+  agg: "#999999",
+  xchg: "#a3a3a3",
+  mod: "#b0b0b0",
   other: "var(--muted-foreground)",
 };
 
@@ -58,16 +58,16 @@ const CATEGORY_LABEL_KEYS: Record<PlanCanvasCategory, string> = {
 
 const HEAT_COLORS = {
   none: "var(--muted-foreground)",
-  cool: "#22c55e",
-  warm: "#f59e0b",
-  hot: "#ef4444",
+  cool: "#a3a3a3",
+  warm: "#525252",
+  hot: "#111111",
 } as const;
 
 const HEAT_BADGE_CLASSES = {
   none: "bg-muted text-muted-foreground",
-  cool: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300",
-  warm: "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300",
-  hot: "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300",
+  cool: "bg-zinc-100 text-zinc-700 dark:bg-zinc-900/30 dark:text-zinc-300",
+  warm: "bg-zinc-100 text-zinc-700 dark:bg-zinc-900/30 dark:text-zinc-300",
+  hot: "bg-zinc-100 text-zinc-700 dark:bg-zinc-900/30 dark:text-zinc-300",
 } as const;
 
 const MIN_ZOOM = 0.5;
@@ -261,7 +261,7 @@ watch(
 
               <span class="mt-1 flex items-center gap-1.5 font-mono text-[10px] text-muted-foreground">
                 <span class="truncate">{{ t("explain.estRows") }} {{ formatPlanRows(item.rows) }}</span>
-                <span v-if="rowMismatch(item)" class="ml-auto shrink-0 font-semibold text-amber-600 dark:text-amber-400">{{ rowMismatch(item) }}</span>
+                <span v-if="rowMismatch(item)" class="ml-auto shrink-0 font-semibold text-zinc-600 dark:text-zinc-400">{{ rowMismatch(item) }}</span>
               </span>
             </button>
           </div>
@@ -309,7 +309,7 @@ watch(
           </div>
           <div class="p-2">
             <div class="text-[10px] uppercase tracking-wide text-muted-foreground">{{ t("explain.actualRows") }}</div>
-            <div class="font-mono font-semibold tabular-nums" :class="rowMismatch(selected) ? 'text-amber-600 dark:text-amber-400' : ''">{{ formatPlanRows(selected.actualRows) }}</div>
+            <div class="font-mono font-semibold tabular-nums" :class="rowMismatch(selected) ? 'text-zinc-600 dark:text-zinc-400' : ''">{{ formatPlanRows(selected.actualRows) }}</div>
           </div>
         </div>
 

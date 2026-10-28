@@ -504,7 +504,8 @@ const tabGroupCollapseTimers = new Map<string, number>();
 const TAB_GROUP_COLLAPSE_MS = 140;
 const pendingTabScrollRestore = ref<{ fixed: number; regular: number } | null>(null);
 const pendingExpandedTabGroupReveal = ref<string | null>(null);
-const tabGroupPalette = ["#2563eb", "#d97706", "#7c3aed", "#059669", "#dc2626", "#0891b2", "#db2777", "#475569"];
+// Blueprint group accents: mid gray steps, readable on paper and ink alike.
+const tabGroupPalette = ["#525252", "#737373", "#8a8a8a", "#a3a3a3", "#666666", "#595959", "#b0b0b0", "#c2c2c2"];
 const tabGroupEditorOpen = ref(false);
 const editingTabGroupKey = ref("");
 const editingTabGroupDefaultLabel = ref("");
@@ -1741,7 +1742,7 @@ watch([() => props.specialPageTabs?.settingsActive, () => props.specialPageTabs?
                         <ChevronDown class="tab-group-chevron" :class="{ 'tab-group-chevron--collapsed': isGroupCollapsed(entry.groupId) }" aria-hidden="true" />
                         <ConnectionIcon v-if="entry.level === 'connection' && settingsStore.editorSettings.tabGroupMode === 'sidebar'" :connection="connectionStore.getConfig(entry.tab.connectionId)" class="tab-group-database-icon tab-group-connection-icon" aria-hidden="true" />
                         <DatabaseIcon v-else-if="entry.level === 'connection'" :db-type="tabDatabaseIconType(entry.tab)" class="tab-group-database-icon tab-group-connection-icon" aria-hidden="true" />
-                        <Database v-else class="tab-group-database-icon tab-group-library-icon text-yellow-500" aria-hidden="true" />
+                        <Database v-else class="tab-group-database-icon tab-group-library-icon text-zinc-500" aria-hidden="true" />
                         <span class="tab-group-label">{{ entry.label }}</span>
                         <span v-if="isGroupCollapsed(entry.groupId)" class="tab-group-count">{{ entry.count }}</span>
                       </span>
@@ -1860,7 +1861,7 @@ watch([() => props.specialPageTabs?.settingsActive, () => props.specialPageTabs?
                           @contextmenu="onContextMenu"
                           @mousedown.middle.prevent="emit('close-plugin-center')"
                         >
-                          <PlugZap class="h-3.5 w-3.5 shrink-0 text-violet-600 dark:text-violet-400" />
+                          <PlugZap class="h-3.5 w-3.5 shrink-0 text-zinc-600 dark:text-zinc-400" />
                           <span v-if="!isTabBarCollapsed" class="min-w-0 flex-1 truncate">{{ t("toolbar.pluginCenter") }}</span>
                           <button v-if="!isTabBarCollapsed" class="shrink-0 rounded p-0.5 hover:bg-muted-foreground/20" :aria-label="t('common.close')" :title="t('common.close')" @click.stop="emit('close-plugin-center')">
                             <X class="h-3 w-3" />
@@ -1888,7 +1889,7 @@ watch([() => props.specialPageTabs?.settingsActive, () => props.specialPageTabs?
                       @contextmenu="onContextMenu"
                       @mousedown.middle.prevent="emit('close-settings')"
                     >
-                      <Settings class="h-3.5 w-3.5 shrink-0 text-sky-600 dark:text-sky-400" />
+                      <Settings class="h-3.5 w-3.5 shrink-0 text-zinc-600 dark:text-zinc-400" />
                       <span v-if="!isTabBarCollapsed" class="min-w-0 flex-1 truncate">{{ t("settings.title") }}</span>
                       <button v-if="!isTabBarCollapsed" class="shrink-0 rounded p-0.5 hover:bg-muted-foreground/20" :aria-label="t('common.close')" :title="t('common.close')" @click.stop="emit('close-settings')">
                         <X class="h-3 w-3" />
@@ -1913,9 +1914,9 @@ watch([() => props.specialPageTabs?.settingsActive, () => props.specialPageTabs?
                       @contextmenu="onContextMenu"
                       @mousedown.middle.prevent="emit('close-driver-store')"
                     >
-                      <Package class="h-3.5 w-3.5 shrink-0 text-amber-600 dark:text-amber-400" />
+                      <Package class="h-3.5 w-3.5 shrink-0 text-zinc-600 dark:text-zinc-400" />
                       <span v-if="!isTabBarCollapsed" class="min-w-0 flex-1 truncate">{{ t("toolbar.driverManager") }}</span>
-                      <span v-if="!isTabBarCollapsed && (specialPageTabs?.driverUpdateCount ?? 0) > 0" class="inline-flex h-4 min-w-4 shrink-0 items-center justify-center rounded-full bg-red-500 px-1 text-[10px] font-medium leading-none text-white" :aria-label="t('toolbar.updatableDriverCount')">
+                      <span v-if="!isTabBarCollapsed && (specialPageTabs?.driverUpdateCount ?? 0) > 0" class="inline-flex h-4 min-w-4 shrink-0 items-center justify-center rounded-full bg-zinc-500 px-1 text-[10px] font-medium leading-none text-white" :aria-label="t('toolbar.updatableDriverCount')">
                         {{ (specialPageTabs?.driverUpdateCount ?? 0) > 99 ? "99+" : specialPageTabs?.driverUpdateCount }}
                       </span>
                       <button v-if="!isTabBarCollapsed" class="shrink-0 rounded p-0.5 hover:bg-muted-foreground/20" :aria-label="t('common.close')" :title="t('common.close')" @click.stop="emit('close-driver-store')">

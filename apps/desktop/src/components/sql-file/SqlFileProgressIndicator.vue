@@ -34,7 +34,7 @@ const byteLabel = computed(() => {
     </div>
     <div role="progressbar" :aria-label="t('sqlFile.byteProgress')" :aria-valuenow="percent ?? undefined" :aria-valuemin="0" :aria-valuemax="100" class="h-1.5 w-full overflow-hidden rounded-full bg-muted">
       <div v-if="percent === null && active" class="sql-file-progress-indeterminate h-full rounded-full bg-primary" />
-      <div v-else class="h-full rounded-full transition-[width] duration-300" :class="normalizedStatus === 'error' ? 'bg-destructive' : normalizedStatus === 'cancelled' ? 'bg-yellow-500' : normalizedStatus === 'done' ? 'bg-green-500' : 'bg-primary'" :style="{ width: `${percent ?? 0}%` }" />
+      <div v-else class="h-full rounded-full transition-[width] duration-300" :class="normalizedStatus === 'error' ? 'bg-destructive' : normalizedStatus === 'cancelled' ? 'bg-zinc-500' : normalizedStatus === 'done' ? 'bg-zinc-500' : 'bg-primary'" :style="{ width: `${percent ?? 0}%` }" />
     </div>
     <div v-if="byteLabel" class="break-words text-muted-foreground tabular-nums">{{ byteLabel }}</div>
   </div>

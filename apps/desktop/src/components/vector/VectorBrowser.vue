@@ -529,7 +529,7 @@ onBeforeUnmount(() => {
         <span>topK</span>
         <input v-model.number="searchTopK" :disabled="loading" type="number" min="1" max="1000" class="h-7 w-16 rounded border bg-muted/30 px-2 text-xs outline-none focus:border-primary" />
       </div>
-      <span v-if="needsExplicitSearchVector" class="text-xs text-amber-600 dark:text-amber-400">{{ t("vector.vectorDimensionRequired") }}</span>
+      <span v-if="needsExplicitSearchVector" class="text-xs text-zinc-600 dark:text-zinc-400">{{ t("vector.vectorDimensionRequired") }}</span>
     </div>
     <div class="grid min-h-0 flex-1 grid-rows-[minmax(9rem,15rem)_1fr]">
       <div class="min-h-0 border-b">
@@ -547,7 +547,7 @@ onBeforeUnmount(() => {
       </div>
       <div class="min-h-0">
         <ErrorBanner v-if="error" :message="error" copy-mode="label" dismissible @dismiss="error = ''" />
-        <div v-else-if="statusMessage" class="border-b bg-emerald-50 px-3 py-1.5 text-xs text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-300">{{ statusMessage }}</div>
+        <div v-else-if="statusMessage" class="border-b bg-zinc-50 px-3 py-1.5 text-xs text-zinc-700 dark:bg-zinc-950/30 dark:text-zinc-300">{{ statusMessage }}</div>
         <QueryLoadingState v-if="loading && result.columns.length === 0" class="h-full" label-key="editor.fetching" :elapsed-seconds="elapsedSeconds" show-cancel :cancel-disabled="!executionId || cancelling" :cancelling="cancelling" @cancel="cancelRequest" />
         <DataGrid v-else class="h-full" :result="result" context="results" :sql="requestText" :connection-id="props.connectionId" :database="props.database" :database-type="props.databaseType" :loading="loading" @reload="refreshResult" />
       </div>

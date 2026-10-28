@@ -1967,7 +1967,7 @@ defineExpose({
       </div>
     </div>
 
-    <div v-if="listFilteredByAcls" class="shrink-0 border-b border-amber-500/30 bg-amber-500/10 px-3 py-2 text-xs text-amber-700 dark:text-amber-300">
+    <div v-if="listFilteredByAcls" class="shrink-0 border-b border-zinc-500/30 bg-zinc-500/10 px-3 py-2 text-xs text-zinc-700 dark:text-zinc-300">
       {{ labels.aclFiltered || "Some Consul KV keys are hidden by ACL policies." }}
     </div>
 
@@ -2015,13 +2015,13 @@ defineExpose({
                       <Loader2 v-if="nodeIsLoading(row.node)" class="h-3.5 w-3.5 shrink-0 animate-spin" />
                       <ChevronDown v-else-if="nodeIsExpanded(row.node)" class="h-3.5 w-3.5 shrink-0" />
                       <ChevronRight v-else class="h-3.5 w-3.5 shrink-0" />
-                      <FolderOpen v-if="nodeIsExpanded(row.node)" class="h-4 w-4 shrink-0 text-sky-500" />
-                      <FolderClosed v-else class="h-4 w-4 shrink-0 text-sky-500" />
-                      <KeyRound v-if="row.node.kind === 'lazy' && row.node.hasValue === true" class="h-3.5 w-3.5 shrink-0 text-sky-500" />
+                      <FolderOpen v-if="nodeIsExpanded(row.node)" class="h-4 w-4 shrink-0 text-zinc-500" />
+                      <FolderClosed v-else class="h-4 w-4 shrink-0 text-zinc-500" />
+                      <KeyRound v-if="row.node.kind === 'lazy' && row.node.hasValue === true" class="h-3.5 w-3.5 shrink-0 text-zinc-500" />
                     </template>
                     <template v-else>
                       <span class="w-3.5 shrink-0" />
-                      <KeyRound class="h-4 w-4 shrink-0 text-sky-500" />
+                      <KeyRound class="h-4 w-4 shrink-0 text-zinc-500" />
                     </template>
                     <span class="truncate">{{ row.node.label }}</span>
                   </button>
@@ -2052,9 +2052,9 @@ defineExpose({
           <div v-else class="flex min-h-full flex-col">
             <div class="flex shrink-0 items-start justify-between gap-3 border-b px-4 py-3">
               <div class="min-w-0">
-                <div class="truncate font-medium" :class="{ 'text-blue-600 dark:text-blue-400': metadataStyle === 'zookeeper' }">
+                <div class="truncate font-medium" :class="{ 'text-zinc-600 dark:text-zinc-400': metadataStyle === 'zookeeper' }">
                   <template v-for="(segment, index) in selectedKeyHighlightSegments" :key="index">
-                    <mark v-if="segment.matched" class="rounded-sm bg-amber-300/80 px-0.5 text-foreground dark:bg-amber-500/40">{{ segment.text }}</mark>
+                    <mark v-if="segment.matched" class="rounded-sm bg-zinc-300/80 px-0.5 text-foreground dark:bg-zinc-500/40">{{ segment.text }}</mark>
                     <span v-else>{{ segment.text }}</span>
                   </template>
                 </div>
@@ -2066,7 +2066,7 @@ defineExpose({
                   </template>
                   <template v-else-if="metadataStyle === 'consul'">
                     <Badge variant="secondary">ModifyIndex {{ metadataLabel(selectedMetadata?.modRevision) }}</Badge>
-                    <Badge v-if="selectedKeyLocked" variant="outline" class="gap-1 border-amber-500/40 text-amber-700 dark:text-amber-300" :title="labels.locked || 'This key is held by a Consul session and cannot be edited or deleted.'">
+                    <Badge v-if="selectedKeyLocked" variant="outline" class="gap-1 border-zinc-500/40 text-zinc-700 dark:text-zinc-300" :title="labels.locked || 'This key is held by a Consul session and cannot be edited or deleted.'">
                       <LockKeyhole class="h-3 w-3" />{{ labels.sessionProtected || "Session protected" }}
                     </Badge>
                     <Badge variant="outline">{{ metadataLabel(selectedMetadata?.valueSize) }} B</Badge>
@@ -2108,15 +2108,15 @@ defineExpose({
               {{ labels.notFound }}
             </div>
             <div v-else class="flex min-h-0 flex-1 flex-col gap-4 p-4">
-              <div v-if="selectedKeyLocked" class="flex flex-col gap-3 rounded-lg border border-amber-500/40 bg-amber-500/10 p-3 text-amber-800 dark:text-amber-200 sm:flex-row sm:items-center sm:justify-between">
+              <div v-if="selectedKeyLocked" class="flex flex-col gap-3 rounded-lg border border-zinc-500/40 bg-zinc-500/10 p-3 text-zinc-800 dark:text-zinc-200 sm:flex-row sm:items-center sm:justify-between">
                 <div class="flex min-w-0 items-start gap-2">
                   <LockKeyhole class="mt-0.5 h-4 w-4 shrink-0" />
                   <div class="min-w-0">
                     <div class="text-sm font-medium">{{ labels.sessionProtected || "Session protected" }}</div>
-                    <div class="mt-0.5 text-xs text-amber-700 dark:text-amber-300">{{ labels.sessionProtectedHint || "Editing and deletion are disabled to protect this distributed lock." }}</div>
+                    <div class="mt-0.5 text-xs text-zinc-700 dark:text-zinc-300">{{ labels.sessionProtectedHint || "Editing and deletion are disabled to protect this distributed lock." }}</div>
                   </div>
                 </div>
-                <div class="min-w-0 rounded-md border border-amber-500/30 bg-background/60 px-2.5 py-1.5 text-xs text-foreground sm:max-w-[22rem]">
+                <div class="min-w-0 rounded-md border border-zinc-500/30 bg-background/60 px-2.5 py-1.5 text-xs text-foreground sm:max-w-[22rem]">
                   <div class="mb-1 text-[11px] font-medium text-muted-foreground">{{ labels.sessionId || "Session ID" }}</div>
                   <div class="flex min-w-0 items-center gap-1.5">
                     <code class="min-w-0 flex-1 truncate font-mono" :title="String(selectedMetadata?.session || '')">{{ selectedMetadata?.session }}</code>
@@ -2151,16 +2151,16 @@ defineExpose({
                     :aria-label="selectedValueCopied ? labels.copied || 'Copied' : labels.copy || 'Copy'"
                     @click="copySelectedValue"
                   >
-                    <Check v-if="selectedValueCopied" class="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                    <Check v-if="selectedValueCopied" class="h-4 w-4 text-zinc-600 dark:text-zinc-400" />
                     <Copy v-else class="h-4 w-4" />
                   </Button>
                   <pre
                     data-native-clipboard
                     class="dbx-editor-font-family m-0 max-h-[40vh] min-h-32 overflow-auto rounded-md border bg-muted/20 p-3 pr-12 text-sm"
                     :class="settingsStore.editorSettings.wordWrap ? 'whitespace-pre-wrap break-words' : 'whitespace-pre'"
-                  ><template v-for="(segment, index) in selectedValueHighlightSegments" :key="index"><mark v-if="segment.matched" class="rounded-sm bg-amber-300/80 px-0.5 text-foreground dark:bg-amber-500/40">{{ segment.text }}</mark><span v-else>{{ segment.text }}</span></template></pre>
+                  ><template v-for="(segment, index) in selectedValueHighlightSegments" :key="index"><mark v-if="segment.matched" class="rounded-sm bg-zinc-300/80 px-0.5 text-foreground dark:bg-zinc-500/40">{{ segment.text }}</mark><span v-else>{{ segment.text }}</span></template></pre>
                 </div>
-                <div v-if="selectedValueUsesUtf8Preview && selectedBase64Utf8PreviewIsLossy" class="mt-2 text-xs text-amber-700 dark:text-amber-300">
+                <div v-if="selectedValueUsesUtf8Preview && selectedBase64Utf8PreviewIsLossy" class="mt-2 text-xs text-zinc-700 dark:text-zinc-300">
                   {{ labels.utf8PreviewLossy || "Invalid UTF-8 bytes are shown as replacement characters (�). The original Base64 value is unchanged." }}
                 </div>
                 <div v-else-if="showSelectedBase64Utf8Controls && selectedBase64Utf8PreviewUnavailable" class="mt-2 text-xs text-destructive">
@@ -2177,7 +2177,7 @@ defineExpose({
                 <div class="grid gap-x-10 gap-y-4 sm:grid-cols-2">
                   <div v-for="row in zookeeperMetadataRows" :key="row.label" class="grid grid-cols-[minmax(96px,auto)_1fr] items-baseline gap-5 text-sm">
                     <div class="text-foreground">{{ row.label }}</div>
-                    <div class="dbx-editor-font-family min-w-0 break-all text-blue-600 dark:text-blue-400">{{ row.value }}</div>
+                    <div class="dbx-editor-font-family min-w-0 break-all text-zinc-600 dark:text-zinc-400">{{ row.value }}</div>
                   </div>
                 </div>
               </div>
@@ -2187,7 +2187,7 @@ defineExpose({
                   <dl class="grid grid-cols-2 divide-x divide-y sm:grid-cols-3">
                     <div v-for="row in consulMetadataRows" :key="row[0]" class="min-w-0 px-3 py-2.5">
                       <dt class="text-[11px] font-medium text-muted-foreground">{{ row[0] }}</dt>
-                      <dd class="dbx-editor-font-family mt-1 truncate text-sm font-medium text-blue-600 dark:text-blue-400" :title="String(row[1])">{{ row[1] }}</dd>
+                      <dd class="dbx-editor-font-family mt-1 truncate text-sm font-medium text-zinc-600 dark:text-zinc-400" :title="String(row[1])">{{ row[1] }}</dd>
                     </div>
                   </dl>
                 </div>
@@ -2207,10 +2207,10 @@ defineExpose({
           <div class="grid gap-2">
             <Label for="kv-edit-key">{{ labels.keyLabel || "Key" }}</Label>
             <Input id="kv-edit-key" v-model="editKey" class="h-10 font-mono" :aria-invalid="editErrorKind === 'keyAlreadyExists'" :disabled="!isCreating" :placeholder="labels.keyPlaceholder" />
-            <div v-if="editError && editErrorKind === 'keyAlreadyExists'" class="rounded-md border border-amber-500/40 bg-amber-500/10 px-3 py-2 text-sm text-amber-700 dark:text-amber-300">
+            <div v-if="editError && editErrorKind === 'keyAlreadyExists'" class="rounded-md border border-zinc-500/40 bg-zinc-500/10 px-3 py-2 text-sm text-zinc-700 dark:text-zinc-300">
               {{ editError }}
             </div>
-            <div v-if="highRiskRegistryKey" class="rounded-md border border-amber-500/40 bg-amber-500/10 px-3 py-2 text-xs text-amber-700 dark:text-amber-300">
+            <div v-if="highRiskRegistryKey" class="rounded-md border border-zinc-500/40 bg-zinc-500/10 px-3 py-2 text-xs text-zinc-700 dark:text-zinc-300">
               {{ labels.registryWarning || "This key is under /registry/, a namespace commonly used by control-plane components. Verify the owner and impact before saving." }}
             </div>
           </div>
@@ -2267,7 +2267,7 @@ defineExpose({
                 <span class="text-xs text-muted-foreground">{{ leaseOptions.length ? labels.leasePickerHint || "Choose a Lease from this session or enter a Lease ID manually." : labels.noLeasePickerHint || "No Lease is available in this session. Enter an ID manually and save." }}</span>
               </div>
             </div>
-            <div v-if="showTtlUnavailable" class="text-xs text-amber-700 dark:text-amber-300">
+            <div v-if="showTtlUnavailable" class="text-xs text-zinc-700 dark:text-zinc-300">
               {{ labels.ttlUnavailable }}
             </div>
           </section>

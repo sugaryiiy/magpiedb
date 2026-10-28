@@ -129,7 +129,7 @@ watch(open, async (value) => {
               <CheckSquare v-if="isSelected(column)" class="h-3.5 w-3.5 shrink-0 text-primary" />
               <Square v-else class="h-3.5 w-3.5 shrink-0 text-muted-foreground/40" />
               <span class="min-w-0 flex-1 truncate font-mono">{{ column.name }}</span>
-              <span v-if="column.is_primary_key" class="shrink-0 rounded bg-amber-500/15 px-1 text-[10px] font-medium text-amber-700 dark:text-amber-400">
+              <span v-if="column.is_primary_key" class="shrink-0 rounded bg-zinc-500/15 px-1 text-[10px] font-medium text-zinc-700 dark:text-zinc-400">
                 {{ t("dataCompare.keyColumnsPrimaryKeyBadge") }}
               </span>
             </button>

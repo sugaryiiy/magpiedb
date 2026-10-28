@@ -20,12 +20,21 @@ function legendTextStyle(theme: AiChartTheme): { color: string } {
   return { color: theme.isDark ? "#ccc" : "#333" };
 }
 
+// Blueprint series palette: series differ by gray step, darkest/lightest first.
+const BLUEPRINT_SERIES_COLORS_LIGHT = ["#171717", "#404040", "#525252", "#737373", "#8a8a8a", "#a3a3a3", "#b0b0b0", "#c2c2c2"];
+const BLUEPRINT_SERIES_COLORS_DARK = ["#fafafa", "#d4d4d4", "#c2c2c2", "#b0b0b0", "#a3a3a3", "#8a8a8a", "#737373", "#666666"];
+
+function blueprintSeriesColors(theme: AiChartTheme): string[] {
+  return theme.isDark ? BLUEPRINT_SERIES_COLORS_DARK : BLUEPRINT_SERIES_COLORS_LIGHT;
+}
+
 export function buildAiChartOption(spec: AiChartSpec, theme: AiChartTheme): EChartsOption {
   // ECharts 6 uses `enabled`; older ECharts 5 examples call this `show`.
   const aria = { enabled: true };
   if (spec.type === "pie") {
     return {
       aria,
+      color: blueprintSeriesColors(theme),
       tooltip: { trigger: "item" },
       legend: { bottom: 0, textStyle: legendTextStyle(theme) },
       title: spec.title ? { text: spec.title, left: "center", textStyle: { color: theme.isDark ? "#ccc" : "#333", fontSize: 13 } } : undefined,
@@ -45,6 +54,7 @@ export function buildAiChartOption(spec: AiChartSpec, theme: AiChartTheme): ECha
   // slider and make both unreadable on dense axes.
   return {
     aria,
+    color: blueprintSeriesColors(theme),
     tooltip: { trigger: "axis" },
     legend: denseCategories ? { bottom: 32, textStyle: legendTextStyle(theme) } : { bottom: 0, textStyle: legendTextStyle(theme) },
     title: spec.title ? { text: spec.title, left: "center", textStyle: { color: theme.isDark ? "#ccc" : "#333", fontSize: 13 } } : undefined,

@@ -7,7 +7,7 @@ import { DIAGRAM_HOVERED_EDGE_KEY, DIAGRAM_EDGE_OBSTACLES_KEY, EDGE_ROUTE_OFFSET
 import type { RelationshipEdgeData } from "@/lib/diagram/vue-flow-adapter";
 import { alignWaypointsToEndpoints, endpointRectsFromObstacles, pathSkimsEndpoints, pointAlongPolyline, pointsToSvgPath, polylineLength, routeOrthogonalAroundObstacles, type ObstacleRect, type Point } from "@/lib/diagram/edge-obstacle-router";
 
-const HOVER_BLUE = "#2563eb";
+const HOVER_BLUE = "#737373";
 /** Prefer live obstacle routing when it is at most this fraction of aligned ELK path length. */
 const LIVE_ROUTE_LENGTH_RATIO = 0.85;
 /** Cardinality badge positions along the edge (arc-length fraction). */
@@ -147,7 +147,7 @@ const targetCardinality = computed(() => {
   return "1";
 });
 
-const badgeClass = computed(() => (isHovered.value ? "border-blue-500 text-blue-600" : "border-border/80 text-foreground"));
+const badgeClass = computed(() => (isHovered.value ? "border-zinc-500 text-zinc-600" : "border-border/80 text-foreground"));
 </script>
 
 <template>
@@ -198,7 +198,7 @@ const badgeClass = computed(() => (isHovered.value ? "border-blue-500 text-blue-
 
 .diagram-flow .vue-flow__edge.relationship-edge:hover .vue-flow__edge-path,
 .diagram-flow .vue-flow__edge.relationship-edge.updating .vue-flow__edge-path {
-  stroke: #2563eb !important;
+  stroke: #737373 !important;
   stroke-width: 3.5px !important;
 }
 

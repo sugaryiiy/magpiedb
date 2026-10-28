@@ -741,13 +741,13 @@ export interface CustomThemeDdlColors {
 }
 
 export const DEFAULT_CUSTOM_THEME_DDL_COLORS: CustomThemeDdlColors = {
-  addedRowBg: "#22c55e",
+  addedRowBg: "#737373",
   addedRowBgAlpha: 10,
-  removedRowBg: "#ef4444",
+  removedRowBg: "#171717",
   removedRowBgAlpha: 10,
-  modifiedRowBg: "#eab308",
+  modifiedRowBg: "#525252",
   modifiedRowBgAlpha: 10,
-  modifiedCharBg: "#f59e0b",
+  modifiedCharBg: "#404040",
   modifiedCharBgAlpha: 50,
 };
 

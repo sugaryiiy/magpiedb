@@ -39,7 +39,7 @@ function selectErrorText(event: FocusEvent) {
     <PopoverTrigger as-child>
       <button
         type="button"
-        class="inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded text-amber-500 hover:bg-amber-500/10 hover:text-amber-600 focus:outline-none focus:ring-1 focus:ring-amber-500/40"
+        class="inline-flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded text-zinc-500 hover:bg-zinc-500/10 hover:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-zinc-500/40"
         :class="triggerClass"
         :title="t('connection.errorIndicatorHint')"
         :aria-label="t('connection.errorIndicatorHint')"

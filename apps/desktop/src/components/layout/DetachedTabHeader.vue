@@ -121,8 +121,8 @@ async function handleDragEnd(event: PointerEvent) {
     <template v-if="!isMac">
       <button type="button" class="inline-flex h-10 w-10 items-center justify-center hover:bg-foreground/10" :title="t('tabs.minimizeWindow')" @click="minimize"><Minus class="h-4 w-4" /></button>
       <button type="button" class="inline-flex h-10 w-10 items-center justify-center hover:bg-foreground/10" :title="t('tabs.maximizeWindow')" @click="toggleMaximize"><Copy v-if="isMaximized" class="h-3.5 w-3.5" /><Square v-else class="h-3.5 w-3.5" /></button>
-      <button type="button" class="inline-flex h-10 w-10 items-center justify-center hover:bg-red-500 hover:text-white" :title="t('tabs.closeWindow')" @click="emit('close')"><X class="h-4 w-4" /></button>
+      <button type="button" class="inline-flex h-10 w-10 items-center justify-center hover:bg-zinc-500 hover:text-white" :title="t('tabs.closeWindow')" @click="emit('close')"><X class="h-4 w-4" /></button>
     </template>
-    <button v-else type="button" class="mr-2 inline-flex h-7 w-7 items-center justify-center rounded hover:bg-red-500 hover:text-white" :title="t('tabs.closeWindow')" @click="emit('close')"><X class="h-4 w-4" /></button>
+    <button v-else type="button" class="mr-2 inline-flex h-7 w-7 items-center justify-center rounded hover:bg-zinc-500 hover:text-white" :title="t('tabs.closeWindow')" @click="emit('close')"><X class="h-4 w-4" /></button>
   </div>
 </template>

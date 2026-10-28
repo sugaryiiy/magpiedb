@@ -47,9 +47,9 @@ const isConfirmed = (id: string) => props.confirmedIds.includes(id);
 const isIgnored = (id: string) => props.ignoredIds.includes(id);
 
 const confidenceBadge = (confidence: string) => {
-  if (confidence === "high") return { class: "bg-green-100 text-green-800", text: t("diagram.confidenceHigh") };
-  if (confidence === "medium") return { class: "bg-amber-100 text-amber-800", text: t("diagram.confidenceMedium") };
-  return { class: "bg-red-100 text-red-800", text: t("diagram.confidenceLow") };
+  if (confidence === "high") return { class: "bg-zinc-100 text-zinc-800", text: t("diagram.confidenceHigh") };
+  if (confidence === "medium") return { class: "bg-zinc-100 text-zinc-800", text: t("diagram.confidenceMedium") };
+  return { class: "bg-zinc-100 text-zinc-800", text: t("diagram.confidenceLow") };
 };
 
 const relationshipTitle = (relationship: InferredRelationship) => {
@@ -122,7 +122,7 @@ function emitConfirmAll() {
           :class="[
             isConfirmed(relationship.id) ? 'border-primary/30 bg-primary/5' : '',
             isIgnored(relationship.id) ? 'border-border opacity-50' : '',
-            props.conflicts.includes(relationship) && !isConfirmed(relationship.id) && !isIgnored(relationship.id) ? 'border-red-400/50 bg-red-50/50' : '',
+            props.conflicts.includes(relationship) && !isConfirmed(relationship.id) && !isIgnored(relationship.id) ? 'border-zinc-400/50 bg-zinc-50/50' : '',
             !isConfirmed(relationship.id) && !isIgnored(relationship.id) && !props.conflicts.includes(relationship) ? 'border-border hover:border-muted-foreground/50' : '',
           ]"
           :title="`${relationshipTitle(relationship)}\nConfidence: ${relationship.confidence}\nStrategy: ${relationship.strategy}`"
@@ -153,7 +153,7 @@ function emitConfirmAll() {
               <X class="h-3.5 w-3.5 text-muted-foreground" />
             </Button>
             <Button variant="ghost" size="icon" class="h-7 w-7" :title="t('diagram.confirmMatch')" @click="emitConfirm(relationship.id)">
-              <Check class="h-3.5 w-3.5 text-green-600" />
+              <Check class="h-3.5 w-3.5 text-zinc-600" />
             </Button>
           </div>
         </div>

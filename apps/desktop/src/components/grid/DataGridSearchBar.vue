@@ -122,7 +122,7 @@ defineExpose({
         </div>
         <!-- 截断标记：表格预览对长文本/JSON 值做服务端截断，客户端搜索只能覆盖
            显示前缀，匹配数可能少于 SQL 查询（#7279）。 -->
-        <span v-if="props.valuesTruncated && (props.matchCount > 0 || props.hasDeferredSearchText)" data-grid-search-truncated-hint class="text-xs text-amber-600 dark:text-amber-400 shrink-0 cursor-help" :title="t('grid.searchTruncatedValuesHint')" :aria-label="t('grid.searchTruncatedValuesHint')"
+        <span v-if="props.valuesTruncated && (props.matchCount > 0 || props.hasDeferredSearchText)" data-grid-search-truncated-hint class="text-xs text-zinc-600 dark:text-zinc-400 shrink-0 cursor-help" :title="t('grid.searchTruncatedValuesHint')" :aria-label="t('grid.searchTruncatedValuesHint')"
           >≈</span
         >
         <span v-if="props.matchCount > 0" class="text-xs text-muted-foreground shrink-0">{{ props.currentMatchIndex + 1 }}/{{ props.matchCount }}</span>

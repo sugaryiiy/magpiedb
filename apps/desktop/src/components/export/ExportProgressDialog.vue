@@ -121,7 +121,7 @@ async function revealExportFile() {
               <div class="export-progress-indeterminate h-full rounded-full bg-primary" />
             </div>
           </template>
-          <div v-else-if="status === 'Done'" class="h-full bg-green-500 rounded-full" style="width: 100%" />
+          <div v-else-if="status === 'Done'" class="h-full bg-zinc-500 rounded-full" style="width: 100%" />
         </div>
 
         <!-- Status message -->
@@ -135,16 +135,16 @@ async function revealExportFile() {
             <span>{{ t("exportProgress.writing") }}</span>
           </template>
           <template v-else-if="status === 'Done'">
-            <CheckCircle2 class="h-4 w-4 text-green-500" />
-            <span class="text-green-700 dark:text-green-400">{{ t("exportProgress.done") }}</span>
+            <CheckCircle2 class="h-4 w-4 text-zinc-500" />
+            <span class="text-zinc-700 dark:text-zinc-400">{{ t("exportProgress.done") }}</span>
           </template>
           <template v-else-if="status === 'Error'">
             <XCircle class="h-4 w-4 text-destructive" />
             <span class="text-destructive">{{ translatedErrorMessage || t("exportProgress.error") }}</span>
           </template>
           <template v-else-if="status === 'Cancelled'">
-            <AlertCircle class="h-4 w-4 text-yellow-500" />
-            <span class="text-yellow-700 dark:text-yellow-400">{{ t("exportProgress.cancelled") }}</span>
+            <AlertCircle class="h-4 w-4 text-zinc-500" />
+            <span class="text-zinc-700 dark:text-zinc-400">{{ t("exportProgress.cancelled") }}</span>
           </template>
         </div>
 

@@ -293,7 +293,7 @@ function copyDeploySqlAll() {
       <button class="text-xs px-2 py-1 rounded transition-colors" :class="deploySqlMode === 'rollback' ? 'bg-destructive text-destructive-foreground' : 'hover:bg-accent'" @click="$emit('update:deploySqlMode', 'rollback')">{{ t("diff.rollbackSql") }}</button>
     </div>
 
-    <div v-if="rollbackCompleteness === 'incomplete'" class="px-3 py-1.5 border-b bg-amber-50 dark:bg-amber-950/30 text-xs text-amber-800 dark:text-amber-200 shrink-0">
+    <div v-if="rollbackCompleteness === 'incomplete'" class="px-3 py-1.5 border-b bg-zinc-50 dark:bg-zinc-950/30 text-xs text-zinc-800 dark:text-zinc-200 shrink-0">
       {{ t("diff.rollbackIncompleteBanner") }}
       <ul v-if="missingRollbackObjects?.length" class="mt-1 list-disc pl-4">
         <li v-for="(m, i) in missingRollbackObjects" :key="i">{{ m.kind }} {{ m.name }}{{ m.table ? ` @ ${m.table}` : "" }} — {{ m.reason }}</li>
@@ -320,21 +320,21 @@ function copyDeploySqlAll() {
       <button
         v-if="compatibilityWarnings && compatibilityWarnings.length > 0"
         class="px-3 py-1.5 text-xs font-medium flex items-center gap-1 transition-colors relative"
-        :class="activeTab === 'warnings' ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 border-b-2 border-amber-500' : 'hover:bg-muted/50'"
+        :class="activeTab === 'warnings' ? 'bg-zinc-100 dark:bg-zinc-900/30 text-zinc-700 dark:text-zinc-300 border-b-2 border-zinc-500' : 'hover:bg-muted/50'"
         @click="activeTab = 'warnings'"
       >
-        <span class="w-2 h-2 rounded-full bg-amber-500 shrink-0" />
+        <span class="w-2 h-2 rounded-full bg-zinc-500 shrink-0" />
         {{ t("diff.compatibilityWarnings") }}
-        <span class="ml-1 px-1.5 py-0.5 rounded-full text-[10px] bg-amber-500 text-white font-bold">{{ compatibilityWarnings.length }}</span>
+        <span class="ml-1 px-1.5 py-0.5 rounded-full text-[10px] bg-zinc-500 text-white font-bold">{{ compatibilityWarnings.length }}</span>
       </button>
       <button v-if="dependencyGraph && dependencyGraph.nodes.length > 0" class="px-3 py-1.5 text-xs font-medium flex items-center gap-1 transition-colors" :class="activeTab === 'depGraph' ? 'bg-primary/10 text-primary border-b-2 border-primary' : 'hover:bg-muted/50'" @click="activeTab = 'depGraph'">
-        <span class="w-2 h-2 rounded-full bg-blue-500 shrink-0" />
+        <span class="w-2 h-2 rounded-full bg-zinc-500 shrink-0" />
         {{ t("diff.dependencyGraph") }}
       </button>
       <button v-if="permissionDiffs && permissionDiffs.length > 0" class="px-3 py-1.5 text-xs font-medium flex items-center gap-1 transition-colors" :class="activeTab === 'permissions' ? 'bg-primary/10 text-primary border-b-2 border-primary' : 'hover:bg-muted/50'" @click="activeTab = 'permissions'">
-        <span class="w-2 h-2 rounded-full bg-purple-500 shrink-0" />
+        <span class="w-2 h-2 rounded-full bg-zinc-500 shrink-0" />
         {{ t("diff.operation") }}
-        <span class="ml-1 px-1.5 py-0.5 rounded-full text-[10px] bg-purple-500 text-white font-bold">{{ permissionDiffs.length }}</span>
+        <span class="ml-1 px-1.5 py-0.5 rounded-full text-[10px] bg-zinc-500 text-white font-bold">{{ permissionDiffs.length }}</span>
       </button>
     </div>
 
@@ -480,8 +480,8 @@ function copyDeploySqlAll() {
     <!-- Compatibility Warnings -->
     <div v-else-if="activeTab === 'warnings'" class="flex-1 flex flex-col overflow-hidden p-3">
       <div v-if="compatibilityWarnings && compatibilityWarnings.length > 0" class="space-y-2">
-        <div v-for="(w, i) in compatibilityWarnings" :key="i" class="flex items-start gap-2 p-2 rounded border bg-amber-50 dark:bg-amber-950/20 text-xs">
-          <span class="shrink-0 w-2 h-2 rounded-full mt-0.5" :class="w.risk === 'high' ? 'bg-red-500' : w.risk === 'medium' ? 'bg-amber-500' : 'bg-yellow-400'" />
+        <div v-for="(w, i) in compatibilityWarnings" :key="i" class="flex items-start gap-2 p-2 rounded border bg-zinc-50 dark:bg-zinc-950/20 text-xs">
+          <span class="shrink-0 w-2 h-2 rounded-full mt-0.5" :class="w.risk === 'high' ? 'bg-zinc-500' : w.risk === 'medium' ? 'bg-zinc-500' : 'bg-zinc-400'" />
           <div class="min-w-0">
             <span class="font-medium">{{ w.table }}.{{ w.column }}</span
             >:
@@ -517,14 +517,14 @@ function copyDeploySqlAll() {
     <div v-else-if="activeTab === 'permissions'" class="flex-1 flex flex-col overflow-hidden p-3">
       <div v-if="permissionDiffs && permissionDiffs.length > 0" class="space-y-2">
         <div v-for="(pd, i) in permissionDiffs" :key="i" class="flex items-start gap-2 p-2 rounded border text-xs">
-          <span class="shrink-0 w-2 h-2 rounded-full mt-0.5 bg-purple-500" />
+          <span class="shrink-0 w-2 h-2 rounded-full mt-0.5 bg-zinc-500" />
           <div class="min-w-0">
             <span class="font-medium">{{ pd.objectName }}</span>
             <span class="text-muted-foreground"> — {{ pd.permissionType }}</span>
             <div class="mt-0.5">
-              <span v-if="pd.sourcePermission" class="text-green-600 dark:text-green-400">{{ t("diff.source") }}: {{ pd.sourcePermission }}</span>
+              <span v-if="pd.sourcePermission" class="text-zinc-600 dark:text-zinc-400">{{ t("diff.source") }}: {{ pd.sourcePermission }}</span>
               <span v-if="pd.sourcePermission && pd.targetPermission" class="text-muted-foreground mx-1">→</span>
-              <span v-if="pd.targetPermission" class="text-red-600 dark:text-red-400">{{ t("diff.target") }}: {{ pd.targetPermission }}</span>
+              <span v-if="pd.targetPermission" class="text-zinc-600 dark:text-zinc-400">{{ t("diff.target") }}: {{ pd.targetPermission }}</span>
             </div>
           </div>
         </div>

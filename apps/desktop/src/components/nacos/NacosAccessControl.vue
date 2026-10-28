@@ -558,7 +558,7 @@ defineExpose({
       </header>
       <div v-if="!listUsersCapability().supported" class="border-b bg-muted/30 px-3 py-2 text-xs text-muted-foreground">{{ capabilityReason(listUsersCapability()) }}</div>
       <div v-if="usersError" class="border-b px-3 py-2 text-xs text-destructive">{{ usersError }}</div>
-      <div v-if="userOperationNotice" class="border-b px-3 py-2 text-xs" :class="userOperationNotice.kind === 'success' ? 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300' : 'bg-destructive/10 text-destructive'" role="status" aria-live="polite">
+      <div v-if="userOperationNotice" class="border-b px-3 py-2 text-xs" :class="userOperationNotice.kind === 'success' ? 'bg-zinc-500/10 text-zinc-700 dark:text-zinc-300' : 'bg-destructive/10 text-destructive'" role="status" aria-live="polite">
         {{ userOperationNotice.message }}
       </div>
       <div class="min-h-0 flex-1 overflow-auto">
@@ -583,7 +583,7 @@ defineExpose({
                 </div>
               </td>
               <td class="px-3 py-2">
-                <Badge v-if="isRNacos" :variant="user.enabled === false ? 'outline' : 'secondary'" :class="user.enabled === false ? 'text-muted-foreground' : 'text-emerald-700 dark:text-emerald-300'">{{ user.enabled === false ? t("nacos.disabled") : t("nacos.enabled") }}</Badge
+                <Badge v-if="isRNacos" :variant="user.enabled === false ? 'outline' : 'secondary'" :class="user.enabled === false ? 'text-muted-foreground' : 'text-zinc-700 dark:text-zinc-300'">{{ user.enabled === false ? t("nacos.disabled") : t("nacos.enabled") }}</Badge
                 ><span v-else class="text-muted-foreground">-</span>
               </td>
               <td class="px-3 py-2">

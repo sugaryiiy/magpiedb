@@ -62,7 +62,7 @@ onMounted(() => {
         :title="unlocked ? t('readOnlyUnlock.lockNow') : t('readOnlyUnlock.unlockAction')"
         @click.stop.prevent="onActivate"
       >
-        <Unlock v-if="unlocked" class="h-3 w-3 shrink-0 text-amber-600 dark:text-amber-400" />
+        <Unlock v-if="unlocked" class="h-3 w-3 shrink-0 text-zinc-600 dark:text-zinc-400" />
         <Lock v-else class="h-3 w-3 shrink-0" />
         <span v-if="showLabel && !unlocked" class="text-[10px] leading-none">{{ t("connection.readOnlyBadge") }}</span>
         <span v-if="unlocked" class="text-[10px] tabular-nums leading-none">{{ remainingLabel }}</span>

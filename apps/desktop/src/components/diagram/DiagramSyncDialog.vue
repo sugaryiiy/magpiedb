@@ -184,7 +184,7 @@ function syncTableLabel(table: DiagramTable): string {
         <div v-for="(err, i) in validationErrors" :key="i">{{ err }}</div>
       </div>
 
-      <div v-if="warnings.length" class="rounded border border-amber-500/40 bg-amber-500/5 p-2 text-xs text-amber-700 dark:text-amber-300 space-y-1">
+      <div v-if="warnings.length" class="rounded border border-zinc-500/40 bg-zinc-500/5 p-2 text-xs text-zinc-700 dark:text-zinc-300 space-y-1">
         <div v-for="(w, i) in warnings" :key="i">{{ w }}</div>
       </div>
 

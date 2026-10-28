@@ -125,7 +125,7 @@ async function downloadPng() {
   <section class="my-2 flex min-h-60 h-[clamp(15rem,35vw,20rem)] flex-col overflow-hidden rounded-md border border-zinc-200 bg-zinc-50 dark:border-zinc-700/50 dark:bg-zinc-900" aria-label="AI-generated chart">
     <div class="flex h-8 items-center justify-end gap-1 border-b border-zinc-200 px-2 dark:border-zinc-700/50">
       <button type="button" class="rounded p-1 text-zinc-500 hover:bg-zinc-200 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:hover:text-zinc-100" :title="copied ? t('ai.copied') : t('ai.copyCode')" :aria-label="copied ? t('ai.copied') : t('ai.copyCode')" @click="copyChartJson">
-        <Check v-if="copied" class="h-3.5 w-3.5 text-green-500" />
+        <Check v-if="copied" class="h-3.5 w-3.5 text-zinc-500" />
         <Copy v-else class="h-3.5 w-3.5" />
       </button>
       <button type="button" class="rounded p-1 text-zinc-500 hover:bg-zinc-200 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:hover:text-zinc-100" :title="t('ai.chartDownloadPng')" :aria-label="t('ai.chartDownloadPng')" @click="downloadPng">

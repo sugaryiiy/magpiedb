@@ -270,11 +270,11 @@ const statusColor = (status: string) => {
     case "Cancelling":
       return "text-primary";
     case "Done":
-      return "text-green-500";
+      return "text-zinc-500";
     case "Error":
       return "text-destructive";
     case "Cancelled":
-      return "text-yellow-500";
+      return "text-zinc-500";
     default:
       return "text-muted-foreground";
   }
@@ -397,7 +397,7 @@ function openTask(task: ExportTask): void {
               </div>
             </div>
             <div v-else-if="task.status === 'Done'" class="w-full bg-muted rounded-full h-1.5 overflow-hidden">
-              <div class="h-full bg-green-500 rounded-full" style="width: 100%" />
+              <div class="h-full bg-zinc-500 rounded-full" style="width: 100%" />
             </div>
 
             <div v-if="databaseObjectText(task)" class="min-w-0 truncate text-muted-foreground" :title="task.currentObject">
@@ -429,7 +429,7 @@ function openTask(task: ExportTask): void {
                           :aria-label="copiedFailureDetailKey === dataTransferFailureDetailKey(task.exportId, failure.table) ? t('exportProgress.failureDetailCopied') : t('exportProgress.copyFailureDetail')"
                           @click.stop="copyFailureDetail(dataTransferFailureCopyText(failure), dataTransferFailureDetailKey(task.exportId, failure.table))"
                         >
-                          <Check v-if="copiedFailureDetailKey === dataTransferFailureDetailKey(task.exportId, failure.table)" class="h-3.5 w-3.5 text-green-500" aria-hidden="true" />
+                          <Check v-if="copiedFailureDetailKey === dataTransferFailureDetailKey(task.exportId, failure.table)" class="h-3.5 w-3.5 text-zinc-500" aria-hidden="true" />
                           <Copy v-else class="h-3.5 w-3.5 text-muted-foreground hover:text-foreground" aria-hidden="true" />
                         </button>
                       </div>
@@ -452,7 +452,7 @@ function openTask(task: ExportTask): void {
                           :aria-label="copiedFailureDetailKey === sqlFileFailureDetailKey(task.exportId, failure.fileIndex, failure.statementIndex) ? t('exportProgress.failureDetailCopied') : t('exportProgress.copyFailureDetail')"
                           @click.stop="copyFailureDetail(sqlFileFailureCopyText(failure, translateBackendError(t, failure.error)), sqlFileFailureDetailKey(task.exportId, failure.fileIndex, failure.statementIndex))"
                         >
-                          <Check v-if="copiedFailureDetailKey === sqlFileFailureDetailKey(task.exportId, failure.fileIndex, failure.statementIndex)" class="h-3.5 w-3.5 text-green-500" aria-hidden="true" />
+                          <Check v-if="copiedFailureDetailKey === sqlFileFailureDetailKey(task.exportId, failure.fileIndex, failure.statementIndex)" class="h-3.5 w-3.5 text-zinc-500" aria-hidden="true" />
                           <Copy v-else class="h-3.5 w-3.5 text-muted-foreground hover:text-foreground" aria-hidden="true" />
                         </button>
                       </div>

@@ -120,7 +120,7 @@ const overviewRows = computed(() => {
           </td>
           <td class="cursor-text select-text px-3 py-2 font-medium">
             <span class="inline-flex items-center gap-1.5">
-              <KeyRound v-if="column.is_primary_key" class="h-3 w-3 text-amber-500" />
+              <KeyRound v-if="column.is_primary_key" class="h-3 w-3 text-zinc-500" />
               {{ column.name }}
             </span>
             <div v-if="column.comment" class="mt-0.5 text-[11px] text-muted-foreground truncate">
@@ -167,8 +167,8 @@ const overviewRows = computed(() => {
           <div class="min-w-0 flex-1">
             <div class="font-medium truncate">{{ index.name }}</div>
             <div class="mt-1 flex flex-wrap gap-1">
-              <span v-if="index.is_primary" class="rounded bg-amber-500/10 px-1.5 py-0.5 text-amber-600">PK</span>
-              <span v-if="index.is_unique" class="rounded bg-emerald-500/10 px-1.5 py-0.5 text-emerald-600">UNIQUE</span>
+              <span v-if="index.is_primary" class="rounded bg-zinc-500/10 px-1.5 py-0.5 text-zinc-600">PK</span>
+              <span v-if="index.is_unique" class="rounded bg-zinc-500/10 px-1.5 py-0.5 text-zinc-600">UNIQUE</span>
               <span v-if="index.index_type" class="rounded bg-muted px-1.5 py-0.5 text-muted-foreground">{{ index.index_type }}</span>
             </div>
             <div class="mt-2 font-mono text-[11px] text-muted-foreground break-all">

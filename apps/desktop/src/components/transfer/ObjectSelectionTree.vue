@@ -352,7 +352,7 @@ function groupSelectionState(kind: TransferObjectKind, items: string[]): "none" 
           <p v-if="bulkFeedback && bulkFeedback.matchedCount > 0" class="text-foreground/80">
             {{ t("transfer.bulkSelectMatched", { count: bulkFeedback.matchedCount }) }}
           </p>
-          <p v-if="bulkFeedback && bulkFeedback.unmatchedNames.length > 0" class="truncate text-amber-700" :title="bulkUnmatchedNames">
+          <p v-if="bulkFeedback && bulkFeedback.unmatchedNames.length > 0" class="truncate text-zinc-700" :title="bulkUnmatchedNames">
             {{ t("transfer.bulkSelectUnmatched", { count: bulkFeedback.unmatchedNames.length, names: bulkUnmatchedNames }) }}
           </p>
         </div>
@@ -385,7 +385,7 @@ function groupSelectionState(kind: TransferObjectKind, items: string[]): "none" 
             {{ group.label }}
           </span>
           <span class="text-[10px] px-1 py-0.5 rounded-full bg-muted/60 text-muted-foreground font-mono shrink-0"> {{ (modelValue[group.kind] ?? []).length }}/{{ group.items.length }} </span>
-          <span v-if="disabledHints[group.kind]" class="rounded bg-amber-500/10 border border-amber-500/20 px-1.5 py-0.5 text-[10px] text-amber-700 font-medium shrink-0">
+          <span v-if="disabledHints[group.kind]" class="rounded bg-zinc-500/10 border border-zinc-500/20 px-1.5 py-0.5 text-[10px] text-zinc-700 font-medium shrink-0">
             {{ disabledHints[group.kind] }}
           </span>
           <button data-test="group-expand" type="button" class="text-muted-foreground hover:text-foreground shrink-0 p-0.5" :aria-expanded="expanded.has(group.kind)" @click="toggleGroup(group.kind)">

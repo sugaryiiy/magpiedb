@@ -172,7 +172,7 @@ function handleRemoveSelectedTable(sourceTable: string) {
 
 function matchStatusClass(kind: SchemaDiffTableMatch["kind"]): string {
   if (kind === "unmatched") return "text-destructive";
-  if (kind === "manual") return "text-amber-600 dark:text-amber-400";
+  if (kind === "manual") return "text-zinc-600 dark:text-zinc-400";
   return "text-muted-foreground";
 }
 
@@ -677,7 +677,7 @@ async function fetchDbVersion(connectionId: string, database: string, schema: st
     <div class="grid grid-cols-[1fr_auto_1fr] gap-4 items-start">
       <!-- Source Side -->
       <div class="space-y-3">
-        <div class="text-sm font-medium text-blue-500">{{ t("diff.source") }}</div>
+        <div class="text-sm font-medium text-zinc-500">{{ t("diff.source") }}</div>
 
         <div class="space-y-1.5">
           <Label class="text-xs">{{ t("diff.connection") }}</Label>
@@ -728,7 +728,7 @@ async function fetchDbVersion(connectionId: string, database: string, schema: st
 
         <!-- Source Info -->
         <div v-if="getConnectionInfo(sourceConnectionId)" class="mt-4 p-3 rounded-lg bg-muted/30 border space-y-1.5">
-          <div class="text-xs font-medium text-blue-500">{{ t("diff.info") }}</div>
+          <div class="text-xs font-medium text-zinc-500">{{ t("diff.info") }}</div>
           <div class="grid grid-cols-[80px_1fr] gap-x-2 gap-y-0.5 text-xs">
             <span class="text-muted-foreground">{{ t("diff.connType") }}</span>
             <span>{{ getConnectionInfo(sourceConnectionId)?.dbType }}</span>
@@ -753,7 +753,7 @@ async function fetchDbVersion(connectionId: string, database: string, schema: st
 
       <!-- Target Side -->
       <div class="space-y-3">
-        <div class="text-sm font-medium text-green-500">{{ t("diff.target") }}</div>
+        <div class="text-sm font-medium text-zinc-500">{{ t("diff.target") }}</div>
 
         <div class="space-y-1.5">
           <Label class="text-xs">{{ t("diff.connection") }}</Label>
@@ -804,7 +804,7 @@ async function fetchDbVersion(connectionId: string, database: string, schema: st
 
         <!-- Target Info -->
         <div v-if="getConnectionInfo(targetConnectionId)" class="mt-4 p-3 rounded-lg bg-muted/30 border space-y-1.5">
-          <div class="text-xs font-medium text-green-500">{{ t("diff.info") }}</div>
+          <div class="text-xs font-medium text-zinc-500">{{ t("diff.info") }}</div>
           <div class="grid grid-cols-[80px_1fr] gap-x-2 gap-y-0.5 text-xs">
             <span class="text-muted-foreground">{{ t("diff.connType") }}</span>
             <span>{{ getConnectionInfo(targetConnectionId)?.dbType }}</span>
@@ -929,7 +929,7 @@ async function fetchDbVersion(connectionId: string, database: string, schema: st
           <div v-if="!restrictRoutines" class="text-[11px] text-muted-foreground">
             {{ !isTableIdentityReady("source") ? t("diff.routineSelectionNeedSource") : t("diff.routineSelectionUnrestricted") }}
           </div>
-          <div v-if="unrestrictedRoutineLoadTooLarge" class="rounded-md border border-amber-500/40 bg-amber-500/10 px-2 py-1.5 text-[11px] text-amber-700 dark:text-amber-300">
+          <div v-if="unrestrictedRoutineLoadTooLarge" class="rounded-md border border-zinc-500/40 bg-zinc-500/10 px-2 py-1.5 text-[11px] text-zinc-700 dark:text-zinc-300">
             {{ t("diff.routineSelectionTooLarge", { count: sourceRoutineList.length, limit: SCHEMA_DIFF_UNRESTRICTED_ROUTINE_LIMIT }) }}
           </div>
           <TableMultiSelect

@@ -180,7 +180,7 @@ async function copyFullCode() {
         <div v-if="code" data-testid="danger-code-container" class="min-w-0">
           <div data-testid="danger-code-actions" class="mb-1 flex items-center justify-end gap-0.5">
             <Button variant="ghost" size="icon-xs" class="h-6 w-6 text-muted-foreground" :title="t('dangerDialog.copyFullText')" @click="copyFullCode">
-              <Check v-if="copied" class="h-3.5 w-3.5 text-emerald-600" />
+              <Check v-if="copied" class="h-3.5 w-3.5 text-zinc-600" />
               <Copy v-else class="h-3.5 w-3.5" />
             </Button>
             <Button variant="ghost" size="icon-xs" class="h-6 w-6" :class="wrap ? 'text-foreground bg-accent' : 'text-muted-foreground'" :title="t('dangerDialog.wrapLines')" @click="wrap = !wrap">

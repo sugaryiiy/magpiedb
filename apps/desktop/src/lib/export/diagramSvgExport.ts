@@ -252,7 +252,7 @@ export function buildTableDiagramSvg(options: TableDiagramSvgOptions): string {
   if (layers.length > 0) {
     parts.push('<g class="diagram-layers">');
     for (const layer of layers) {
-      const fill = layer.color || "#9ca3af";
+      const fill = layer.color || "#a3a3a3";
       parts.push(`<rect x="${svgNumber(layer.x)}" y="${svgNumber(layer.y)}" width="${svgNumber(layer.width)}" height="${svgNumber(layer.height)}" ` + `rx="8" fill="${escapeXml(fill)}" fill-opacity="0.08" stroke="${escapeXml(fill)}" stroke-opacity="0.55" stroke-width="1.5"/>`);
       parts.push(
         svgText(layer.name, layer.x + 12, layer.y + 18, {
@@ -265,7 +265,7 @@ export function buildTableDiagramSvg(options: TableDiagramSvgOptions): string {
     parts.push("</g>");
   }
 
-  parts.push('<g fill="none" stroke="#2563eb" stroke-opacity="0.58" stroke-width="1.6">');
+  parts.push('<g fill="none" stroke="#262626" stroke-opacity="0.58" stroke-width="1.6">');
   for (const relationship of options.relationships) {
     const path = options.relationshipPaths[relationship.id];
     if (!path) continue;
@@ -336,9 +336,9 @@ export function buildTableDiagramSvg(options: TableDiagramSvgOptions): string {
       const rowCenter = rowTop + options.columnRowHeight / 2;
       parts.push(`<path d="M 0 ${svgNumber(rowTop)} H ${options.cardWidth}" stroke="#f0f0f1"/>`);
       if (column.is_primary_key) {
-        parts.push(svgText("PK", 14, rowCenter, { size: 9, fill: "#d97706", weight: "700" }));
+        parts.push(svgText("PK", 14, rowCenter, { size: 9, fill: "#737373", weight: "700" }));
       } else if (isForeignKeyColumn(table, column.name)) {
-        parts.push(svgText("FK", 14, rowCenter, { size: 9, fill: "#2563eb", weight: "700" }));
+        parts.push(svgText("FK", 14, rowCenter, { size: 9, fill: "#262626", weight: "700" }));
       }
       parts.push(svgText(column.name, 38, rowCenter, { size: 11, family: "Menlo, Consolas, monospace" }));
       parts.push(
@@ -419,11 +419,11 @@ export function buildEngineeringDiagramSvg(diagram: EngineeringDiagram): string 
   parts.push("</g>");
 
   for (const attribute of diagram.attributes) {
-    parts.push(`<ellipse cx="${svgNumber(attribute.x + attribute.width / 2)}" cy="${svgNumber(attribute.y + attribute.height / 2)}" ` + `rx="${svgNumber(attribute.width / 2)}" ry="${svgNumber(attribute.height / 2)}" fill="#dcfce7" stroke="#16a34a" stroke-opacity="0.65"/>`);
+    parts.push(`<ellipse cx="${svgNumber(attribute.x + attribute.width / 2)}" cy="${svgNumber(attribute.y + attribute.height / 2)}" ` + `rx="${svgNumber(attribute.width / 2)}" ry="${svgNumber(attribute.height / 2)}" fill="#f5f5f5" stroke="#404040" stroke-opacity="0.65"/>`);
     parts.push(
       svgText(attribute.label, attribute.x + attribute.width / 2, attribute.y + attribute.height / 2, {
         size: 11,
-        fill: "#052e16",
+        fill: "#171717",
         weight: attribute.primaryKey ? "700" : undefined,
         anchor: "middle",
         decoration: attribute.primaryKey ? "underline" : undefined,
@@ -442,11 +442,11 @@ export function buildEngineeringDiagramSvg(diagram: EngineeringDiagram): string 
     ]
       .map(([x, y]) => `${svgNumber(x)},${svgNumber(y)}`)
       .join(" ");
-    parts.push(`<polygon points="${points}" fill="#fee2e2" stroke="#ef4444" stroke-opacity="0.7"/>`);
+    parts.push(`<polygon points="${points}" fill="#eeeeee" stroke="#111111" stroke-opacity="0.7"/>`);
     parts.push(
       svgText(relationship.label, cx, cy, {
         size: 11,
-        fill: "#450a0a",
+        fill: "#171717",
         weight: "600",
         anchor: "middle",
       }),
@@ -454,11 +454,11 @@ export function buildEngineeringDiagramSvg(diagram: EngineeringDiagram): string 
   }
 
   for (const entity of diagram.entities) {
-    parts.push(`<rect x="${svgNumber(entity.x)}" y="${svgNumber(entity.y)}" width="${entity.width}" height="${entity.height}" fill="#dbeafe" stroke="#3b82f6" stroke-opacity="0.7"/>`);
+    parts.push(`<rect x="${svgNumber(entity.x)}" y="${svgNumber(entity.y)}" width="${entity.width}" height="${entity.height}" fill="#fafafa" stroke="#262626" stroke-opacity="0.7"/>`);
     parts.push(
       svgText(entity.name, entity.x + entity.width / 2, entity.y + entity.height / 2, {
         size: 13,
-        fill: "#172554",
+        fill: "#171717",
         weight: "700",
         anchor: "middle",
       }),

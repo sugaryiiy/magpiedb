@@ -34,7 +34,7 @@ describe("TabExecutionStatus", () => {
 
     const status = root.querySelector<HTMLElement>("[data-tab-execution-status]");
     expect(status?.getAttribute("aria-label")).toBe("common.loading");
-    expect(status?.className).toContain("text-blue-600");
+    expect(status?.className).toContain("text-zinc-600");
     expect(status?.querySelector("svg")?.getAttribute("aria-hidden")).toBe("true");
     expect(status?.querySelector("svg")?.getAttribute("class")).toContain("motion-reduce:animate-none");
   });
@@ -45,7 +45,7 @@ describe("TabExecutionStatus", () => {
 
     const status = root.querySelector<HTMLElement>("[data-tab-execution-status]");
     expect(status?.getAttribute("aria-label")).toBe("common.stopping");
-    expect(status?.className).toContain("text-amber-600");
+    expect(status?.className).toContain("text-zinc-600");
   });
 
   it("replaces the tab icon while the query is executing", async () => {
@@ -91,7 +91,7 @@ describe("TabExecutionStatus", () => {
     const status = root.querySelector<HTMLElement>("[data-tab-execution-status]");
     expect(status).not.toBeNull();
     expect(status?.getAttribute("aria-label")).toBe("common.loading");
-    expect(status?.className).toContain("text-blue-600");
+    expect(status?.className).toContain("text-zinc-600");
     // 加载态占用图标位，与查询执行中的表现一致
     expect(root.querySelector("[data-tab-icon]")).toBeNull();
 

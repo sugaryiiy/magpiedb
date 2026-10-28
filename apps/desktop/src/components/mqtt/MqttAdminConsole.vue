@@ -364,7 +364,7 @@ onUnmounted(stopPolling);
       <div class="flex items-center gap-3">
         <span class="text-lg font-semibold">{{ t("connection.mqttConsoleTitle") }}</span>
         <span v-if="brokerInfo" class="text-sm text-muted-foreground">{{ brokerInfo.brokerUrl }}</span>
-        <span v-if="brokerInfo" class="rounded px-1.5 py-0.5 text-xs font-medium" :class="connected ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400' : 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400'">
+        <span v-if="brokerInfo" class="rounded px-1.5 py-0.5 text-xs font-medium" :class="connected ? 'bg-zinc-100 text-zinc-700 dark:bg-zinc-900/30 dark:text-zinc-400' : 'bg-zinc-100 text-zinc-700 dark:bg-zinc-900/30 dark:text-zinc-400'">
           {{ connected ? t("connection.mqttConnected") : t("connection.mqttDisconnected") }}
         </span>
       </div>
@@ -374,7 +374,7 @@ onUnmounted(stopPolling);
       </div>
     </div>
 
-    <div v-if="error" class="border-b bg-red-50 px-4 py-2 text-sm text-red-700 dark:bg-red-950/30 dark:text-red-400">
+    <div v-if="error" class="border-b bg-zinc-50 px-4 py-2 text-sm text-zinc-700 dark:bg-zinc-950/30 dark:text-zinc-400">
       {{ error }}
       <button class="ml-2 underline" @click="error = null">{{ t("common.close") }}</button>
     </div>
@@ -468,17 +468,17 @@ onUnmounted(stopPolling);
               class="w-full cursor-pointer border-b px-3 py-2 text-xs"
               :class="
                 msg.direction === 'sent'
-                  ? 'ml-auto max-w-[85%] rounded-l-md border-r-2 border-emerald-400 bg-emerald-50/70 hover:bg-emerald-100/70 dark:border-emerald-500 dark:bg-emerald-950/30 dark:hover:bg-emerald-950/50'
-                  : 'mr-auto max-w-[85%] rounded-r-md border-l-2 border-blue-400 bg-blue-50/70 hover:bg-blue-100/70 dark:border-blue-500 dark:bg-blue-950/30 dark:hover:bg-blue-950/50'
+                  ? 'ml-auto max-w-[85%] rounded-l-md border-r-2 border-zinc-400 bg-zinc-50/70 hover:bg-zinc-100/70 dark:border-zinc-500 dark:bg-zinc-950/30 dark:hover:bg-zinc-950/50'
+                  : 'mr-auto max-w-[85%] rounded-r-md border-l-2 border-zinc-400 bg-zinc-50/70 hover:bg-zinc-100/70 dark:border-zinc-500 dark:bg-zinc-950/30 dark:hover:bg-zinc-950/50'
               "
               @click="handleMessageClick(msg.topic)"
             >
               <div class="mb-0.5 flex items-center gap-2">
-                <span v-if="msg.direction === 'sent'" class="shrink-0 text-[10px] font-bold text-emerald-600 dark:text-emerald-400">{{ t("connection.mqttSent") }}</span>
-                <span v-else class="shrink-0 text-[10px] font-bold text-blue-600 dark:text-blue-400">{{ t("connection.mqttReceived") }}</span>
-                <span class="truncate font-mono font-medium text-blue-700 dark:text-blue-300">{{ msg.topic }}</span>
+                <span v-if="msg.direction === 'sent'" class="shrink-0 text-[10px] font-bold text-zinc-600 dark:text-zinc-400">{{ t("connection.mqttSent") }}</span>
+                <span v-else class="shrink-0 text-[10px] font-bold text-zinc-600 dark:text-zinc-400">{{ t("connection.mqttReceived") }}</span>
+                <span class="truncate font-mono font-medium text-zinc-700 dark:text-zinc-300">{{ msg.topic }}</span>
                 <span class="shrink-0 text-muted-foreground">QoS{{ msg.qos }}</span>
-                <span v-if="msg.retain" class="shrink-0 text-[10px] font-medium text-amber-600 dark:text-amber-400">{{ t("connection.mqttRetained") }}</span>
+                <span v-if="msg.retain" class="shrink-0 text-[10px] font-medium text-zinc-600 dark:text-zinc-400">{{ t("connection.mqttRetained") }}</span>
                 <Button
                   type="button"
                   size="xs"

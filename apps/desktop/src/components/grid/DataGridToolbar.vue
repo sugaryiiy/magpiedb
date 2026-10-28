@@ -279,7 +279,7 @@ function actionLabelClass(action: DataGridToolbarActionKey) {
 
     <Tooltip v-if="isDataGridToolbarCapabilityVisible(preview)">
       <TooltipTrigger as-child>
-        <Button data-toolbar-action="preview" variant="ghost" size="sm" :class="[...actionButtonClass('preview'), 'text-sky-600 hover:bg-sky-500/10 hover:text-sky-700']" :disabled="isDataGridToolbarCapabilityDisabled(preview)" @click="void triggerDataGridToolbarAction(preview)">
+        <Button data-toolbar-action="preview" variant="ghost" size="sm" :class="[...actionButtonClass('preview'), 'text-zinc-600 hover:bg-zinc-500/10 hover:text-zinc-700']" :disabled="isDataGridToolbarCapabilityDisabled(preview)" @click="void triggerDataGridToolbarAction(preview)">
           <Loader2 v-if="preview?.loading" class="data-grid-topbar-action-icon h-3 w-3 animate-spin" />
           <Eye v-else class="data-grid-topbar-action-icon h-3 w-3" />
           <span class="data-grid-topbar-action-label" :class="actionLabelClass('preview')">{{ preview?.label }}</span>
@@ -297,8 +297,8 @@ function actionLabelClass(action: DataGridToolbarActionKey) {
             v-if="save && save.pendingCount > 0"
             :class="
               actionIsCompact('save')
-                ? 'absolute -right-1 -top-1 flex h-3.5 min-w-3.5 items-center justify-center rounded-full bg-amber-300 px-1 text-[9px] font-semibold leading-none text-amber-950 shadow-[0_0_0_1px_rgba(120,53,15,0.16)] dark:bg-amber-400'
-                : 'mr-1 flex h-3.5 min-w-3.5 items-center justify-center rounded-full bg-amber-300 px-1 text-[9px] font-semibold leading-none text-amber-950 shadow-[0_0_0_1px_rgba(120,53,15,0.16)] dark:bg-amber-400'
+                ? 'absolute -right-1 -top-1 flex h-3.5 min-w-3.5 items-center justify-center rounded-full bg-zinc-300 px-1 text-[9px] font-semibold leading-none text-zinc-950 shadow-[0_0_0_1px_rgba(120,53,15,0.16)] dark:bg-zinc-400'
+                : 'mr-1 flex h-3.5 min-w-3.5 items-center justify-center rounded-full bg-zinc-300 px-1 text-[9px] font-semibold leading-none text-zinc-950 shadow-[0_0_0_1px_rgba(120,53,15,0.16)] dark:bg-zinc-400'
             "
           >
             {{ save.pendingCount }}

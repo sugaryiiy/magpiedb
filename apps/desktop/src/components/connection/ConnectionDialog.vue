@@ -7566,7 +7566,7 @@ function openExternalUrl(url: string) {
                     </div>
                     <div v-if="isJdbcxConnection" class="grid grid-cols-4 items-start gap-4">
                       <Label :class="connectionLabelTopClass">{{ t("connection.jdbcxExtensions") }}</Label>
-                      <div class="col-span-3 flex items-start justify-between gap-4 rounded-md border px-3 py-2" :class="jdbcxHighPrivilegeExtensionsAllowed ? 'border-amber-500/60 bg-amber-500/10' : 'bg-muted/20'">
+                      <div class="col-span-3 flex items-start justify-between gap-4 rounded-md border px-3 py-2" :class="jdbcxHighPrivilegeExtensionsAllowed ? 'border-zinc-500/60 bg-zinc-500/10' : 'bg-muted/20'">
                         <div class="space-y-1">
                           <div class="text-sm font-medium">{{ t("connection.jdbcxHighPrivilegeExtensions") }}</div>
                           <p class="text-xs text-muted-foreground">{{ t("connection.jdbcxHighPrivilegeExtensionsWarning") }}</p>
@@ -7692,7 +7692,7 @@ function openExternalUrl(url: string) {
                         <p v-if="sqliteUsesSsh" class="text-xs text-muted-foreground">
                           {{ t("connection.sqliteRemotePathHint") }}
                         </p>
-                        <p v-if="sqliteUsesSsh" class="rounded-md border border-amber-500/30 bg-amber-500/5 px-3 py-2 text-xs leading-5 text-amber-700 dark:text-amber-400">
+                        <p v-if="sqliteUsesSsh" class="rounded-md border border-zinc-500/30 bg-zinc-500/5 px-3 py-2 text-xs leading-5 text-zinc-700 dark:text-zinc-400">
                           {{ t("connection.sqliteSshCipherUnsupportedHint") }}
                         </p>
                         <p v-else-if="supportsMemoryDatabasePath" class="text-xs text-muted-foreground">
@@ -8070,7 +8070,7 @@ function openExternalUrl(url: string) {
                             <template>{{ nacosServiceAddressHint }}</template>
                           </p>
                         </div>
-                        <p v-if="nacosV3AdminEndpointWarning" class="rounded-md border border-amber-500/30 bg-amber-500/5 px-3 py-2 text-xs leading-5 text-amber-700 dark:text-amber-400">
+                        <p v-if="nacosV3AdminEndpointWarning" class="rounded-md border border-zinc-500/30 bg-zinc-500/5 px-3 py-2 text-xs leading-5 text-zinc-700 dark:text-zinc-400">
                           {{ nacosV3AdminEndpointWarning }}
                         </p>
                       </div>
@@ -8904,7 +8904,7 @@ function openExternalUrl(url: string) {
                       <!-- Previously-authorized banner (edit flow) -->
                       <div v-if="salesforceOauthPreviouslyAuthorized && !salesforceOauthRunning && salesforceDevicePhase !== 'polling'" class="grid grid-cols-4 items-center gap-4">
                         <span />
-                        <div class="col-span-3 flex items-center gap-2 rounded-md border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 text-xs text-emerald-700 dark:text-emerald-300">
+                        <div class="col-span-3 flex items-center gap-2 rounded-md border border-zinc-500/30 bg-zinc-500/10 px-3 py-2 text-xs text-zinc-700 dark:text-zinc-300">
                           <ShieldCheck class="h-4 w-4 shrink-0" />
                           <span>{{ t("connection.salesforceOauthAuthorized") }}</span>
                         </div>
@@ -8967,7 +8967,7 @@ function openExternalUrl(url: string) {
                               <div class="flex items-center gap-2 rounded-md border border-input bg-muted/40 px-3 py-2">
                                 <span class="font-mono text-lg font-semibold tracking-widest">{{ salesforceDeviceUserCode }}</span>
                                 <Button type="button" variant="ghost" size="icon" class="h-7 w-7" @click="salesforceCopyUserCode">
-                                  <Check v-if="salesforceDeviceUserCodeCopied" class="h-4 w-4 text-emerald-600" />
+                                  <Check v-if="salesforceDeviceUserCodeCopied" class="h-4 w-4 text-zinc-600" />
                                   <Copy v-else class="h-4 w-4" />
                                 </Button>
                               </div>
@@ -8975,7 +8975,7 @@ function openExternalUrl(url: string) {
                                 <a class="text-primary underline underline-offset-2 hover:no-underline" href="#" @click.prevent="salesforceOpenVerificationPage">{{ t("connection.salesforceDeviceOpenVerification") }}</a>
                                 <code class="truncate rounded bg-muted px-1 py-0.5 text-[11px]">{{ salesforceDeviceVerificationUri }}</code>
                                 <Button type="button" variant="ghost" size="icon" class="h-6 w-6" @click="salesforceCopyVerificationUri">
-                                  <Check v-if="salesforceDeviceVerificationCopied" class="h-3.5 w-3.5 text-emerald-600" />
+                                  <Check v-if="salesforceDeviceVerificationCopied" class="h-3.5 w-3.5 text-zinc-600" />
                                   <Copy v-else class="h-3.5 w-3.5" />
                                 </Button>
                               </div>
@@ -9000,8 +9000,8 @@ function openExternalUrl(url: string) {
 
                         <div v-else-if="salesforceDevicePhase === 'expired'" class="grid grid-cols-4 items-center gap-4">
                           <span />
-                          <div class="col-span-3 flex flex-col gap-2 rounded-md border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-xs">
-                            <span class="text-amber-700 dark:text-amber-300">{{ t("connection.salesforceDeviceExpired") }}</span>
+                          <div class="col-span-3 flex flex-col gap-2 rounded-md border border-zinc-500/30 bg-zinc-500/10 px-3 py-2 text-xs">
+                            <span class="text-zinc-700 dark:text-zinc-300">{{ t("connection.salesforceDeviceExpired") }}</span>
                             <Button type="button" size="sm" variant="outline" class="self-start" @click="salesforceDeviceRestart">
                               {{ t("connection.salesforceDeviceRestart") }}
                             </Button>
@@ -9023,7 +9023,7 @@ function openExternalUrl(url: string) {
                     <!-- Shared status / error strip (oauth success + any error) -->
                     <div v-if="salesforceOauthSuccess && (salesforceAuthMode === 'oauth' || salesforceAuthMode === 'password' || salesforceDevicePhase === 'success')" class="grid grid-cols-4 items-center gap-4">
                       <span />
-                      <div class="col-span-3 flex items-center gap-2 rounded-md border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 text-xs text-emerald-700 dark:text-emerald-300">
+                      <div class="col-span-3 flex items-center gap-2 rounded-md border border-zinc-500/30 bg-zinc-500/10 px-3 py-2 text-xs text-zinc-700 dark:text-zinc-300">
                         <ShieldCheck class="h-4 w-4 shrink-0" />
                         <span>{{ salesforceOauthSuccess }}</span>
                       </div>
@@ -10390,8 +10390,8 @@ function openExternalUrl(url: string) {
                     </p>
                   </div>
                 </div>
-                <div v-if="!isPluginConnection" class="grid grid-cols-4 items-start gap-4 rounded-[6px] border border-red-500/25 bg-red-500/[0.035] px-3 py-2.5">
-                  <Label :class="[connectionLabelSmallClass, 'pt-0.5 text-red-700 dark:text-red-300']">
+                <div v-if="!isPluginConnection" class="grid grid-cols-4 items-start gap-4 rounded-[6px] border border-zinc-500/25 bg-zinc-500/[0.035] px-3 py-2.5">
+                  <Label :class="[connectionLabelSmallClass, 'pt-0.5 text-zinc-700 dark:text-zinc-300']">
                     <span class="inline-flex items-center justify-end gap-1"><ShieldAlert class="h-3.5 w-3.5" />PROD</span>
                   </Label>
                   <div class="col-span-3 grid gap-2">
@@ -10545,7 +10545,7 @@ function openExternalUrl(url: string) {
                         <span v-if="selectedLayerProfile.name && tunnelProfileSummary(selectedLayerProfile)" class="truncate">{{ tunnelProfileSummary(selectedLayerProfile) }}</span>
                         <span>{{ t("connection.tunnelProfileManaged") }}</span>
                       </template>
-                      <span v-else class="text-red-500">{{ t("connection.tunnelProfileMissing") }}</span>
+                      <span v-else class="text-zinc-500">{{ t("connection.tunnelProfileMissing") }}</span>
                     </div>
                   </div>
                   <div v-if="!selectedLayerProfileId" class="grid grid-cols-4 items-center gap-4">
@@ -10710,12 +10710,12 @@ function openExternalUrl(url: string) {
               {{ t("connection.back") }}
             </Button>
             <template v-if="pluginActionStatus">
-              <span class="block min-w-0 flex-1 basis-0 truncate text-xs" :class="pluginActionStatus.ok ? 'text-green-600' : 'text-red-600'" :title="pluginActionStatusMessage" role="status" aria-live="polite">
+              <span class="block min-w-0 flex-1 basis-0 truncate text-xs" :class="pluginActionStatus.ok ? 'text-zinc-600' : 'text-zinc-600'" :title="pluginActionStatusMessage" role="status" aria-live="polite">
                 {{ pluginActionStatusMessage }}
               </span>
             </template>
             <template v-else-if="testResult">
-              <span class="block min-w-0 flex-1 basis-0 truncate text-xs" :class="testResult.ok ? 'text-green-600' : 'text-red-600'" :title="testResultMessage" role="status" aria-live="polite">
+              <span class="block min-w-0 flex-1 basis-0 truncate text-xs" :class="testResult.ok ? 'text-zinc-600' : 'text-zinc-600'" :title="testResultMessage" role="status" aria-live="polite">
                 {{ testResultMessage }}
               </span>
               <Button v-if="!testResult.ok" variant="ghost" size="icon-xs" class="h-5 w-5 shrink-0" :title="testResultCopied ? t('grid.copied') : t('connection.copyTestResult')" :aria-label="testResultCopied ? t('grid.copied') : t('connection.copyTestResult')" @click="copyTestResult">
@@ -10889,7 +10889,7 @@ function openExternalUrl(url: string) {
 
         <TabsContent v-if="canDetectNacosNamespaceAccess" value="manual" class="m-0 grid gap-3">
           <p class="text-xs leading-5 text-muted-foreground">{{ t("nacos.nacosNamespaceAccessScopeHint") }}</p>
-          <div v-if="isNacosV3AdminPlane" class="flex gap-2 rounded-md border border-amber-500/30 bg-amber-500/5 px-3 py-2.5 text-xs leading-5 text-amber-800 dark:text-amber-300">
+          <div v-if="isNacosV3AdminPlane" class="flex gap-2 rounded-md border border-zinc-500/30 bg-zinc-500/5 px-3 py-2.5 text-xs leading-5 text-zinc-800 dark:text-zinc-300">
             <ShieldAlert class="mt-0.5 h-4 w-4 shrink-0" />
             <p>{{ t("nacos.nacosV3AdminManagedNamespacesHint") }}</p>
           </div>

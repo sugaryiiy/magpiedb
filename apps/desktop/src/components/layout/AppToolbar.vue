@@ -489,7 +489,7 @@ onBeforeUnmount(() => {
   line-height: 11px;
 }
 .workbench-count.is-awaiting {
-  background: #b87922;
+  background: #525252;
   color: white;
 }
 .workbench-toolbar :is(button, a):focus-visible {

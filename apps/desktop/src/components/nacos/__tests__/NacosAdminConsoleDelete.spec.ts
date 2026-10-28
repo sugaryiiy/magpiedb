@@ -302,7 +302,7 @@ describe("NacosAdminConsole service instance status", () => {
 
     const statuses = Array.from(host!.querySelectorAll<HTMLElement>("[data-testid=nacos-service-instance-status]"));
     expect(statuses.map((status) => status.textContent?.trim())).toEqual(["All healthy · 3/3", "Partially healthy · 2/3", "No healthy instances · 0/3", "No instances"]);
-    expect(statuses.map((status) => status.className)).toEqual([expect.stringContaining("text-emerald-700"), expect.stringContaining("text-amber-700"), expect.stringContaining("text-destructive"), expect.stringContaining("text-muted-foreground")]);
+    expect(statuses.map((status) => status.className)).toEqual([expect.stringContaining("text-zinc-700"), expect.stringContaining("text-zinc-700"), expect.stringContaining("text-destructive"), expect.stringContaining("text-muted-foreground")]);
   });
 
   it("uses Online and Offline in actions and confirmations without changing the enabled patch", async () => {

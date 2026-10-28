@@ -219,7 +219,7 @@ function confirmRemoveChild() {
   display: flex;
   align-items: center;
   min-height: 34px;
-  color: #7c3aed;
+  color: #171717;
   font-weight: 600;
 }
 
@@ -287,20 +287,20 @@ function confirmRemoveChild() {
 }
 
 .json-edit-value.is-string {
-  color: #15803d;
+  color: #404040;
 }
 
 .json-edit-value.is-number {
-  color: #b45309;
+  color: #525252;
 }
 
 .json-edit-value.is-boolean {
-  color: #2563eb;
+  color: #737373;
   font-weight: 600;
 }
 
 .json-edit-value.is-null {
-  color: #64748b;
+  color: #8a8a8a;
   font-style: italic;
 }
 
@@ -360,22 +360,22 @@ function confirmRemoveChild() {
 }
 
 :global(.dark) .json-edit-key {
-  color: #c4b5fd;
+  color: #e5e5e5;
 }
 
 :global(.dark) .json-edit-value.is-string {
-  color: #86efac;
+  color: #d4d4d4;
 }
 
 :global(.dark) .json-edit-value.is-number {
-  color: #fbbf24;
+  color: #c2c2c2;
 }
 
 :global(.dark) .json-edit-value.is-boolean {
-  color: #93c5fd;
+  color: #b0b0b0;
 }
 
 :global(.dark) .json-edit-value.is-null {
-  color: #94a3b8;
+  color: #a3a3a3;
 }
 </style>

@@ -70,9 +70,9 @@ const selectedDocumentText = computed(() => (selectedDocument.value ? stringifyJ
 
 const statusClass = computed(() => {
   if (props.status >= 500) return "border-destructive/40 bg-destructive/10 text-destructive";
-  if (props.status >= 400) return "border-amber-500/40 bg-amber-500/10 text-amber-700 dark:text-amber-300";
-  if (props.status >= 300) return "border-sky-500/40 bg-sky-500/10 text-sky-700 dark:text-sky-300";
-  return "border-emerald-500/40 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300";
+  if (props.status >= 400) return "border-zinc-500/40 bg-zinc-500/10 text-zinc-700 dark:text-zinc-300";
+  if (props.status >= 300) return "border-zinc-500/40 bg-zinc-500/10 text-zinc-700 dark:text-zinc-300";
+  return "border-zinc-500/40 bg-zinc-500/10 text-zinc-700 dark:text-zinc-300";
 });
 
 const statusLabel = computed(() => `HTTP ${props.status}`);
@@ -291,23 +291,23 @@ defineExpose({ focusSearch });
 <style scoped>
 :deep(.document-search-match) {
   border-radius: 2px;
-  background: #fde68a;
+  background: #e5e5e5;
   color: inherit;
   padding: 0;
 }
 
 :deep(.document-search-match-active) {
-  background: #f59e0b;
-  color: #111827;
-  outline: 1px solid #d97706;
+  background: #a3a3a3;
+  color: #171717;
+  outline: 1px solid #737373;
 }
 
 :global(.dark) :deep(.document-search-match) {
-  background: #854d0e;
+  background: #525252;
 }
 
 :global(.dark) :deep(.document-search-match-active) {
-  background: #fbbf24;
-  color: #111827;
+  background: #d4d4d4;
+  color: #171717;
 }
 </style>

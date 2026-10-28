@@ -149,7 +149,7 @@ const assetSrc = computed(() => {
     :class="{ 'database-logo-light': useLightIconInDarkMode, 'database-logo-inceptor-dark': brightenInceptorInDarkMode, 'database-logo-impala': normalizedType === 'impala', 'database-logo-solr': normalizedType === 'solr' }"
     aria-hidden="true"
   />
-  <Database v-else class="text-blue-400" />
+  <Database v-else class="text-zinc-400" />
 </template>
 
 <style scoped>

@@ -23,7 +23,7 @@ const labelKey = computed(() => (status.value === "source-loading" ? "common.loa
 </script>
 
 <template>
-  <span v-if="status" data-tab-execution-status role="status" class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center" :class="status === 'cancelling' ? 'text-amber-600 dark:text-amber-400' : 'text-blue-600 dark:text-blue-400'" :aria-label="t(labelKey)" :title="t(labelKey)">
+  <span v-if="status" data-tab-execution-status role="status" class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center" :class="status === 'cancelling' ? 'text-zinc-600 dark:text-zinc-400' : 'text-zinc-600 dark:text-zinc-400'" :aria-label="t(labelKey)" :title="t(labelKey)">
     <Loader2 aria-hidden="true" class="h-3.5 w-3.5 animate-spin motion-reduce:animate-none" />
   </span>
   <slot v-else />

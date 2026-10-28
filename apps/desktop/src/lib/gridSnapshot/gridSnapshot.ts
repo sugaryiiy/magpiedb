@@ -49,17 +49,17 @@ const GRID_SNAPSHOT_BAR_BACKGROUND: Record<AppThemeAppearance, string> = {
 
 const GRID_SNAPSHOT_TEXT: Record<AppThemeAppearance, string> = {
   light: "#24292f",
-  dark: "#e6edf3",
+  dark: "#e5e5e5",
 };
 
 const GRID_SNAPSHOT_MUTED: Record<AppThemeAppearance, string> = {
-  light: "#57606a",
-  dark: "#8b949e",
+  light: "#525252",
+  dark: "#8a8a8a",
 };
 
 const GRID_SNAPSHOT_BORDER: Record<AppThemeAppearance, string> = {
-  light: "#d0d7de",
-  dark: "#30363d",
+  light: "#d4d4d4",
+  dark: "#2e2e2e",
 };
 
 const GRID_SNAPSHOT_HEADER: Record<AppThemeAppearance, string> = {
@@ -77,7 +77,7 @@ const GRID_SNAPSHOT_ROW_NUMBER: Record<AppThemeAppearance, string> = {
   dark: "rgb(35, 37, 42)",
 };
 
-const TRAFFIC_LIGHT_COLORS = ["#ff5f57", "#febc2e", "#28c840"] as const;
+const TRAFFIC_LIGHT_COLORS = ["#a3a3a3", "#c2c2c2", "#d4d4d4"] as const;
 
 export const GRID_SNAPSHOT_CSS = `
 .dbx-grid-snapshot,

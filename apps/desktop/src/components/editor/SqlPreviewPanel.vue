@@ -160,7 +160,7 @@ onMounted(() => {
       <span class="flex-1 min-w-0" />
       <Tooltip>
         <TooltipTrigger as-child>
-          <Button variant="ghost" size="icon" class="h-6 w-6" :class="isFormatted ? 'text-amber-600 bg-amber-500/10' : 'text-amber-600/60 hover:text-amber-700 hover:bg-amber-500/10'" :disabled="formatting || !hasSql" :aria-label="t('toolbar.formatSql')" @click="toggleFormat">
+          <Button variant="ghost" size="icon" class="h-6 w-6" :class="isFormatted ? 'text-zinc-600 bg-zinc-500/10' : 'text-zinc-600/60 hover:text-zinc-700 hover:bg-zinc-500/10'" :disabled="formatting || !hasSql" :aria-label="t('toolbar.formatSql')" @click="toggleFormat">
             <AlignLeft class="h-3.5 w-3.5" />
           </Button>
         </TooltipTrigger>

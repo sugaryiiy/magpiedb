@@ -74,7 +74,7 @@ async function copyCode(): Promise<void> {
         <div class="flex items-center justify-between gap-2">
           <Label for="multi-db-danger-code" class="text-xs leading-5 text-muted-foreground">{{ t("multiDbExecute.dangerConfirmCodePrompt") }}</Label>
           <Button variant="ghost" size="icon-xs" class="h-6 w-6 text-muted-foreground" :title="t('multiDbExecute.dangerConfirmCodeCopy')" data-multi-db-danger-code-copy @click="copyCode">
-            <Check v-if="codeCopied" class="h-3.5 w-3.5 text-emerald-600" />
+            <Check v-if="codeCopied" class="h-3.5 w-3.5 text-zinc-600" />
             <Copy v-else class="h-3.5 w-3.5" />
           </Button>
         </div>

@@ -27,16 +27,16 @@ const operationIcons: Record<DiffOperationType, any> = {
 };
 
 const operationColors: Record<DiffOperationType, string> = {
-  modify: "text-blue-500",
-  create: "text-green-500",
-  delete: "text-red-500",
+  modify: "text-zinc-500",
+  create: "text-zinc-500",
+  delete: "text-zinc-500",
   none: "text-muted-foreground",
 };
 
 const operationBgColors: Record<DiffOperationType, string> = {
-  modify: "bg-blue-500/10 border-blue-500/20",
-  create: "bg-green-500/10 border-green-500/20",
-  delete: "bg-red-500/10 border-red-500/20",
+  modify: "bg-zinc-500/10 border-zinc-500/20",
+  create: "bg-zinc-500/10 border-zinc-500/20",
+  delete: "bg-zinc-500/10 border-zinc-500/20",
   none: "bg-muted/30 border-muted",
 };
 
@@ -72,25 +72,25 @@ function getObjectIcon(kind: DiffObjectKind) {
 function getObjectIconColor(kind: DiffObjectKind): string {
   switch (kind) {
     case "table":
-      return "text-amber-500";
+      return "text-zinc-500";
     case "view":
-      return "text-cyan-500";
+      return "text-zinc-500";
     case "function":
-      return "text-purple-500";
+      return "text-zinc-500";
     case "sequence":
-      return "text-orange-500";
+      return "text-zinc-500";
     case "rule":
-      return "text-pink-500";
+      return "text-zinc-500";
     case "owner":
-      return "text-indigo-500";
+      return "text-zinc-500";
     case "column":
-      return "text-sky-500";
+      return "text-zinc-500";
     case "index":
-      return "text-teal-500";
+      return "text-zinc-500";
     case "foreignKey":
-      return "text-lime-500";
+      return "text-zinc-500";
     case "trigger":
-      return "text-rose-500";
+      return "text-zinc-500";
     case "tableOption":
       return "text-muted-foreground";
     default:
@@ -174,7 +174,7 @@ function targetObjectName(object: SchemaDiffObject): string {
               <span v-else class="w-3.5 shrink-0" />
               <input type="checkbox" class="accent-primary shrink-0" :checked="schemaDiffObjectSelectionState(object).checked" :indeterminate="schemaDiffObjectSelectionState(object).indeterminate" @click.stop @change="onObjectCheckboxChange(object, $event)" />
               <component :is="getObjectIcon(object.objectKind)" class="w-3.5 h-3.5 shrink-0" :class="getObjectIconColor(object.objectKind)" />
-              <span class="text-xs truncate" :class="object.operationType === 'create' ? 'text-green-500' : ''">{{ sourceObjectName(object) }}</span>
+              <span class="text-xs truncate" :class="object.operationType === 'create' ? 'text-zinc-500' : ''">{{ sourceObjectName(object) }}</span>
               <span v-if="object.children?.length" class="text-[10px] text-muted-foreground shrink-0">{{ schemaDiffSelectionTargets(object).filter((child) => child.selected).length }}/{{ schemaDiffSelectionTargets(object).length }}</span>
             </div>
             <div v-else />
@@ -199,7 +199,7 @@ function targetObjectName(object: SchemaDiffObject): string {
                 @change="onObjectCheckboxChange(object, $event)"
               />
               <component :is="getObjectIcon(object.objectKind)" class="w-3.5 h-3.5 shrink-0" :class="getObjectIconColor(object.objectKind)" />
-              <span class="text-xs truncate" :class="object.operationType === 'delete' ? 'text-red-500 line-through' : ''">{{ targetObjectName(object) }}</span>
+              <span class="text-xs truncate" :class="object.operationType === 'delete' ? 'text-zinc-500 line-through' : ''">{{ targetObjectName(object) }}</span>
               <span v-if="object.children?.length" class="text-[10px] text-muted-foreground shrink-0">{{ schemaDiffSelectionTargets(object).filter((child) => child.selected).length }}/{{ schemaDiffSelectionTargets(object).length }}</span>
             </div>
             <div v-else />
@@ -219,7 +219,7 @@ function targetObjectName(object: SchemaDiffObject): string {
               <div v-if="child.operationType !== 'create'" class="flex items-center gap-2 min-w-0 pl-16">
                 <input v-if="child.operationType === 'delete'" type="checkbox" class="accent-primary shrink-0" :checked="child.selected" @click.stop @change="onObjectCheckboxChange(child, $event)" />
                 <component :is="getObjectIcon(child.objectKind)" class="w-3.5 h-3.5 shrink-0" :class="getObjectIconColor(child.objectKind)" />
-                <span class="text-xs truncate" :class="child.operationType === 'delete' ? 'text-red-500 line-through' : ''">{{ targetObjectName(child) }}</span>
+                <span class="text-xs truncate" :class="child.operationType === 'delete' ? 'text-zinc-500 line-through' : ''">{{ targetObjectName(child) }}</span>
               </div>
               <div v-else />
             </div>

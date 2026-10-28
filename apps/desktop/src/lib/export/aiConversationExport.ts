@@ -123,13 +123,13 @@ article.user { background: #fafaf9; }
 article .role { margin: 0 0 0.25rem; color: #78716c; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
 article .content > :first-child { margin-top: 0; }
 article .content > :last-child { margin-bottom: 0; }
-article .failed { margin: 0.75rem 0 0; color: #dc2626; font-size: 0.85rem; font-weight: 600; }
+article .failed { margin: 0.75rem 0 0; color: #111111; font-size: 0.85rem; font-weight: 600; }
 pre { background: #f5f5f4; border: 1px solid #e7e5e4; border-radius: 6px; padding: 0.75rem; overflow: auto; font-size: 0.8rem; }
 code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 :not(pre) > code { background: #f5f5f4; border-radius: 4px; padding: 0.1rem 0.3rem; font-size: 0.85em; }
 table { border-collapse: collapse; width: 100%; margin: 0.5rem 0; font-size: 0.85rem; }
 th, td { border: 1px solid #e7e5e4; padding: 0.35rem 0.5rem; text-align: left; }
 .ai-markdown-table-wrap { overflow-x: auto; }
-a { color: #2563eb; }
+a { color: #262626; }
 blockquote { margin: 0.5rem 0; padding: 0.25rem 0.75rem; border-left: 3px solid #e7e5e4; color: #57534e; }
 `.trim();

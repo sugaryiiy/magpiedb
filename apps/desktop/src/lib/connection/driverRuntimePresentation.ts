@@ -24,11 +24,11 @@ export function formatRuntimeUptime(seconds: number | null | undefined): string 
 export function runtimeStatusClass(status: DriverRuntimeStatus): string {
   switch (status) {
     case "running":
-      return "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400";
+      return "bg-zinc-500/10 text-zinc-700 dark:text-zinc-400";
     case "error":
       return "bg-destructive/10 text-destructive";
     case "unknown":
-      return "bg-amber-500/10 text-amber-700 dark:text-amber-400";
+      return "bg-zinc-500/10 text-zinc-700 dark:text-zinc-400";
     default:
       return "bg-muted text-muted-foreground";
   }
@@ -37,11 +37,11 @@ export function runtimeStatusClass(status: DriverRuntimeStatus): string {
 export function runtimeStatusDotClass(status: DriverRuntimeStatus): string {
   switch (status) {
     case "running":
-      return "bg-emerald-500";
+      return "bg-zinc-500";
     case "error":
       return "bg-destructive";
     case "unknown":
-      return "bg-amber-500";
+      return "bg-zinc-500";
     default:
       return "bg-muted-foreground/40";
   }
@@ -52,8 +52,8 @@ export function runtimeHealthClass(health: DriverRuntimeHealth): string {
     case "error":
       return "text-destructive";
     case "warning":
-      return "text-amber-700 dark:text-amber-400";
+      return "text-zinc-700 dark:text-zinc-400";
     default:
-      return "text-green-700 dark:text-green-400";
+      return "text-zinc-700 dark:text-zinc-400";
   }
 }

@@ -91,7 +91,7 @@ export function applyHoverSearchHighlights(container: HTMLElement, matches: Hove
       mark.setAttribute(MATCH_INDEX_ATTRIBUTE, String(matchIndex));
       if (matchIndex === 0) mark.setAttribute(ACTIVE_ATTRIBUTE, "true");
       mark.className =
-        "rounded-[2px] bg-yellow-300/70 px-px text-inherit dark:bg-yellow-500/40 data-[sql-hover-search-active=true]:bg-yellow-400/90 data-[sql-hover-search-active=true]:outline data-[sql-hover-search-active=true]:outline-1 data-[sql-hover-search-active=true]:outline-yellow-600 dark:data-[sql-hover-search-active=true]:bg-yellow-500/70 dark:data-[sql-hover-search-active=true]:outline-yellow-400";
+        "rounded-[2px] bg-zinc-300/70 px-px text-inherit dark:bg-zinc-500/40 data-[sql-hover-search-active=true]:bg-zinc-400/90 data-[sql-hover-search-active=true]:outline data-[sql-hover-search-active=true]:outline-1 data-[sql-hover-search-active=true]:outline-zinc-600 dark:data-[sql-hover-search-active=true]:bg-zinc-500/70 dark:data-[sql-hover-search-active=true]:outline-zinc-400";
       mark.textContent = data.slice(from, to);
       fragment.appendChild(mark);
       marks.push(mark);

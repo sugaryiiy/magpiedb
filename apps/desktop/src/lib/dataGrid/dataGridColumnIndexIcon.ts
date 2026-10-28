@@ -54,11 +54,11 @@ function columnIndexPriority(kind: ColumnIndexKind): number {
 export function columnIndexColorClass(kind: ColumnIndexKind): string {
   switch (kind) {
     case "primary":
-      return "text-orange-500";
+      return "text-zinc-500";
     case "unique":
-      return "text-red-500";
+      return "text-zinc-500";
     case "index":
-      return "text-green-500";
+      return "text-zinc-500";
     default:
       return "";
   }

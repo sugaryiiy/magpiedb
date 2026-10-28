@@ -613,7 +613,7 @@ function clearContextTarget() {
               >
                 <ChevronRight v-if="folder.collapsed" class="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
                 <ChevronDown v-else class="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
-                <FolderOpen class="h-3.5 w-3.5 shrink-0 text-amber-500" />
+                <FolderOpen class="h-3.5 w-3.5 shrink-0 text-zinc-500" />
                 <span class="truncate shrink-0" :title="folder.path">{{ folderName(folder.path) }}</span>
                 <span class="truncate flex-1 text-[10px] text-muted-foreground/50" :title="folder.path">{{ folder.path }}</span>
                 <LightTooltip :text="t('sqlFileTree.refreshFolder')" side="bottom" :delay="0" :close-delay="0" nowrap>
@@ -666,12 +666,12 @@ function clearContextTarget() {
                     <template v-if="entry.is_dir">
                       <ChevronRight v-if="!folder.expanded.has(entry.path)" class="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
                       <ChevronDown v-else class="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
-                      <FolderClosed v-if="!folder.expanded.has(entry.path)" class="h-4 w-4 shrink-0 text-amber-500" />
-                      <FolderOpen v-else class="h-4 w-4 shrink-0 text-amber-500" />
+                      <FolderClosed v-if="!folder.expanded.has(entry.path)" class="h-4 w-4 shrink-0 text-zinc-500" />
+                      <FolderOpen v-else class="h-4 w-4 shrink-0 text-zinc-500" />
                     </template>
                     <template v-else>
                       <span class="w-3.5 shrink-0" />
-                      <FileCode class="h-4 w-4 shrink-0 text-blue-500" />
+                      <FileCode class="h-4 w-4 shrink-0 text-zinc-500" />
                     </template>
                     <span class="truncate ml-1 flex-1">{{ entry.name }}</span>
                     <template v-if="entry.is_dir">

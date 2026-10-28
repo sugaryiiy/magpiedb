@@ -349,28 +349,28 @@ watch(
 }
 
 .type-badge[data-type="Pub"] {
-  border-color: color-mix(in srgb, var(--color-primary, #3b82f6) 40%, transparent);
-  background: color-mix(in srgb, var(--color-primary, #3b82f6) 12%, transparent);
-  color: var(--color-primary, #2563eb);
+  border-color: color-mix(in srgb, var(--color-primary, #262626) 40%, transparent);
+  background: color-mix(in srgb, var(--color-primary, #262626) 12%, transparent);
+  color: var(--color-primary, #262626);
 }
 
 .type-badge[data-type="SubBefore"],
 .type-badge[data-type="SubAfter"] {
-  border-color: color-mix(in srgb, var(--color-info, #0ea5e9) 40%, transparent);
-  background: color-mix(in srgb, var(--color-info, #0ea5e9) 12%, transparent);
-  color: var(--color-info, #0284c7);
+  border-color: color-mix(in srgb, var(--color-info, #666666) 40%, transparent);
+  background: color-mix(in srgb, var(--color-info, #666666) 12%, transparent);
+  color: var(--color-info, #525252);
 }
 
 .status-success {
-  border: 1px solid color-mix(in srgb, var(--color-success, #22c55e) 40%, transparent);
-  background: color-mix(in srgb, var(--color-success, #22c55e) 12%, transparent);
-  color: var(--color-success, #16a34a);
+  border: 1px solid color-mix(in srgb, var(--color-success, #404040) 40%, transparent);
+  background: color-mix(in srgb, var(--color-success, #404040) 12%, transparent);
+  color: var(--color-success, #404040);
 }
 
 .status-fail {
-  border: 1px solid color-mix(in srgb, var(--color-error, #ef4444) 40%, transparent);
-  background: color-mix(in srgb, var(--color-error, #ef4444) 12%, transparent);
-  color: var(--color-error, #dc2626);
+  border: 1px solid color-mix(in srgb, var(--color-error, #111111) 40%, transparent);
+  background: color-mix(in srgb, var(--color-error, #111111) 12%, transparent);
+  color: var(--color-error, #111111);
 }
 
 .message-payload {

@@ -648,10 +648,10 @@ onBeforeUnmount(() => {
     </header>
 
     <div v-if="loadError" class="rounded-md border border-destructive/40 bg-destructive/5 p-3 text-sm text-destructive">{{ loadError }}</div>
-    <div v-else-if="databaseContextUnknown" class="rounded-md border border-amber-500/40 bg-amber-500/5 p-3 text-sm text-amber-800 dark:text-amber-200">{{ t("xuguUserPermissions.databaseContextUnknown") }}</div>
-    <div v-else-if="databaseListLimited" class="rounded-md border border-amber-500/40 bg-amber-500/5 p-3 text-sm text-amber-800 dark:text-amber-200">{{ t("xuguUserPermissions.databaseListLimited") }}</div>
-    <div v-else-if="!dbaCatalogAvailable" class="flex items-start gap-2 rounded-md border border-amber-500/40 bg-amber-500/5 p-3 text-sm">
-      <AlertTriangle class="mt-0.5 size-4 shrink-0 text-amber-600" />
+    <div v-else-if="databaseContextUnknown" class="rounded-md border border-zinc-500/40 bg-zinc-500/5 p-3 text-sm text-zinc-800 dark:text-zinc-200">{{ t("xuguUserPermissions.databaseContextUnknown") }}</div>
+    <div v-else-if="databaseListLimited" class="rounded-md border border-zinc-500/40 bg-zinc-500/5 p-3 text-sm text-zinc-800 dark:text-zinc-200">{{ t("xuguUserPermissions.databaseListLimited") }}</div>
+    <div v-else-if="!dbaCatalogAvailable" class="flex items-start gap-2 rounded-md border border-zinc-500/40 bg-zinc-500/5 p-3 text-sm">
+      <AlertTriangle class="mt-0.5 size-4 shrink-0 text-zinc-600" />
       <span>{{ t("xuguUserPermissions.limitedCatalog") }}</span>
     </div>
 
@@ -726,7 +726,7 @@ onBeforeUnmount(() => {
           </div>
           <div v-if="aclError" class="p-4 text-sm text-destructive">{{ aclError }}</div>
           <div v-else-if="loadingAcl" class="flex items-center gap-2 p-4 text-sm text-muted-foreground"><Loader2 class="size-4 animate-spin" />{{ t("xuguUserPermissions.loading") }}</div>
-          <div v-else-if="!aclCatalogAvailable" class="border-b px-4 py-2 text-xs text-amber-700 dark:text-amber-300">{{ t("xuguUserPermissions.limitedAcl") }}</div>
+          <div v-else-if="!aclCatalogAvailable" class="border-b px-4 py-2 text-xs text-zinc-700 dark:text-zinc-300">{{ t("xuguUserPermissions.limitedAcl") }}</div>
           <div v-else-if="permissionRows.length === 0" class="p-4 text-sm text-muted-foreground">{{ t("xuguUserPermissions.noGrants") }}</div>
           <div v-else class="max-h-72 overflow-auto">
             <table class="w-full text-left text-sm">

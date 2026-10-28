@@ -39,12 +39,12 @@ export interface DataGridPaintTheme {
 }
 
 export const DATA_GRID_DARK_SEARCH_COLORS = {
-  match: "rgb(72, 57, 8)",
-  current: "rgb(116, 87, 0)",
-  currentBorder: "rgb(239, 177, 0)",
+  match: "rgb(96, 96, 96)",
+  current: "rgb(115, 115, 115)",
+  currentBorder: "rgb(229, 229, 229)",
 } as const;
-export const DATA_GRID_LIGHT_ACTIVE_ROW_BG = "rgb(244, 248, 255)";
-export const DATA_GRID_DARK_ACTIVE_ROW_BG = "rgb(25, 34, 46)";
+export const DATA_GRID_LIGHT_ACTIVE_ROW_BG = "rgb(245, 245, 245)";
+export const DATA_GRID_DARK_ACTIVE_ROW_BG = "rgb(38, 38, 38)";
 // 十字行/列底色：混入背景的实色（color-mix(in srgb, var(--primary) P%, var(--background))），
 // 而非透明叠加——铺在浅底上的半透明色会被冲淡到几乎不可见，对比度不足正 jira #7276 的核心痛点。
 // 行/列占 primary 34%/50%（CSS 方向：P% primary + 其余 background）；现有 28%/40% 在浅色
@@ -52,19 +52,19 @@ export const DATA_GRID_DARK_ACTIVE_ROW_BG = "rgb(25, 34, 46)";
 // 填充与描边优先，故不会被十字高亮覆盖。
 // 常量按默认主题 soft-light/dark（primary/background）混合得出，作为 var 未设置 / 旧浏览器
 // 降级实色；color-mix 支持时网格组件的 CSS 变量会用它重新混成 —— 两处取值一致。
-export const DATA_GRID_LIGHT_CROSSHAIR_ROW_BG = "rgb(174, 195, 224)";
-export const DATA_GRID_LIGHT_CROSSHAIR_COL_BG = "rgb(142, 170, 210)";
-export const DATA_GRID_DARK_CROSSHAIR_ROW_BG = "rgb(75, 84, 98)";
-export const DATA_GRID_DARK_CROSSHAIR_COL_BG = "rgb(98, 111, 130)";
+export const DATA_GRID_LIGHT_CROSSHAIR_ROW_BG = "rgb(204, 204, 204)";
+export const DATA_GRID_LIGHT_CROSSHAIR_COL_BG = "rgb(178, 178, 178)";
+export const DATA_GRID_DARK_CROSSHAIR_ROW_BG = "rgb(82, 82, 82)";
+export const DATA_GRID_DARK_CROSSHAIR_COL_BG = "rgb(102, 102, 102)";
 export const DATA_GRID_LIGHT_STRIPED_ROW_BG = "rgb(240, 240, 240)";
 export const DATA_GRID_DARK_STRIPED_ROW_BG = "rgb(40, 40, 43)";
 export const DATA_GRID_DARK_ROW_NUMBER_BG = "rgb(35, 37, 42)";
-const DATA_GRID_DARK_ROW_NUMBER_NEW_BG = "rgb(33, 45, 40)";
-const DATA_GRID_DARK_ROW_NUMBER_EDITED_BG = "rgb(48, 41, 28)";
-const DATA_GRID_DARK_ROW_NUMBER_DELETED_BG = "rgb(55, 31, 32)";
-const DATA_GRID_LIGHT_ROW_NUMBER_NEW_BG = "rgb(219, 244, 233)";
-const DATA_GRID_LIGHT_ROW_NUMBER_EDITED_BG = "rgb(253, 241, 219)";
-const DATA_GRID_LIGHT_ROW_NUMBER_DELETED_BG = "rgb(255, 244, 244)";
+const DATA_GRID_DARK_ROW_NUMBER_NEW_BG = "rgb(51, 51, 55)";
+const DATA_GRID_DARK_ROW_NUMBER_EDITED_BG = "rgb(58, 58, 58)";
+const DATA_GRID_DARK_ROW_NUMBER_DELETED_BG = "rgb(64, 64, 64)";
+const DATA_GRID_LIGHT_ROW_NUMBER_NEW_BG = "rgb(243, 243, 243)";
+const DATA_GRID_LIGHT_ROW_NUMBER_EDITED_BG = "rgb(240, 240, 240)";
+const DATA_GRID_LIGHT_ROW_NUMBER_DELETED_BG = "rgb(235, 235, 235)";
 const CANVAS_SAFE_COLOR_RE = /^(#|rgb\(|rgba\(|hsl\(|hsla\()/i;
 const ADVANCED_COLOR_RE = /^(oklch\(|oklab\(|lab\(|lch\(|color\(|color-mix\()/i;
 let browserColorProbe: HTMLElement | null = null;
@@ -271,27 +271,27 @@ export function resolveDataGridPaintTheme(options: { getVar: (name: string) => s
   const activeSurface = dataGridActiveRowBackground(isDark);
   const rowMuted = isDark ? DATA_GRID_DARK_STRIPED_ROW_BG : DATA_GRID_LIGHT_STRIPED_ROW_BG;
   const rowNew = isDark ? "rgb(51, 51, 55)" : "rgb(243, 243, 243)";
-  const rowDeleted = isDark ? "rgb(55, 31, 32)" : "rgb(255, 244, 244)";
+  const rowDeleted = isDark ? "rgb(64, 64, 64)" : "rgb(235, 235, 235)";
   const cellActive = activeSurface;
   // 浅/深都读 CSS 变量（--data-grid-cell-crosshair-*-bg 从 --primary 派生），保证 DOM 与
   // Canvas 在不同主题/深浅模式下取到同一色源；固定常量仅作 var 未设置时的降级默认。
   const cellCrosshairRow = paintToken(getVar, "--data-grid-cell-crosshair-row-bg", isDark ? DATA_GRID_DARK_CROSSHAIR_ROW_BG : DATA_GRID_LIGHT_CROSSHAIR_ROW_BG);
   const cellCrosshairCol = paintToken(getVar, "--data-grid-cell-crosshair-col-bg", isDark ? DATA_GRID_DARK_CROSSHAIR_COL_BG : DATA_GRID_LIGHT_CROSSHAIR_COL_BG);
-  const cellDirty = isDark ? "rgb(94, 75, 26)" : "rgb(255, 248, 230)";
-  const cellSelected = isDark ? "rgb(30, 64, 100)" : "rgb(179, 208, 254)";
-  const cellSelectedDirty = isDark ? "rgb(76, 66, 38)" : "rgb(235, 224, 184)";
-  const cellSelectedBorder = isDark ? "rgb(96, 165, 250)" : "rgb(37, 99, 235)";
-  const cellSelectedSingle = isDark ? "rgb(30, 64, 96)" : "rgb(191, 219, 254)";
+  const cellDirty = isDark ? "rgb(64, 64, 64)" : "rgb(240, 240, 240)";
+  const cellSelected = isDark ? "rgb(82, 82, 82)" : "rgb(212, 212, 212)";
+  const cellSelectedDirty = isDark ? "rgb(100, 100, 100)" : "rgb(206, 206, 206)";
+  const cellSelectedBorder = isDark ? "rgb(229, 229, 229)" : "rgb(23, 23, 23)";
+  const cellSelectedSingle = isDark ? "rgb(74, 74, 74)" : "rgb(224, 224, 224)";
   const cellHover = accent;
-  const cellSearch = isDark ? DATA_GRID_DARK_SEARCH_COLORS.match : "rgb(253, 245, 184)";
-  const cellCurrentSearch = isDark ? DATA_GRID_DARK_SEARCH_COLORS.current : "rgba(253, 224, 71, 0.52)";
-  const cellCurrentSearchBorder = isDark ? DATA_GRID_DARK_SEARCH_COLORS.currentBorder : "rgba(234, 179, 8, 0.82)";
+  const cellSearch = isDark ? DATA_GRID_DARK_SEARCH_COLORS.match : "rgb(229, 229, 229)";
+  const cellCurrentSearch = isDark ? DATA_GRID_DARK_SEARCH_COLORS.current : "rgba(163, 163, 163, 0.55)";
+  const cellCurrentSearchBorder = isDark ? DATA_GRID_DARK_SEARCH_COLORS.currentBorder : "rgba(23, 23, 23, 0.85)";
   const rowNumberDefault = isDark ? DATA_GRID_DARK_ROW_NUMBER_BG : paintToken(getVar, "--data-grid-row-number-default-bg", "rgb(255, 255, 255)");
   const rowNumberNew = isDark ? DATA_GRID_DARK_ROW_NUMBER_NEW_BG : DATA_GRID_LIGHT_ROW_NUMBER_NEW_BG;
   const rowNumberEdited = isDark ? DATA_GRID_DARK_ROW_NUMBER_EDITED_BG : DATA_GRID_LIGHT_ROW_NUMBER_EDITED_BG;
   const rowNumberDeleted = isDark ? DATA_GRID_DARK_ROW_NUMBER_DELETED_BG : DATA_GRID_LIGHT_ROW_NUMBER_DELETED_BG;
   const rowNumberActive = activeSurface;
-  const rowNumberSelected = isDark ? "rgb(30, 64, 96)" : "rgb(191, 219, 254)";
+  const rowNumberSelected = isDark ? "rgb(74, 74, 74)" : "rgb(224, 224, 224)";
   const typeDefaults = defaultDataGridTypeColors(isDark);
   const typeForegrounds = { unknown: foreground } as DataGridTypeForegrounds;
   for (const key of DATA_GRID_TYPE_COLOR_KEYS) {
@@ -327,8 +327,9 @@ export function resolveDataGridPaintTheme(options: { getVar: (name: string) => s
     rowNumberActive: isDark ? rowNumberActive : paintToken(getVar, "--data-grid-row-number-active-bg", rowNumberActive),
     rowNumberSelected: paintToken(getVar, "--data-grid-row-number-selected-bg", rowNumberSelected),
     rowNumberTextClean: mutedForeground,
-    rowNumberTextNew: isDark ? "rgb(94, 233, 181)" : "rgb(0, 122, 85)",
-    rowNumberTextEdited: isDark ? "rgb(255, 210, 48)" : "rgb(187, 77, 0)",
+    // Blueprint: new/edited gutter numbers differ by gray step, edited darker (light) / lighter (dark).
+    rowNumberTextNew: isDark ? "rgb(163, 163, 163)" : "rgb(115, 115, 115)",
+    rowNumberTextEdited: isDark ? "rgb(229, 229, 229)" : "rgb(38, 38, 38)",
     rowNumberTextDeleted: destructive,
     typeForegrounds,
   };

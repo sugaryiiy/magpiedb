@@ -4,53 +4,55 @@
  * portaled under body; visual rules remain scoped to the workbench. */
 :root,
 .dbx-workbench {
-  --workbench-chrome: #f7f8fa;
-  --workbench-sidebar: #f2f4f7;
-  --workbench-rail: #f2f4f7;
-  --workbench-status: #f7f8fa;
+  /* Blueprint workbench: paper surfaces, ink text, gray-step accents. */
+  --workbench-chrome: #fafafa;
+  --workbench-sidebar: #f5f5f5;
+  --workbench-rail: #f5f5f5;
+  --workbench-status: #fafafa;
   --workbench-surface: var(--background);
-  --workbench-border: #e0e4ea;
-  --workbench-grid-line: #eaedf2;
-  --workbench-text: #263244;
-  --workbench-secondary: #4a5970;
-  --workbench-muted: #627087;
+  --workbench-border: #e5e5e5;
+  --workbench-grid-line: #eeeeee;
+  --workbench-text: #171717;
+  --workbench-secondary: #525252;
+  --workbench-muted: #737373;
   --workbench-font-ui: var(--font-sans, system-ui, sans-serif);
   --workbench-font-mono: var(--font-mono, ui-monospace, Menlo, monospace);
   --workbench-font-size-ui: 13px;
   --workbench-font-size-caption: 11px;
   --workbench-font-weight-heading: 500;
-  --workbench-accent: #3561d9;
-  --workbench-accent-soft: #e6edfc;
-  --workbench-hover: #e7ebf1;
-  --workbench-selection: #e6edfc;
-  --workbench-selection-strong: #ccddfa;
-  --workbench-header: #f7f8fa;
-  --workbench-success: #18794e;
-  --workbench-warning: #946000;
-  --workbench-danger: #c8343b;
+  --workbench-accent: #111111;
+  --workbench-accent-soft: #f5f5f5;
+  --workbench-hover: #f5f5f5;
+  --workbench-selection: #e5e5e5;
+  --workbench-selection-strong: #d4d4d4;
+  --workbench-header: #fafafa;
+  --workbench-success: #262626;
+  --workbench-warning: #525252;
+  --workbench-danger: #000000;
 }
 :root.dark,
 .dark .dbx-workbench,
 .dbx-workbench.dark {
-  --workbench-chrome: #1f232a;
-  --workbench-sidebar: #20252d;
-  --workbench-rail: #20252d;
-  --workbench-status: #1f232a;
-  --workbench-surface: #181b21;
-  --workbench-border: #343b46;
-  --workbench-grid-line: #2b313b;
-  --workbench-text: #e4eaf3;
-  --workbench-secondary: #c0cad9;
-  --workbench-muted: #a7b2c3;
-  --workbench-accent: #91b1ff;
-  --workbench-accent-soft: #29394f;
-  --workbench-hover: #2d3440;
-  --workbench-selection: #2e4260;
-  --workbench-selection-strong: #365174;
-  --workbench-header: #1f232a;
-  --workbench-success: #70c69b;
-  --workbench-warning: #e9b768;
-  --workbench-danger: #f08890;
+  /* Ink variant: same gray steps, inverted. */
+  --workbench-chrome: #1a1a1a;
+  --workbench-sidebar: #1f1f1f;
+  --workbench-rail: #1f1f1f;
+  --workbench-status: #1a1a1a;
+  --workbench-surface: #131313;
+  --workbench-border: #404040;
+  --workbench-grid-line: #2e2e2e;
+  --workbench-text: #f5f5f5;
+  --workbench-secondary: #d4d4d4;
+  --workbench-muted: #a3a3a3;
+  --workbench-accent: #fafafa;
+  --workbench-accent-soft: #262626;
+  --workbench-hover: #2e2e2e;
+  --workbench-selection: #333333;
+  --workbench-selection-strong: #404040;
+  --workbench-header: #1a1a1a;
+  --workbench-success: #e5e5e5;
+  --workbench-warning: #a3a3a3;
+  --workbench-danger: #ffffff;
 }
 .dbx-workbench {
   background-color: var(--workbench-surface);

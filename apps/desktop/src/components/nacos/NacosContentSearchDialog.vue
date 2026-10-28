@@ -120,7 +120,7 @@ function clearSearchResults() {
           </div>
         </form>
 
-        <div v-if="scope === 'allNamespaces'" class="flex items-start gap-2 rounded-md border border-amber-500/40 bg-amber-500/10 px-3 py-2 text-xs text-amber-700 dark:text-amber-300">
+        <div v-if="scope === 'allNamespaces'" class="flex items-start gap-2 rounded-md border border-zinc-500/40 bg-zinc-500/10 px-3 py-2 text-xs text-zinc-700 dark:text-zinc-300">
           <AlertTriangle class="mt-0.5 h-4 w-4 shrink-0" />
           <span>{{ t("nacos.allNamespacesSearchWarning") }}</span>
         </div>
@@ -130,7 +130,7 @@ function clearSearchResults() {
           <Badge variant="outline">{{ t("nacos.matchCount", { count: matched }) }}</Badge>
           <span v-if="progress?.namespace" class="truncate font-mono">{{ progress.namespace || "public" }}</span>
           <span v-if="progress?.total != null">{{ scanned }} / {{ progress.total }}</span>
-          <Badge v-if="isIncomplete" variant="outline" class="border-amber-500/50 text-amber-700 dark:text-amber-300">{{ t("nacos.incompleteResult") }}</Badge>
+          <Badge v-if="isIncomplete" variant="outline" class="border-zinc-500/50 text-zinc-700 dark:text-zinc-300">{{ t("nacos.incompleteResult") }}</Badge>
           <Button v-if="matches.length" type="button" size="sm" variant="outline" class="ml-auto h-7 gap-1.5 px-2.5" :disabled="loading || exporting" @click="emit('export')">
             <Loader2 v-if="exporting" class="h-3.5 w-3.5 animate-spin" />
             <Download v-else class="h-3.5 w-3.5" />
@@ -142,9 +142,9 @@ function clearSearchResults() {
 
         <p v-if="error" class="rounded-md border border-destructive/30 bg-destructive/5 px-3 py-2 text-xs text-destructive">{{ error }}</p>
 
-        <div v-if="failures.length" class="max-h-24 overflow-auto rounded-md border border-amber-500/30 bg-amber-500/5 px-3 py-2 text-xs">
+        <div v-if="failures.length" class="max-h-24 overflow-auto rounded-md border border-zinc-500/30 bg-zinc-500/5 px-3 py-2 text-xs">
           <div v-for="failure in failures" :key="`${failure.namespace}:${failure.error}`" class="flex gap-2 py-0.5">
-            <XCircle class="mt-0.5 h-3.5 w-3.5 shrink-0 text-amber-600" />
+            <XCircle class="mt-0.5 h-3.5 w-3.5 shrink-0 text-zinc-600" />
             <span class="font-mono">{{ failure.namespace || "public" }}</span>
             <span class="break-all text-muted-foreground">{{ failure.error }}</span>
           </div>
@@ -169,7 +169,7 @@ function clearSearchResults() {
             </div>
             <pre
               class="mt-1 overflow-hidden text-ellipsis whitespace-pre-wrap break-all font-mono text-xs text-muted-foreground"
-            ><template v-for="(segment, segmentIndex) in splitNacosContentLiteralMatches(match.snippet, submittedQuery)" :key="segmentIndex"><mark v-if="segment.matched" class="rounded-sm bg-amber-300/80 px-0.5 text-foreground dark:bg-amber-500/40">{{ segment.text }}</mark><span v-else>{{ segment.text }}</span></template></pre>
+            ><template v-for="(segment, segmentIndex) in splitNacosContentLiteralMatches(match.snippet, submittedQuery)" :key="segmentIndex"><mark v-if="segment.matched" class="rounded-sm bg-zinc-300/80 px-0.5 text-foreground dark:bg-zinc-500/40">{{ segment.text }}</mark><span v-else>{{ segment.text }}</span></template></pre>
           </button>
           <div v-if="!loading && (result || progress) && matches.length === 0" class="flex min-h-52 items-center justify-center text-sm text-muted-foreground">{{ t("nacos.noContentMatches") }}</div>
           <div v-else-if="!result && !progress && !loading" class="flex min-h-52 items-center justify-center px-6 text-center text-sm text-muted-foreground">{{ t("nacos.contentSearchEmptyHint") }}</div>

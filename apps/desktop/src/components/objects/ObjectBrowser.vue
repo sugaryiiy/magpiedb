@@ -957,16 +957,16 @@ function groupedFilteredRows() {
 }
 
 function iconClass(type: ObjectBrowserRow["type"]) {
-  if (type === "VIEW") return "text-purple-500";
-  if (type === "MATERIALIZED_VIEW") return "text-indigo-500";
-  if (type === "PROCEDURE") return "text-blue-500";
-  if (type === "FUNCTION") return "text-amber-500";
-  if (type === "TRIGGER") return "text-rose-500";
-  if (type === "EVENT") return "text-orange-500";
-  if (type === "SEQUENCE") return "text-emerald-500";
-  if (type === "PACKAGE" || type === "PACKAGE_BODY") return "text-cyan-500";
-  if (type === "TYPE" || type === "TYPE_BODY") return "text-violet-500";
-  return "text-green-500";
+  if (type === "VIEW") return "text-zinc-500";
+  if (type === "MATERIALIZED_VIEW") return "text-zinc-500";
+  if (type === "PROCEDURE") return "text-zinc-500";
+  if (type === "FUNCTION") return "text-zinc-500";
+  if (type === "TRIGGER") return "text-zinc-500";
+  if (type === "EVENT") return "text-zinc-500";
+  if (type === "SEQUENCE") return "text-zinc-500";
+  if (type === "PACKAGE" || type === "PACKAGE_BODY") return "text-zinc-500";
+  if (type === "TYPE" || type === "TYPE_BODY") return "text-zinc-500";
+  return "text-zinc-500";
 }
 
 function iconBgClass(type: ObjectBrowserRow["type"]) {
@@ -1622,9 +1622,10 @@ async function loadSourcePanel(row: ObjectBrowserRow, options?: { preserveEditin
   const database = props.database;
   const schema = row.schema || selectedSchema.value || database;
   try {
-    const result = row.type === "TRIGGER" && row.partitionParentName
-      ? await api.getObjectSource(connectionId, database, schema, row.name, row.type, row.signature ?? undefined, row.partitionParentName)
-      : await api.getObjectSource(connectionId, database, schema, row.name, row.type as ObjectSourceKind, row.signature ?? undefined);
+    const result =
+      row.type === "TRIGGER" && row.partitionParentName
+        ? await api.getObjectSource(connectionId, database, schema, row.name, row.type, row.signature ?? undefined, row.partitionParentName)
+        : await api.getObjectSource(connectionId, database, schema, row.name, row.type as ObjectSourceKind, row.signature ?? undefined);
     if (sidePanelGuard.isStale(epoch)) return;
     sourceCanEdit.value = supportsBackendTableEditing(effectiveDatabaseType.value) && result.editable !== false && !["TRIGGER", "TYPE", "TYPE_BODY"].includes(row.type) && (row.type !== "SEQUENCE" || effectiveDatabaseType.value === "oceanbase-oracle");
     const editable = sourceCanEdit.value
@@ -4120,7 +4121,7 @@ function getObjectBrowserMenuItems(item: ObjectBrowserRow): ContextMenuItem[] {
                   </div>
                   <div class="flex min-w-0 items-center gap-1.5 truncate text-xs text-muted-foreground">
                     <span class="truncate">{{ typeLabel(item) }}</span>
-                    <span v-if="item.type === 'VIEW' && item.valid != null" class="shrink-0 rounded border px-1 py-px text-[10px] font-medium" :class="item.valid ? 'border-emerald-500/30 text-emerald-600' : 'border-destructive/30 text-destructive'">
+                    <span v-if="item.type === 'VIEW' && item.valid != null" class="shrink-0 rounded border px-1 py-px text-[10px] font-medium" :class="item.valid ? 'border-zinc-500/30 text-zinc-600' : 'border-destructive/30 text-destructive'">
                       {{ t(item.valid ? "objects.validStatus" : "objects.invalidStatus") }}
                     </span>
                   </div>
@@ -4169,7 +4170,7 @@ function getObjectBrowserMenuItems(item: ObjectBrowserRow): ContextMenuItem[] {
                     <span class="w-full truncate text-sm font-medium leading-tight text-foreground">{{ item.displayName }}</span>
                     <div class="flex items-center gap-1.5">
                       <span class="text-xs text-muted-foreground">{{ typeLabel(item) }}</span>
-                      <span v-if="item.type === 'VIEW' && item.valid != null" class="rounded border px-1 py-px text-[10px] font-medium" :class="item.valid ? 'border-emerald-500/30 text-emerald-600' : 'border-destructive/30 text-destructive'">
+                      <span v-if="item.type === 'VIEW' && item.valid != null" class="rounded border px-1 py-px text-[10px] font-medium" :class="item.valid ? 'border-zinc-500/30 text-zinc-600' : 'border-destructive/30 text-destructive'">
                         {{ t(item.valid ? "objects.validStatus" : "objects.invalidStatus") }}
                       </span>
                       <span v-if="showObjectRowStats && item.estimatedRows != null && item.estimatedRows > 0" class="object-browser-stat-badge object-browser-stat-badge-rows rounded-full bg-primary/10 px-1.5 py-0.5 text-[10px] font-medium tabular-nums text-primary">{{
@@ -4287,7 +4288,7 @@ function getObjectBrowserMenuItems(item: ObjectBrowserRow): ContextMenuItem[] {
                   <td class="px-3 py-2 text-muted-foreground w-8">{{ index + 1 }}</td>
                   <td class="px-3 py-2 font-medium">
                     <span class="inline-flex items-center gap-1.5">
-                      <KeyRound v-if="column.is_primary_key" class="h-3 w-3 text-amber-500" />
+                      <KeyRound v-if="column.is_primary_key" class="h-3 w-3 text-zinc-500" />
                       {{ column.name }}
                     </span>
                     <div v-if="column.comment" class="mt-0.5 text-[11px] text-muted-foreground truncate">
@@ -4319,8 +4320,8 @@ function getObjectBrowserMenuItems(item: ObjectBrowserRow): ContextMenuItem[] {
                   <div class="min-w-0 flex-1">
                     <div class="font-medium truncate">{{ index.name }}</div>
                     <div class="mt-1 flex flex-wrap gap-1">
-                      <span v-if="index.is_primary" class="rounded bg-amber-500/10 px-1.5 py-0.5 text-amber-600">PK</span>
-                      <span v-if="index.is_unique" class="rounded bg-emerald-500/10 px-1.5 py-0.5 text-emerald-600">UNIQUE</span>
+                      <span v-if="index.is_primary" class="rounded bg-zinc-500/10 px-1.5 py-0.5 text-zinc-600">PK</span>
+                      <span v-if="index.is_unique" class="rounded bg-zinc-500/10 px-1.5 py-0.5 text-zinc-600">UNIQUE</span>
                       <span v-if="index.index_type" class="rounded bg-muted px-1.5 py-0.5 text-muted-foreground">{{ index.index_type }}</span>
                     </div>
                     <div class="mt-2 font-mono text-[11px] text-muted-foreground break-all">

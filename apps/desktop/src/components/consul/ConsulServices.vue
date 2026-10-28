@@ -651,7 +651,7 @@ defineExpose({ refresh: () => (void load(), true) });
           <div class="text-xs font-medium text-muted-foreground">{{ browseMode === "service" ? t("consul.ui.catalogServices") : t("consul.ui.catalogNodes") }}</div>
           <h2 class="mt-0.5 truncate text-lg font-semibold">{{ browseMode === "service" ? selected || t("consul.ui.services") : selectedNode || t("consul.ui.nodes") }}</h2>
           <div class="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-            <Badge :variant="agentTargetStatus === 'writable' ? 'secondary' : 'outline'" :class="agentTargetStatus === 'writable' ? 'text-emerald-700 dark:text-emerald-300' : agentTargetStatus === 'readonly' ? 'border-amber-500/40 text-amber-700 dark:text-amber-300' : 'text-muted-foreground'">
+            <Badge :variant="agentTargetStatus === 'writable' ? 'secondary' : 'outline'" :class="agentTargetStatus === 'writable' ? 'text-zinc-700 dark:text-zinc-300' : agentTargetStatus === 'readonly' ? 'border-zinc-500/40 text-zinc-700 dark:text-zinc-300' : 'text-muted-foreground'">
               <Loader2 v-if="agentTargetStatus === 'verifying'" class="mr-1 h-3 w-3 animate-spin" /><ServerCog v-else class="mr-1 h-3 w-3" />{{
                 agentTargetStatus === "verifying" ? t("consul.ui.agentTargetVerifying") : t("consul.ui.agentTarget", { target: canAgentWrite && agentTarget ? `${agentTarget.node} (${agentTarget.address})` : t("consul.ui.unknownWritesDisabled") })
               }}
@@ -667,14 +667,14 @@ defineExpose({ refresh: () => (void load(), true) });
         </div>
       </header>
 
-      <div v-if="Object.keys(errors).length" class="mb-3 rounded-md border border-amber-300 bg-amber-50 p-2 text-xs text-amber-800 dark:bg-amber-950/30 dark:text-amber-200">
+      <div v-if="Object.keys(errors).length" class="mb-3 rounded-md border border-zinc-300 bg-zinc-50 p-2 text-xs text-zinc-800 dark:bg-zinc-950/30 dark:text-zinc-200">
         <div v-for="(error, name) in errors" :key="name">
           <strong>{{ name }}:</strong> {{ error }}
         </div>
       </div>
 
       <section v-if="editorOpen" class="mb-4 rounded-lg border bg-muted/10 p-4 sm:p-5">
-        <p class="mb-4 text-xs leading-5 text-amber-700 dark:text-amber-300">{{ t("consul.ui.registrationHint") }}</p>
+        <p class="mb-4 text-xs leading-5 text-zinc-700 dark:text-zinc-300">{{ t("consul.ui.registrationHint") }}</p>
         <div class="grid gap-x-5 gap-y-4 md:grid-cols-2">
           <div class="space-y-1.5">
             <Label class="block text-xs font-medium">{{ t("consul.ui.name") }}</Label
@@ -907,17 +907,17 @@ defineExpose({ refresh: () => (void load(), true) });
           </div>
           <div class="ml-auto flex shrink-0 items-center gap-3">
             <ConsulListPagination :total="filteredLocalServiceItems.length" :page="localServicePage" :page-size="CONSUL_LIST_PAGE_SIZE" @update:page="updateLocalServicePage" />
-            <Badge :variant="agentTargetStatus === 'writable' ? 'secondary' : 'outline'" :class="agentTargetStatus === 'writable' ? 'text-emerald-700 dark:text-emerald-300' : 'text-muted-foreground'"
+            <Badge :variant="agentTargetStatus === 'writable' ? 'secondary' : 'outline'" :class="agentTargetStatus === 'writable' ? 'text-zinc-700 dark:text-zinc-300' : 'text-muted-foreground'"
               ><Loader2 v-if="agentTargetStatus === 'verifying'" class="mr-1 h-3 w-3 animate-spin" /><CircleCheck v-else-if="agentTargetStatus === 'writable'" class="mr-1 h-3 w-3" /><LockKeyhole v-else class="mr-1 h-3 w-3" />{{
                 agentTargetStatus === "verifying" ? t("consul.ui.agentTargetVerifying") : agentTargetStatus === "writable" ? t("consul.ui.agentWriteReady") : t("consul.ui.agentReadOnly")
               }}</Badge
             >
           </div>
         </div>
-        <div v-if="!canAgentWrite && (identity || !agentLoading)" class="flex items-start gap-2 border-b border-amber-300/70 bg-amber-50/70 px-3 py-2 text-xs text-amber-800 dark:bg-amber-950/20 dark:text-amber-200">
+        <div v-if="!canAgentWrite && (identity || !agentLoading)" class="flex items-start gap-2 border-b border-zinc-300/70 bg-zinc-50/70 px-3 py-2 text-xs text-zinc-800 dark:bg-zinc-950/20 dark:text-zinc-200">
           <LockKeyhole class="mt-0.5 h-3.5 w-3.5 shrink-0" /><span>{{ agentWriteDisabledMessage }}</span>
         </div>
-        <div v-if="deregisterSuccess" role="status" class="border-b px-3 py-2 text-xs text-emerald-700 dark:text-emerald-300">{{ deregisterSuccess }}</div>
+        <div v-if="deregisterSuccess" role="status" class="border-b px-3 py-2 text-xs text-zinc-700 dark:text-zinc-300">{{ deregisterSuccess }}</div>
         <div v-for="service in pagedLocalServices" :key="service.ID" class="border-b last:border-0" :class="selectedLocalService?.ID === service.ID && 'bg-muted/20'">
           <div class="grid gap-3 px-3 py-3 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
             <button type="button" class="flex min-w-0 items-start gap-3 text-left" :aria-expanded="selectedLocalService?.ID === service.ID" @click="openLocalService(service.ID)">
@@ -926,7 +926,7 @@ defineExpose({ refresh: () => (void load(), true) });
                 ><span class="flex min-w-0 flex-wrap items-center gap-2"
                   ><span class="truncate font-medium">{{ service.Service }}</span
                   ><code class="rounded bg-muted px-1.5 py-0.5 text-[11px] text-muted-foreground">{{ service.ID }}</code
-                  ><Badge v-if="isServiceInMaintenance(service.ID)" variant="outline" class="h-5 border-amber-500/50 px-1.5 text-[10px] text-amber-700 dark:text-amber-300"><Wrench class="mr-1 h-3 w-3" />{{ t("consul.ui.maintenance") }}</Badge></span
+                  ><Badge v-if="isServiceInMaintenance(service.ID)" variant="outline" class="h-5 border-zinc-500/50 px-1.5 text-[10px] text-zinc-700 dark:text-zinc-300"><Wrench class="mr-1 h-3 w-3" />{{ t("consul.ui.maintenance") }}</Badge></span
                 ><span class="mt-1 flex min-w-0 flex-wrap items-center gap-1.5 text-xs text-muted-foreground"
                   ><span class="font-mono">{{ service.Address || identity?.address }}:{{ service.Port }}</span
                   ><Badge v-for="tag in service.Tags" :key="tag" variant="outline" class="h-5 px-1.5 text-[10px]">{{ tag }}</Badge></span
@@ -940,7 +940,7 @@ defineExpose({ refresh: () => (void load(), true) });
                 v-else-if="canAgentWrite"
                 size="sm"
                 variant="ghost"
-                class="h-7 gap-1 px-2 text-xs text-amber-700 hover:text-amber-700 dark:text-amber-300"
+                class="h-7 gap-1 px-2 text-xs text-zinc-700 hover:text-zinc-700 dark:text-zinc-300"
                 :disabled="!!maintenancePendingId || !!deregisterPendingId"
                 :title="t('consul.ui.disableMaintenance')"
                 @click.stop="maintenance(service.ID, false)"

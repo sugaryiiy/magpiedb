@@ -440,7 +440,7 @@ function errorMessage(value: unknown): string {
     <div v-if="hasTable" class="flex h-7 shrink-0 items-center gap-2 border-b px-3 text-[11px] text-muted-foreground">
       <span>{{ t("hbase.loadedRows", { count: rows.length }) }}</span>
       <span>{{ formatQueryDuration(elapsedMs) }}</span>
-      <span v-if="truncated" class="text-amber-600 dark:text-amber-400">{{ t("hbase.resultTruncated") }}</span>
+      <span v-if="truncated" class="text-zinc-600 dark:text-zinc-400">{{ t("hbase.resultTruncated") }}</span>
     </div>
 
     <ErrorBanner v-if="error" :message="error" dismissible @dismiss="error = ''" />

@@ -324,10 +324,10 @@ function escapeHtml(s: string): string {
 function pointToCircleFeature(_feature: any, latlng: L.LatLng): L.CircleMarker {
   return _L!.circleMarker(latlng, {
     radius: 7,
-    color: "#ff6600",
+    color: "#171717",
     weight: 3,
     opacity: 0.95,
-    fillColor: "#ff6600",
+    fillColor: "#171717",
     fillOpacity: 0.5,
   });
 }
@@ -340,7 +340,7 @@ function popupContent(feature: any): string {
     }
   }
   const geom = feature.geometry?.type ?? "?";
-  return `<div class="text-xs leading-relaxed"><div class="mb-1 font-semibold text-[#ff6600]">${geom}</div><table>${rows.join("")}</table></div>`;
+  return `<div class="text-xs leading-relaxed"><div class="mb-1 font-semibold text-[#171717]">${geom}</div><table>${rows.join("")}</table></div>`;
 }
 
 async function initMap() {
@@ -458,10 +458,10 @@ async function renderLayer(generation: number) {
         const layer = leaflet.geoJSON(feature as unknown as Parameters<(typeof L)["geoJSON"]>[0], {
           coordsToLatLng: (coords) => converter([coords[0], coords[1]]),
           style: {
-            color: "#ff6600",
+            color: "#171717",
             weight: 3,
             opacity: 0.95,
-            fillColor: "#ff6600",
+            fillColor: "#171717",
             fillOpacity: 0.25,
           },
           pointToLayer: pointToCircleFeature,
@@ -697,7 +697,7 @@ onBeforeUnmount(() => cleanupMap());
         </select>
         <input v-if="showCustomSrid" v-model="customSridInput" type="number" inputmode="numeric" :placeholder="t('grid.layerPreviewCustomCrsPlaceholder')" class="h-6 w-24 shrink-0 rounded border bg-background px-1.5 text-[11px] outline-none" @keyup.enter="onCustomSridSubmit" />
         <span class="shrink-0 text-[11px] text-muted-foreground">{{ spatialSourceLabel }}</span>
-        <span v-if="skippedFeatureCount > 0" class="shrink-0 text-[11px] text-amber-600">
+        <span v-if="skippedFeatureCount > 0" class="shrink-0 text-[11px] text-zinc-600">
           {{ t("grid.layerPreviewSkipped", { count: skippedFeatureCount }) }}
         </span>
 
@@ -794,7 +794,7 @@ onBeforeUnmount(() => cleanupMap());
 .layer-preview-dialog .leaflet-container {
   width: 100% !important;
   height: 100% !important;
-  background: #1a1a2e;
+  background: #171717;
 }
 .layer-preview-dialog .leaflet-popup-content-wrapper {
   border-radius: var(--dbx-radius-fixed-6);

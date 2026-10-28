@@ -333,9 +333,9 @@ async function deregister(id: string) {
     });
 }
 function statusClass(check: ConsulHealthCheck) {
-  if (check.Maintenance) return "text-blue-700 dark:text-blue-300";
-  if (check.Status === "passing") return "text-emerald-700 dark:text-emerald-300";
-  if (check.Status === "warning") return "text-amber-700 dark:text-amber-300";
+  if (check.Maintenance) return "text-zinc-700 dark:text-zinc-300";
+  if (check.Status === "passing") return "text-zinc-700 dark:text-zinc-300";
+  if (check.Status === "warning") return "text-zinc-700 dark:text-zinc-300";
   return "text-destructive";
 }
 function statusLabel(check: ConsulHealthCheck) {
@@ -390,7 +390,7 @@ defineExpose({ refresh: () => (void load(), true) });
       <div class="min-w-0">
         <h2 class="text-lg font-semibold">{{ t("consul.ui.healthChecks") }}</h2>
         <div class="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-          <Badge :variant="canAgentWrite ? 'secondary' : 'outline'" :class="canAgentWrite ? 'text-emerald-700 dark:text-emerald-300' : 'border-amber-500/40 text-amber-700 dark:text-amber-300'">{{
+          <Badge :variant="canAgentWrite ? 'secondary' : 'outline'" :class="canAgentWrite ? 'text-zinc-700 dark:text-zinc-300' : 'border-zinc-500/40 text-zinc-700 dark:text-zinc-300'">{{
             t("consul.ui.agentTarget", { target: canAgentWrite && agentTarget ? `${agentTarget.node} (${agentTarget.address})` : t("consul.ui.unknownWritesDisabled") })
           }}</Badge>
           <span v-if="watchEnabled">{{ watchPaused ? t("consul.ui.watchPaused") : t("consul.ui.watchingIndex", { index: watchIndex || "1" }) }}</span>
@@ -443,20 +443,20 @@ defineExpose({ refresh: () => (void load(), true) });
       <div class="mt-3 flex flex-wrap items-center gap-2 border-t pt-3 text-xs">
         <span class="mr-1 text-muted-foreground">{{ t("consul.ui.healthResultCount", { filtered: filteredChecks.length, total: checks.length }) }}</span>
         <button type="button" @click="applyStatusFilter('passing')">
-          <Badge variant="outline" :class="statusFilter === 'passing' ? 'border-emerald-500/50 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300' : 'text-emerald-700 dark:text-emerald-300'">{{ t("consul.ui.passing") }} {{ healthSummary.passing }}</Badge>
+          <Badge variant="outline" :class="statusFilter === 'passing' ? 'border-zinc-500/50 bg-zinc-500/10 text-zinc-700 dark:text-zinc-300' : 'text-zinc-700 dark:text-zinc-300'">{{ t("consul.ui.passing") }} {{ healthSummary.passing }}</Badge>
         </button>
         <button type="button" @click="applyStatusFilter('warning')">
-          <Badge variant="outline" :class="statusFilter === 'warning' ? 'border-amber-500/50 bg-amber-500/10 text-amber-700 dark:text-amber-300' : 'text-amber-700 dark:text-amber-300'">{{ t("consul.ui.warning") }} {{ healthSummary.warning }}</Badge>
+          <Badge variant="outline" :class="statusFilter === 'warning' ? 'border-zinc-500/50 bg-zinc-500/10 text-zinc-700 dark:text-zinc-300' : 'text-zinc-700 dark:text-zinc-300'">{{ t("consul.ui.warning") }} {{ healthSummary.warning }}</Badge>
         </button>
         <button type="button" @click="applyStatusFilter('critical')">
           <Badge variant="outline" :class="statusFilter === 'critical' ? 'border-destructive/50 bg-destructive/10 text-destructive' : 'text-destructive'">{{ t("consul.ui.critical") }} {{ healthSummary.critical }}</Badge>
         </button>
         <button type="button" @click="applyStatusFilter('maintenance')">
-          <Badge variant="outline" :class="statusFilter === 'maintenance' ? 'border-blue-500/50 bg-blue-500/10 text-blue-700 dark:text-blue-300' : ''">{{ t("consul.ui.maintenance") }} {{ healthSummary.maintenance }}</Badge>
+          <Badge variant="outline" :class="statusFilter === 'maintenance' ? 'border-zinc-500/50 bg-zinc-500/10 text-zinc-700 dark:text-zinc-300' : ''">{{ t("consul.ui.maintenance") }} {{ healthSummary.maintenance }}</Badge>
         </button>
       </div>
     </section>
-    <div v-if="Object.keys(errors).length" class="mb-3 rounded-lg border border-amber-300 bg-amber-50 p-3 text-xs text-amber-800 dark:bg-amber-950/30 dark:text-amber-200">
+    <div v-if="Object.keys(errors).length" class="mb-3 rounded-lg border border-zinc-300 bg-zinc-50 p-3 text-xs text-zinc-800 dark:bg-zinc-950/30 dark:text-zinc-200">
       <div v-for="(error, name) in errors" :key="name">
         <strong>{{ name }}:</strong> {{ error }}
       </div>
@@ -464,7 +464,7 @@ defineExpose({ refresh: () => (void load(), true) });
     <section v-if="editorOpen" class="mb-4 overflow-hidden rounded-lg border">
       <div class="border-b bg-muted/30 px-4 py-3">
         <h3 class="text-sm font-medium">{{ t("consul.ui.register") }}</h3>
-        <p class="mt-1 text-xs text-amber-700 dark:text-amber-300">{{ t("consul.ui.checkRegistrationHint", { node: agentTarget?.node || t("consul.ui.targetAgent") }) }}</p>
+        <p class="mt-1 text-xs text-zinc-700 dark:text-zinc-300">{{ t("consul.ui.checkRegistrationHint", { node: agentTarget?.node || t("consul.ui.targetAgent") }) }}</p>
       </div>
       <div class="grid gap-x-5 gap-y-4 p-4 md:grid-cols-3">
         <div class="space-y-1.5">
@@ -548,7 +548,7 @@ defineExpose({ refresh: () => (void load(), true) });
         @click="selectCheck(check)"
       >
         <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-muted/60"
-          ><CircleCheck v-if="check.Status === 'passing' && !check.Maintenance" class="h-4 w-4 text-emerald-600" /><TriangleAlert v-else-if="check.Status === 'warning' || check.Maintenance" class="h-4 w-4 text-amber-600" /><CircleX v-else class="h-4 w-4 text-destructive"
+          ><CircleCheck v-if="check.Status === 'passing' && !check.Maintenance" class="h-4 w-4 text-zinc-600" /><TriangleAlert v-else-if="check.Status === 'warning' || check.Maintenance" class="h-4 w-4 text-zinc-600" /><CircleX v-else class="h-4 w-4 text-destructive"
         /></span>
         <span class="grid min-w-0 gap-x-8 gap-y-2 md:grid-cols-[minmax(12rem,1.1fr)_minmax(10rem,.75fr)] xl:grid-cols-[minmax(14rem,1fr)_minmax(10rem,.65fr)_minmax(14rem,1.15fr)]">
           <span class="min-w-0">
@@ -631,7 +631,7 @@ defineExpose({ refresh: () => (void load(), true) });
       <div v-for="check in pagedLocalChecks" :key="check.CheckID" class="grid min-h-16 gap-3 border-b px-4 py-3 text-xs last:border-0 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
         <div class="grid min-w-0 grid-cols-[2rem_minmax(0,1fr)] items-center gap-x-3 gap-y-2 sm:grid-cols-[2rem_minmax(12rem,1fr)_minmax(10rem,.7fr)] xl:grid-cols-[2rem_minmax(13rem,.9fr)_minmax(10rem,.65fr)_minmax(13rem,1fr)]">
           <span class="flex h-8 w-8 items-center justify-center rounded-full bg-muted/60"
-            ><CircleCheck v-if="check.Status === 'passing' && !check.Maintenance" class="h-4 w-4 text-emerald-600" /><TriangleAlert v-else-if="check.Status === 'warning' || check.Maintenance" class="h-4 w-4 text-amber-600" /><CircleX v-else class="h-4 w-4 text-destructive"
+            ><CircleCheck v-if="check.Status === 'passing' && !check.Maintenance" class="h-4 w-4 text-zinc-600" /><TriangleAlert v-else-if="check.Status === 'warning' || check.Maintenance" class="h-4 w-4 text-zinc-600" /><CircleX v-else class="h-4 w-4 text-destructive"
           /></span>
           <div class="min-w-0">
             <div class="flex min-w-0 flex-wrap items-center gap-2">
@@ -653,8 +653,8 @@ defineExpose({ refresh: () => (void load(), true) });
         </div>
         <div class="flex shrink-0 items-center justify-end gap-0.5 border-t pt-2 lg:border-l lg:border-t-0 lg:pl-3 lg:pt-0">
           <template v-if="check.Definition?.TTL"
-            ><Button size="icon" variant="ghost" class="h-7 w-7 text-emerald-600" :disabled="!canAgentWrite" :title="t('consul.ui.ttlPass')" @click="updateTtl(check.CheckID, 'passing')"><CircleCheck class="h-3.5 w-3.5" /></Button
-            ><Button size="icon" variant="ghost" class="h-7 w-7 text-amber-600" :disabled="!canAgentWrite" :title="t('consul.ui.ttlWarn')" @click="updateTtl(check.CheckID, 'warning')"><TriangleAlert class="h-3.5 w-3.5" /></Button
+            ><Button size="icon" variant="ghost" class="h-7 w-7 text-zinc-600" :disabled="!canAgentWrite" :title="t('consul.ui.ttlPass')" @click="updateTtl(check.CheckID, 'passing')"><CircleCheck class="h-3.5 w-3.5" /></Button
+            ><Button size="icon" variant="ghost" class="h-7 w-7 text-zinc-600" :disabled="!canAgentWrite" :title="t('consul.ui.ttlWarn')" @click="updateTtl(check.CheckID, 'warning')"><TriangleAlert class="h-3.5 w-3.5" /></Button
             ><Button size="icon" variant="ghost" class="h-7 w-7 text-destructive" :disabled="!canAgentWrite" :title="t('consul.ui.ttlFail')" @click="updateTtl(check.CheckID, 'critical')"><CircleX class="h-3.5 w-3.5" /></Button
           ></template>
           <Button size="icon" variant="ghost" class="h-7 w-7 text-destructive" :disabled="!canAgentWrite" :title="t('consul.ui.deregister')" @click="deregister(check.CheckID)"><Trash2 class="h-3.5 w-3.5" /></Button>

@@ -344,7 +344,7 @@ watch(databasePageCount, () => setDatabasePage(databasePage.value));
             <label v-for="database in pagedDatabases" :key="database" class="flex cursor-pointer items-center gap-2 border-b px-3 py-2 text-xs last:border-b-0 hover:bg-muted/50">
               <input type="checkbox" :checked="selectedDatabases.includes(database)" :disabled="disabled || busy" @change="toggleDatabase(database, ($event.target as HTMLInputElement).checked)" />
               <span class="min-w-0 flex-1 truncate font-mono">{{ database }}</span>
-              <Check v-if="selectedDatabases.includes(database)" class="h-3.5 w-3.5 text-green-600" />
+              <Check v-if="selectedDatabases.includes(database)" class="h-3.5 w-3.5 text-zinc-600" />
               <Select v-if="selectedDatabases.includes(database)" :model-value="databasePolicyMode(database)" :disabled="disabled || busy" @update:model-value="(value) => $emit('set:database-policy', selectedConnectionId, database, value as ExecutionMode | 'inherit')">
                 <SelectTrigger size="sm" class="h-7 w-44 shrink-0 text-[11px]" @click.stop><SelectValue /></SelectTrigger>
                 <SelectContent>

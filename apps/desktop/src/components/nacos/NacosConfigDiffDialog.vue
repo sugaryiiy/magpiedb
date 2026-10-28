@@ -70,16 +70,16 @@ const dialogOpen = computed({
 
 function inlineRowClass(type: NacosInlineDiffRow["type"]) {
   return {
-    "bg-red-500/20 text-red-700 dark:text-red-50": type === "delete",
-    "bg-emerald-500/18 text-emerald-700 dark:text-emerald-50": type === "insert",
+    "bg-zinc-500/25 text-zinc-900 dark:text-zinc-100": type === "delete",
+    "bg-zinc-500/10 text-zinc-600 dark:text-zinc-300": type === "insert",
     "text-foreground": type === "equal",
   };
 }
 
 function inlineGutterClass(type: NacosInlineDiffRow["type"]) {
   return {
-    "text-red-600 dark:text-red-300": type === "delete",
-    "text-emerald-600 dark:text-emerald-300": type === "insert",
+    "text-zinc-800 dark:text-zinc-200": type === "delete",
+    "text-zinc-500 dark:text-zinc-400": type === "insert",
     "text-muted-foreground": type === "equal",
   };
 }
@@ -92,8 +92,8 @@ function inlinePrefix(type: NacosInlineDiffRow["type"]) {
 
 function inlineRowSegmentClass(type: NacosInlineDiffRow["type"], changed: boolean) {
   if (!changed) return "";
-  if (type === "delete") return "nacos-inline-change rounded-[2px] bg-red-500/80 text-red-50";
-  if (type === "insert") return "nacos-inline-change rounded-[2px] bg-emerald-500/75 text-emerald-50";
+  if (type === "delete") return "nacos-inline-change rounded-[2px] bg-zinc-500/80 text-zinc-50";
+  if (type === "insert") return "nacos-inline-change rounded-[2px] bg-zinc-500/75 text-zinc-50";
   return "";
 }
 

@@ -8,16 +8,16 @@ import type { ElasticsearchProfileNode, ElasticsearchProfileHeatLevel } from "@/
 
 const HEAT_COLORS: Record<ElasticsearchProfileHeatLevel, string> = {
   none: "var(--muted-foreground)",
-  cool: "#22c55e",
-  warm: "#f59e0b",
-  hot: "#ef4444",
+  cool: "#a3a3a3",
+  warm: "#525252",
+  hot: "#111111",
 };
 
 const HEAT_BADGE_CLASSES: Record<ElasticsearchProfileHeatLevel, string> = {
   none: "bg-muted text-muted-foreground",
-  cool: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300",
-  warm: "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300",
-  hot: "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300",
+  cool: "bg-zinc-100 text-zinc-700 dark:bg-zinc-900/30 dark:text-zinc-300",
+  warm: "bg-zinc-100 text-zinc-700 dark:bg-zinc-900/30 dark:text-zinc-300",
+  hot: "bg-zinc-100 text-zinc-700 dark:bg-zinc-900/30 dark:text-zinc-300",
 };
 
 /** Nodes at or below this depth start collapsed to keep large trees responsive. */
@@ -70,7 +70,7 @@ const costPercent = computed(() => {
 
 <template>
   <div>
-    <div class="flex min-w-0 items-center gap-1 rounded border bg-background px-2 py-1 text-xs" :class="node.isCriticalPath ? 'border-orange-500/40 bg-orange-500/[0.04]' : 'border-border'">
+    <div class="flex min-w-0 items-center gap-1 rounded border bg-background px-2 py-1 text-xs" :class="node.isCriticalPath ? 'border-zinc-500/40 bg-zinc-500/[0.04]' : 'border-border'">
       <Button v-if="hasChildren" variant="ghost" size="icon-xs" class="-ml-1 h-5 w-5 shrink-0 text-foreground/80" :aria-label="node.type" :aria-expanded="!collapsed" @click="toggle">
         <ChevronRight v-if="collapsed" class="h-3 w-3" aria-hidden="true" />
         <ChevronDown v-else class="h-3 w-3" aria-hidden="true" />
@@ -91,7 +91,7 @@ const costPercent = computed(() => {
         <span class="shrink-0 rounded px-1 font-mono text-[10px] font-semibold tabular-nums" :class="HEAT_BADGE_CLASSES[node.heatLevel]" :title="t('profile.legendSelfTime')">{{ costPercent }}</span>
       </div>
 
-      <span v-if="node.isCriticalPath" class="shrink-0 rounded border border-orange-500/30 bg-orange-500/10 px-1 py-0.5 text-[10px] font-semibold text-orange-700 dark:text-orange-300" :title="t('profile.criticalPath')">
+      <span v-if="node.isCriticalPath" class="shrink-0 rounded border border-zinc-500/30 bg-zinc-500/10 px-1 py-0.5 text-[10px] font-semibold text-zinc-700 dark:text-zinc-300" :title="t('profile.criticalPath')">
         {{ t("profile.criticalPathTag") }}
       </span>
     </div>

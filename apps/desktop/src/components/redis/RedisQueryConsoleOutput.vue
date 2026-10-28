@@ -23,10 +23,10 @@ const entries = computed(() => redisQueryResultsToConsoleEntries(props.results?.
     <div class="min-h-0 flex-1 overflow-auto px-4 py-4">
       <div v-for="(entry, index) in entries" :key="`${index}:${entry.command}`" class="mb-4 last:mb-0">
         <div v-if="entry.command" class="flex min-w-0 items-start gap-2 whitespace-pre-wrap break-words">
-          <span class="shrink-0 text-[#d7ba7d]">redis&gt;</span>
+          <span class="shrink-0 text-[#d4d4d4]">redis&gt;</span>
           <span class="min-w-0 text-slate-200">{{ entry.command }}</span>
         </div>
-        <pre data-native-clipboard class="m-0 whitespace-pre-wrap break-words" :class="entry.error ? 'text-[#ff6b6b]' : 'text-slate-300'">{{ entry.output }}</pre>
+        <pre data-native-clipboard class="m-0 whitespace-pre-wrap break-words" :class="entry.error ? 'text-[#e5e5e5]' : 'text-slate-300'">{{ entry.output }}</pre>
       </div>
       <div v-if="loading && entries.length === 0" class="flex h-full items-center justify-center text-slate-400">
         <Loader2 class="h-4 w-4 animate-spin" />

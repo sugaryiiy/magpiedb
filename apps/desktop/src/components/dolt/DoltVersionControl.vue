@@ -161,7 +161,7 @@ const DOLT_LEFT_PANE_MAX_SIZE = 40;
 const DOLT_MAIN_TOP_PANE_DEFAULT_SIZE = 64;
 const DOLT_MAIN_TOP_PANE_MIN_SIZE = 38;
 const DOLT_MAIN_TOP_PANE_MAX_SIZE = 78;
-const GRAPH_COLORS = ["#2f6fdb", "#1f8f55", "#b7791f", "#c2413a", "#7c3aed", "#0f766e", "#b45309", "#0891b2", "#be185d", "#4d7c0f", "#4338ca", "#a16207", "#0e7490", "#9f1239", "#166534", "#6d28d9", "#92400e", "#475569"];
+const GRAPH_COLORS = ["#262626", "#333333", "#404040", "#4d4d4d", "#595959", "#666666", "#737373", "#7a7a7a", "#858585", "#8a8a8a", "#999999", "#a3a3a3", "#ababab", "#b0b0b0", "#b8b8b8", "#c2c2c2", "#cccccc", "#d4d4d4"];
 const doltMainTopPaneSize = ref(Math.min(DOLT_MAIN_TOP_PANE_MAX_SIZE, Math.max(DOLT_MAIN_TOP_PANE_MIN_SIZE, restoredUiState.mainTopPaneSize ?? DOLT_MAIN_TOP_PANE_DEFAULT_SIZE)));
 const doltLeftPaneSize = ref(Math.min(DOLT_LEFT_PANE_MAX_SIZE, Math.max(DOLT_LEFT_PANE_MIN_SIZE, restoredUiState.leftPaneSize ?? DOLT_LEFT_PANE_DEFAULT_SIZE)));
 
@@ -1303,7 +1303,7 @@ onUnmounted(() => {
         <Select :model-value="activeDatabase" :disabled="databaseLoading || databaseSwitching || mutationLoading || databaseOptions.length < 2" @update:model-value="switchDatabase" @update:open="refreshDatabaseOptionsOnOpen">
           <SelectTrigger size="sm" class="dolt-scope-trigger dolt-scope-trigger-database" :title="activeDatabase" :aria-label="t('doltVersionControl.switchDatabase')">
             <Loader2 v-if="databaseLoading || databaseSwitching" class="h-3.5 w-3.5 animate-spin text-muted-foreground" />
-            <Database v-else class="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+            <Database v-else class="h-3.5 w-3.5 text-zinc-600 dark:text-zinc-400" />
             <SelectValue :placeholder="activeDatabase" />
           </SelectTrigger>
           <SelectContent class="max-h-72">
@@ -1314,7 +1314,7 @@ onUnmounted(() => {
         <Select :model-value="activeBranch" :disabled="loading || databaseSwitching || mutationLoading || connectionReadOnly || branches.length < 2" @update:model-value="switchBranch">
           <SelectTrigger size="sm" class="dolt-scope-trigger dolt-scope-trigger-branch" :title="activeBranch || t('doltVersionControl.unknownBranch')" :aria-label="t('doltVersionControl.switchBranch')">
             <Loader2 v-if="branchSwitchingTarget" class="h-3.5 w-3.5 animate-spin text-muted-foreground" />
-            <GitBranch v-else class="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
+            <GitBranch v-else class="h-3.5 w-3.5 text-zinc-600 dark:text-zinc-400" />
             <SelectValue :placeholder="activeBranch || t('doltVersionControl.unknownBranch')" />
           </SelectTrigger>
           <SelectContent class="max-h-72">
@@ -1345,7 +1345,7 @@ onUnmounted(() => {
           <Pane :size="doltLeftPaneSize" :min-size="DOLT_LEFT_PANE_MIN_SIZE" :max-size="DOLT_LEFT_PANE_MAX_SIZE">
             <section class="flex h-full min-h-0 flex-col">
               <div class="flex h-8 shrink-0 items-center gap-1.5 border-b px-2 text-xs font-medium">
-                <FileDiff class="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
+                <FileDiff class="h-3.5 w-3.5 text-zinc-600 dark:text-zinc-400" />
                 <span class="truncate">{{ t("doltVersionControl.changedTables") }}</span>
                 <span v-if="changes.length" class="ml-auto text-[11px] text-muted-foreground">{{ changes.length }}</span>
               </div>
@@ -1355,7 +1355,7 @@ onUnmounted(() => {
                 <div v-else-if="changes.length === 0" class="flex h-24 items-center justify-center px-3 text-center text-xs text-muted-foreground">{{ t("doltVersionControl.noChanges") }}</div>
                 <button v-for="change in changes" :key="`${change.fromTableName}-${change.toTableName}`" type="button" class="dolt-change-row" :class="{ 'dolt-change-row-active': selectedTableName === change.tableName }" :title="changeFlagsTitle(change)" @click="loadTableDiff(change)">
                   <span class="dolt-change-symbol" :class="changeKindClass(change)" aria-hidden="true">{{ doltTableChangeSymbol(change) }}</span>
-                  <Table2 class="h-3.5 w-3.5 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                  <Table2 class="h-3.5 w-3.5 shrink-0 text-zinc-600 dark:text-zinc-400" />
                   <span class="min-w-0 flex-1 truncate">{{ change.tableName }}</span>
                   <span v-if="changeFlags(change).length" class="dolt-change-flags" :aria-label="changeFlagsTitle(change)">
                     <span v-for="flag in changeFlags(change)" :key="flag" class="dolt-change-flag">{{ changeFlagSymbol(flag) }}</span>
@@ -1368,7 +1368,7 @@ onUnmounted(() => {
           <Pane :size="100 - doltLeftPaneSize" :min-size="100 - DOLT_LEFT_PANE_MAX_SIZE">
             <section class="flex h-full min-h-0 flex-col">
               <div class="flex h-8 shrink-0 items-center gap-1.5 border-b px-2 text-xs font-medium">
-                <Table2 class="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+                <Table2 class="h-3.5 w-3.5 text-zinc-600 dark:text-zinc-400" />
                 <span class="truncate">{{ selectedChange?.tableName || t("doltVersionControl.rowDiff") }}</span>
                 <Loader2 v-if="tableDiffLoading && tableDiff" class="ml-auto h-3.5 w-3.5 animate-spin text-muted-foreground" />
               </div>
@@ -1480,11 +1480,11 @@ onUnmounted(() => {
                           >
                             <ChevronRight v-if="row.folder" class="h-3 w-3 transition-transform" :class="{ 'rotate-90': row.expanded }" />
                           </span>
-                          <FolderOpen v-if="row.folder && row.expanded" class="h-3.5 w-3.5 shrink-0 text-blue-600 dark:text-blue-400" />
-                          <Folder v-else-if="row.folder" class="h-3.5 w-3.5 shrink-0 text-blue-600 dark:text-blue-400" />
-                          <GitBranch v-else class="h-3.5 w-3.5 shrink-0 text-blue-600 dark:text-blue-400" />
+                          <FolderOpen v-if="row.folder && row.expanded" class="h-3.5 w-3.5 shrink-0 text-zinc-600 dark:text-zinc-400" />
+                          <Folder v-else-if="row.folder" class="h-3.5 w-3.5 shrink-0 text-zinc-600 dark:text-zinc-400" />
+                          <GitBranch v-else class="h-3.5 w-3.5 shrink-0 text-zinc-600 dark:text-zinc-400" />
                           <span class="truncate">{{ row.label }}</span>
-                          <Check v-if="row.branch && row.branch.active" class="ml-auto h-3.5 w-3.5 shrink-0 text-emerald-600" />
+                          <Check v-if="row.branch && row.branch.active" class="ml-auto h-3.5 w-3.5 shrink-0 text-zinc-600" />
                         </button>
                       </CustomContextMenu>
                     </template>
@@ -1497,9 +1497,9 @@ onUnmounted(() => {
                           @click="selectRef(item, $event)"
                           @contextmenu="openRefContextMenu($event, item, onContextMenu)"
                         >
-                          <GitBranch class="h-3.5 w-3.5 shrink-0 text-blue-600 dark:text-blue-400" />
+                          <GitBranch class="h-3.5 w-3.5 shrink-0 text-zinc-600 dark:text-zinc-400" />
                           <span class="truncate">{{ item.name }}</span>
-                          <Check v-if="item.active" class="ml-auto h-3.5 w-3.5 shrink-0 text-emerald-600" />
+                          <Check v-if="item.active" class="ml-auto h-3.5 w-3.5 shrink-0 text-zinc-600" />
                         </button>
                       </CustomContextMenu>
                     </template>
@@ -1516,7 +1516,7 @@ onUnmounted(() => {
                         @click="selectRef(item, $event)"
                         @contextmenu="openRefContextMenu($event, item, onContextMenu)"
                       >
-                        <Tag class="h-3.5 w-3.5 shrink-0 text-amber-600 dark:text-amber-400" />
+                        <Tag class="h-3.5 w-3.5 shrink-0 text-zinc-600 dark:text-zinc-400" />
                         <span class="truncate">{{ item.name }}</span>
                       </button>
                     </CustomContextMenu>
@@ -1565,7 +1565,7 @@ onUnmounted(() => {
                   >
                     <span aria-hidden="true"></span>
                     <span class="flex min-w-0 items-center gap-1.5 px-2">
-                      <GitCommitHorizontal class="h-3.5 w-3.5 shrink-0 text-amber-600 dark:text-amber-400" />
+                      <GitCommitHorizontal class="h-3.5 w-3.5 shrink-0 text-zinc-600 dark:text-zinc-400" />
                       <span class="truncate font-medium">{{ t("doltVersionControl.workingTree") }}</span>
                       <span v-if="stagedWorkingChangeCount" class="dolt-working-badge dolt-working-badge-staged">{{ t("doltVersionControl.stagedChanges", { count: stagedWorkingChangeCount }) }}</span>
                       <span v-if="unstagedWorkingChangeCount" class="dolt-working-badge dolt-working-badge-unstaged">{{ t("doltVersionControl.unstagedChanges", { count: unstagedWorkingChangeCount }) }}</span>

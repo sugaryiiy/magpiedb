@@ -251,7 +251,7 @@ function save() {
             <span v-if="previewLoading" class="absolute right-2 top-2 text-xs text-muted-foreground">{{ t("common.loading") }}</span>
           </div>
           <p v-if="previewTruncatedRows" class="text-xs text-muted-foreground">{{ t("grid.copyExtractorPreviewTruncated", { count: previewTruncatedRows }) }}</p>
-          <p v-for="warning in previewWarnings" :key="warning" class="text-xs text-amber-700 dark:text-amber-300">{{ warning }}</p>
+          <p v-for="warning in previewWarnings" :key="warning" class="text-xs text-zinc-700 dark:text-zinc-300">{{ warning }}</p>
         </div>
       </div>
 

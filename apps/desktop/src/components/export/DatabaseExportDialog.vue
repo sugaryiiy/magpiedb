@@ -1026,7 +1026,7 @@ watch(
 
             <div class="w-full bg-muted rounded-full h-2 overflow-hidden">
               <div v-if="isPreparingExport" class="database-export-progress-indeterminate h-full rounded-full bg-primary" />
-              <div v-else class="h-full rounded-full transition-[width] duration-300" :class="exportError ? 'bg-destructive' : exportCancelled ? 'bg-yellow-500' : exportDone ? 'bg-green-500' : 'bg-primary'" :style="{ width: `${exportDone ? 100 : progressPercent}%` }" />
+              <div v-else class="h-full rounded-full transition-[width] duration-300" :class="exportError ? 'bg-destructive' : exportCancelled ? 'bg-zinc-500' : exportDone ? 'bg-zinc-500' : 'bg-primary'" :style="{ width: `${exportDone ? 100 : progressPercent}%` }" />
             </div>
 
             <div v-if="exportProgress && !isPreparingExport" class="text-xs text-muted-foreground tabular-nums">
@@ -1038,11 +1038,11 @@ watch(
           </div>
 
           <!-- Status messages -->
-          <div v-if="exportDone" class="text-xs text-green-600 font-medium">
+          <div v-if="exportDone" class="text-xs text-zinc-600 font-medium">
             {{ t("databaseExport.exportSuccess") }}
           </div>
           <div v-if="exportDone && exportWarning" class="space-y-2">
-            <div class="whitespace-pre-wrap break-words text-xs text-amber-600 dark:text-amber-400">
+            <div class="whitespace-pre-wrap break-words text-xs text-zinc-600 dark:text-zinc-400">
               {{ exportWarning }}
             </div>
             <Button v-if="canChangeQueryTimeout" variant="outline" size="sm" @click="emit('openConnectionSettings', connectionId)">
@@ -1053,7 +1053,7 @@ watch(
           <div v-else-if="exportError" class="text-xs text-destructive font-medium">
             {{ t("databaseExport.exportError", { error: exportError }) }}
           </div>
-          <div v-else-if="exportCancelled" class="text-xs text-yellow-600 font-medium">
+          <div v-else-if="exportCancelled" class="text-xs text-zinc-600 font-medium">
             {{ t("databaseExport.exportCancelled") }}
           </div>
         </div>

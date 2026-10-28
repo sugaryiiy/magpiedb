@@ -8218,7 +8218,7 @@ onUnmounted(() => {
                       />
                     </div>
                     <div v-if="duckDbWorkerSettingsRequireRestart" class="flex flex-wrap items-center gap-2 border-t pt-2">
-                      <p class="text-xs font-medium text-amber-600 dark:text-amber-400">
+                      <p class="text-xs font-medium text-zinc-600 dark:text-zinc-400">
                         {{ t("settings.duckDbWorkerProcessIsolationRestartRequired") }}
                       </p>
                       <Button type="button" variant="outline" size="sm" class="h-7 gap-1.5 px-2 text-xs" :disabled="duckDbRestarting || hasApplyBlocker" @click="restartDbxForDuckDbIsolation">
@@ -9003,7 +9003,7 @@ LIMIT 100;</pre
                     </div>
                   </div>
 
-                  <div v-if="webdavMessage" class="text-xs" :class="webdavError ? 'text-destructive' : 'text-green-600 dark:text-green-400'">
+                  <div v-if="webdavMessage" class="text-xs" :class="webdavError ? 'text-destructive' : 'text-zinc-600 dark:text-zinc-400'">
                     {{ webdavMessage }}
                   </div>
                   <div class="flex flex-wrap justify-end gap-2">
@@ -9118,7 +9118,7 @@ LIMIT 100;</pre
                       </Button>
                     </div>
                     <div class="flex flex-wrap items-center justify-between gap-3 md:col-span-2">
-                      <div v-if="snippetMessage" class="min-w-0 flex-1 text-xs" :class="snippetError ? 'text-destructive' : 'text-green-600 dark:text-green-400'">
+                      <div v-if="snippetMessage" class="min-w-0 flex-1 text-xs" :class="snippetError ? 'text-destructive' : 'text-zinc-600 dark:text-zinc-400'">
                         {{ snippetMessage }}
                       </div>
                       <div v-else class="flex-1" />
@@ -9165,7 +9165,7 @@ LIMIT 100;</pre
                         {{ t("settings.localBackupPassphraseDescription") }}
                       </p>
                     </div>
-                    <div v-if="localBackupMessage" class="text-xs md:col-span-2" :class="localBackupError ? 'text-destructive' : 'text-green-600 dark:text-green-400'">
+                    <div v-if="localBackupMessage" class="text-xs md:col-span-2" :class="localBackupError ? 'text-destructive' : 'text-zinc-600 dark:text-zinc-400'">
                       {{ localBackupMessage }}
                     </div>
                     <div class="flex flex-wrap justify-end gap-2 md:col-span-2">
@@ -9556,7 +9556,7 @@ LIMIT 100;</pre
                     <div class="flex items-center gap-1 shrink-0 ml-2">
                       <Popover :open="templateDefaultsOpenId === tpl.id" @update:open="(open) => (templateDefaultsOpenId = open ? tpl.id : '')">
                         <PopoverTrigger as-child>
-                          <Button type="button" size="sm" variant="ghost" :class="defaultDbTypesForTemplate(tpl.id).length > 0 ? 'text-amber-500' : ''" :title="t('ai.templateSetDefault')" :aria-label="t('ai.templateSetDefault')">
+                          <Button type="button" size="sm" variant="ghost" :class="defaultDbTypesForTemplate(tpl.id).length > 0 ? 'text-zinc-500' : ''" :title="t('ai.templateSetDefault')" :aria-label="t('ai.templateSetDefault')">
                             <Star class="h-3.5 w-3.5" />
                           </Button>
                         </PopoverTrigger>
@@ -9692,7 +9692,7 @@ LIMIT 100;</pre
                 </div>
 
                 <!-- CLI MCP Status -->
-                <div v-if="aiIsCliProvider && !isWeb" class="rounded-md border px-3 py-2.5 text-xs" :class="aiCliMcpNeedsInstall ? 'border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-300' : 'border-green-500/30 bg-green-500/10 text-green-700 dark:text-green-300'">
+                <div v-if="aiIsCliProvider && !isWeb" class="rounded-md border px-3 py-2.5 text-xs" :class="aiCliMcpNeedsInstall ? 'border-zinc-500/30 bg-zinc-500/10 text-zinc-700 dark:text-zinc-300' : 'border-zinc-500/30 bg-zinc-500/10 text-zinc-700 dark:text-zinc-300'">
                   <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                     <div class="min-w-0 space-y-1">
                       <div class="flex min-w-0 items-center gap-2 font-medium">
@@ -9952,7 +9952,7 @@ LIMIT 100;</pre
                   <McpAuthorizationStepper>
                     <template #connections>
                       <div class="space-y-3">
-                        <p v-if="mcpPolicyLoadError" class="rounded-md border border-red-500/30 bg-red-500/5 px-3 py-2 text-xs text-red-600 dark:text-red-400">
+                        <p v-if="mcpPolicyLoadError" class="rounded-md border border-zinc-500/30 bg-zinc-500/5 px-3 py-2 text-xs text-zinc-600 dark:text-zinc-400">
                           {{
                             t("settings.mcpPolicyLoadFailed", {
                               error: mcpPolicyLoadError,
@@ -10038,7 +10038,7 @@ LIMIT 100;</pre
                                   <tr v-for="row in mcpCapabilityRows" :key="row.labelKey">
                                     <th scope="row" class="px-3 py-2 text-left font-normal leading-relaxed">{{ mcpCapabilityLabel(row.labelKey) }}</th>
                                     <td v-for="column in MCP_EXECUTION_MODE_COLUMNS" :key="column.mode" class="px-2 py-2 text-center">
-                                      <span class="inline-flex items-center justify-center" :class="row[column.mode] ? 'text-green-600 dark:text-green-400' : 'text-muted-foreground/60'">
+                                      <span class="inline-flex items-center justify-center" :class="row[column.mode] ? 'text-zinc-600 dark:text-zinc-400' : 'text-muted-foreground/60'">
                                         <Check v-if="row[column.mode]" class="h-4 w-4" aria-hidden="true" />
                                         <X v-else class="h-4 w-4" aria-hidden="true" />
                                         <span class="sr-only">{{ t(row[column.mode] ? "settings.mcpCapabilityAllowed" : "settings.mcpCapabilityBlocked") }}</span>
@@ -10152,7 +10152,7 @@ LIMIT 100;</pre
                 <PasswordInput v-model="oldPassword" :placeholder="t('auth.oldPassword')" inputClass="h-9" autocomplete="off" />
                 <PasswordInput v-model="newPassword" :placeholder="t('auth.newPassword')" inputClass="h-9" autocomplete="off" />
                 <PasswordInput v-model="confirmNewPassword" :placeholder="t('auth.confirmPassword')" inputClass="h-9" autocomplete="off" />
-                <p v-if="passwordMessage" class="text-xs" :class="passwordError ? 'text-destructive' : 'text-green-500'">
+                <p v-if="passwordMessage" class="text-xs" :class="passwordError ? 'text-destructive' : 'text-zinc-500'">
                   {{ passwordMessage }}
                 </p>
               </div>
@@ -10289,9 +10289,9 @@ LIMIT 100;</pre
                   <Loader2 v-if="aiTesting" class="h-3 w-3 animate-spin mr-1" />
                   {{ t("connection.test") }}
                 </Button>
-                <span v-if="aiTestResult === 'success'" class="text-xs text-green-500 flex items-center gap-1.5">
+                <span v-if="aiTestResult === 'success'" class="text-xs text-zinc-500 flex items-center gap-1.5">
                   <span>{{ t("connection.testSuccess") }}</span>
-                  <span v-if="aiTestLatency != null" class="text-green-500/70">{{ aiTestLatency }}ms</span>
+                  <span v-if="aiTestLatency != null" class="text-zinc-500/70">{{ aiTestLatency }}ms</span>
                 </span>
                 <span v-else-if="aiTestResult === 'error'" class="flex min-w-0 max-w-lg items-center gap-1.5 text-xs text-destructive">
                   <span class="min-w-0 select-text leading-4" :title="aiTestErrorDisplay">

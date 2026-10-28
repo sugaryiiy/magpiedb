@@ -2158,13 +2158,13 @@ function agentStepClass(tone: AiAgentStepTone): string {
   const base = "transition-colors duration-200 ease-out motion-safe:transition-colors motion-reduce:transition-none";
   switch (tone) {
     case "success":
-      return `border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 ${base}`;
+      return `border-zinc-500/30 bg-zinc-500/10 text-zinc-700 dark:text-zinc-300 ${base}`;
     case "active":
-      return `border-blue-500/30 bg-blue-500/10 text-blue-700 dark:text-blue-300 ${base}`;
+      return `border-zinc-500/30 bg-zinc-500/10 text-zinc-700 dark:text-zinc-300 ${base}`;
     case "warning":
-      return `border-amber-500/35 bg-amber-500/10 text-amber-700 dark:text-amber-300 ${base}`;
+      return `border-zinc-500/35 bg-zinc-500/10 text-zinc-700 dark:text-zinc-300 ${base}`;
     case "danger":
-      return `border-red-500/35 bg-red-500/10 text-red-700 dark:text-red-300 ${base}`;
+      return `border-zinc-500/35 bg-zinc-500/10 text-zinc-700 dark:text-zinc-300 ${base}`;
     default:
       return `border-border bg-background/60 text-muted-foreground ${base}`;
   }
@@ -5751,7 +5751,7 @@ async function openExternalUrl(url: string) {
                 <Hourglass class="h-3 w-3" />
                 <span>{{ t("ai.runStatusWaitingToStart") }}</span>
               </span>
-              <span v-else-if="conversationRowDetail(conv).status === 'awaiting_write_confirmation'" class="flex shrink-0 items-center gap-1 font-medium text-amber-600 dark:text-amber-400" :aria-label="t('ai.runStatusAwaitingConfirmation')">
+              <span v-else-if="conversationRowDetail(conv).status === 'awaiting_write_confirmation'" class="flex shrink-0 items-center gap-1 font-medium text-zinc-600 dark:text-zinc-400" :aria-label="t('ai.runStatusAwaitingConfirmation')">
                 <AlertTriangle class="h-3 w-3" />
                 <span>{{ t("ai.runStatusAwaitingConfirmation") }}</span>
               </span>
@@ -5760,7 +5760,7 @@ async function openExternalUrl(url: string) {
                 <span>{{ t("ai.runStatusPendingDraft") }}</span>
               </span>
               <span v-else-if="conversationRowDetail(conv).status === 'completed'" class="flex min-w-0 shrink-0 items-center gap-1" :aria-label="t('ai.runStatusCompleted')" :title="conversationRowDetail(conv).summary ?? t('ai.runStatusCompleted')">
-                <Check class="h-3 w-3 shrink-0 text-green-500" />
+                <Check class="h-3 w-3 shrink-0 text-zinc-500" />
               </span>
               <span
                 v-else-if="conversationRowDetail(conv).status === 'failed' || conversationRowDetail(conv).status === 'interrupted'"
@@ -5998,7 +5998,7 @@ async function openExternalUrl(url: string) {
                         </PopoverTrigger>
                         <PopoverContent side="top" align="end" :side-offset="8" class="w-72 max-w-[calc(100vw-2rem)] gap-2 p-3" @click.stop>
                           <p class="flex items-start gap-2 text-xs text-foreground">
-                            <AlertTriangle class="mt-0.5 h-3.5 w-3.5 shrink-0 text-amber-500" />
+                            <AlertTriangle class="mt-0.5 h-3.5 w-3.5 shrink-0 text-zinc-500" />
                             <span>{{ t("ai.retryConfirmDescription") }}</span>
                           </p>
                           <div class="flex justify-end gap-2">
@@ -6016,7 +6016,7 @@ async function openExternalUrl(url: string) {
                         :aria-label="copiedContentKey === messageCopyKey(i) ? t('ai.copied') : t('ai.copyMessage')"
                         @click="copyMessage(msg, i)"
                       >
-                        <Check v-if="copiedContentKey === messageCopyKey(i)" class="h-3.5 w-3.5 text-green-500" />
+                        <Check v-if="copiedContentKey === messageCopyKey(i)" class="h-3.5 w-3.5 text-zinc-500" />
                         <Copy v-else class="h-3.5 w-3.5" />
                       </button>
                     </div>
@@ -6060,7 +6060,7 @@ async function openExternalUrl(url: string) {
                           <span>{{ step.approval?.status === "pending" || step.approval?.status === "submitting" ? t("ai.toolApproval.waiting") : t("ai.agentSteps.executing") }}</span>
                         </span>
                       </template>
-                      <span v-else-if="step.durationMs !== undefined" class="ml-auto shrink-0 tabular-nums" :class="step.tone === 'danger' ? 'text-red-600 dark:text-red-400' : 'text-chart-2'">{{ formatToolDurationMs(step.durationMs) }}</span>
+                      <span v-else-if="step.durationMs !== undefined" class="ml-auto shrink-0 tabular-nums" :class="step.tone === 'danger' ? 'text-zinc-600 dark:text-zinc-400' : 'text-chart-2'">{{ formatToolDurationMs(step.durationMs) }}</span>
                       <ChevronRight v-if="step.toolResult || step.toolArgs?.sql" class="h-3 w-3 shrink-0 transition-transform duration-150" :class="[{ 'rotate-90': expandedSteps.has(step.key) }, !agentStepHasTail(step) ? 'ml-auto' : '']" />
                     </button>
                     <AiToolApprovalCard v-if="step.approval" :approval="step.approval" @resolve="resolveToolApproval(step, $event)" />
@@ -6073,7 +6073,7 @@ async function openExternalUrl(url: string) {
                       <div v-if="step.toolName === 'explain_query' && step.explainData && boundConnection?.db_type" class="mb-1 h-64 overflow-hidden rounded border">
                         <ExplainPlanViewer :plan="parseExplainFromData(step.explainData, boundConnection.db_type)" />
                       </div>
-                      <div v-else-if="step.isError && step.toolResult" class="text-[10px] text-red-600 dark:text-red-400">{{ step.toolResult }}</div>
+                      <div v-else-if="step.isError && step.toolResult" class="text-[10px] text-zinc-600 dark:text-zinc-400">{{ step.toolResult }}</div>
                       <div v-else-if="step.toolResult" class="max-h-48 overflow-auto text-[10px] text-muted-foreground whitespace-pre-wrap">{{ step.toolResult }}</div>
                     </div>
                   </div>
@@ -6121,7 +6121,7 @@ async function openExternalUrl(url: string) {
                           :title="copiedContentKey === `code:${i}:${j}` ? t('ai.copied') : t(seg.isSql ? 'ai.copySql' : 'ai.copyCode')"
                           @click="copyAiContent(seg.content, `code:${i}:${j}`)"
                         >
-                          <Check v-if="copiedContentKey === `code:${i}:${j}`" class="h-3.5 w-3.5 text-green-400" />
+                          <Check v-if="copiedContentKey === `code:${i}:${j}`" class="h-3.5 w-3.5 text-zinc-400" />
                           <Copy v-else class="h-3.5 w-3.5" />
                         </button>
                         <button class="rounded p-0.5 text-zinc-500 hover:bg-zinc-200 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:hover:text-zinc-200" :title="t('codeSnapshot.take')" @click="openCodeSnapshot(seg)">
@@ -6155,7 +6155,7 @@ async function openExternalUrl(url: string) {
                     :aria-label="copiedContentKey === messageCopyKey(i) ? t('ai.copied') : t('ai.copyMessage')"
                     @click="copyMessage(msg, i)"
                   >
-                    <Check v-if="copiedContentKey === messageCopyKey(i)" class="h-3.5 w-3.5 text-green-500" />
+                    <Check v-if="copiedContentKey === messageCopyKey(i)" class="h-3.5 w-3.5 text-zinc-500" />
                     <Copy v-else class="h-3.5 w-3.5" />
                   </button>
                   <button class="rounded p-0.5 text-zinc-500 hover:bg-zinc-200 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:hover:text-zinc-200" :title="t('ai.exportMarkdown')" @click="exportMessageAsMarkdown(msg)">
@@ -6349,7 +6349,7 @@ async function openExternalUrl(url: string) {
                         <div class="flex-1 truncate text-left">
                           <div class="flex items-center gap-1 font-medium">
                             <span class="truncate">{{ tpl.name }}</span>
-                            <Star v-if="isDefaultTemplateForCurrentDb(tpl.id)" class="h-3 w-3 shrink-0 text-amber-500" :title="t('ai.templateDefaultBadgeTitle', { type: currentDbTypeLabel() })" />
+                            <Star v-if="isDefaultTemplateForCurrentDb(tpl.id)" class="h-3 w-3 shrink-0 text-zinc-500" :title="t('ai.templateDefaultBadgeTitle', { type: currentDbTypeLabel() })" />
                           </div>
                           <div class="text-[10px] text-muted-foreground truncate">{{ tpl.content.slice(0, 60) }}</div>
                         </div>
@@ -6482,13 +6482,13 @@ async function openExternalUrl(url: string) {
               :key="selection.id"
               type="button"
               class="group inline-flex max-w-full items-center gap-1 rounded border bg-muted/60 px-1.5 py-0.5 text-[11px] text-foreground/90 hover:bg-muted"
-              :class="selection.truncated ? 'border-amber-500/50' : 'border-border/80'"
+              :class="selection.truncated ? 'border-zinc-500/50' : 'border-border/80'"
               :title="selectionChipTitle(selection)"
               @click="removeSelectionChip(selection.id)"
             >
               <FileCode class="h-3 w-3 shrink-0 text-primary" />
               <span class="truncate">{{ selectionChipName(selection) }}</span>
-              <span v-if="selection.truncated" class="shrink-0 text-[9px] text-amber-600 dark:text-amber-400">{{ t("ai.attachmentTruncatedStatus") }}</span>
+              <span v-if="selection.truncated" class="shrink-0 text-[9px] text-zinc-600 dark:text-zinc-400">{{ t("ai.attachmentTruncatedStatus") }}</span>
               <X class="h-3 w-3 shrink-0 text-muted-foreground group-hover:text-foreground" />
             </button>
           </div>
