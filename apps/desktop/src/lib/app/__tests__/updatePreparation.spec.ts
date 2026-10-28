@@ -1,5 +1,5 @@
 // @vitest-environment happy-dom
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { effectScope } from "vue";
 import { acquireUpdateBarrier, beginUpdateSensitiveOperation, prepareUpdateWithDraftRecovery, UPDATE_RESTORE_KEY, assertUpdateAllowsCommand, assertUpdateSafe, setupUpdatePreparation, useUpdateBlocker } from "../updatePreparation";
 import i18n, { loadLocaleMessages } from "@/i18n";
@@ -21,7 +21,14 @@ vi.mock("@tauri-apps/api/event", () => ({
     for (const listener of bus.listeners.get(event) ?? []) if (listener.label === label) void listener.callback({ payload });
   },
 }));
+// The Tauri handshake branch only runs under a Tauri runtime; the mocked
+// Tauri modules alone do not make this happy-dom environment one.
+const runtimeGlobals = globalThis as Record<string, unknown>;
+beforeEach(() => {
+  runtimeGlobals.__TAURI_INTERNALS__ = {};
+});
 afterEach(() => {
+  delete runtimeGlobals.__TAURI_INTERNALS__;
   bus.listeners.clear();
   bus.members = ["main"];
   bus.label = "main";
@@ -151,5 +158,20 @@ describe("update restart preparation", () => {
     await result;
     expect(() => assertUpdateAllowsCommand("execute_query")).not.toThrow();
     main.dispose();
+  });
+  it("prepares locally without the Tauri handshake outside a Tauri runtime", async () => {
+    // Wails runs a single webview (detached windows are Tauri-only), so
+    // setup must succeed there instead of throwing on the missing
+    // window.__TAURI_INTERNALS__.metadata, and prepare() is just the local
+    // barrier + draft flush.
+    delete runtimeGlobals.__TAURI_INTERNALS__;
+    const persist = vi.fn(async () => {});
+    const prep = await setupUpdatePreparation({ assertSafe() {}, persist });
+    const release = await prep.prepare();
+    expect(persist).toHaveBeenCalledTimes(1);
+    expect(() => assertUpdateAllowsCommand("execute_query")).toThrow();
+    release();
+    expect(() => assertUpdateAllowsCommand("execute_query")).not.toThrow();
+    prep.dispose();
   });
 });

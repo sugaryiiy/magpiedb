@@ -1,5 +1,6 @@
 import { onScopeDispose } from "vue";
 import i18n from "@/i18n";
+import { isTauriRuntime } from "@/lib/backend/tauriRuntime";
 import { uuid } from "@/lib/common/utils";
 
 const blockers = new Set<() => string | undefined>();
@@ -88,13 +89,9 @@ export interface UpdatePreparationParticipant {
 
 /** ACK every live webview before the installer can terminate the process. */
 export async function setupUpdatePreparation(participant: UpdatePreparationParticipant): Promise<{ prepare(): Promise<() => void>; dispose(): void }> {
-  const { listen, emit, emitTo } = await import("@tauri-apps/api/event");
-  const { getAllWebviewWindows, getCurrentWebviewWindow } = await import("@tauri-apps/api/webviewWindow");
-  const label = getCurrentWebviewWindow().label;
   const message = (key: string, fallback: string) => participant.translate?.(`updates.${key}`) ?? fallback;
   const held = new Map<string, () => void>();
   const released = new Set<string>();
-  const pending = new Map<string, (payload: { label: string; error?: string }) => void>();
   const prepareLocal = async (id: string) => {
     if (released.has(id)) throw new Error(message("preparationCancelled", "Update preparation was cancelled"));
     if (held.has(id)) throw new Error(message("preparationBusy", "Update preparation already in progress"));
@@ -110,6 +107,29 @@ export async function setupUpdatePreparation(participant: UpdatePreparationParti
     held.get(id)?.();
     held.delete(id);
   };
+  if (!isTauriRuntime()) {
+    // Wails (and any other non-Tauri shell) runs a single webview: detached
+    // windows are Tauri-only, so there is no other window to acknowledge and
+    // reading the Tauri window label would throw
+    // ("window.__TAURI_INTERNALS__.metadata" is undefined). Local preparation
+    // alone is the complete handshake here, and setup must not fail startup.
+    return {
+      async prepare() {
+        if (held.size) throw new Error(message("preparationBusy", "Update preparation already in progress"));
+        const id = uuid();
+        await prepareLocal(id);
+        return () => release(id);
+      },
+      dispose() {
+        held.forEach((unlock) => unlock());
+        held.clear();
+      },
+    };
+  }
+  const { listen, emit, emitTo } = await import("@tauri-apps/api/event");
+  const { getAllWebviewWindows, getCurrentWebviewWindow } = await import("@tauri-apps/api/webviewWindow");
+  const label = getCurrentWebviewWindow().label;
+  const pending = new Map<string, (payload: { label: string; error?: string }) => void>();
   const unlisteners = [
     await listen<{ id: string; owner: string }>("dbx:update-prepare", async ({ payload }) => {
       if (payload.owner === label) return;
