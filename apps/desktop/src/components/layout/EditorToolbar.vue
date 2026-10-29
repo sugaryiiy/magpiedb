@@ -758,12 +758,12 @@ function onExecuteInNewResultTabClick(event: MouseEvent) {
 .workbench-editor-actions {
   display: flex;
   min-width: 0;
-  min-height: 36px;
+  min-height: 44px;
   align-items: center;
   gap: 6px;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 4px 8px;
+  padding: 6px 12px;
   scrollbar-width: thin;
 }
 .workbench-action-group {
@@ -825,13 +825,17 @@ function onExecuteInNewResultTabClick(event: MouseEvent) {
   background: color-mix(in oklch, var(--action-tone) 12%, transparent);
 }
 .workbench-editor-actions :deep(.workbench-run-button[data-tone]) {
-  color: var(--action-tone);
-  background: color-mix(in oklch, var(--action-tone) 14%, transparent);
-  border-color: color-mix(in oklch, var(--action-tone) 24%, transparent);
+  color: var(--workbench-chrome);
+  background: var(--workbench-text);
+  border: 1px solid var(--workbench-text);
   font-weight: var(--workbench-font-weight-heading, 600);
 }
 .workbench-editor-actions :deep(.workbench-run-button[data-tone]:hover) {
-  background: color-mix(in oklch, var(--action-tone) 21%, transparent);
+  color: var(--workbench-chrome);
+  background: var(--workbench-secondary);
+}
+.workbench-editor-actions :deep(.workbench-run-button:disabled) {
+  opacity: 0.45;
 }
 .workbench-editor-actions :deep(.font-mono) {
   font-family: var(--workbench-font-mono, monospace);

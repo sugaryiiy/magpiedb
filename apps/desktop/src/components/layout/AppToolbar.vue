@@ -324,8 +324,8 @@ onBeforeUnmount(() => {
 <style scoped>
 .workbench-toolbar {
   display: flex;
-  flex: 0 0 44px;
-  height: 44px;
+  flex: 0 0 50px;
+  height: 50px;
   min-width: 0;
   align-items: center;
   gap: 8px;
@@ -348,7 +348,8 @@ onBeforeUnmount(() => {
   align-items: center;
   gap: 6px;
   font-size: 12px;
-  font-weight: var(--workbench-font-weight-heading, 600);
+  letter-spacing: 0.12em;
+  font-weight: 700;
   text-decoration: none;
   color: inherit;
 }
@@ -425,9 +426,9 @@ onBeforeUnmount(() => {
   align-items: center;
   gap: 8px;
   border: 1px solid var(--workbench-border, var(--border));
-  border-radius: 3px;
-  padding: 0 8px;
-  background: var(--workbench-surface, var(--background));
+  border-radius: 1px;
+  padding: 0 10px;
+  background: var(--workbench-sidebar, var(--muted));
   color: var(--workbench-muted, var(--muted-foreground));
   font-size: 12px;
   cursor: pointer;

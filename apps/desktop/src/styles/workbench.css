@@ -5,13 +5,13 @@
 :root,
 .dbx-workbench {
   /* Blueprint workbench: paper surfaces, ink text, gray-step accents. */
-  --workbench-chrome: #fafafa;
-  --workbench-sidebar: #f5f5f5;
-  --workbench-rail: #f5f5f5;
-  --workbench-status: #fafafa;
+  --workbench-chrome: #fafaf8;
+  --workbench-sidebar: #f4f4f1;
+  --workbench-rail: #f4f4f1;
+  --workbench-status: #fafaf8;
   --workbench-surface: var(--background);
-  --workbench-border: #e5e5e5;
-  --workbench-grid-line: #eeeeee;
+  --workbench-border: #d3d3ce;
+  --workbench-grid-line: #e5e5e1;
   --workbench-text: #171717;
   --workbench-secondary: #525252;
   --workbench-muted: #737373;
@@ -22,10 +22,10 @@
   --workbench-font-weight-heading: 500;
   --workbench-accent: #111111;
   --workbench-accent-soft: #f5f5f5;
-  --workbench-hover: #f5f5f5;
-  --workbench-selection: #e5e5e5;
+  --workbench-hover: #ecece8;
+  --workbench-selection: #e3e3de;
   --workbench-selection-strong: #d4d4d4;
-  --workbench-header: #fafafa;
+  --workbench-header: #f4f4f1;
   --workbench-success: #262626;
   --workbench-warning: #525252;
   --workbench-danger: #000000;
@@ -111,7 +111,7 @@
 }
 
 .dbx-workbench [data-grid-root] .data-grid-topbar-action-button {
-  border-radius: 6px;
+  border-radius: 2px;
   line-height: 1.15;
 }
 
