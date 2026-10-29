@@ -1,3 +1,4 @@
+import { localGridCopy } from "@/lib/dataGrid/localGridCopy";
 import type { MongoDumpFormat, MongoDumpSourceInput, MongoDumpCatalog, MongoRestoreSourcePreview, MongoDatabaseDumpRequest, MongoDatabaseRestoreRequest, MongoDatabaseDumpProgress } from "./mongodbDumpTypes";
 import type { MongoRestoreUpload, MongoSourceReadOptions } from "./mongodbDumpTypes";
 import type { UserSkillRootSettings, UserSkillsListResult, UserSkillsReadResult } from "@/types/userSkills";
@@ -1986,7 +1987,7 @@ export async function prepareDataGridSave(options: DataGridSaveStatementOptions,
 }
 
 export async function extractDataGridSelection(request: DataGridExtractRequest): Promise<DataGridExtractResult> {
-  return post("/api/query/extract-data-grid-selection", { request });
+  return localGridCopy(request) ?? post("/api/query/extract-data-grid-selection", { request });
 }
 
 export async function buildDataGridCopyUpdateStatements(options: DataGridCopyUpdateStatementOptions): Promise<string[]> {
